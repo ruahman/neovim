@@ -31,5 +31,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
     " easymotion
 	Plug 'haya14busa/vim-easymotion'
 
+	" comentary
+	Plug 'tpope/vim-commentary'
+
+  " surround
+	Plug 'tpope/vim-surround'
 
 call plug#end()
