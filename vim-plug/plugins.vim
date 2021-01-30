@@ -22,13 +22,13 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" vim lightline status bar
 	Plug 'itchyny/lightline.vim'
 
-    " vim-sneak for navigating
+  " vim-sneak for navigating
 	Plug 'justinmk/vim-sneak'
 
-    " scope for f
+  " quick scope for f
 	Plug 'unblevable/quick-scope'
 
-    " easymotion
+  " easymotion
 	Plug 'haya14busa/vim-easymotion'
 
 	" comentary
