@@ -1,45 +1,33 @@
-" Better nav for omnicomplete
-" inoremap <expr> <c-j> ("\<C-n>")
-" inoremap <expr> <c-k> ("\<C-p>")
 
-" Use alt + hjkl to resize windows
-nnoremap <M-j>    :resize -2<CR>
-nnoremap <M-k>    :resize +2<CR>
-nnoremap <M-h>    :vertical resize -2<CR>
-nnoremap <M-l>    :vertical resize +2<CR>
+" think of leader key as a brand new namespace for keybindings
+let mapleader = "\<Space>"
 
 " I hate escape more than anything else
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-" Easy CAPS
-" inoremap <c-u> <ESC>viwUi
-" nnoremap <c-u> viwU<Esc>
+" tabs
+nnoremap <tab> :tabn<CR>
+nnoremap tc :tabclose<CR>
+nnoremap tn :tabnew<CR>
 
-" TAB buffers
-nnoremap <TAB> :bnext<CR>
+" buffers
+nnoremap bn :bn<CR>
+nnoremap bd :bd<CR>
 
-" SHIFT-TAB buffer referse order 
-nnoremap <S-TAB> :bprevious<CR>
+" toogle NERDTree
+nmap nt :NERDTreeToggle<CR>
 
-" Alternate way to save
-" nnoremap <C-s> :w<CR>
-" Alternate way to quit
-" nnoremap <C-Q> :wq!<CR>
-" Use control-c instead of escape
-" nnoremap <C-c> <Esc>
-" <TAB>: completion.
-" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" move through windows
+nnoremap <C-h> <C-w>h
+nnoremap <C-l> <C-w>l
+
+" resize windows
+nnoremap <M-h>    :vertical resize +2<CR>
+nnoremap <M-l>    :vertical resize -2<CR>
 
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
 
-" Better window navigation
-" nnoremap <C-h> <C-w>h
-" nnoremap <C-j> <C-w>j
-" nnoremap <C-k> <C-w>k
-" nnoremap <C-l> <C-w>l
-
-" nnoremap <Leader>o o<Esc>^Da
-" nnoremap <Leader>O O<Esc>^Da
+command! Refresh source $MYVIMRC

@@ -1,9 +1,12 @@
 " auto install vim-plug if not setup
+
+" if plug.vim not found
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
+	" download vim-plug
 	silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 endif
 
-" my plugins
+" my plugins, this directory they go into
 call plug#begin('~/.config/nvim/autoload/plugged')
 
 	" Better Syntax Support
@@ -15,21 +18,20 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Auto pairs for '(' '[' '{'
 	Plug 'jiangmiao/auto-pairs'
 
-	" themes for vim
+	" theme for vim
 	Plug 'joshdick/onedark.vim'
-	Plug 'arcticicestudio/nord-vim'
 
 	" vim lightline status bar
 	Plug 'itchyny/lightline.vim'
 
-  " vim-sneak for navigating
-	Plug 'justinmk/vim-sneak'
+  " vim-sneak 
+	" Plug 'justinmk/vim-sneak'
 
-  " quick scope for f
-	Plug 'unblevable/quick-scope'
+  " quick scope 
+	" Plug 'unblevable/quick-scope'
 
   " easymotion
-	Plug 'haya14busa/vim-easymotion'
+	" Plug 'haya14busa/vim-easymotion'
 
 	" comentary
 	Plug 'tpope/vim-commentary'
