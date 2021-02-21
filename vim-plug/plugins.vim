@@ -18,20 +18,22 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Auto pairs for '(' '[' '{'
 	Plug 'jiangmiao/auto-pairs'
 
-	" theme for vim
+	" themes for vim
 	Plug 'joshdick/onedark.vim'
+	Plug 'tyrannicaltoucan/vim-deep-space'
+
 
 	" vim lightline status bar
 	Plug 'itchyny/lightline.vim'
 
   " vim-sneak 
-	" Plug 'justinmk/vim-sneak'
+	Plug 'justinmk/vim-sneak'
 
   " quick scope 
-	" Plug 'unblevable/quick-scope'
+	Plug 'unblevable/quick-scope'
 
   " easymotion
-	" Plug 'haya14busa/vim-easymotion'
+	Plug 'haya14busa/vim-easymotion'
 
 	" comentary
 	Plug 'tpope/vim-commentary'
