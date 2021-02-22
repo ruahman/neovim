@@ -21,7 +21,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" themes for vim
 	Plug 'joshdick/onedark.vim'
 	Plug 'tyrannicaltoucan/vim-deep-space'
-
+	Plug 'antlypls/vim-colors-codeschool'
 
 	" vim lightline status bar
 	Plug 'itchyny/lightline.vim'
