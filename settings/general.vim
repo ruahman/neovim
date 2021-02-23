@@ -1,7 +1,7 @@
 
 syntax on     				    " enable syntax highlighting
 
-set mouse=a                             " Enable your mouse
+set mouse=a               " Enable your mouse
 
 set nowrap    				    " Display long lines as just one line
 
@@ -22,8 +22,17 @@ set relativenumber        " show relative numbers
 set encoding=utf-8        " The encoding displayed
 set fileencoding=utf-8    " The encoding written to file
 
-set listchars=tab:▸\ ,eol:¬,trail:.,nbsp:.    "lsame as texmate"
-set list 
+set listchars=tab:▸\ ,eol:¬,trail:.,nbsp:.,space:.    
+" set list 
 
 set splitbelow            " Horizontal splits will automatically be below
 set splitright            " Vertical splits will automatically be to the right
+
+" fuzzy file search
+set path+=**              " enable fuzzy search
+set wildmenu              " menu for results
+
+" auto complte
+" Ctrl-n         auto complet in insert mode
+" Ctrl-x Ctrl-n  only in current file
+" Ctrl-x Ctrl-f  auto complet file paths

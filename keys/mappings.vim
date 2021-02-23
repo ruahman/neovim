@@ -18,10 +18,6 @@ nnoremap bd :bd<CR>
 " toogle NERDTree
 nmap nt :NERDTreeToggle<CR>
 
-" move through windows
-nnoremap <C-h> <C-w>h
-nnoremap <C-l> <C-w>l
-
 " resize windows
 nnoremap <M-h>    :vertical resize +2<CR>
 nnoremap <M-l>    :vertical resize -2<CR>
@@ -31,3 +27,8 @@ vnoremap < <gv
 vnoremap > >gv
 
 command! Refresh source $MYVIMRC
+
+nnoremap sl :set list!<CR>
+
+" toogle :hls
+:nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
