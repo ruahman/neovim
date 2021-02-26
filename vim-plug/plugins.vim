@@ -41,4 +41,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " surround
 	Plug 'tpope/vim-surround'
 
+	" coc code complete
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 call plug#end()

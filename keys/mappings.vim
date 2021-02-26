@@ -7,9 +7,7 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 
 " tabs
-nnoremap <tab> :tabn<CR>
-nnoremap tc :tabclose<CR>
-nnoremap tn :tabnew<CR>
+nnoremap tn :tabn<CR>
 
 " buffers
 nnoremap bn :bn<CR>
@@ -28,7 +26,7 @@ vnoremap > >gv
 
 command! Refresh source $MYVIMRC
 
-nnoremap sl :set list!<CR>
+nnoremap <leader>l :set list!<CR>
 
 " toogle :hls
 :nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
