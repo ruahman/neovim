@@ -1,0 +1,17 @@
+# nerdtree
+o: open
+cd: select as cwd
+CD: change to cwd
+u: up one directory
+r: refresh
+m: modify, add, delete file directory
+I: show hidden files
+
+# autocomplete
+<C-n> :  autocomplete 
+<C-x> <C-n> : only from open file
+<C-x> <C-f> : autocomplete file path 
+
+# add, sub number
+<C-a> add
+<C-x> subtract
