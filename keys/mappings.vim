@@ -14,7 +14,7 @@ nnoremap bn :bn<CR>
 nnoremap bd :bd<CR>
 
 " toogle NERDTree
-nmap nt :NERDTreeToggle<CR>
+nmap <Leader>n :NERDTreeToggle<CR>
 
 " resize windows
 nnoremap <M-h>    :vertical resize +2<CR>
