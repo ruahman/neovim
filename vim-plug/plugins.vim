@@ -42,6 +42,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'tpope/vim-surround'
 
 	" coc code complete
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+	" language server and auto complete
+	Plug 'neovim/nvim-lspconfig'
+	Plug 'hrsh7th/nvim-compe'
 
 call plug#end()
+
+

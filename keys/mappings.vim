@@ -14,7 +14,7 @@ nnoremap bn :bn<CR>
 nnoremap bd :bd<CR>
 
 " toogle NERDTree
-nmap <Leader>n :NERDTreeToggle<CR>
+nmap <Leader>t :NERDTreeToggle<CR>
 
 " resize windows
 nnoremap <M-h>    :vertical resize +2<CR>
@@ -24,9 +24,12 @@ nnoremap <M-l>    :vertical resize -2<CR>
 vnoremap < <gv
 vnoremap > >gv
 
-command! Refresh source $MYVIMRC
-
+" show spaces, tabs and endlines
 nnoremap <leader>l :set list!<CR>
 
 " toogle :hls
 :nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+
+command! Refresh source $MYVIMRC
+
+command! MakeTags !ctags -R .

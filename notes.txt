@@ -15,3 +15,8 @@ I: show hidden files
 # add, sub number
 <C-a> add
 <C-x> subtract
+
+# ctags
+<C-]> : go to definition
+g<C-]> : list all tags
+<C-t> : go back up the tag stack
