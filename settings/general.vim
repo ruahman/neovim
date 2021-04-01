@@ -1,5 +1,6 @@
-
 syntax on     				    " enable syntax highlighting
+
+set colorcolumn=80        " show pep8 border
 
 set mouse=a               " Enable your mouse
 
@@ -23,7 +24,6 @@ set encoding=utf-8        " The encoding displayed
 set fileencoding=utf-8    " The encoding written to file
 
 set listchars=tab:▸\ ,eol:¬,trail:.,nbsp:.,space:.    
-" set list 
 
 set splitbelow            " Horizontal splits will automatically be below
 set splitright            " Vertical splits will automatically be to the right
@@ -32,7 +32,7 @@ set splitright            " Vertical splits will automatically be to the right
 set path+=**              " enable fuzzy search
 set wildmenu              " menu for results
 
-" auto complte
-" Ctrl-n         auto complet in insert mode
-" Ctrl-x Ctrl-n  only in current file
-" Ctrl-x Ctrl-f  auto complet file paths
+" setup left explorer size (Lex)
+let g:netrw_winsize = 25
+let g:netrw_banner = 0
+let g:netrw_liststyle = 3

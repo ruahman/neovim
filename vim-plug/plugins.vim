@@ -12,9 +12,6 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" Better Syntax Support
 	Plug 'sheerun/vim-polyglot'
 
-	" File Explorer
-	Plug 'scrooloose/NERDTree'
-
 	" Auto pairs for '(' '[' '{'
 	Plug 'jiangmiao/auto-pairs'
 
@@ -41,12 +38,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " surround
 	Plug 'tpope/vim-surround'
 
-	" coc code complete
-	" Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-	" language server and auto complete
+	" setup language server
 	Plug 'neovim/nvim-lspconfig'
-	Plug 'hrsh7th/nvim-compe'
+
+	" auto complete
+	Plug 'nvim-lua/completion-nvim'
 
 call plug#end()
 

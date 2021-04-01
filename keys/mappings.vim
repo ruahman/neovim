@@ -1,4 +1,3 @@
-
 " think of leader key as a brand new namespace for keybindings
 let mapleader = "\<Space>"
 
@@ -6,15 +5,12 @@ let mapleader = "\<Space>"
 inoremap jk <Esc>
 inoremap kj <Esc>
 
-" tabs
-nnoremap tn :tabn<CR>
-
 " buffers
 nnoremap bn :bn<CR>
 nnoremap bd :bd<CR>
 
-" toogle NERDTree
-nmap <Leader>t :NERDTreeToggle<CR>
+" toogle left explorer (Lex)
+nmap <Leader>L :Lex<CR>
 
 " resize windows
 nnoremap <M-h>    :vertical resize +2<CR>
@@ -32,4 +28,5 @@ nnoremap <leader>l :set list!<CR>
 
 command! Refresh source $MYVIMRC
 
+" make ctags
 command! MakeTags !ctags -R .

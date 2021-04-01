@@ -20,3 +20,27 @@ I: show hidden files
 <C-]> : go to definition
 g<C-]> : list all tags
 <C-t> : go back up the tag stack
+
+# tabs
+:tabe
+gt : tabnext
+gT : tabprev
+
+
+# auto complte
+Ctrl-n   :      auto complet in insert mode
+Ctrl-x Ctrl-n  :  only in current file
+Ctrl-x Ctrl-f  : auto complet file paths
+
+
+# scrolling
+e : end
+y : up
+
+
+_g : last none space        
+
+
+# mark
+m<register>  : set mark
+`<register>  : go to mark
