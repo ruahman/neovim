@@ -32,7 +32,7 @@ set splitright            " Vertical splits will automatically be to the right
 set path+=**              " enable fuzzy search
 set wildmenu              " menu for results
 
-set paste                 " make sure past from clipboard isnt messed up
+" set paste                 " make sure past from clipboard isnt messed up
 
 " setup left explorer size (Lex)
 let g:netrw_winsize = 25
