@@ -1,4 +1,3 @@
-" auto install vim-plug if not setup
 
 " if plug.vim not found
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
@@ -26,7 +25,16 @@ call plug#begin('~/.config/nvim/autoload/plugged')
   " vim-sneak 
 	Plug 'justinmk/vim-sneak'
 
-  " quick scope 
+	" vim-cool
+	Plug 'romainl/vim-cool'
+
+	" vim-closer
+	Plug 'rstacruz/vim-closer'
+
+	" multi line
+	Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+
+	" quick scope 
 	Plug 'unblevable/quick-scope'
 
   " easymotion

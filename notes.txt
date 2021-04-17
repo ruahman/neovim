@@ -1,15 +1,34 @@
-# nerdtree
-o: open
-cd: select as cwd
-CD: change to cwd
-u: up one directory
-r: refresh
-m: modify, add, delete file directory
-I: show hidden files
+set past  : past from clipboard
+
+% : create file in netrw
+d : create directory in netrw
+D : delete in netrw
+R : rename in netrw
+
+<C-f> : page forward
+<C-b> : page back
+<C-d> : down half a page
+<C-u> : up half a page
+H : High
+M : Middle
+L : Lower
+<C-y> : scroll up
+<C-e> : scroll down
+
+
+/\c<search> : case insensitive search
+
+* : search current word
+# : serach current word backwards
+
+<C-g> : preview search
+<C-t> : preview search backwards
+
+~ : change caps
 
 # autocomplete
 <C-n> :  autocomplete 
-<C-x> <C-n> : only from open file
+<C-x> <C-n> : only from open file       
 <C-x> <C-f> : autocomplete file path 
 
 # add, sub number

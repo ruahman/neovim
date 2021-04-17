@@ -6,8 +6,8 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 
 " buffers
-nnoremap bn :bn<CR>
-nnoremap bd :bd<CR>
+nnoremap gb :bn<CR>
+" nnoremap gd :bd<CR>
 
 " toogle left explorer (Lex)
 nmap <Leader>L :Lex<CR>
@@ -29,4 +29,4 @@ nnoremap <leader>l :set list!<CR>
 command! Refresh source $MYVIMRC
 
 " make ctags
-command! MakeTags !ctags -R .
+" command! MakeTags !ctags -R .

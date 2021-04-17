@@ -6,5 +6,6 @@ source $HOME/.config/nvim/themes/theme.vim
 source $HOME/.config/nvim/plugins/lightline.vim
 source $HOME/.config/nvim/plugins/vim-sneak.vim
 source $HOME/.config/nvim/plugins/quickscope.vim
+source $HOME/.config/nvim/plugins/vim-cool.vim
 source $HOME/.config/nvim/plugins/completion-nvim.vim
-luafile $HOME/.config/nvim/plugins/lsp.lua
+" luafile $HOME/.config/nvim/plugins/lsp.lua

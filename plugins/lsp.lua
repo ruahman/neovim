@@ -1,6 +1,9 @@
--- require'lspconfig'.pyright.setup{}
-require'lspconfig'.pyls.setup{on_attach=require'completion'.on_attach}
+-- python
+require'lspconfig'.pyls.setup{
+  on_attach=require'completion'.on_attach
+}
 
+-- ruby
 require'lspconfig'.solargraph.setup{
   on_attach = require'completion'.on_attach;
   settings = {
@@ -12,11 +15,22 @@ require'lspconfig'.solargraph.setup{
   }
 }
 
-require'lspconfig'.tsserver.setup{on_attach=require'completion'.on_attach}
+-- javascript/typescript
+require'lspconfig'.tsserver.setup{
+  on_attach=require'completion'.on_attach
+}
 
-require'lspconfig'.dockerls.setup{on_attach=require'completion'.on_attach}
+-- html
+require'lspconfig'.html.setup{
+  on_attach=require'completion'.on_attach
+}
 
--- require'lspconfig'.sqlls.setup{
---   on_attach=require'completion'.on_attach;
---   cmd = {"sql-language-server","up","--method","stdio"}
--- }
+-- css/sass
+require'lspconfig'.cssls.setup{
+  on_attach=require'completion'.on_attach
+}
+
+-- docker
+require'lspconfig'.dockerls.setup{
+  on_attach=require'completion'.on_attach
+}
