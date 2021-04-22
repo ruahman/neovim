@@ -52,6 +52,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" auto complete
 	Plug 'nvim-lua/completion-nvim'
 
+	" ultisnips
+	Plug 'SirVer/ultisnips'
+
 call plug#end()
 
 
