@@ -15,9 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'jiangmiao/auto-pairs'
 
 	" themes for vim
-	Plug 'joshdick/onedark.vim'
   Plug 'tomasr/molokai'
-	Plug 'tyrannicaltoucan/vim-deep-space'
 
 	" vim lightline status bar
 	Plug 'itchyny/lightline.vim'

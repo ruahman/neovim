@@ -1,0 +1,24 @@
+snippet doctype "doctype"
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>${1:The HTML5 Herald}</title>
+  <link rel="stylesheet" href="${2:css/styles.css?v=1.0}">
+</head>
+<body>
+  $3
+  <script src="${4:js/scripts.js?v=1.0}"></script>
+</body>
+</html>
+endsnippet
+
+snippet t "tag"
+<${1:div}>$2</${1/(\w+).*/$1/}>
+endsnippet
+
+snippet T "TAG"
+<${1:div}>
+  $2
+</${1/(\w+).*/$1/}>
+endsnippet
