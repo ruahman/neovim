@@ -1,0 +1,27 @@
+tmux
+tmux new -s python
+tmux a -t python
+
+Ctrl-b
+
+Ctrl-b " : split horizontaly
+Ctrl-b % : split verticaly 
+Ctrl-b arrow : navigate panel
+Ctrl-b c : create new window
+Ctrl-b , : rename window
+Ctrl-b n : move to next window
+Ctrl-b p : move to previous window
+Ctrl-b PageUp : scroll
+Ctrl-b PageDown : scroll
+Ctrl-b [ : scroll
+q : quit
+
+Ctrl-d : kill panel
+Ctrl-b d : detach panel
+Ctrl-b x : kill pane
+Ctrl-b & : kill window
+tmux kill-session -t whatever
+
+// .tmux.conf
+bind-key ! break-pane -d -n _hidden_pane
+bind-key @ join-pane -s _hidden_pane

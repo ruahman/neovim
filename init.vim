@@ -1,12 +1,14 @@
+" setup vim-plug
 source $HOME/.config/nvim/vim-plug/plugins.vim
+
+" config plugins
+source $HOME/.config/nvim/plugins/plugins.vim
+
+" general setting
 source $HOME/.config/nvim/settings/general.vim
+
+" custom mappings
 source $HOME/.config/nvim/keys/mappings.vim
-source $HOME/.config/nvim/keys/lsp-config.vim
+
+" visual theme of vim
 source $HOME/.config/nvim/themes/theme.vim
-source $HOME/.config/nvim/plugins/lightline.vim
-source $HOME/.config/nvim/plugins/vim-sneak.vim
-source $HOME/.config/nvim/plugins/quickscope.vim
-source $HOME/.config/nvim/plugins/vim-cool.vim
-source $HOME/.config/nvim/plugins/completion-nvim.vim
-source $HOME/.config/nvim/plugins/ultisnips.vim
-luafile $HOME/.config/nvim/plugins/lsp.lua

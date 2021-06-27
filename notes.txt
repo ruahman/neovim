@@ -1,3 +1,13 @@
+<C-v> u00B2  : add ²
+
+:Ntree [directory] : set directroy as current in netrw
+
+= : apply autoindent to block
+
+=G :  apply autoindent to end of file
+
+u : undo
+
 set past  : past from clipboard
 
 % : create file in netrw
@@ -14,7 +24,6 @@ M : Middle
 L : Lower
 <C-y> : scroll up
 <C-e> : scroll down
-
 
 /\c<search> : case insensitive search
 
@@ -35,16 +44,10 @@ L : Lower
 <C-a> add
 <C-x> subtract
 
-# ctags
-<C-]> : go to definition
-g<C-]> : list all tags
-<C-t> : go back up the tag stack
-
 # tabs
 :tabe
 gt : tabnext
 gT : tabprev
-
 
 # auto complte
 Ctrl-n   :      auto complet in insert mode
@@ -56,9 +59,7 @@ Ctrl-x Ctrl-f  : auto complet file paths
 e : end
 y : up
 
-
 _g : last none space        
-
 
 # mark
 m<register>  : set mark

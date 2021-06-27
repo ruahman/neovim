@@ -6,27 +6,28 @@ inoremap jk <Esc>
 inoremap kj <Esc>
 
 " buffers
-nnoremap gb :bn<CR>
-" nnoremap gd :bd<CR>
-
-" toogle left explorer (Lex)
-nmap <Leader>L :Lex<CR>
+nnoremap bn :bn<CR>
+nnoremap bp :bp<CR>
+nnoremap bd :bd!<CR>
 
 " resize windows
 nnoremap <M-h>    :vertical resize +2<CR>
 nnoremap <M-l>    :vertical resize -2<CR>
 
-" Better tabbing
+" Better tabbing, reselect visual
 vnoremap < <gv
 vnoremap > >gv
 
 " show spaces, tabs and endlines
-nnoremap <leader>l :set list!<CR>
+nnoremap <silent> <leader>l :set list!<CR>
 
 " toogle :hls
-:nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
+nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."\n"
 
 command! Refresh source $MYVIMRC
 
-" make ctags
-" command! MakeTags !ctags -R .
+" set current file as current directory
+nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+
+" config language server custom key maps
+source $HOME/.config/nvim/keys/lsp-config.vim

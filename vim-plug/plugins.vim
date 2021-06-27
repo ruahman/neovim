@@ -15,7 +15,7 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'jiangmiao/auto-pairs'
 
 	" themes for vim
-  Plug 'tomasr/molokai'
+	Plug 'tomasr/molokai'
 
 	" vim lightline status bar
 	Plug 'itchyny/lightline.vim'
@@ -24,13 +24,10 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	Plug 'justinmk/vim-sneak'
 
 	" vim-cool
-	Plug 'romainl/vim-cool'
+	" Plug 'romainl/vim-cool'
 
 	" vim-closer
-	Plug 'rstacruz/vim-closer'
-
-	" multi line
-	Plug 'mg979/vim-visual-multi', {'branch': 'master'}
+	" Plug 'rstacruz/vim-closer'
 
 	" quick scope 
 	Plug 'unblevable/quick-scope'
@@ -52,6 +49,9 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 
 	" ultisnips
 	Plug 'SirVer/ultisnips'
+
+	" async linter
+  Plug 'dense-analysis/ale'
 
 call plug#end()
 
