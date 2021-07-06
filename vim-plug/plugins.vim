@@ -20,17 +20,11 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" vim lightline status bar
 	Plug 'itchyny/lightline.vim'
 
-    " vim-sneak 
-	Plug 'justinmk/vim-sneak'
-
 	" vim-cool
 	" Plug 'romainl/vim-cool'
 
 	" vim-closer
 	" Plug 'rstacruz/vim-closer'
-
-	" quick scope 
-	Plug 'unblevable/quick-scope'
 
     " easymotion
 	Plug 'haya14busa/vim-easymotion'
@@ -50,9 +44,4 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" ultisnips
 	Plug 'SirVer/ultisnips'
 
-	" async linter
-	" Plug 'dense-analysis/ale'
-
 call plug#end()
-
-
