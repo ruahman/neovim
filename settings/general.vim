@@ -19,6 +19,9 @@ set number    				    " set line numbers
 set cursorline            " highlight current line
 set relativenumber        " show relative numbers 
 
+set updatetime=300
+set timeoutlen=500
+
 set encoding=utf-8        " The encoding displayed
 set fileencoding=utf-8    " The encoding written to file
 
@@ -41,5 +44,5 @@ let g:netrw_liststyle = 3
 " setup tabing setting for ruby
 autocmd FileType ruby setlocal ts=2 sts=2
 
-
-
+" auto-format
+autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)

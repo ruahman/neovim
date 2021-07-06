@@ -14,6 +14,6 @@ source $HOME/.config/nvim/plugins/completion-nvim.vim
 source $HOME/.config/nvim/plugins/ultisnips.vim
 
 " ALE (Asyn Lexical Explore)
-source $HOME/.config/nvim/plugins/ale.vim
-" luafile $HOME/.config/nvim/plugins/nvim-terminal.lua
+" source $HOME/.config/nvim/plugins/ale.vim
+
 luafile $HOME/.config/nvim/plugins/lsp.lua
