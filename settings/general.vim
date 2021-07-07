@@ -41,4 +41,9 @@ let g:netrw_liststyle = 3
 autocmd FileType ruby setlocal ts=2 sts=2
 
 " auto-format
-autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+" autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
+
+autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
+
+
+

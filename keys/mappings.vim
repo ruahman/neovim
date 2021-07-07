@@ -30,4 +30,4 @@ command! Refresh source $MYVIMRC
 nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " config language server custom key maps
-" source $HOME/.config/nvim/keys/lsp-config.vim
+source $HOME/.config/nvim/keys/lsp-config.vim
