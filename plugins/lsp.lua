@@ -28,9 +28,6 @@ require'lspconfig'.solargraph.setup{
   }
 }
 
--- php
--- require'lspconfig'.phpactor.setup{}
-
 -- javascript/typescript
 require'lspconfig'.tsserver.setup{
   on_attach=require'completion'.on_attach
