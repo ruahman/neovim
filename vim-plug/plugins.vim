@@ -20,11 +20,12 @@ call plug#begin('~/.config/nvim/autoload/plugged')
 	" vim lightline status bar
 	Plug 'itchyny/lightline.vim'
 
-	" vim-cool
-	" Plug 'romainl/vim-cool'
+	" vim-cool, disable search highlighting when you are done and re-enable
+	" when you search again
+	Plug 'romainl/vim-cool'
 
-	" vim-closer
-	" Plug 'rstacruz/vim-closer'
+	" vim-closer, closings are automatically inserted after pressing enter
+	Plug 'rstacruz/vim-closer'
 
     " easymotion
 	Plug 'haya14busa/vim-easymotion'

@@ -1,0 +1,126 @@
+hello world
+
+hjkl
+
+i : insert mode
+
+esc : go back to normal mode
+Ctrl-c : go back to normal mode
+
+w : word 
+e : end of word 
+b : back 
+ge : back end of word 
+W : word([{}]).
+B : back workd([{}]).
+
+f{char} : move to char on same line as cursor
+F{char} : same but backward
+t{char} : move til char on same line as cursor
+T{char} : same but backward
+; : go to next occurence
+, : go to prev occurence
+
+0 : first char on line
+^ : first non blank char on line
+$ : move to end of line
+g_ : move to last none-blank char
+
+CTRL-d : move down half a page
+CTRL-u : move up half a page
+
+/{pattern} : search forward in file
+?{pattern} : search backward in file
+n : next match
+N : prev match
+* : search word under cursor
+
+gg : go to top of file
+{line}gg : go to line number
+G : go to end of file
+% : jump to matching ([{}])
+
+ex d5j : delete 5 lines down
+ex df' : delete everyting in line until ' (including char)
+ex d/hello : delete everything until first occurence of /hello
+
+c : delete and then sends you to insert mode
+y : yank
+p : put or past
+g~ : toogle cap
+
+dd : delete whole line
+cc : change whole line
+
+D : delete from cursor till end of the line
+C : change from cursor till end of line
+
+ex daw : delete a word(plus trailing whitespace)
+ex ciw : change inner word
+ex das : delete all sentence
+ex da" : delete all in " including "
+ex ci" : change in "
+ex dap : delete all paragraph
+ex da( : delete all in () including ()
+ex da{ : delete all in {} including {}
+ex dat : delete an html tag 
+ex cit : change inside html tag 
+
+. : repeat last change 
+
+i : insert 
+a : append
+I : insert at begging of line
+A : insert at end of line
+o : insert new line below 
+O : insert new line above cursor
+
+Ctrl-h : delete last char from insert mode
+Ctrl-w : delete last word from insert mode
+Ctrl-r " : past from inster mode
+Ctrl-r * : past from inster mode using windows clipboard
+
+v : enter visual mode
+V : enter line-wise visual mode
+Ctrl-v : enter block wise visual mode
+
+:sp : create horizontal split of screen
+:vsp : create vertical split of screen
+Ctrl-w + hjkl : move between splits
+
+:tabnew {file} : open file in tab
+:tabn : go to next tab 
+:tabp : go to prev tab 
+
+
+// VIM surround
+
+ex ds" : delete the sorounding " 
+  "hello world" => hello world
+
+ex cs'" : change surrounding ' with "
+  'hello world' => "hello world"
+
+ex S{desired character} : surround selected block with character
+
+gb : add another cursor on next word it finds
+
+// plugins you need to enable
+
+// VIM sneak 
+
+s{char}{char} : go to first occurence of two char sequence
+
+{operator}z{char}{char} : apply operator to next occurence of two char sequence
+
+// Vim-EasyMotion
+
+ex \\w : EasyMotion will lable each word 
+
+ex \\f' : EasyMotion will lable each ' 
+
+
+
+
+
+
