@@ -21,15 +21,15 @@ require'lspconfig'.solargraph.setup{
   on_attach = require'completion'.on_attach;
   settings = {
     solargraph = {
-      autoformat=false;
+      autoformat=true;
       completion=true;
-      diagnostics=false;
+      diagnostics=true;
     }
   }
 }
 
 -- ocaml
-require'lspconfig'.ocamllsp.setup{}
+-- require'lspconfig'.ocamllsp.setup{}
 
 -- docker
 require'lspconfig'.dockerls.setup{
