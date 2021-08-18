@@ -27,7 +27,7 @@ nnoremap <silent><expr> <Leader>h (&hls && v:hlsearch ? ':nohls' : ':set hls')."
 command! Refresh source $MYVIMRC
 
 " set current file as current directory
-nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
+" nnoremap <leader>cd :cd %:p:h<CR>:pwd<CR>
 
 " config language server custom key maps
 source $HOME/.config/nvim/keys/lsp-config.vim

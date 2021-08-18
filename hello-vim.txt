@@ -1,5 +1,3 @@
-hello world
-
 hjkl
 
 i : insert mode
@@ -103,24 +101,11 @@ ex cs'" : change surrounding ' with "
 
 ex S{desired character} : surround selected block with character
 
-gb : add another cursor on next word it finds
 
 // plugins you need to enable
 
-// VIM sneak 
-
-s{char}{char} : go to first occurence of two char sequence
-
-{operator}z{char}{char} : apply operator to next occurence of two char sequence
-
 // Vim-EasyMotion
 
-ex \\w : EasyMotion will lable each word 
+ex <leader><leader>w : EasyMotion will lable each word 
 
-ex \\f' : EasyMotion will lable each ' 
-
-
-
-
-
-
+ex <leader><leader>f' : EasyMotion will lable each ' 

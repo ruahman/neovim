@@ -37,13 +37,9 @@ let g:netrw_winsize = 25
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 
-" setup tabing setting for ruby
-autocmd FileType ruby setlocal ts=2 sts=2
-
 " auto-format
 autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)
-" autocmd BufWritePre *.py 0,$!yapf
-autocmd FileType python nnoremap <leader>y :0,$!yapf<Cr><C-o>
 
-
-
+" setup tabing setting for ruby
+autocmd FileType ruby setlocal ts=2 sts=2
+autocmd BufWritePre *.rb lua vim.lsp.buf.formatting_sync(nil, 100)

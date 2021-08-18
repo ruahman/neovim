@@ -1,11 +1,3 @@
-<C-v> u00B2  : add ²
-
-:Ntree [directory] : set directroy as current in netrw
-
-= : apply autoindent to block
-
-=G :  apply autoindent to end of file
-
 u : undo
 
 set past  : past from clipboard
@@ -49,12 +41,6 @@ L : Lower
 gt : tabnext
 gT : tabprev
 
-# auto complte
-Ctrl-n   :      auto complet in insert mode
-Ctrl-x Ctrl-n  :  only in current file
-Ctrl-x Ctrl-f  : auto complet file paths
-
-
 # scrolling
 e : end
 y : up
@@ -64,3 +50,6 @@ _g : last none space
 # mark
 m<register>  : set mark
 `<register>  : go to mark
+
+
+> : indent 
