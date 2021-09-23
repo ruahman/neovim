@@ -1,6 +1,7 @@
 local lspconfig = require('lspconfig')
 local completion = require('completion')
 
+-- python
 lspconfig.pylsp.setup{
   on_attach = completion.on_attach;
   filetypes = {"python"},
@@ -20,6 +21,7 @@ lspconfig.pylsp.setup{
   }
 }
 
+-- ruby
 lspconfig.solargraph.setup{
   on_attach = completion.on_attach;
   filetypes = {"ruby", "rakefile"},
@@ -33,19 +35,48 @@ lspconfig.solargraph.setup{
   }
 }
 
+-- go
+require'lspconfig'.gopls.setup{
+  on_attach = completion.on_attach;
+  filetypes = { "go", "gomod" },
+  root_dir = lspconfig.util.root_pattern("go.mod", ".git",".")
+}
+
+-- ocaml
+require'lspconfig'.ocamllsp.setup{
+  on_attach = completion.on_attach;
+  filetypes = { 
+    "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason" },
+  root_dir = lspconfig.util.root_pattern(
+    "*.opam", "esy.json", "package.json", ".git", ".")
+}
+
+-- haskell
+require'lspconfig'.hls.setup{
+  on_attach = completion.on_attach;
+  filetypes = { "haskell", "lhaskell" },
+  root_dir = lspconfig.util.root_pattern(
+    "*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".")
+}
+
+-- rust
+require'lspconfig'.rls.setup{
+  on_attach = completion.on_attach;
+  filetypes = { "rust" },
+  root_dir = lspconfig.util.root_pattern("Cargo.toml", ".")
+}
+
+
+
 -- key mappings
 local utils = require('utils')
-utils.key_mapper('n', 'gd', ':lua vim.lsp.buf.definition()<CR>')
-utils.key_mapper('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>')
-utils.key_mapper('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>')
-utils.key_mapper('n', 'gw', ':lua vim.lsp.buf.document_symbol()<CR>')
-utils.key_mapper('n', 'gW', ':lua vim.lsp.buf.workspace_symbol()<CR>')
-utils.key_mapper('n', 'gr', ':lua vim.lsp.buf.references()<CR>')
-utils.key_mapper('n', 'gt', ':lua vim.lsp.buf.type_definition()<CR>')
-utils.key_mapper('n', 'K', ':lua vim.lsp.buf.hover()<CR>')
-utils.key_mapper('n', '<c-k>', ':lua vim.lsp.buf.signature_help()<CR>')
-utils.key_mapper('n', '<leader>af', ':lua vim.lsp.buf.code_action()<CR>')
-utils.key_mapper('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>')
+utils.key_mapper('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+utils.key_mapper('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
+utils.key_mapper('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+utils.key_mapper('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+utils.key_mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+utils.key_mapper('n', '<C-p>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
+utils.key_mapper('n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
 
 -- auto-format
 vim.api.nvim_command('autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)')

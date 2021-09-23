@@ -12,7 +12,7 @@ function utils.key_mapper(mode, key, result)
     mode,
     key,
     result,
-    {noremap = true, silent = true}
+    {noremap = true, silent = false}
   )
 end
 
