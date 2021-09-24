@@ -77,8 +77,10 @@ utils.key_mapper('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 utils.key_mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 utils.key_mapper('n', '<C-p>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
 utils.key_mapper('n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
+utils.key_mapper('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 100)<CR>')
 
 -- auto-format
-vim.api.nvim_command('autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)')
-vim.api.nvim_command('autocmd FileType ruby setlocal ts=2 sts=2')
-vim.api.nvim_command('autocmd BufWritePre *.rb lua vim.lsp.buf.formatting_sync(nil, 100)')
+vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)]]
+vim.cmd[[autocmd FileType ruby setlocal ts=2 sts=2]]
+vim.cmd[[autocmd FileType go set ts=2 sts=2 shiftwidth=2 expandtab]]
+vim.cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting_sync(nil, 100)]]
