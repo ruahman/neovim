@@ -5,7 +5,7 @@ local completion = require('completion')
 lspconfig.pylsp.setup{
   on_attach = completion.on_attach;
   filetypes = {"python"},
-  root_dir = lspconfig.util.root_pattern(".git","."),
+  root_dir = lspconfig.util.root_pattern(".git"),
   settings = {
     pylsp = {
       enable = true;
@@ -25,7 +25,7 @@ lspconfig.pylsp.setup{
 lspconfig.solargraph.setup{
   on_attach = completion.on_attach;
   filetypes = {"ruby", "rakefile"},
-  root_dir = lspconfig.util.root_pattern("Gemfile",".git","."),
+  root_dir = lspconfig.util.root_pattern("Gemfile",".git"),
   settings = {
     solargraph = {
       autoformat=true;
@@ -39,7 +39,22 @@ lspconfig.solargraph.setup{
 require'lspconfig'.gopls.setup{
   on_attach = completion.on_attach;
   filetypes = { "go", "gomod" },
-  root_dir = lspconfig.util.root_pattern("go.mod", ".git",".")
+  root_dir = lspconfig.util.root_pattern("go.mod", ".git")
+}
+
+-- rust
+require'lspconfig'.rls.setup{
+  on_attach = completion.on_attach;
+  filetypes = { "rust" },
+  root_dir = lspconfig.util.root_pattern("Cargo.toml", ".git"),
+  settings = {
+    rust = {
+      unstable_features = false,
+      build_on_save = false,
+      all_features = true,
+      racer_completion = true,
+    },
+  },
 }
 
 -- ocaml
@@ -59,15 +74,6 @@ require'lspconfig'.hls.setup{
     "*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".")
 }
 
--- rust
-require'lspconfig'.rls.setup{
-  on_attach = completion.on_attach;
-  filetypes = { "rust" },
-  root_dir = lspconfig.util.root_pattern("Cargo.toml", ".")
-}
-
-
-
 -- key mappings
 local utils = require('utils')
 utils.key_mapper('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
@@ -80,7 +86,10 @@ utils.key_mapper('n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
 utils.key_mapper('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 100)<CR>')
 
 -- auto-format
-vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)]]
 vim.cmd[[autocmd FileType ruby setlocal ts=2 sts=2]]
 vim.cmd[[autocmd FileType go set ts=2 sts=2 shiftwidth=2 expandtab]]
+vim.cmd[[autocmd FileType rust set ts=2 sts=2 shiftwidth=2 expandtab]]
+vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)]]
+vim.cmd[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 100)]]
+vim.cmd[[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)]]
 vim.cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting_sync(nil, 100)]]
