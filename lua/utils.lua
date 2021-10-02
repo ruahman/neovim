@@ -1,13 +1,10 @@
 local utils = {}
 
-local scopes = {opt = vim.opt, g = vim.g, o = vim.o, b = vim.bo, w = vim.wo }
+utils.set = vim.opt
+utils.global = vim.g
+utils.cmd = vim.cmd
 
-function utils.opt(scope, key, value)
-    scopes[scope][key] = value
-    -- if scope ~= 'o' then scopes['o'][key] = value end
-end
-
-function utils.key_mapper(mode, key, result)
+function utils.set_keymap(mode, key, result)
   vim.api.nvim_set_keymap(
     mode,
     key,

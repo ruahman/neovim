@@ -1,4 +1,4 @@
--- set laststatus=2
 local utils = require('utils')
+local set = utils.set
 
-utils.opt('o', 'laststatus', 2)
+set.laststatus = 2

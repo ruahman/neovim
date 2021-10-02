@@ -1,11 +1,16 @@
 local lspconfig = require('lspconfig')
-local completion = require('completion')
+local utils = require('utils')
+
+-- vim.lsp.set_log_level("debug")
+
+local capabilities = require('cmp_nvim_lsp').update_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+  )
 
 -- python
 lspconfig.pylsp.setup{
-  on_attach = completion.on_attach;
-  filetypes = {"python"},
-  root_dir = lspconfig.util.root_pattern(".git"),
+  capabilities,
+  root_dir = lspconfig.util.root_pattern("*.toml","*.lock",".git","*.py"),
   settings = {
     pylsp = {
       enable = true;
@@ -17,15 +22,14 @@ lspconfig.pylsp.setup{
         pydocstyle = { enabled = true; };
         yapf = { enabled = true; };
       }
-    }    
+    }
   }
 }
 
 -- ruby
 lspconfig.solargraph.setup{
-  on_attach = completion.on_attach;
-  filetypes = {"ruby", "rakefile"},
-  root_dir = lspconfig.util.root_pattern("Gemfile",".git"),
+  capabilities,
+  root_dir = lspconfig.util.root_pattern("Gemfile",".git","*.rb"),
   settings = {
     solargraph = {
       autoformat=true;
@@ -35,61 +39,44 @@ lspconfig.solargraph.setup{
   }
 }
 
--- go
-require'lspconfig'.gopls.setup{
-  on_attach = completion.on_attach;
-  filetypes = { "go", "gomod" },
-  root_dir = lspconfig.util.root_pattern("go.mod", ".git")
+-- golang
+lspconfig.gopls.setup{
+  capabilities
 }
 
 -- rust
-require'lspconfig'.rls.setup{
-  on_attach = completion.on_attach;
-  filetypes = { "rust" },
-  root_dir = lspconfig.util.root_pattern("Cargo.toml", ".git"),
-  settings = {
-    rust = {
-      unstable_features = false,
-      build_on_save = false,
-      all_features = true,
-      racer_completion = true,
-    },
-  },
+lspconfig.rust_analyzer.setup{
+  capabilities
 }
 
 -- ocaml
-require'lspconfig'.ocamllsp.setup{
-  on_attach = completion.on_attach;
-  filetypes = { 
-    "ocaml", "ocaml.menhir", "ocaml.interface", "ocaml.ocamllex", "reason" },
+lspconfig.ocamllsp.setup{
+  capabilities,
   root_dir = lspconfig.util.root_pattern(
-    "*.opam", "esy.json", "package.json", ".git", ".")
+    "*.opam", "esy.json", "package.json", ".git", "*.ml")
 }
 
 -- haskell
 require'lspconfig'.hls.setup{
-  on_attach = completion.on_attach;
-  filetypes = { "haskell", "lhaskell" },
+  capabilities,
   root_dir = lspconfig.util.root_pattern(
-    "*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml", ".")
+    "*.cabal", 
+    "stack.yaml", 
+    "cabal.project", 
+    "package.yaml", 
+    "hie.yaml", 
+    "*.hs")
 }
 
 -- key mappings
 local utils = require('utils')
-utils.key_mapper('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-utils.key_mapper('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>')
-utils.key_mapper('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-utils.key_mapper('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-utils.key_mapper('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-utils.key_mapper('n', '<C-p>', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>')
-utils.key_mapper('n', '<C-n>', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>')
-utils.key_mapper('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting_sync(nil, 100)<CR>')
+utils.set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+utils.set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+utils.set_keymap('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 
 -- auto-format
-vim.cmd[[autocmd FileType ruby setlocal ts=2 sts=2]]
-vim.cmd[[autocmd FileType go set ts=2 sts=2 shiftwidth=2 expandtab]]
-vim.cmd[[autocmd FileType rust set ts=2 sts=2 shiftwidth=2 expandtab]]
-vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting_sync(nil, 100)]]
-vim.cmd[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting_sync(nil, 100)]]
-vim.cmd[[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting_sync(nil, 100)]]
-vim.cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting_sync(nil, 100)]]
+local cmd = utils.cmd
+cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
+cmd[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting()]]
+cmd[[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()]]
+cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting()]]

@@ -1,36 +1,42 @@
 local utils = require('utils')
+local set = utils.set
+local global = utils.global
+local cmd = utils.cmd
 
-utils.opt('o','syntax','on')
+set.syntax = 'on'
+set.colorcolumn = '80'
+set.wrap = false
 
-utils.opt('w','colorcolumn','80')
+set.splitbelow = true
+set.splitright = true
 
-utils.opt('o','wrap', false)
+set.number = true
+set.cursorline = true
+set.relativenumber = true
 
-utils.opt('o','splitbelow', true)
-utils.opt('o','splitright', true)
+-- insert space for tab
+set.tabstop = 2
+-- insert space for indent
+set.shiftwidth = 2
+-- insert space when in insert
+set.softtabstop = 2
+-- expand tabs to space
+set.expandtab = true
 
-utils.opt('o','number',true)
-utils.opt('o','cursorline',true)
-utils.opt('o','relativenumber',true)
+set.encoding = 'utf-8'
+set.fileencoding = 'utf-8'
 
-utils.opt('opt', 'tabstop', 4)
-utils.opt('opt', 'expandtab', true)
-utils.opt('opt', 'softtabstop', 4)
-utils.opt('opt', 'smarttab', true)
-utils.opt('opt', 'smartindent', true)
-utils.opt('opt', 'autoindent', true)
-
-utils.opt('o', 'encoding', 'utf-8')
-utils.opt('o', 'fileencoding', 'utf-8')
-
-utils.opt('opt', 'listchars', { 
+set.listchars = { 
   tab = '▸ ', 
   eol = '¬', 
   space = '.', 
   nbsp = '.' 
-})
+}
 
-utils.opt('g', 'netrw_winsize', 25)
-utils.opt('g', 'netrw_liststyle', 3)
+global.netrw_banner = 0
+-- global.netrw_browse_split = 4
+-- global.netrw_altv = 1
+global.netrw_winsize = 25
+global.netrw_liststyle = 3
 
-
+cmd[[autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4]]

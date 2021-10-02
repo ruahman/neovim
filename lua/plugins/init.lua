@@ -20,35 +20,44 @@ packer.init({
 --- startup and add configure plugins
 packer.startup(function()
   local use = use
-     use 'wbthomason/packer.nvim'
+
+     use 'tpope/vim-commentary'
+     use 'tpope/vim-surround'
+     use 'jiangmiao/auto-pairs'     
+
+     use 'haya14busa/vim-easymotion'    
+     use 'unblevable/quick-scope'
+     
+     use 'itchyny/lightline.vim'
+
+     use 'haishanh/night-owl.vim'
+     
+     use 'sheerun/vim-polyglot'
 
      use 'nvim-treesitter/nvim-treesitter'
      use 'p00f/nvim-ts-rainbow'
-     use 'sheerun/vim-polyglot'
-     
-     use 'tpope/vim-commentary'
-     use 'haya14busa/vim-easymotion'    
-     use 'tpope/vim-surround'
-     use 'jiangmiao/auto-pairs'     
-     
-     use 'haishanh/night-owl.vim'
-     
+
      use 'neovim/nvim-lspconfig'
-     use 'nvim-lua/completion-nvim'
+     use 'hrsh7th/cmp-nvim-lsp'
+     use 'hrsh7th/cmp-buffer'
+     use 'hrsh7th/nvim-cmp'
+     use 'quangnguyen30192/cmp-nvim-ultisnips'
      use 'SirVer/ultisnips'
 
      use {
        'nvim-telescope/telescope.nvim',
-       requires = {'nvim-lua/plenary.nvim'}
+       requires = {
+         'nvim-lua/plenary.nvim'
+       }
      }
 
-     use 'itchyny/lightline.vim'
   end
 )
 
 require('plugins.treesitter')
-require('plugins.completion')
-require('plugins.lsp')
 require('plugins.telescope')
+require('plugins.quick-scope')
 require('plugins.lightline')
 require('plugins.ultisnips')
+require('plugins.cmp')
+require('plugins.lsp')
