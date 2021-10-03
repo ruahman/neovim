@@ -69,6 +69,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["auto-pairs"] = {
+    loaded = true,
+    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/auto-pairs"
+  },
   ["cmp-buffer"] = {
     loaded = true,
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/cmp-buffer"

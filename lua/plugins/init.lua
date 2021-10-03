@@ -24,7 +24,7 @@ packer.startup(function()
      use 'tpope/vim-commentary'
      use 'tpope/vim-surround'
      use 'romainl/vim-cool'
-     -- use 'jiangmiao/auto-pairs'     
+     use 'jiangmiao/auto-pairs'     
 
      use 'phaazon/hop.nvim'
      use 'unblevable/quick-scope'
