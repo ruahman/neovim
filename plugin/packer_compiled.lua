@@ -81,6 +81,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/cmp-nvim-ultisnips"
   },
+  ["hop.nvim"] = {
+    loaded = true,
+    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/hop.nvim"
+  },
   ["lsp-status.nvim"] = {
     loaded = true,
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/lsp-status.nvim"
@@ -137,13 +141,9 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/vim-commentary"
   },
-  ["vim-easymotion"] = {
+  ["vim-cool"] = {
     loaded = true,
-    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/vim-easymotion"
-  },
-  ["vim-polyglot"] = {
-    loaded = true,
-    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/vim-polyglot"
+    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/vim-cool"
   },
   ["vim-surround"] = {
     loaded = true,

@@ -23,9 +23,10 @@ packer.startup(function()
 
      use 'tpope/vim-commentary'
      use 'tpope/vim-surround'
+     use 'romainl/vim-cool'
      -- use 'jiangmiao/auto-pairs'     
 
-     use 'haya14busa/vim-easymotion'    
+     use 'phaazon/hop.nvim'
      use 'unblevable/quick-scope'
      
      use 'kyazdani42/nvim-web-devicons'
@@ -37,7 +38,7 @@ packer.startup(function()
 
      use 'haishanh/night-owl.vim'
      
-     use 'sheerun/vim-polyglot'
+     -- use 'sheerun/vim-polyglot'
 
      use 'nvim-treesitter/nvim-treesitter'
      use 'p00f/nvim-ts-rainbow'
@@ -60,6 +61,7 @@ packer.startup(function()
 require'plugins.treesitter'
 require'plugins.telescope'
 require'plugins.quick-scope'
+require'plugins.hop'
 require'plugins.nvim-tree'
 require'plugins.lualine'
 require'plugins.ultisnips'
