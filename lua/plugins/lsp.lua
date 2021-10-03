@@ -69,10 +69,10 @@ require'lspconfig'.hls.setup{
 }
 
 -- key mappings
-local utils = require('utils')
-utils.set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-utils.set_keymap('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
-utils.set_keymap('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+local map = utils.map
+map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
+map('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 
 -- auto-format
 local cmd = utils.cmd

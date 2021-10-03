@@ -1,7 +1,7 @@
 require'hop'.setup()
 
 local utils = require'utils'
-local map = utils.set_keymap
+local map = utils.map
 
 map('n','<Leader>w',"<cmd>lua require'hop'.hint_words()<cr>")
 map('n','<Leader>s',"<cmd>lua require'hop'.hint_char2()<cr>")

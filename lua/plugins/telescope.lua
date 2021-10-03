@@ -1,6 +1,6 @@
 local utils = require('utils')
+local map = utils.map
 
-utils.set_keymap('n', '<leader>ff', ':lua require"telescope.builtin".find_files()<CR>')
-utils.set_keymap('n', '<leader>fs', ':lua require"telescope.builtin".live_grep()<CR>')
-utils.set_keymap('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
--- utils.set_keymap('n', '<leader>fe', ':lua require"telescope.builtin".file_browser()<CR>')
+map('n', '<leader>ff', ':lua require"telescope.builtin".find_files()<CR>')
+map('n', '<leader>fs', ':lua require"telescope.builtin".live_grep()<CR>')
+map('n', '<leader>fb', ':lua require"telescope.builtin".buffers()<CR>')
