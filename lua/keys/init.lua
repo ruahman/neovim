@@ -4,8 +4,6 @@ local global = utils.global
 -- set leader key
 global.mapleader = ' '
 
-utils.set_keymap('n', '<Leader>e', ':Lex<CR>')
-
 utils.set_keymap('n', '<Leader>h', ':set hlsearch!<CR>')
 utils.set_keymap('n', '<Leader>l', ':set list!<CR>')
 

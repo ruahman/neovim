@@ -33,10 +33,10 @@ set.listchars = {
   nbsp = '.' 
 }
 
-global.netrw_banner = 0
--- global.netrw_browse_split = 4
--- global.netrw_altv = 1
-global.netrw_winsize = 25
-global.netrw_liststyle = 3
+-- global.netrw_banner = 0
+-- -- global.netrw_browse_split = 4
+-- -- global.netrw_altv = 1
+-- global.netrw_winsize = 25
+-- global.netrw_liststyle = 3
 
 cmd[[autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4]]
