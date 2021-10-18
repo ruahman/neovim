@@ -105,6 +105,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/diego/.local/share/nvim/site/pack/packer/start/nvim-cmp"
   },
+  ["nvim-dap"] = {
+    loaded = true,
+    path = "/home/diego/.local/share/nvim/site/pack/packer/start/nvim-dap"
+  },
+  ["nvim-dap-go"] = {
+    loaded = true,
+    path = "/home/diego/.local/share/nvim/site/pack/packer/start/nvim-dap-go"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/diego/.local/share/nvim/site/pack/packer/start/nvim-lspconfig"
