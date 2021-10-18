@@ -37,8 +37,6 @@ packer.startup(function()
      }
 
      use 'haishanh/night-owl.vim'
-     
-     -- use 'sheerun/vim-polyglot'
 
      use 'nvim-treesitter/nvim-treesitter'
      use 'p00f/nvim-ts-rainbow'
@@ -47,6 +45,10 @@ packer.startup(function()
      use 'hrsh7th/cmp-nvim-lsp'
      use 'hrsh7th/cmp-buffer'
      use 'hrsh7th/nvim-cmp'
+
+     use 'mfussenegger/nvim-dap'
+     use 'leoluz/nvim-dap-go'
+
      use 'quangnguyen30192/cmp-nvim-ultisnips'
      use 'SirVer/ultisnips'
 
