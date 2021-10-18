@@ -71,6 +71,7 @@ require'lspconfig'.hls.setup{
 -- key mappings
 local map = utils.map
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
 map('n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>')
 map('n', '<leader>F', '<cmd>lua vim.lsp.buf.formatting()<CR>')
 
