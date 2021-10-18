@@ -26,7 +26,7 @@ packer.startup(function()
      use 'romainl/vim-cool'
      use 'jiangmiao/auto-pairs'     
 
-     use 'phaazon/hop.nvim'
+     -- use 'phaazon/hop.nvim'
      use 'unblevable/quick-scope'
      
      use 'kyazdani42/nvim-web-devicons'
@@ -46,8 +46,8 @@ packer.startup(function()
      use 'hrsh7th/cmp-buffer'
      use 'hrsh7th/nvim-cmp'
 
-     use 'mfussenegger/nvim-dap'
      use 'leoluz/nvim-dap-go'
+     use 'mfussenegger/nvim-dap'
 
      use 'quangnguyen30192/cmp-nvim-ultisnips'
      use 'SirVer/ultisnips'
@@ -63,9 +63,10 @@ packer.startup(function()
 require'plugins.treesitter'
 require'plugins.telescope'
 require'plugins.quick-scope'
-require'plugins.hop'
+-- require'plugins.hop'
 require'plugins.nvim-tree'
 require'plugins.lualine'
 require'plugins.ultisnips'
 require'plugins.cmp'
 require'plugins.lsp'
+require'plugins.dap'
