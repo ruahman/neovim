@@ -21,44 +21,43 @@ packer.init({
 packer.startup(function()
   local use = use
 
-     use 'tpope/vim-commentary'
-     use 'tpope/vim-surround'
-     use 'romainl/vim-cool'
-     use 'jiangmiao/auto-pairs'     
+  use 'tpope/vim-commentary'
+  use 'tpope/vim-surround'
+  use 'romainl/vim-cool'
+  use 'jiangmiao/auto-pairs'     
 
-     -- use 'phaazon/hop.nvim'
-     use 'unblevable/quick-scope'
-     
-     use 'kyazdani42/nvim-web-devicons'
-     use 'kyazdani42/nvim-tree.lua'
-     use {
-       'hoob3rt/lualine.nvim',
-       requires = 'nvim-lua/lsp-status.nvim'
-     }
+  -- use 'phaazon/hop.nvim'
+  use 'unblevable/quick-scope'
 
-     use 'haishanh/night-owl.vim'
+  use 'kyazdani42/nvim-web-devicons'
+  use 'kyazdani42/nvim-tree.lua'
+  use {
+   'hoob3rt/lualine.nvim',
+   requires = 'nvim-lua/lsp-status.nvim'
+  }
 
-     use 'nvim-treesitter/nvim-treesitter'
-     use 'p00f/nvim-ts-rainbow'
+  use 'haishanh/night-owl.vim'
 
-     use 'neovim/nvim-lspconfig'
-     use 'hrsh7th/cmp-nvim-lsp'
-     use 'hrsh7th/cmp-buffer'
-     use 'hrsh7th/nvim-cmp'
+  use 'nvim-treesitter/nvim-treesitter'
+  use 'p00f/nvim-ts-rainbow'
 
-     use 'leoluz/nvim-dap-go'
-     use 'mfussenegger/nvim-dap'
+  use 'neovim/nvim-lspconfig'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
 
-     use 'quangnguyen30192/cmp-nvim-ultisnips'
-     use 'SirVer/ultisnips'
+  use 'mfussenegger/nvim-dap'
+  use 'leoluz/nvim-dap-go'
 
-     use {
-       'nvim-telescope/telescope.nvim',
-       requires = 'nvim-lua/plenary.nvim'
-     }
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use 'SirVer/ultisnips'
 
-  end
-)
+  use {
+   'nvim-telescope/telescope.nvim',
+   requires = 'nvim-lua/plenary.nvim'
+  }
+
+end)
 
 require'plugins.treesitter'
 require'plugins.telescope'

@@ -1,4 +1,25 @@
+local dap = require('dap')
 local map = require'utils'.map
+
+dap.set_log_level('TRACE')
+
+dap.adapters.python = {
+  type = 'executable';
+  command = '/home/ruahman/.pyenv/shims/python';
+  args = { '-m', 'debugpy.adapter' };
+}
+
+dap.configurations.python = {
+  {
+    type = 'python';
+    request = 'launch';
+    name = "Launch file";
+    program = "${file}";
+    pythonPath = function()
+      return '/home/ruahman/.pyenv/shims/python'
+    end
+  }
+}
 
 require'dap-go'.setup()
 
