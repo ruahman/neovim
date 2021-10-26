@@ -5,7 +5,7 @@ dap.set_log_level('TRACE')
 
 dap.adapters.python = {
   type = 'executable';
-  command = '/home/ruahman/.pyenv/shims/python';
+  command = '~/.pyenv/shims/python';
   args = { '-m', 'debugpy.adapter' };
 }
 
@@ -16,7 +16,7 @@ dap.configurations.python = {
     name = "Launch file";
     program = "${file}";
     pythonPath = function()
-      return '/home/ruahman/.pyenv/shims/python'
+      return '~/.pyenv/shims/python'
     end
   }
 }
