@@ -68,10 +68,6 @@ require'lspconfig'.hls.setup{
     "*.hs")
 }
 
--- csharp
-require'lspconfig'.csharp_ls.setup{}
-
-
 -- key mappings
 local map = utils.map
 map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
