@@ -5,7 +5,7 @@ dap.set_log_level('TRACE')
 
 dap.adapters.python = {
   type = 'executable';
-  command = '/home/ruahman/.pyenv/shims/python';
+  command = '~/.pyenv/shims/python';
   args = { '-m', 'debugpy.adapter' };
 }
 
@@ -16,12 +16,13 @@ dap.configurations.python = {
     name = "Launch file";
     program = "${file}";
     pythonPath = function()
-      return '/home/ruahman/.pyenv/shims/python'
+      return '~/.pyenv/shims/python'
     end
   }
 }
 
 require'dap-go'.setup()
+
 
 map('n', '<leader>t', "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
 map('n', '<leader>c', "<cmd>lua require'dap'.continue()<CR>")
