@@ -1,0 +1,41 @@
+{
+  "vim.easymotion": true,
+  "vim.hlsearch": true,
+  "vim.insertModeKeyBindingsNonRecursive": [
+    {
+      "before": ["j", "k"],
+      "after": ["<ESC>"]
+    }
+  ],
+  "editor.lineNumbers": "relative",
+  "vim.smartRelativeLine": true,
+  "workbench.startupEditor": "newUntitledFile",
+  "vim.leader": "<space>",
+  "editor.tabCompletion": "onlySnippets",
+  "editor.tabSize": 2,
+  "workbench.iconTheme": "material-icon-theme",
+  "explorer.confirmDragAndDrop": false,
+  "extensions.ignoreRecommendations": true,
+  "editor.renderWhitespace": "none",
+  "explorer.confirmDelete": false,
+  "window.zoomLevel": 3,
+  "editor.formatOnSave": true,
+  "terminal.integrated.defaultProfile.windows": "PowerShell",
+  "terminal.integrated.profiles.windows": {
+    "C:\\Windows\\System32\\wsl.exe (migrated)": {
+      "path": "C:\\Windows\\System32\\wsl.exe",
+      "args": []
+    }
+  },
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  },
+  "liveServer.settings.donotShowInfoMsg": true,
+  "prettier.arrowParens": "avoid",
+  "workbench.colorTheme": "Night Owl",
+  "workbench.editor.enablePreview": false
+}
