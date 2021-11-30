@@ -41,7 +41,8 @@ lspconfig.solargraph.setup{
 
 -- golang
 lspconfig.gopls.setup{
-  capabilities
+  capabilities,
+  root_dir = lspconfig.util.root_pattern(".git","*.go"),
 }
 
 -- rust
