@@ -33,4 +33,7 @@ set.listchars = {
   nbsp = '.' 
 }
 
+
+cmd[[set nobackup nowritebackup noswapfile]]
+
 cmd[[autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4]]
