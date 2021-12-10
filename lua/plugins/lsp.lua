@@ -27,17 +27,17 @@ lspconfig.pylsp.setup{
 }
 
 -- ruby
-lspconfig.solargraph.setup{
-  capabilities,
-  root_dir = lspconfig.util.root_pattern("Gemfile",".git","*.rb"),
-  settings = {
-    solargraph = {
-      autoformat=true;
-      completion=true;
-      diagnostics=true;
-    }
-  }
-}
+-- lspconfig.solargraph.setup{
+--   capabilities,
+--   root_dir = lspconfig.util.root_pattern("Gemfile",".git","*.rb"),
+--   settings = {
+--     solargraph = {
+--       autoformat=true;
+--       completion=true;
+--       diagnostics=true;
+--     }
+--   }
+-- }
 
 -- golang
 lspconfig.gopls.setup{
@@ -47,27 +47,28 @@ lspconfig.gopls.setup{
 
 -- rust
 lspconfig.rust_analyzer.setup{
-  capabilities
+  capabilities,
+  root_dir = lspconfig.util.root_pattern("Cargo.toml","*.rs"),
 }
 
 -- ocaml
-lspconfig.ocamllsp.setup{
-  capabilities,
-  root_dir = lspconfig.util.root_pattern(
-    "*.opam", "esy.json", "package.json", ".git", "*.ml")
-}
+-- lspconfig.ocamllsp.setup{
+--   capabilities,
+--   root_dir = lspconfig.util.root_pattern(
+--     "*.opam", "esy.json", "package.json", ".git", "*.ml")
+-- }
 
 -- haskell
-require'lspconfig'.hls.setup{
-  capabilities,
-  root_dir = lspconfig.util.root_pattern(
-    "*.cabal", 
-    "stack.yaml", 
-    "cabal.project", 
-    "package.yaml", 
-    "hie.yaml", 
-    "*.hs")
-}
+-- require'lspconfig'.hls.setup{
+--   capabilities,
+--   root_dir = lspconfig.util.root_pattern(
+--     "*.cabal", 
+--     "stack.yaml", 
+--     "cabal.project", 
+--     "package.yaml", 
+--     "hie.yaml", 
+--     "*.hs")
+-- }
 
 -- key mappings
 local map = utils.map
