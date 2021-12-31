@@ -27,17 +27,17 @@ lspconfig.pylsp.setup{
 }
 
 -- ruby
--- lspconfig.solargraph.setup{
---   capabilities,
---   root_dir = lspconfig.util.root_pattern("Gemfile",".git","*.rb"),
---   settings = {
---     solargraph = {
---       autoformat=true;
---       completion=true;
---       diagnostics=true;
---     }
---   }
--- }
+lspconfig.solargraph.setup{
+  capabilities,
+  root_dir = lspconfig.util.root_pattern("Gemfile",".git","*.rb"),
+  settings = {
+    solargraph = {
+      autoformat=true;
+      completion=true;
+      diagnostics=true;
+    }
+  }
+}
 
 -- golang
 -- lspconfig.gopls.setup{
