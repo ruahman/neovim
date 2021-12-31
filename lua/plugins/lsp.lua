@@ -40,10 +40,10 @@ lspconfig.pylsp.setup{
 -- }
 
 -- golang
-lspconfig.gopls.setup{
-  capabilities,
-  root_dir = lspconfig.util.root_pattern(".git","*.go"),
-}
+-- lspconfig.gopls.setup{
+--   capabilities,
+--   root_dir = lspconfig.util.root_pattern(".git","*.go"),
+-- }
 
 -- rust
 lspconfig.rust_analyzer.setup{
