@@ -1,8 +1,11 @@
 require'nvim-treesitter.configs'.setup {
-  ensure_installed = "maintained",
+  -- A list of parser names, or "all"
+  ensure_installed = { "c", "cpp", "lua", "rust", "go", "python", "ruby" },
+
   highlight = {
     enable = true,
   },
+
   rainbow = {
     enable = true,
     extended_mode = true,

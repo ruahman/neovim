@@ -1,4 +1,5 @@
--- require('settings')
--- require('keys')
--- require('plugins')
--- require('colorscheme')
+require('settings')
+require('keys')
+require('plugins')
+require('colorscheme')
+

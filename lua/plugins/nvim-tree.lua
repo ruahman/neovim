@@ -1,9 +1,7 @@
-local utils = require('utils')
-local global = utils.global
-local map = utils.map
-
 require'nvim-tree'.setup{}
 
-map('n', '<Leader>e', ':NvimTreeToggle<CR>')
+local utils = require('utils')
 
-global.nvim_tree_quit_on_open = 1
+utils.map('n', '<Leader>e', ':NvimTreeToggle<CR>')
+
+vim.g.nvim_tree_quit_on_open = 1

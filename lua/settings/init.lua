@@ -1,39 +1,39 @@
+-- see :help options
+
 local utils = require('utils')
-local set = utils.set
-local global = utils.global
-local cmd = utils.cmd
 
-set.syntax = 'on'
-set.colorcolumn = '80'
-set.wrap = false
+vim.opt.syntax = 'on'
+vim.opt.colorcolumn = '80'
+vim.opt.wrap = false
 
-set.splitbelow = true
-set.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
-set.number = true
-set.cursorline = true
-set.relativenumber = true
+vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.relativenumber = true
 
 -- insert space for tab
-set.tabstop = 2
+vim.opt.tabstop = 2
 -- insert space for indent
-set.shiftwidth = 2
+vim.opt.shiftwidth = 2
 -- insert space when in insert
-set.softtabstop = 2
+vim.opt.softtabstop = 2
 -- expand tabs to space
-set.expandtab = true
+vim.opt.expandtab = true
 
-set.encoding = 'utf-8'
-set.fileencoding = 'utf-8'
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 
-set.listchars = { 
+vim.opt.listchars = { 
   tab = '▸ ', 
   eol = '¬', 
   space = '.', 
   nbsp = '.' 
 }
 
+-- no swap file???
+vim.cmd[[set nobackup nowritebackup noswapfile]]
 
-cmd[[set nobackup nowritebackup noswapfile]]
-
-cmd[[autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4]]
+-- for python
+vim.cmd[[autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4]]

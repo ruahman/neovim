@@ -1,4 +1,3 @@
-local vim = vim
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -26,46 +25,49 @@ packer.startup(function()
   use 'romainl/vim-cool'
   use 'jiangmiao/auto-pairs'     
 
-  -- use 'phaazon/hop.nvim'
+  use 'phaazon/hop.nvim'
   use 'unblevable/quick-scope'
 
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
+
   use {
-   'hoob3rt/lualine.nvim',
-   requires = 'nvim-lua/lsp-status.nvim'
+    'hoob3rt/lualine.nvim',
+    requires = 'nvim-lua/lsp-status.nvim'
   }
 
   use 'haishanh/night-owl.vim'
 
+  use 'SirVer/ultisnips'
+
+  use 'neovim/nvim-lspconfig'
+
+  use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/cmp-path'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use 'hrsh7th/cmp-nvim-lsp'
+  
   use 'nvim-treesitter/nvim-treesitter'
   use 'p00f/nvim-ts-rainbow'
 
-  use 'neovim/nvim-lspconfig'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/nvim-cmp'
+  use {
+    'nvim-telescope/telescope.nvim',
+    requires = 'nvim-lua/plenary.nvim'
+  }
 
   -- use 'mfussenegger/nvim-dap'
   -- use 'leoluz/nvim-dap-go'
 
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
-  use 'SirVer/ultisnips'
-
-  use {
-   'nvim-telescope/telescope.nvim',
-   requires = 'nvim-lua/plenary.nvim'
-  }
-
 end)
 
-require'plugins.treesitter'
-require'plugins.telescope'
+require'plugins.hop'
 require'plugins.quick-scope'
--- require'plugins.hop'
 require'plugins.nvim-tree'
 require'plugins.lualine'
 require'plugins.ultisnips'
-require'plugins.cmp'
 require'plugins.lsp'
+require'plugins.cmp'
+require'plugins.treesitter'
+require'plugins.telescope'
 -- require'plugins.dap'

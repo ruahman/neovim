@@ -1,7 +1,4 @@
-local utils = require('utils')
-local global = utils.global
-
-global.UltiSnipsExpandTrigger = '<c-l>'
-global.UltiSnipsJumpForwardTrigger = '<c-j>'
-global.UltiSnipsJumpBackwardTrigger = '<c-k>'
-global.UltiSnipsEditSplit = 'vertical'
+vim.g.UltiSnipsExpandTrigger = '<c-l>'
+vim.g.UltiSnipsJumpForwardTrigger = '<c-j>'
+vim.g.UltiSnipsJumpBackwardTrigger = '<c-k>'
+vim.g.UltiSnipsEditSplit = 'vertical'
