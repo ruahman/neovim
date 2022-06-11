@@ -1,24 +1,16 @@
-local execute = vim.api.nvim_command
+-- Install packer.nvim if not found.
 local fn = vim.fn
-
--- ensure that packer is installed
-local install_path = fn.stdpath('data')..'/site/pack/packer/opt/packer.nvim'
+local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-    execute('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
-    execute 'packadd packer.nvim'
+  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
 end
 
-vim.cmd('packadd packer.nvim')
-local packer = require'packer'
-local util = require'packer.util'
+-- startup and add configuration plugins
+return require('packer').startup(function(use)
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
 
-packer.init({
-  package_root = util.join_paths(vim.fn.stdpath('data'), 'site', 'pack')
-})
-
---- startup and add configure plugins
-packer.startup(function()
-  local use = use
+  use 'haishanh/night-owl.vim'
 
   use 'tpope/vim-commentary'
   use 'tpope/vim-surround'
@@ -36,8 +28,6 @@ packer.startup(function()
     requires = 'nvim-lua/lsp-status.nvim'
   }
 
-  use 'haishanh/night-owl.vim'
-
   use 'SirVer/ultisnips'
 
   use 'neovim/nvim-lspconfig'
@@ -47,7 +37,7 @@ packer.startup(function()
   use 'hrsh7th/cmp-path'
   use 'quangnguyen30192/cmp-nvim-ultisnips'
   use 'hrsh7th/cmp-nvim-lsp'
-  
+
   use 'nvim-treesitter/nvim-treesitter'
   use 'p00f/nvim-ts-rainbow'
 
@@ -59,15 +49,19 @@ packer.startup(function()
   -- use 'mfussenegger/nvim-dap'
   -- use 'leoluz/nvim-dap-go'
 
-end)
+  require'plugins.hop'
+  require'plugins.quick-scope'
+  require'plugins.nvim-tree'
+  require'plugins.lualine'
+  require'plugins.ultisnips'
+  require'plugins.lsp'
+  require'plugins.cmp'
+  require'plugins.treesitter'
+  require'plugins.telescope'
 
-require'plugins.hop'
-require'plugins.quick-scope'
-require'plugins.nvim-tree'
-require'plugins.lualine'
-require'plugins.ultisnips'
-require'plugins.lsp'
-require'plugins.cmp'
-require'plugins.treesitter'
-require'plugins.telescope'
--- require'plugins.dap'
+  -- Automatically set up your configuration after cloning packer.nvim
+  -- Put this at the end after all plugins
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)
