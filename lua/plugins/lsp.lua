@@ -3,6 +3,7 @@ local utils = require('utils')
 
 -- vim.lsp.set_log_level("debug")
 
+-- tells lsp what client is capable of doing
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
   )
@@ -51,31 +52,19 @@ lspconfig.gopls.setup{
 --   root_dir = lspconfig.util.root_pattern("Cargo.toml","*.rs"),
 -- }
 
--- ocaml
--- lspconfig.ocamllsp.setup{
---   capabilities,
---   root_dir = lspconfig.util.root_pattern(
---     "*.opam", "esy.json", "package.json", ".git", "*.ml")
--- }
-
--- haskell
--- require'lspconfig'.hls.setup{
---   capabilities,
---   root_dir = lspconfig.util.root_pattern(
---     "*.cabal", 
---     "stack.yaml", 
---     "cabal.project", 
---     "package.yaml", 
---     "hie.yaml", 
---     "*.hs")
--- }
-
 -- key mappings
-utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-utils.map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-utils.map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
-utils.map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>')
-utils.map('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+-- utils.map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>')
+vim.keymap.set("n", "gh", vim.lsp.buf.hover)
+-- utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+-- utils.map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+vim.keymap.set("n", "gt", vim.lsp.buf.type_definition)
+-- utils.map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+-- utils.map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
+vim.keymap.set("n", "gr", vim.lsp.buf.references)
+-- utils.map('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
+vim.keymap.set("n", "gf", vim.lsp.buf.formatting)
 
 -- auto-format
 -- cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]

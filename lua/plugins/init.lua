@@ -31,23 +31,30 @@ return require('packer').startup(function(use)
   use 'SirVer/ultisnips'
 
   use 'neovim/nvim-lspconfig'
+  -- use 'jubnzv/virtual-types.nvim'
 
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'quangnguyen30192/cmp-nvim-ultisnips'
 
   use 'nvim-treesitter/nvim-treesitter'
   use 'p00f/nvim-ts-rainbow'
 
   use {
     'nvim-telescope/telescope.nvim',
-    requires = 'nvim-lua/plenary.nvim'
+    requires = {
+      'nvim-lua/plenary.nvim', 
+      'nvim-lua/popup.nvim', 
+    }
   }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  -- use 'mfussenegger/nvim-dap'
-  -- use 'leoluz/nvim-dap-go'
+  use 'mfussenegger/nvim-dap'
+  use 'leoluz/nvim-dap-go'
+  use 'rcarriga/nvim-dap-ui'
+  use 'theHamsta/nvim-dap-virtual-text'
 
   require'plugins.hop'
   require'plugins.quick-scope'
@@ -58,6 +65,7 @@ return require('packer').startup(function(use)
   require'plugins.cmp'
   require'plugins.treesitter'
   require'plugins.telescope'
+  require'plugins.dap'
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
