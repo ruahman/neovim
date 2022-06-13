@@ -53,13 +53,13 @@ lspconfig.gopls.setup{
 
 -- key mappings
 -- utils.map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>')
-vim.keymap.set("n", "gh", vim.lsp.buf.hover)
+vim.keymap.set("n", "gh", vim.lsp.buf.hover) -- hover information
 -- utils.map('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>')
-vim.keymap.set("n", "gd", vim.lsp.buf.definition)
+vim.keymap.set("n", "gd", vim.lsp.buf.definition) -- like definition of function
 -- utils.map('n', 'gt', '<cmd>lua vim.lsp.buf.type_definition()<CR>')
-vim.keymap.set("n", "gt", vim.lsp.buf.type_definition)
+vim.keymap.set("n", "gt", vim.lsp.buf.type_definition) -- like definition of a type
 -- utils.map('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>')
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation)
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation) -- like implementaion of interface
 -- utils.map('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>')
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
 -- utils.map('n', 'gf', '<cmd>lua vim.lsp.buf.formatting()<CR>')
