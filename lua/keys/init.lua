@@ -1,29 +1,30 @@
-local utils = require('utils')
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
 -- set leader key
 vim.g.mapleader = ' '
 
-utils.map('n', '<Leader>h', ':set hlsearch!<CR>')
-utils.map('n', '<Leader>l', ':set list!<CR>')
+keymap('n', '<Leader>h', ':set hlsearch!<CR>', opts)
+keymap('n', '<Leader>l', ':set list!<CR>', opts)
 
-utils.map('i', 'jk', '<ESC>')
-utils.map('i', 'kj', '<ESC>')
+keymap('i', 'jk', '<ESC>', opts)
+keymap('i', 'kj', '<ESC>', opts)
 
-utils.map('v', '<', '<gv')
-utils.map('v', '>', '>gv')
+keymap('v', '<', '<gv', opts)
+keymap('v', '>', '>gv', opts)
 
-utils.map('n', '<C-h>', '<C-w>h')
-utils.map('n', '<C-j>', '<C-w>j')
-utils.map('n', '<C-k>', '<C-w>k')
-utils.map('n', '<C-l>', '<C-w>l')
+keymap('n', '<C-h>', '<C-w>h', opts)
+keymap('n', '<C-j>', '<C-w>j', opts)
+keymap('n', '<C-k>', '<C-w>k', opts)
+keymap('n', '<C-l>', '<C-w>l', opts)
 
-utils.map('n', '<M-h>', ':vertical resize +2<CR>')
-utils.map('n', '<M-l>', ':vertical resize -2<CR>')
+keymap('n', '<M-h>', ':vertical resize +2<CR>', opts)
+keymap('n', '<M-l>', ':vertical resize -2<CR>', opts)
 -- utils.map('n', '<M-j>', ':resize -2<CR>')
 -- utils.map('n', '<M-k>', ':resize +2<CR>')
 
 -- move line
-utils.map('n', '<M-j>', ':m .+1<cr>==')
-utils.map('n', '<M-k>', ':m .-2<CR>==')
-utils.map('v', '<M-j>', ":m '>+1<cr>gv=gv")
-utils.map('v', '<M-k>', ":m '<-2<cr>gv=gv")
+keymap('n', '<M-j>', ':m .+1<cr>==', opts)
+keymap('n', '<M-k>', ':m .-2<CR>==', opts)
+keymap('v', '<M-j>', ":m '>+1<cr>gv=gv", opts)
+keymap('v', '<M-k>', ":m '<-2<cr>gv=gv", opts)

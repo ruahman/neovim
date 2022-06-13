@@ -23,12 +23,9 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'kyazdani42/nvim-tree.lua'
 
-  use {
-    'hoob3rt/lualine.nvim',
-    requires = 'nvim-lua/lsp-status.nvim'
-  }
+  use 'hoob3rt/lualine.nvim'
 
-  use 'SirVer/ultisnips'
+  use 'L3MON4D3/LuaSnip'
 
   use 'neovim/nvim-lspconfig'
   -- use 'jubnzv/virtual-types.nvim'
@@ -36,8 +33,9 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/cmp-path'
+  use 'hrsh7th/cmp-nvim-lua'
   use 'hrsh7th/cmp-nvim-lsp'
-  use 'quangnguyen30192/cmp-nvim-ultisnips'
+  use 'saadparwaiz1/cmp_luasnip'
 
   use 'nvim-treesitter/nvim-treesitter'
   use 'p00f/nvim-ts-rainbow'
@@ -60,7 +58,7 @@ return require('packer').startup(function(use)
   require'plugins.quick-scope'
   require'plugins.nvim-tree'
   require'plugins.lualine'
-  require'plugins.ultisnips'
+  require'plugins.luasnip'
   require'plugins.lsp'
   require'plugins.cmp'
   require'plugins.treesitter'

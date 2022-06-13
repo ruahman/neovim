@@ -1,5 +1,4 @@
 local dap = require('dap')
-local map = require'utils'.map
 
 -- dap.set_log_level('TRACE')
 
@@ -25,11 +24,10 @@ require'dap-go'.setup()
 require'dapui'.setup()
 require'nvim-dap-virtual-text'.setup()
 
-map('n', '<leader>b', "<cmd>lua require'dap'.toggle_breakpoint()<CR>")
-map('n', '<leader>c', "<cmd>lua require'dap'.continue()<CR>")
-map('n', '<leader>s', "<cmd>lua require'dap'.step_into()<CR>")
-map('n', '<leader>n', "<cmd>lua require'dap'.step_over()<CR>")
-map('n', '<leader>t', "<cmd>lua require'dap-go'.debug_test()<CR>")
+vim.keymap.set('n', '<leader>b', require'dap'.toggle_breakpoint)
+vim.keymap.set('n', '<leader>c', require'dap'.continue)
+vim.keymap.set('n', '<leader>s', require'dap'.step_into)
+vim.keymap.set('n', '<leader>n', require'dap'.step_over)
+vim.keymap.set('n', '<leader>t', require'dap-go'.debug_test)
 -- map('n', '<leader>r', "<cmd>lua require'dap'.repl.toggle()<CR>")
-map('n', '<leader>u', "<cmd>lua require'dapui'.toggle()<CR>")
-
+vim.keymap.set('n', '<leader>u', require'dapui'.toggle)

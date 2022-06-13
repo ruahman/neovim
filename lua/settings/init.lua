@@ -1,6 +1,6 @@
 -- see :help options
 
-local utils = require('utils')
+-- local utils = require('utils')
 
 vim.opt.syntax = 'on'
 vim.opt.colorcolumn = '80'

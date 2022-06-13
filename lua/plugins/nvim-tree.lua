@@ -1,7 +1,8 @@
 require'nvim-tree'.setup{}
 
-local utils = require('utils')
+local keymap = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
 
-utils.map('n', '<Leader>e', ':NvimTreeToggle<CR>')
+keymap('n', '<Leader>e', ':NvimTreeToggle<CR>', opts)
 
 vim.g.nvim_tree_quit_on_open = 1

@@ -1,5 +1,4 @@
 local lspconfig = require('lspconfig')
-local utils = require('utils')
 
 -- vim.lsp.set_log_level("debug")
 
