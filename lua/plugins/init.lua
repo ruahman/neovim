@@ -28,7 +28,6 @@ return require('packer').startup(function(use)
   use 'L3MON4D3/LuaSnip'
 
   use 'neovim/nvim-lspconfig'
-  -- use 'jubnzv/virtual-types.nvim'
 
   use 'hrsh7th/nvim-cmp'
   use 'hrsh7th/cmp-buffer'

@@ -7,6 +7,10 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
   vim.lsp.protocol.make_client_capabilities()
   )
 
+lspconfig.ccls.setup{
+  capabilities,
+  root_dir = lspconfig.util.root_pattern(".git","*.c"),
+}
 -- -- python
 -- lspconfig.pylsp.setup{
 --   capabilities,

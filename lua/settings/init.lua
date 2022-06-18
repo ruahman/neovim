@@ -1,7 +1,3 @@
--- see :help options
-
--- local utils = require('utils')
-
 vim.opt.syntax = 'on'
 vim.opt.colorcolumn = '80'
 vim.opt.wrap = false
