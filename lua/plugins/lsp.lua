@@ -9,7 +9,7 @@ local capabilities = require('cmp_nvim_lsp').update_capabilities(
 
 lspconfig.ccls.setup{
   capabilities,
-  root_dir = lspconfig.util.root_pattern(".git","*.c"),
+  root_dir = lspconfig.util.root_pattern("*.c"),
 }
 -- -- python
 -- lspconfig.pylsp.setup{
@@ -46,14 +46,33 @@ lspconfig.ccls.setup{
 -- golang
 lspconfig.gopls.setup{
   capabilities,
-  root_dir = lspconfig.util.root_pattern(".git","*.go","go.mod"),
+  root_dir = lspconfig.util.root_pattern("*.go","go.mod"),
 }
 
--- -- rust
--- lspconfig.rust_analyzer.setup{
---   capabilities,
---   root_dir = lspconfig.util.root_pattern("Cargo.toml","*.rs"),
--- }
+local on_attach = function(client)
+    require'completion'.on_attach(client)
+end
+
+-- rust
+lspconfig.rust_analyzer.setup{
+  capabilities,
+  on_attach,
+  settings = {
+        ["rust-analyzer"] = {
+            assist = {
+                importGranularity = "module",
+                importPrefix = "self",
+            },
+            cargo = {
+                loadOutDirsFromCheck = true
+            },
+            procMacro = {
+                enable = true
+            },
+        }
+    }
+  -- root_dir = lspconfig.util.root_pattern("Cargo.toml","*.rs"),
+}
 
 -- key mappings
 -- utils.map('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>')

@@ -10,7 +10,7 @@ cmp.setup({
       ['<C-Space>'] = cmp.mapping.complete(), -- invoke completion
       ['<C-j>'] = cmp.mapping.select_next_item(),
       ['<C-k>'] = cmp.mapping.select_prev_item(),
-      ['<C-e>'] = cmp.mapping.close(),
+      ['<C-e>'] = cmp.mapping.close(),  -- end completion
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
     }, 
     sources = {
