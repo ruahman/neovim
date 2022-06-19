@@ -8,6 +8,8 @@ local func = ls.function_node
 local choice = ls.choice_node
 local dynamicn = ls.dynamic_node
 
+require("luasnip.loaders.from_vscode").lazy_load()
+
 local date = function() return {os.date('%Y-%m-%d')} end
 
 ls.add_snippets("all", {

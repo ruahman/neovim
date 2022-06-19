@@ -26,6 +26,7 @@ return require('packer').startup(function(use)
   use 'hoob3rt/lualine.nvim'
 
   use 'L3MON4D3/LuaSnip'
+  use "rafamadriz/friendly-snippets"
 
   use 'neovim/nvim-lspconfig'
 
