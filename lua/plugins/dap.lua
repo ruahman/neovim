@@ -33,6 +33,7 @@ dap.configurations.rust = {
     type = 'lldb',
     request = 'launch',
     program = function()
+      -- load the debug file that was created using ( cargo build )
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
     end,
     cwd = '${workspaceFolder}',
@@ -47,6 +48,7 @@ dap.configurations.c = {
     type = 'lldb',
     request = 'launch',
     program = function()
+      -- load the debug file that was created using (clang -g )
       return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
     end,
     cwd = '${workspaceFolder}',
