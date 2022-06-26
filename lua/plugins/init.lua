@@ -40,6 +40,8 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
   use 'p00f/nvim-ts-rainbow'
 
+  use 'kevinhwang91/rnvimr'
+
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
@@ -62,6 +64,7 @@ return require('packer').startup(function(use)
   require'plugins.lsp'
   require'plugins.cmp'
   require'plugins.treesitter'
+  require'plugins.ranger'
   require'plugins.telescope'
   require'plugins.dap'
 
