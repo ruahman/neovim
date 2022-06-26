@@ -2,23 +2,44 @@ local dap = require('dap')
 
 -- dap.set_log_level('TRACE')
 
--- dap.adapters.python = {
---   type = 'executable';
---   command = '~/.pyenv/shims/python';
---   args = { '-m', 'debugpy.adapter' };
--- }
+dap.adapters.python = {
+  type = 'executable';
+  command = '/home/ruahman/.pyenv/shims/python';
+  args = { '-m', 'debugpy.adapter' };
+}
 
--- dap.configurations.python = {
---   {
---     type = 'python';
---     request = 'launch';
---     name = "Launch file";
---     program = "${file}";
---     pythonPath = function()
---       return '~/.pyenv/shims/python'
---     end
---   }
--- }
+dap.configurations.python = {
+  {
+    type = 'python';
+    request = 'launch';
+    name = "Launch file";
+    program = "${file}";
+    pythonPath = function()
+      return '/home/ruahman/.pyenv/shims/python'
+    end
+  }
+}
+
+-- lldb c/c++/rust
+dap.adapters.lldb = {
+  type = 'executable',
+  command = '/usr/bin/lldb-vscode-10', -- adjust as needed, must be absolute path
+  name = 'lldb'
+}
+
+dap.configurations.rust = {
+  {
+    name = 'Launch',
+    type = 'lldb',
+    request = 'launch',
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+  },
+}
 
 require'dap-go'.setup()
 require'dapui'.setup()
