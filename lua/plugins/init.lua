@@ -52,9 +52,11 @@ return require('packer').startup(function(use)
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
   use 'mfussenegger/nvim-dap'
-  use 'leoluz/nvim-dap-go'
   use 'rcarriga/nvim-dap-ui'
   use 'theHamsta/nvim-dap-virtual-text'
+  use 'leoluz/nvim-dap-go'
+  use 'mfussenegger/nvim-dap-python'
+  -- use 'suketa/nvim-dap-ruby'
 
   require'plugins.hop'
   require'plugins.quick-scope'
