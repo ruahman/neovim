@@ -70,7 +70,6 @@ time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   LuaSnip = {
-    config = { "\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\fluasnip\frequire\0" },
     loaded = true,
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
@@ -105,15 +104,15 @@ _G.packer_plugins = {
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ["friendly-snippets"] = {
+    loaded = true,
+    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/friendly-snippets",
+    url = "https://github.com/rafamadriz/friendly-snippets"
+  },
   ["hop.nvim"] = {
     loaded = true,
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/hop.nvim",
     url = "https://github.com/phaazon/hop.nvim"
-  },
-  ["lsp-status.nvim"] = {
-    loaded = true,
-    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/lsp-status.nvim",
-    url = "https://github.com/nvim-lua/lsp-status.nvim"
   },
   ["lualine.nvim"] = {
     loaded = true,
@@ -140,7 +139,13 @@ _G.packer_plugins = {
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/nvim-dap-go",
     url = "https://github.com/leoluz/nvim-dap-go"
   },
+  ["nvim-dap-python"] = {
+    loaded = true,
+    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/nvim-dap-python",
+    url = "https://github.com/mfussenegger/nvim-dap-python"
+  },
   ["nvim-dap-ui"] = {
+    config = { "\27LJ\2\nè\1\0\0\a\0\v\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\t\0004\3\3\0005\4\5\0005\5\4\0005\6\3\0>\6\1\5=\5\6\4>\4\1\0035\4\b\0005\5\a\0=\5\6\4>\4\2\3=\3\n\2B\0\2\1K\0\1\0\flayouts\1\0\0\1\0\2\rposition\vbottom\tsize\4\0€€Àþ\3\1\2\0\0\trepl\relements\1\0\2\rposition\tleft\tsize\3(\1\4\0\0\0\fwatches\vstacks\1\0\2\tsize\4\0€€Àþ\3\aid\vscopes\nsetup\ndapui\frequire\0" },
     loaded = true,
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/nvim-dap-ui",
     url = "https://github.com/rcarriga/nvim-dap-ui"
@@ -195,6 +200,11 @@ _G.packer_plugins = {
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/quick-scope",
     url = "https://github.com/unblevable/quick-scope"
   },
+  rnvimr = {
+    loaded = true,
+    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/rnvimr",
+    url = "https://github.com/kevinhwang91/rnvimr"
+  },
   ["telescope-fzf-native.nvim"] = {
     loaded = true,
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/telescope-fzf-native.nvim",
@@ -223,10 +233,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
--- Config for: LuaSnip
-time([[Config for LuaSnip]], true)
-try_loadstring("\27LJ\2\n'\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\fluasnip\frequire\0", "config", "LuaSnip")
-time([[Config for LuaSnip]], false)
+-- Config for: nvim-dap-ui
+time([[Config for nvim-dap-ui]], true)
+try_loadstring("\27LJ\2\nè\1\0\0\a\0\v\0\0196\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\t\0004\3\3\0005\4\5\0005\5\4\0005\6\3\0>\6\1\5=\5\6\4>\4\1\0035\4\b\0005\5\a\0=\5\6\4>\4\2\3=\3\n\2B\0\2\1K\0\1\0\flayouts\1\0\0\1\0\2\rposition\vbottom\tsize\4\0€€Àþ\3\1\2\0\0\trepl\relements\1\0\2\rposition\tleft\tsize\3(\1\4\0\0\0\fwatches\vstacks\1\0\2\tsize\4\0€€Àþ\3\aid\vscopes\nsetup\ndapui\frequire\0", "config", "nvim-dap-ui")
+time([[Config for nvim-dap-ui]], false)
 if should_profile then save_profiles() end
 
 end)

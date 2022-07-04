@@ -6,41 +6,42 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 
 -- startup and add configuration plugins
-return require('packer').startup(function(use)
+packer = require("packer")
+packer.startup(function(use)
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  use("wbthomason/packer.nvim")
 
-  use 'haishanh/night-owl.vim'
+  use("haishanh/night-owl.vim")
 
-  use 'tpope/vim-commentary'
-  use 'tpope/vim-surround'
-  use 'romainl/vim-cool'
-  use 'jiangmiao/auto-pairs'     
+  use("tpope/vim-commentary")
+  use("tpope/vim-surround")
+  use("romainl/vim-cool")
+  use("jiangmiao/auto-pairs")     
 
-  use 'phaazon/hop.nvim'
-  use 'unblevable/quick-scope'
+  use("phaazon/hop.nvim")
+  use("unblevable/quick-scope")
 
-  use 'kyazdani42/nvim-web-devicons'
-  use 'kyazdani42/nvim-tree.lua'
+  use("kyazdani42/nvim-web-devicons")
+  use("kyazdani42/nvim-tree.lua")
 
-  use 'hoob3rt/lualine.nvim'
+  use("hoob3rt/lualine.nvim")
 
-  use 'L3MON4D3/LuaSnip'
+  use("L3MON4D3/LuaSnip")
   use "rafamadriz/friendly-snippets"
 
-  use 'neovim/nvim-lspconfig'
+  use("neovim/nvim-lspconfig")
 
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'saadparwaiz1/cmp_luasnip'
+  use("hrsh7th/nvim-cmp")
+  use("hrsh7th/cmp-buffer")
+  use("hrsh7th/cmp-path")
+  use("hrsh7th/cmp-nvim-lua")
+  use("hrsh7th/cmp-nvim-lsp")
+  use("saadparwaiz1/cmp_luasnip")
 
-  use 'nvim-treesitter/nvim-treesitter'
-  use 'p00f/nvim-ts-rainbow'
+  use("nvim-treesitter/nvim-treesitter")
+  use("p00f/nvim-ts-rainbow")
 
-  use 'kevinhwang91/rnvimr'
+  use("kevinhwang91/rnvimr")
 
   use {
     'nvim-telescope/telescope.nvim',
@@ -51,24 +52,36 @@ return require('packer').startup(function(use)
   }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
-  use 'theHamsta/nvim-dap-virtual-text'
-  use 'leoluz/nvim-dap-go'
-  use 'mfussenegger/nvim-dap-python'
-  -- use 'suketa/nvim-dap-ruby'
-
-  require'plugins.hop'
-  require'plugins.quick-scope'
-  require'plugins.nvim-tree'
-  require'plugins.lualine'
-  require'plugins.luasnip'
-  require'plugins.lsp'
-  require'plugins.cmp'
-  require'plugins.treesitter'
-  require'plugins.ranger'
-  require'plugins.telescope'
-  require'plugins.dap'
+  use("mfussenegger/nvim-dap")
+  use("theHamsta/nvim-dap-virtual-text")
+  use("leoluz/nvim-dap-go")
+  use({
+    "rcarriga/nvim-dap-ui",
+    config = function()
+      require("dapui").setup({
+        layouts = {
+          {
+            elements = {
+            -- Elements can be strings or table with id and size keys.
+              { id = "scopes", size = 0.25 },
+              "watches",
+              "stacks",
+            },
+            size = 40, -- 40 columns
+            position = "left",
+          },
+          {
+            elements = {
+              "repl",
+            },
+            size = 0.25, -- 25% of total lines
+            position = "bottom",
+          },
+        },
+      })
+    end,
+  })
+  use("mfussenegger/nvim-dap-python")
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
@@ -76,3 +89,15 @@ return require('packer').startup(function(use)
     require('packer').sync()
   end
 end)
+
+require'plugins.hop'
+require'plugins.quick-scope'
+require'plugins.nvim-tree'
+require'plugins.lualine'
+require'plugins.luasnip'
+require'plugins.lsp'
+require'plugins.cmp'
+require'plugins.treesitter'
+require'plugins.ranger'
+require'plugins.telescope'
+require'plugins.dap'
