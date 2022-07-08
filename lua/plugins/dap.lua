@@ -44,6 +44,28 @@ require('dap-python').setup('/home/ruahman/.pyenv/shims/python')
 
 require'nvim-dap-virtual-text'.setup()
 
+require("dapui").setup({
+  layouts = {
+    {
+      elements = {
+      -- Elements can be strings or table with id and size keys.
+        { id = "scopes", size = 0.25 },
+        "watches",
+        "stacks",
+      },
+      size = 40, -- 40 columns
+      position = "left",
+    },
+    {
+      elements = {
+        "repl",
+      },
+      size = 0.25, -- 25% of total lines
+      position = "bottom",
+    },
+  },
+})
+
 vim.keymap.set('n', '<leader>b', require'dap'.toggle_breakpoint)
 vim.keymap.set('n', '<leader>c', require'dap'.continue)
 vim.keymap.set('n', '<leader>s', require'dap'.step_into)
