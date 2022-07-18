@@ -32,12 +32,12 @@ packer.startup(function(use)
     end
   })
 
-  use("kyazdani42/nvim-web-devicons")
   use({
     "kyazdani42/nvim-tree.lua",
     config = function()
       require'plugins.nvim-tree'
-    end
+    end,
+    requires = {"kyazdani42/nvim-web-devicons"}
   })
 
   use({
@@ -47,9 +47,9 @@ packer.startup(function(use)
     end
   })
 
-  use "rafamadriz/friendly-snippets"
   use({
     "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
     config = function()
       require'plugins.luasnip'
     end
@@ -62,21 +62,21 @@ packer.startup(function(use)
     end
   })
 
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/cmp-path")
-  use("hrsh7th/cmp-nvim-lua")
-  use("hrsh7th/cmp-nvim-lsp")
-  use("saadparwaiz1/cmp_luasnip")
   use({
     "hrsh7th/nvim-cmp",
+    "hrsh7th/cmp-buffer",
+    "hrsh7th/cmp-path",
+    "hrsh7th/cmp-nvim-lua",
+    "hrsh7th/cmp-nvim-lsp",
+    "saadparwaiz1/cmp_luasnip",
     config = function()
       require'plugins.cmp'
     end
   })
 
-  use("p00f/nvim-ts-rainbow")
   use({
     "nvim-treesitter/nvim-treesitter",
+    "p00f/nvim-ts-rainbow",
     config = function()
       require'plugins.treesitter'
     end
@@ -90,9 +90,9 @@ packer.startup(function(use)
     end
   })
 
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
   use {
     'nvim-telescope/telescope.nvim',
+    {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     requires = {
       'nvim-lua/plenary.nvim', 
       'nvim-lua/popup.nvim', 
@@ -102,12 +102,12 @@ packer.startup(function(use)
     end
   }
 
-  use("leoluz/nvim-dap-go")
-  use("mfussenegger/nvim-dap-python")
-  use("theHamsta/nvim-dap-virtual-text")
-  use("rcarriga/nvim-dap-ui")
   use({
     "mfussenegger/nvim-dap",
+    "leoluz/nvim-dap-go",
+    "mfussenegger/nvim-dap-python",
+    "theHamsta/nvim-dap-virtual-text",
+    "rcarriga/nvim-dap-ui",
     config = function()
       require'plugins.dap'
     end
