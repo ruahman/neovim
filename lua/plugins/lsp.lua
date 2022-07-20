@@ -1,6 +1,46 @@
+require("nvim-lsp-installer").setup{}
+
 local lspconfig = require('lspconfig')
 
 -- vim.lsp.set_log_level("debug")
+
+vim.diagnostic.config({
+  virtual_text = false,
+  signs = true,
+  underline = true,
+  update_in_insert = false,
+  severity_sort = false,
+})
+
+vim.cmd [[autocmd! ColorScheme * highlight Error guifg=red guibg=#1f2335]]
+vim.fn.sign_define('DiagnosticSignError', {
+  text='',
+  texthl='Error',
+  linehl='',
+  numhl='Error'
+})
+
+vim.cmd [[autocmd! ColorScheme * highlight Warn guifg=yellow guibg=#1f2335]]
+vim.fn.sign_define('DiagnosticSignWarn', {
+  text='',
+  texthl='Warn',
+  linehl='',
+  numhl='Warn'
+})
+
+vim.fn.sign_define('DiagnosticSignHint', {
+  text='',
+  texthl='',
+  linehl='',
+  numhl=''
+})
+
+vim.fn.sign_define('DiagnosticSignInfo', {
+  text='',
+  texthl='yellow',
+  linehl='',
+  numhl=''
+})
 
 -- tells lsp what client is capable of doing
 local capabilities = require('cmp_nvim_lsp').update_capabilities(
@@ -78,6 +118,8 @@ lspconfig.ccls.setup{
   root_dir = lspconfig.util.root_pattern("*.c"),
 }
 
+lspconfig.sumneko_lua.setup{}
+
 -- key mappings
 vim.keymap.set("n", "gh", vim.lsp.buf.hover) -- hover information
 vim.keymap.set("n", "gd", vim.lsp.buf.definition) -- like definition of function
@@ -85,7 +127,7 @@ vim.keymap.set("n", "gt", vim.lsp.buf.type_definition) -- like definition of a t
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation) -- like implementaion of interface
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
 vim.keymap.set("n", "gf", vim.lsp.buf.formatting)
-
+vim.keymap.set('n', 'ge', vim.diagnostic.open_float)
 -- auto-format
 -- cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
 vim.cmd[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting()]]

@@ -1,6 +1,13 @@
 local dap = require('dap')
 
 -- dap.set_log_level('TRACE')
+vim.cmd [[autocmd! ColorScheme * highlight BreakPoint guifg=green guibg=#1f2335]]
+vim.fn.sign_define('DapBreakpoint', {
+  text='',
+  texthl='BreakPoint',
+  linehl='BreakPoint',
+  numhl='BreakPoint'
+})
 
 -- lldb c/c++/rust
 dap.adapters.lldb = {

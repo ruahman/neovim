@@ -1,7 +1,7 @@
 vim.opt.syntax = 'on'
 vim.opt.colorcolumn = '80'
 vim.opt.wrap = false
-
+vim.opt.termguicolors = true
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 
