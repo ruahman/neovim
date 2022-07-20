@@ -23,6 +23,19 @@ packer.startup(function(use)
   use "unblevable/quick-scope"
 
   use {
+      'goolord/alpha-nvim',
+      config = function ()
+          require'alpha'.setup(require'alpha.themes.dashboard'.config)
+      end
+  }
+
+  use {
+    'akinsho/bufferline.nvim',
+    tag = "v2.*",
+    requires = 'kyazdani42/nvim-web-devicons'
+  }
+
+  use {
     "kyazdani42/nvim-tree.lua",
     "kyazdani42/nvim-web-devicons"
   }
@@ -81,6 +94,7 @@ packer.startup(function(use)
   require'plugins.ranger'
   require'plugins.dap'
   require'plugins.treesitter'
+  require'plugins.bufferline'
   require'plugins.cmp'
   require'plugins.lsp'
   require'plugins.luasnip'
