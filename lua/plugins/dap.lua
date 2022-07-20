@@ -1,12 +1,12 @@
 local dap = require('dap')
 
 -- dap.set_log_level('TRACE')
-vim.cmd [[autocmd! ColorScheme * highlight BreakPoint guifg=green guibg=#1f2335]]
+vim.cmd [[autocmd! ColorScheme * highlight Debug guifg=green guibg=#1f2335]]
 vim.fn.sign_define('DapBreakpoint', {
-  text='',
-  texthl='BreakPoint',
-  linehl='BreakPoint',
-  numhl='BreakPoint'
+  text = '',
+  texthl = 'Debug',
+  linehl = 'Debug',
+  numhl = 'Debug'
 })
 
 -- lldb c/c++/rust
@@ -46,16 +46,16 @@ dap.configurations.c = {
   },
 }
 
-require'dap-go'.setup()
+require 'dap-go'.setup()
 require('dap-python').setup('/home/ruahman/.pyenv/shims/python')
 
-require'nvim-dap-virtual-text'.setup()
+require 'nvim-dap-virtual-text'.setup()
 
 require("dapui").setup({
   layouts = {
     {
       elements = {
-      -- Elements can be strings or table with id and size keys.
+        -- Elements can be strings or table with id and size keys.
         { id = "scopes", size = 0.25 },
         "watches",
         "stacks",
@@ -73,8 +73,8 @@ require("dapui").setup({
   },
 })
 
-vim.keymap.set('n', '<leader>b', require'dap'.toggle_breakpoint)
-vim.keymap.set('n', '<leader>c', require'dap'.continue)
-vim.keymap.set('n', '<leader>s', require'dap'.step_into)
-vim.keymap.set('n', '<leader>n', require'dap'.step_over)
-vim.keymap.set('n', '<leader>u', require'dapui'.toggle)
+vim.keymap.set('n', '<leader>b', require 'dap'.toggle_breakpoint)
+vim.keymap.set('n', '<leader>c', require 'dap'.continue)
+vim.keymap.set('n', '<leader>s', require 'dap'.step_into)
+vim.keymap.set('n', '<leader>n', require 'dap'.step_over)
+vim.keymap.set('n', '<leader>u', require 'dapui'.toggle)

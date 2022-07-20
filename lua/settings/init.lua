@@ -21,11 +21,11 @@ vim.opt.expandtab = true
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
-vim.opt.listchars = { 
-  tab = '▸ ', 
-  eol = '¬', 
-  space = '.', 
-  nbsp = '.' 
+vim.opt.listchars = {
+  tab = '▸ ',
+  eol = '¬',
+  space = '.',
+  nbsp = '.'
 }
 
 -- no swap file???

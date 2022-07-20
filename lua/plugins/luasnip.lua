@@ -27,8 +27,8 @@ ls.add_snippets("all", {
     },
     {
         text({"---",
-        "title: "}), insert(1, "note_title"), text({"", 
-        "author: "}), insert(2, "author"), text({"", 
+        "title: "}), insert(1, "note_title"), text({"",
+        "author: "}), insert(2, "author"), text({"",
         "date: "}), func(date, {}), text({"",
         "categories: ["}), insert(3, ""), text({"]",
         "lastmod: "}), func(date, {}), text({"",

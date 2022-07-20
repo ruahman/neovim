@@ -128,6 +128,7 @@ vim.keymap.set("n", "gi", vim.lsp.buf.implementation) -- like implementaion of i
 vim.keymap.set("n", "gr", vim.lsp.buf.references)
 vim.keymap.set("n", "gf", vim.lsp.buf.formatting)
 vim.keymap.set('n', 'ge', vim.diagnostic.open_float)
+
 -- auto-format
 -- cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
 vim.cmd[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting()]]

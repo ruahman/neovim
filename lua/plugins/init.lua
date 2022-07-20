@@ -35,7 +35,6 @@ packer.startup(function(use)
   }
 
   use {
-    'folke/lsp-colors.nvim',
     "neovim/nvim-lspconfig",
     "williamboman/nvim-lsp-installer",
   }
