@@ -12,6 +12,7 @@ packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
   use "haishanh/night-owl.vim"
+  use 'folke/tokyonight.nvim'
 
   use "tpope/vim-commentary"
   use "tpope/vim-surround"
@@ -43,11 +44,6 @@ packer.startup(function(use)
   use "hoob3rt/lualine.nvim"
 
   use {
-    "L3MON4D3/LuaSnip",
-    "rafamadriz/friendly-snippets",
-  }
-
-  use {
     "neovim/nvim-lspconfig",
     "williamboman/nvim-lsp-installer",
   }
@@ -59,6 +55,12 @@ packer.startup(function(use)
     "hrsh7th/cmp-nvim-lua",
     "hrsh7th/cmp-nvim-lsp",
     "saadparwaiz1/cmp_luasnip",
+    "onsails/lspkind.nvim",
+  }
+
+  use {
+    "L3MON4D3/LuaSnip",
+    "rafamadriz/friendly-snippets",
   }
 
   use {
@@ -94,7 +96,7 @@ packer.startup(function(use)
   require'plugins.ranger'
   require'plugins.dap'
   require'plugins.treesitter'
-  require'plugins.bufferline'
+  -- require'plugins.bufferline'
   require'plugins.cmp'
   require'plugins.lsp'
   require'plugins.luasnip'

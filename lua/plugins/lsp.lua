@@ -12,7 +12,7 @@ vim.diagnostic.config({
   severity_sort = false,
 })
 
-vim.cmd [[autocmd! ColorScheme * highlight Error guifg=red guibg=#1f2335]]
+-- vim.cmd [[autocmd! ColorScheme * highlight Error guifg=red guibg=#1f2335]]
 vim.fn.sign_define('DiagnosticSignError', {
   text='',
   texthl='Error',
@@ -20,7 +20,7 @@ vim.fn.sign_define('DiagnosticSignError', {
   numhl='Error'
 })
 
-vim.cmd [[autocmd! ColorScheme * highlight Warn guifg=yellow guibg=#1f2335]]
+-- vim.cmd [[autocmd! ColorScheme * highlight Warn guifg=yellow guibg=#1f2335]]
 vim.fn.sign_define('DiagnosticSignWarn', {
   text='',
   texthl='Warn',

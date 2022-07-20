@@ -22,7 +22,7 @@ require('bufferline').setup {
   }
 }
 
-vim.cmd [[autocmd! ColorScheme * highlight Debug guifg=green guibg=#1f2335]]
+-- vim.cmd [[autocmd! ColorScheme * highlight Debug guifg=green guibg=#1f2335]]
 -- These commands will navigate through buffers in order regardless of which mode you are using
 -- e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
 vim.cmd [[nnoremap <silent><C-f> :BufferLineCycleNext<CR>]]

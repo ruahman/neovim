@@ -1,4 +1,5 @@
 local cmp = require'cmp'
+local lspkind = require('lspkind')
 
 cmp.setup({
     snippet = {
@@ -8,16 +9,28 @@ cmp.setup({
     },
     mapping = {
       ['<C-Space>'] = cmp.mapping.complete(), -- invoke completion
-      ['<C-j>'] = cmp.mapping.select_next_item(),
-      ['<C-k>'] = cmp.mapping.select_prev_item(),
+      ['<C-n>'] = cmp.mapping.select_next_item(),
+      ['<C-p>'] = cmp.mapping.select_prev_item(),
       ['<C-e>'] = cmp.mapping.close(),  -- end completion
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
-    }, 
+    },
     sources = {
       { name = 'nvim_lsp' },
+      { name = 'luasnip' },
       { name = 'buffer' },
       { name = 'path' },
-      { name = 'luasnip' },
       { name = 'nvim_lua' },
-    }
+    },
+    formatting = {
+      format = lspkind.cmp_format(),
+    },
+    window = {
+      documentation = cmp.config.window.bordered(),
+    },
+    experimental = {
+      ghost_text = true,
+    },
+    -- view = {
+    --   entries = 'native'
+    -- }
   })
