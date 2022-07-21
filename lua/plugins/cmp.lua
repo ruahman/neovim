@@ -18,7 +18,7 @@ cmp.setup({
       { name = 'nvim_lua' },
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
-      { name = 'buffer', max_item_count = 5 },
+      { name = 'buffer', keyword_length = 5 },
       { name = 'path' },
     },
     formatting = {
@@ -30,7 +30,4 @@ cmp.setup({
     experimental = {
       ghost_text = true,
     },
-    -- view = {
-    --   entries = 'native'
-    -- }
   })
