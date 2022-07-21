@@ -15,11 +15,11 @@ cmp.setup({
       ['<CR>'] = cmp.mapping.confirm({ select = true }),
     },
     sources = {
+      { name = 'nvim_lua' },
       { name = 'nvim_lsp' },
       { name = 'luasnip' },
-      { name = 'buffer' },
+      { name = 'buffer', max_item_count = 5 },
       { name = 'path' },
-      { name = 'nvim_lua' },
     },
     formatting = {
       format = lspkind.cmp_format(),
