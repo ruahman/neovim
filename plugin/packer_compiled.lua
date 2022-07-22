@@ -250,6 +250,11 @@ _G.packer_plugins = {
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/vim-cool",
     url = "https://github.com/romainl/vim-cool"
   },
+  ["vim-fugitive"] = {
+    loaded = true,
+    path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/vim-fugitive",
+    url = "https://github.com/tpope/vim-fugitive"
+  },
   ["vim-surround"] = {
     loaded = true,
     path = "/home/ruahman/.local/share/nvim/site/pack/packer/start/vim-surround",

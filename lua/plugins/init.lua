@@ -16,6 +16,7 @@ packer.startup(function(use)
 
   use "tpope/vim-commentary"
   use "tpope/vim-surround"
+  use "tpope/vim-fugitive"
   use "romainl/vim-cool"
   use "jiangmiao/auto-pairs"
 

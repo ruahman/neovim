@@ -28,3 +28,9 @@ keymap('n', '<M-j>', ':m .+1<cr>==', opts)
 keymap('n', '<M-k>', ':m .-2<CR>==', opts)
 keymap('v', '<M-j>', ":m '>+1<cr>gv=gv", opts)
 keymap('v', '<M-k>', ":m '<-2<cr>gv=gv", opts)
+
+-- move through buffers
+keymap('n', '<C-f>', ':bnext<CR>', opts)
+
+-- save shortcut
+-- keymap('n', '<C-s>', ':w<CR>', opts)
