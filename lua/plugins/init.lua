@@ -87,6 +87,8 @@ packer.startup(function(use)
     "rcarriga/nvim-dap-ui",
   }
 
+  use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
+
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if packer_bootstrap then
@@ -98,6 +100,7 @@ packer.startup(function(use)
   require'plugins.dap'
   require'plugins.treesitter'
   -- require'plugins.bufferline'
+  require'plugins.toogleterm'
   require'plugins.cmp'
   require'plugins.lsp'
   require'plugins.luasnip'
