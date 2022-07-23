@@ -34,3 +34,5 @@ keymap('n', '<C-f>', ':bnext<CR>', opts)
 
 -- save shortcut
 -- keymap('n', '<C-s>', ':w<CR>', opts)
+
+-- vim.cmd[[command! -nargs=+ Go :! go <args> .]]

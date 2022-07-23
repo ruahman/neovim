@@ -35,10 +35,11 @@ return {
     })),
     s("if",fmt([[
       if {} {{
-
+        {}
       }}
     ]],{
-      i(1,"condition")
+      i(1,"condition"),
+      i(2)
     })),
     s("ifelse",fmt([[
     if {} {{
