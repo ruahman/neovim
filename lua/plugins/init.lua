@@ -99,7 +99,7 @@ packer.startup(function(use)
   require'plugins.ranger'
   require'plugins.dap'
   require'plugins.treesitter'
-  -- require'plugins.bufferline'
+  require'plugins.bufferline'
   require'plugins.toogleterm'
   require'plugins.cmp'
   require'plugins.lsp'

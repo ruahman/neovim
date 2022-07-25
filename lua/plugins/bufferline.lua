@@ -1,3 +1,4 @@
+vim.opt.termguicolors = true
 require('bufferline').setup {
   options = {
     offsets = {
@@ -8,17 +9,17 @@ require('bufferline').setup {
         text_align = "left"
       }
     },
-    separator_style = "slant",
+    -- separator_style = "slant",
     diagnostics = "nvim_lsp",
-    diagnostics_update_in_insert = false,
+    -- diagnostics_update_in_insert = false,
     -- The diagnostics indicator can be set to nil to keep the buffer name highlight but delete the highlighting
-    diagnostics_indicator = function(count, level, diagnostics_dict, context)
-      if string.match(level, "error") then
-        return "("..count..")"
-      elseif string.match(level, "warning") then
-        return "("..count..")"
-      end
-    end,
+    -- diagnostics_indicator = function(count, level, diagnostics_dict, context)
+    --   if string.match(level, "error") then
+    --     return "("..count..")"
+    --   elseif string.match(level, "warning") then
+    --     return "("..count..")"
+    --   end
+    -- end,
   }
 }
 
