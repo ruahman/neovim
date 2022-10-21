@@ -11,6 +11,7 @@ packer.startup(function(use)
   -- Packer can manage itself
   use "wbthomason/packer.nvim"
 
+  -- themes
   use "haishanh/night-owl.vim"
   use 'folke/tokyonight.nvim'
 
@@ -24,6 +25,7 @@ packer.startup(function(use)
 
   use "unblevable/quick-scope"
 
+  -- dashboard
   use {
       'goolord/alpha-nvim',
       config = function ()
@@ -31,24 +33,29 @@ packer.startup(function(use)
       end
   }
 
+  -- bufferline
   use {
     'akinsho/bufferline.nvim',
     tag = "v2.*",
     requires = 'kyazdani42/nvim-web-devicons'
   }
 
+  -- neotree
   use {
     "kyazdani42/nvim-tree.lua",
     "kyazdani42/nvim-web-devicons"
   }
 
+  -- lualine
   use "hoob3rt/lualine.nvim"
 
+  -- lsp
   use {
     "neovim/nvim-lspconfig",
     "williamboman/nvim-lsp-installer",
   }
 
+  -- completion
   use {
     "hrsh7th/nvim-cmp",
     "hrsh7th/cmp-buffer",
@@ -59,19 +66,23 @@ packer.startup(function(use)
     "onsails/lspkind.nvim",
   }
 
+  -- snippets 
   use {
     "L3MON4D3/LuaSnip",
     "rafamadriz/friendly-snippets",
   }
 
+  -- treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
     "p00f/nvim-ts-rainbow",
   }
 
 
-  use "kevinhwang91/rnvimr"
+  -- ranger
+  -- use "kevinhwang91/rnvimr"
 
+  -- telescope
   use {
     "nvim-lua/plenary.nvim",
     "nvim-lua/popup.nvim",
@@ -79,6 +90,7 @@ packer.startup(function(use)
     "nvim-telescope/telescope.nvim",
   }
 
+  -- dap
   use {
     "mfussenegger/nvim-dap",
     "leoluz/nvim-dap-go",
@@ -87,6 +99,7 @@ packer.startup(function(use)
     "rcarriga/nvim-dap-ui",
   }
 
+  -- terminal
   use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
 
   -- Automatically set up your configuration after cloning packer.nvim
@@ -96,8 +109,8 @@ packer.startup(function(use)
   end
 
   require'plugins.telescope'
-  require'plugins.ranger'
-  require'plugins.dap'
+  -- require'plugins.ranger'
+  -- require'plugins.dap'
   require'plugins.treesitter'
   require'plugins.bufferline'
   require'plugins.toogleterm'

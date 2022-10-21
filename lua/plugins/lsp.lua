@@ -2,51 +2,54 @@ require("nvim-lsp-installer").setup{}
 
 local lspconfig = require('lspconfig')
 
--- vim.lsp.set_log_level("debug")
+vim.lsp.set_log_level("debug")
 
-vim.diagnostic.config({
-  virtual_text = false,
-  signs = true,
-  underline = true,
-  update_in_insert = false,
-  severity_sort = false,
-})
+-- vim.diagnostic.config({
+--   virtual_text = false,
+--   signs = true,
+--   underline = true,
+--   update_in_insert = false,
+--   severity_sort = false,
+-- })
 
-vim.cmd [[autocmd! ColorScheme * highlight Error guifg=red guibg=#1f2335]]
-vim.fn.sign_define('DiagnosticSignError', {
-  text='',
-  texthl='Error',
-  linehl='',
-  numhl='Error'
-})
+-- vim.cmd [[autocmd! ColorScheme * highlight Error guifg=red guibg=#1f2335]]
+-- vim.fn.sign_define('DiagnosticSignError', {
+--   text='',
+--   texthl='Error',
+--   linehl='',
+--   numhl='Error'
+-- })
 
-vim.cmd [[autocmd! ColorScheme * highlight Warn guifg=yellow guibg=#1f2335]]
-vim.fn.sign_define('DiagnosticSignWarn', {
-  text='',
-  texthl='Warn',
-  linehl='',
-  numhl='Warn'
-})
+-- vim.cmd [[autocmd! ColorScheme * highlight Warn guifg=yellow guibg=#1f2335]]
+-- vim.fn.sign_define('DiagnosticSignWarn', {
+--   text='',
+--   texthl='Warn',
+--   linehl='',
+--   numhl='Warn'
+-- })
 
-vim.fn.sign_define('DiagnosticSignHint', {
-  text='',
-  texthl='',
-  linehl='',
-  numhl=''
-})
+-- vim.fn.sign_define('DiagnosticSignHint', {
+--   text='',
+--   texthl='',
+--   linehl='',
+--   numhl=''
+-- })
 
-vim.fn.sign_define('DiagnosticSignInfo', {
-  text='',
-  texthl='yellow',
-  linehl='',
-  numhl=''
-})
+-- vim.fn.sign_define('DiagnosticSignInfo', {
+--   text='',
+--   texthl='yellow',
+--   linehl='',
+--   numhl=''
+-- })
 
 -- tells lsp what client is capable of doing
-local capabilities = require('cmp_nvim_lsp').update_capabilities(
-  vim.lsp.protocol.make_client_capabilities()
-  )
+-- local capabilities = require('cmp_nvim_lsp').update_capabilities(
+--   vim.lsp.protocol.make_client_capabilities()
+--   )
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities(
+  vim.lsp.protocol.make_client_capabilities()
+  ) 
 
 -- python
 lspconfig.pylsp.setup{
@@ -113,11 +116,12 @@ lspconfig.rust_analyzer.setup{
 }
 
 -- c,c++
-lspconfig.ccls.setup{
+lspconfig.clangd.setup{
   capabilities,
   root_dir = lspconfig.util.root_pattern("*.c"),
 }
 
+-- lua
 lspconfig.sumneko_lua.setup{}
 
 -- key mappings
@@ -130,7 +134,7 @@ vim.keymap.set("n", "gf", vim.lsp.buf.formatting)
 vim.keymap.set('n', 'ge', vim.diagnostic.open_float)
 
 -- auto-format
--- cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
+vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
 vim.cmd[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting()]]
--- cmd[[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()]]
+vim.cmd[[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()]]
 -- cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting()]]
