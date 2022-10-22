@@ -110,7 +110,7 @@ packer.startup(function(use)
 
   require'plugins.telescope'
   -- require'plugins.ranger'
-  -- require'plugins.dap'
+  require'plugins.dap'
   require'plugins.treesitter'
   require'plugins.bufferline'
   require'plugins.toogleterm'

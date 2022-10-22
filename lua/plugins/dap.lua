@@ -1,13 +1,13 @@
 local dap = require('dap')
 
 -- dap.set_log_level('TRACE')
-vim.cmd [[autocmd! ColorScheme * highlight Debug guifg=green guibg=#1f2335]]
-vim.fn.sign_define('DapBreakpoint', {
-  text = '',
-  texthl = 'Debug',
-  linehl = 'Debug',
-  numhl = 'Debug'
-})
+-- vim.cmd [[autocmd! ColorScheme * highlight Debug guifg=green guibg=#1f2335]]
+-- vim.fn.sign_define('DapBreakpoint', {
+--   text = '',
+--   texthl = 'Debug',
+--   linehl = 'Debug',
+--   numhl = 'Debug'
+-- })
 
 -- lldb c/c++/rust
 dap.adapters.lldb = {
@@ -16,6 +16,7 @@ dap.adapters.lldb = {
   name = 'lldb'
 }
 
+--rust
 dap.configurations.rust = {
   {
     name = 'Launch',
@@ -31,6 +32,7 @@ dap.configurations.rust = {
   },
 }
 
+--c
 dap.configurations.c = {
   {
     name = 'Launch',
@@ -46,11 +48,15 @@ dap.configurations.c = {
   },
 }
 
+--dap go
 require 'dap-go'.setup()
+
+--dap python
 require('dap-python').setup('/home/ruahman/.pyenv/shims/python')
 
 require 'nvim-dap-virtual-text'.setup()
 
+--DAPUI
 require("dapui").setup({
   layouts = {
     {

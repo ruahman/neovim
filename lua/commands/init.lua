@@ -17,3 +17,17 @@ vim.api.nvim_create_user_command(
   end,
   {nargs = 1}
 )
+
+vim.api.nvim_create_user_command(
+  'Make',
+  function(input)
+    if string.match(input.args, "build") then
+      vim.cmd[[:! make build]]
+    elseif string.match(input.args, "clean") then
+      vim.cmd[[:! make clean]]
+    elseif string.match(input.args, "run") then
+      vim.cmd[[:! make run]]
+    end
+  end,
+  {nargs = 1}
+)
