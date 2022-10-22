@@ -27,7 +27,9 @@ vim.api.nvim_create_user_command(
       vim.cmd[[:! make clean]]
     elseif string.match(input.args, "run") then
       vim.cmd[[:! make run]]
+    else
+      vim.cmd[[:! make]]
     end
   end,
-  {nargs = 1}
+  {nargs = '?'}
 )

@@ -7,8 +7,8 @@ vim.g.mapleader = ' '
 keymap('n', '<Leader>h', ':set hlsearch!<CR>', opts)
 keymap('n', '<Leader>l', ':set list!<CR>', opts)
 
-keymap('i', 'jk', '<ESC>', opts)
-keymap('i', 'kj', '<ESC>', opts)
+-- keymap('i', 'jk', '<ESC>', opts)
+-- keymap('i', 'kj', '<ESC>', opts)
 
 keymap('v', '<', '<gv', opts)
 keymap('v', '>', '>gv', opts)

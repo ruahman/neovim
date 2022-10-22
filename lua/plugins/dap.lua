@@ -9,30 +9,15 @@ local dap = require('dap')
 --   numhl = 'Debug'
 -- })
 
--- lldb c/c++/rust
+-- setup lldb for c/c++/rust
 dap.adapters.lldb = {
   type = 'executable',
-  command = '/usr/bin/lldb-vscode-10', -- adjust as needed, must be absolute path
+  command = '/usr/bin/lldb-vscode', -- comes with install of lldb
   name = 'lldb'
 }
 
---rust
-dap.configurations.rust = {
-  {
-    name = 'Launch',
-    type = 'lldb',
-    request = 'launch',
-    program = function()
-      -- load the debug file that was created using ( cargo build )
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
-    end,
-    cwd = '${workspaceFolder}',
-    stopOnEntry = false,
-    args = {},
-  },
-}
 
---c
+--dap c
 dap.configurations.c = {
   {
     name = 'Launch',
@@ -48,11 +33,43 @@ dap.configurations.c = {
   },
 }
 
+--dap cpp
+dap.configurations.cpp = {
+  {
+    name = 'Launch',
+    type = 'lldb',
+    request = 'launch',
+    program = function()
+      -- load the debug file that was created using (clang -g )
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+  },
+}
+
+--dap rust
+dap.configurations.rust = {
+  {
+    name = 'Launch',
+    type = 'lldb',
+    request = 'launch',
+    program = function()
+      -- load the debug file that was created using ( cargo build )
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/target/debug/', 'file')
+    end,
+    cwd = '${workspaceFolder}',
+    stopOnEntry = false,
+    args = {},
+  },
+}
+
 --dap go
-require 'dap-go'.setup()
+require 'dap-go'.setup() -- must have delve installed globaly
 
 --dap python
-require('dap-python').setup('/home/ruahman/.pyenv/shims/python')
+require('dap-python').setup() -- must have debugpy installed globaly
 
 require 'nvim-dap-virtual-text'.setup()
 
