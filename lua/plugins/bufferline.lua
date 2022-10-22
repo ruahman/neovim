@@ -1,6 +1,10 @@
 vim.opt.termguicolors = true
 require('bufferline').setup {
   options = {
+    close_command = "Bdelete! %d",
+    indicator = {
+        style = 'underline',
+    },
     offsets = {
       {
         filetype = "NvimTree",
@@ -26,9 +30,9 @@ require('bufferline').setup {
 -- vim.cmd [[autocmd! ColorScheme * highlight Debug guifg=green guibg=#1f2335]]
 -- These commands will navigate through buffers in order regardless of which mode you are using
 -- e.g. if you change the order of buffers :bnext and :bprevious will not respect the custom ordering
-vim.cmd [[nnoremap <silent><C-f> :BufferLineCycleNext<CR>]]
-vim.cmd [[nnoremap <silent><C-b> :BufferLineCyclePrev<CR>]]
+vim.cmd [[nnoremap <silent><M-f> :BufferLineCycleNext<CR>]]
+vim.cmd [[nnoremap <silent><M-b> :BufferLineCyclePrev<CR>]]
 
 -- These commands will move the current buffer backwards or forwards in the bufferline
-vim.cmd [[nnoremap <silent><M-f> :BufferLineMoveNext<CR>]]
-vim.cmd [[nnoremap <silent><M-b> :BufferLineMovePrev<CR>]]
+-- vim.cmd [[nnoremap <silent><S-f> :BufferLineMoveNext<CR>]]
+-- vim.cmd [[nnoremap <silent><S-b> :BufferLineMovePrev<CR>]]
