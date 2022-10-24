@@ -1,7 +1,7 @@
 
 
 -- vim.cmd[[command! -nargs=+ Go :! go <args> .]]
-
+-- Go commands
 vim.api.nvim_create_user_command(
   'Go',
   function(input)
@@ -18,6 +18,7 @@ vim.api.nvim_create_user_command(
   {nargs = 1}
 )
 
+-- Make commands
 vim.api.nvim_create_user_command(
   'Make',
   function(input)
@@ -33,3 +34,21 @@ vim.api.nvim_create_user_command(
   end,
   {nargs = '?'}
 )
+
+-- Cargo
+vim.api.nvim_create_user_command(
+  'Cargo',
+  function(input)
+    if string.match(input.args, "build") then
+      vim.cmd[[:! cargo build]]
+    elseif string.match(input.args, "clean") then
+      vim.cmd[[:! cargo clean]]
+    elseif string.match(input.args, "run") then
+      vim.cmd[[:! cargo run]]
+    elseif string.match(input.args, "check") then
+      vim.cmd[[:! cargo check]]
+    end
+  end,
+  {nargs = 1}
+)
+

@@ -89,10 +89,20 @@ vim.keymap.set("n", "gt", vim.lsp.buf.type_definition) -- like definition of a t
 vim.keymap.set("n", "gi", vim.lsp.buf.implementation) -- like implementaion of interface
 vim.keymap.set("n", "gr", vim.lsp.buf.references) -- references
 vim.keymap.set("n", "gf", vim.lsp.buf.formatting) -- formatting
+-- format
+local on_format = function(client)
+  vim.lsp.buf.format{async=true}
+end
+vim.keymap.set("n", "gf", on_format)
+
 vim.keymap.set('n', 'ge', vim.diagnostic.open_float) -- explain
 
 -- auto-format
-vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
-vim.cmd[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting()]]
-vim.cmd[[autocmd BufWritePre *.rs lua vim.lsp.buf.formatting()]]
+-- vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
+-- vim.cmd[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting()]]
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*.rs",
+  callback = on_format,
+})
+-- vim.cmd[[autocmd BufWritePre *.rs lua vim.lsp.buf.format()]]
 -- cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting()]]
