@@ -2,8 +2,6 @@ require("nvim-lsp-installer").setup{}
 
 local lspconfig = require('lspconfig')
 
--- vim.lsp.set_log_level("debug")
-
 -- share capabilities of lsp with lsp clients
 local capabilities = require('cmp_nvim_lsp').default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
@@ -28,18 +26,18 @@ lspconfig.pylsp.setup{
   }
 }
 
--- ruby
-lspconfig.solargraph.setup{
-  capabilities,
-  root_dir = lspconfig.util.root_pattern("Gemfile",".git","*.rb"),
-  settings = {
-    solargraph = {
-      autoformat=true;
-      completion=true;
-      diagnostics=true;
-    }
-  }
-}
+-- -- ruby
+-- lspconfig.solargraph.setup{
+--   capabilities,
+--   root_dir = lspconfig.util.root_pattern("Gemfile",".git","*.rb"),
+--   settings = {
+--     solargraph = {
+--       autoformat=true;
+--       completion=true;
+--       diagnostics=true;
+--     }
+--   }
+-- }
 
 -- golang
 lspconfig.gopls.setup{
@@ -85,10 +83,11 @@ lspconfig.sumneko_lua.setup{}
 -- key mappings
 vim.keymap.set("n", "gh", vim.lsp.buf.hover) -- hover information
 vim.keymap.set("n", "gd", vim.lsp.buf.definition) -- like definition of function
-vim.keymap.set("n", "gt", vim.lsp.buf.type_definition) -- like definition of a type
-vim.keymap.set("n", "gi", vim.lsp.buf.implementation) -- like implementaion of interface
-vim.keymap.set("n", "gr", vim.lsp.buf.references) -- references
-vim.keymap.set("n", "gf", vim.lsp.buf.formatting) -- formatting
+-- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition) -- like definition of a type
+-- vim.keymap.set("n", "gi", vim.lsp.buf.implementation) -- like implementaion of interface
+-- vim.keymap.set("n", "gr", vim.lsp.buf.references) -- references
+-- vim.keymap.set("n", "gf", vim.lsp.buf.formatting) -- formatting
+
 -- format
 local on_format = function(client)
   vim.lsp.buf.format{async=true}
@@ -105,4 +104,4 @@ vim.api.nvim_create_autocmd("BufWritePre",{
   callback = on_format,
 })
 -- vim.cmd[[autocmd BufWritePre *.rs lua vim.lsp.buf.format()]]
--- cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting()]]
+-- -- cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting()]]

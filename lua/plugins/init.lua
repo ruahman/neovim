@@ -81,10 +81,6 @@ packer.startup(function(use)
     "p00f/nvim-ts-rainbow",
   }
 
-
-  -- ranger
-  -- use "kevinhwang91/rnvimr"
-
   -- telescope
   use {
     "nvim-lua/plenary.nvim",
@@ -112,7 +108,6 @@ packer.startup(function(use)
   end
 
   require'plugins.telescope'
-  -- require'plugins.ranger'
   require'plugins.dap'
   require'plugins.treesitter'
   require'plugins.bufferline'
