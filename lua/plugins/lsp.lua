@@ -84,9 +84,8 @@ lspconfig.sumneko_lua.setup{}
 vim.keymap.set("n", "gh", vim.lsp.buf.hover) -- hover information
 vim.keymap.set("n", "gd", vim.lsp.buf.definition) -- like definition of function
 -- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition) -- like definition of a type
--- vim.keymap.set("n", "gi", vim.lsp.buf.implementation) -- like implementaion of interface
+vim.keymap.set("n", "gi", vim.lsp.buf.implementation) -- like implementaion of interface
 -- vim.keymap.set("n", "gr", vim.lsp.buf.references) -- references
--- vim.keymap.set("n", "gf", vim.lsp.buf.formatting) -- formatting
 
 -- format
 local on_format = function(client)
@@ -97,11 +96,24 @@ vim.keymap.set("n", "gf", on_format)
 vim.keymap.set('n', 'ge', vim.diagnostic.open_float) -- explain
 
 -- auto-format
--- vim.cmd[[autocmd BufWritePre *.py lua vim.lsp.buf.formatting()]]
--- vim.cmd[[autocmd BufWritePre *.go lua vim.lsp.buf.formatting()]]
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*.py",
+  callback = on_format,
+})
 vim.api.nvim_create_autocmd("BufWritePre",{
   pattern = "*.rs",
   callback = on_format,
 })
--- vim.cmd[[autocmd BufWritePre *.rs lua vim.lsp.buf.format()]]
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*.c",
+  callback = on_format,
+})
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*.cpp",
+  callback = on_format,
+})
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*.go",
+  callback = on_format,
+})
 -- -- cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting()]]
