@@ -120,4 +120,8 @@ vim.api.nvim_create_autocmd("BufWritePre",{
   pattern = "*.go",
   callback = on_format,
 })
+vim.api.nvim_create_autocmd("BufWritePre",{
+  pattern = "*.ts",
+  callback = on_format,
+})
 -- -- cmd[[autocmd BufWritePre *.rb lua vim.lsp.buf.formatting()]]
