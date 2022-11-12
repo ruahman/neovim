@@ -7,6 +7,7 @@ local capabilities = require('cmp_nvim_lsp').default_capabilities(
   vim.lsp.protocol.make_client_capabilities()
   )
 
+
 -- python
 lspconfig.pylsp.setup{
   capabilities,
@@ -79,6 +80,9 @@ lspconfig.clangd.setup{
 
 -- lua
 lspconfig.sumneko_lua.setup{}
+
+-- deno
+lspconfig.denols.setup {}
 
 -- key mappings
 vim.keymap.set("n", "gh", vim.lsp.buf.hover) -- hover information
