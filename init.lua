@@ -2,5 +2,4 @@ require('settings')
 require('keys')
 require('commands')
 require('plugins')
-require('colorscheme')
 
