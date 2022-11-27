@@ -8,6 +8,7 @@ require'lualine'.setup{
     lualine_z = {'location'}
   },
   options = {
-    theme = 'tokyonight'
+    -- theme = 'tokyonight'
+    theme = 'nightfox'
   }
 }

@@ -14,6 +14,7 @@ packer.startup(function(use)
   -- themes
   use "haishanh/night-owl.vim"
   use 'folke/tokyonight.nvim'
+  use "EdenEast/nightfox.nvim"
 
   use "tpope/vim-commentary"
   use "tpope/vim-surround"
@@ -107,17 +108,17 @@ packer.startup(function(use)
     require('packer').sync()
   end
 
-  -- require'plugins.telescope'
-  -- require'plugins.dap'
-  -- require'plugins.treesitter'
+  require'plugins.treesitter'
+  require'plugins.telescope'
+  require'plugins.hop'
+  require'plugins.quick-scope'
+  require'plugins.nvim-tree'
+  require'plugins.lualine'
+  require'plugins.luasnip'
   -- require'plugins.bufferline'
   -- require'plugins.toogleterm'
   -- require'plugins.cmp'
   -- require'plugins.lsp'
-  -- require'plugins.luasnip'
-  -- require'plugins.lualine'
-  -- require'plugins.nvim-tree'
-  -- require'plugins.quick-scope'
-  -- require'plugins.hop'
-  -- require'colorscheme'
+  -- require'plugins.dap'
+  require'plugins.colorscheme'
 end)
