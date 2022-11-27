@@ -108,6 +108,7 @@ packer.startup(function(use)
     require('packer').sync()
   end
 
+  require'plugins.colorscheme'
   require'plugins.treesitter'
   require'plugins.telescope'
   require'plugins.hop'
@@ -115,10 +116,9 @@ packer.startup(function(use)
   require'plugins.nvim-tree'
   require'plugins.lualine'
   require'plugins.luasnip'
-  -- require'plugins.bufferline'
-  -- require'plugins.toogleterm'
-  -- require'plugins.cmp'
-  -- require'plugins.lsp'
-  -- require'plugins.dap'
-  require'plugins.colorscheme'
+  require'plugins.bufferline'
+  require'plugins.toogleterm'
+  require'plugins.cmp'
+  require'plugins.lsp'
+  require'plugins.dap'
 end)
