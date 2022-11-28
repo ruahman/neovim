@@ -12,9 +12,14 @@ packer.startup(function(use)
   use "wbthomason/packer.nvim"
 
   -- themes
-  use "haishanh/night-owl.vim"
-  use 'folke/tokyonight.nvim'
-  use "EdenEast/nightfox.nvim"
+  use {
+    "haishanh/night-owl.vim",
+    "folke/tokyonight.nvim",
+    "EdenEast/nightfox.nvim",
+    config=function ()
+      require'plugins.colorscheme'
+    end
+  }
 
   use "tpope/vim-commentary"
   use "tpope/vim-surround"
@@ -108,7 +113,7 @@ packer.startup(function(use)
     require('packer').sync()
   end
 
-  require'plugins.colorscheme'
+  -- require'plugins.colorscheme'
   require'plugins.treesitter'
   require'plugins.telescope'
   require'plugins.hop'
