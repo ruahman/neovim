@@ -28,6 +28,9 @@ vim.opt.listchars = {
   nbsp = '.'
 }
 
+-- so that perl provider does not show up on healthcheck
+vim.g.loaded_perl_provider = 0
+
 -- no swap file???
 vim.cmd[[set nobackup nowritebackup noswapfile]]
 

@@ -22,6 +22,15 @@ return require('packer').startup(function(use)
     config = require('plugins/colorscheme').config
   }
 
+  -- treesitter
+  use {
+    "p00f/nvim-ts-rainbow",
+    requires = {
+      "nvim-treesitter/nvim-treesitter",
+    },
+    config = require('plugins/treesitter').config
+  }
+
   use "tpope/vim-commentary"
   
   use "tpope/vim-surround"
@@ -44,12 +53,6 @@ return require('packer').startup(function(use)
     config = require('plugins/quick-scope').config
   }
 
-  -- dashboard
-  use {
-      'goolord/alpha-nvim',
-      config = require('plugins/dashboard').config
-  }
-
   -- nvim-tree
   use {
     "kyazdani42/nvim-tree.lua",
@@ -63,6 +66,23 @@ return require('packer').startup(function(use)
   use {
     "hoob3rt/lualine.nvim",
     config = require('plugins/lualine').config 
+  }
+
+  -- telescope
+  use {
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-lua/popup.nvim"
+    },
+    config = require('plugins/telescope').config
+  }
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+
+  -- dashboard
+  use {
+    'goolord/alpha-nvim',
+    config = require('plugins/dashboard').config
   }
   
   -- Put this at the end after all plugins
@@ -106,19 +126,7 @@ end)
 --    "rafamadriz/friendly-snippets",
 --  }
 --
---  -- treesitter
---  use {
---    "nvim-treesitter/nvim-treesitter",
---    "p00f/nvim-ts-rainbow",
---  }
 --
---  -- telescope
---  use {
---    "nvim-lua/plenary.nvim",
---    "nvim-lua/popup.nvim",
---    {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
---    "nvim-telescope/telescope.nvim",
---  }
 --
 --  -- dap
 --  use {
@@ -138,8 +146,6 @@ end)
 --    require('packer').sync()
 --  end
 --
---  require'plugins.treesitter'
---  require'plugins.telescope'
 --  require'plugins.luasnip'
 --  require'plugins.bufferline'
 --  require'plugins.toogleterm'
