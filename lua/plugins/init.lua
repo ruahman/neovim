@@ -1,126 +1,149 @@
--- Install packer.nvim if not found.
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-  packer_bootstrap = fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+local ensure_packer = function()
+  local fn = vim.fn
+  local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+  if fn.empty(fn.glob(install_path)) > 0 then
+    fn.system({'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path})
+    vim.cmd [[packadd packer.nvim]]
+    return true
+  end
+  return false
 end
 
--- startup and add configuration plugins
-local packer = require("packer")
-packer.startup(function(use)
-  -- Packer can manage itself
-  use "wbthomason/packer.nvim"
+local packer_bootstrap = ensure_packer()
 
-  -- themes
+return require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  
+  -- colorshemes
+  use "haishanh/night-owl.vim"
+  use "folke/tokyonight.nvim"
   use {
-    "haishanh/night-owl.vim",
-    "folke/tokyonight.nvim",
     "EdenEast/nightfox.nvim",
+    config = require('plugins/colorscheme').config
   }
 
   use "tpope/vim-commentary"
+  
   use "tpope/vim-surround"
+
   use "tpope/vim-fugitive"
+
   use "romainl/vim-cool"
+
   use "jiangmiao/auto-pairs"
 
-  use "phaazon/hop.nvim"
+  -- hop
+  use {
+    "phaazon/hop.nvim",
+    config = require('plugins/hop').config
+  }
 
-  use "unblevable/quick-scope"
+  -- quick-scope
+  use {
+    "unblevable/quick-scope",
+    config = require('plugins/quick-scope').config
+  }
 
   -- dashboard
   use {
       'goolord/alpha-nvim',
-      config = function ()
-          require'alpha'.setup(require'alpha.themes.dashboard'.config)
-      end
+      config = require('plugins/dashboard').config
   }
 
-  -- bufferline
-  use {
-    'akinsho/bufferline.nvim',
-    tag = "v2.*",
-    requires = {
-      'kyazdani42/nvim-web-devicons',
-      'famiu/bufdelete.nvim'
-    }
-  }
-
-  -- neotree
+  -- nvim-tree
   use {
     "kyazdani42/nvim-tree.lua",
-    "kyazdani42/nvim-web-devicons"
+    requires = { 
+      "kyazdani42/nvim-web-devicons"
+    },
+    config = require('plugins/nvim-tree').config
   }
 
   -- lualine
-  use "hoob3rt/lualine.nvim"
-
-  -- lsp
   use {
-    "neovim/nvim-lspconfig",
-    "williamboman/nvim-lsp-installer",
+    "hoob3rt/lualine.nvim",
+    config = require('plugins/lualine').config 
   }
-
-  -- completion
-  use {
-    "hrsh7th/nvim-cmp",
-    "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-nvim-lua",
-    "hrsh7th/cmp-nvim-lsp",
-    "saadparwaiz1/cmp_luasnip",
-    "onsails/lspkind.nvim",
-  }
-
-  -- snippets 
-  use {
-    "L3MON4D3/LuaSnip",
-    "rafamadriz/friendly-snippets",
-  }
-
-  -- treesitter
-  use {
-    "nvim-treesitter/nvim-treesitter",
-    "p00f/nvim-ts-rainbow",
-  }
-
-  -- telescope
-  use {
-    "nvim-lua/plenary.nvim",
-    "nvim-lua/popup.nvim",
-    {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-    "nvim-telescope/telescope.nvim",
-  }
-
-  -- dap
-  use {
-    "mfussenegger/nvim-dap",
-    "leoluz/nvim-dap-go",
-    "mfussenegger/nvim-dap-python",
-    "theHamsta/nvim-dap-virtual-text",
-    "rcarriga/nvim-dap-ui",
-  }
-
-  -- terminal
-  use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
-
-  -- Automatically set up your configuration after cloning packer.nvim
+  
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require('packer').sync()
   end
-
-  require'plugins.colorscheme'
-  require'plugins.treesitter'
-  require'plugins.telescope'
-  require'plugins.hop'
-  require'plugins.quick-scope'
-  require'plugins.nvim-tree'
-  require'plugins.lualine'
-  require'plugins.luasnip'
-  require'plugins.bufferline'
-  require'plugins.toogleterm'
-  require'plugins.cmp'
-  require'plugins.lsp'
-  require'plugins.dap'
 end)
+
+--
+--  -- bufferline
+--  use {
+--    'akinsho/bufferline.nvim',
+--    tag = "v2.*",
+--    requires = {
+--      'kyazdani42/nvim-web-devicons',
+--      'famiu/bufdelete.nvim'
+--    }
+--  }
+--
+--
+--  -- lsp
+--  use {
+--    "neovim/nvim-lspconfig",
+--    "williamboman/nvim-lsp-installer",
+--  }
+--
+--  -- completion
+--  use {
+--    "hrsh7th/nvim-cmp",
+--    "hrsh7th/cmp-buffer",
+--    "hrsh7th/cmp-path",
+--    "hrsh7th/cmp-nvim-lua",
+--    "hrsh7th/cmp-nvim-lsp",
+--    "saadparwaiz1/cmp_luasnip",
+--    "onsails/lspkind.nvim",
+--  }
+--
+--  -- snippets 
+--  use {
+--    "L3MON4D3/LuaSnip",
+--    "rafamadriz/friendly-snippets",
+--  }
+--
+--  -- treesitter
+--  use {
+--    "nvim-treesitter/nvim-treesitter",
+--    "p00f/nvim-ts-rainbow",
+--  }
+--
+--  -- telescope
+--  use {
+--    "nvim-lua/plenary.nvim",
+--    "nvim-lua/popup.nvim",
+--    {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+--    "nvim-telescope/telescope.nvim",
+--  }
+--
+--  -- dap
+--  use {
+--    "mfussenegger/nvim-dap",
+--    "leoluz/nvim-dap-go",
+--    "mfussenegger/nvim-dap-python",
+--    "theHamsta/nvim-dap-virtual-text",
+--    "rcarriga/nvim-dap-ui",
+--  }
+--
+--  -- terminal
+--  use {"akinsho/toggleterm.nvim", tag = 'v2.*'}
+--
+--  -- Automatically set up your configuration after cloning packer.nvim
+--  -- Put this at the end after all plugins
+--  if packer_bootstrap then
+--    require('packer').sync()
+--  end
+--
+--  require'plugins.treesitter'
+--  require'plugins.telescope'
+--  require'plugins.luasnip'
+--  require'plugins.bufferline'
+--  require'plugins.toogleterm'
+--  require'plugins.cmp'
+--  require'plugins.lsp'
+--  require'plugins.dap'
+-- end)
