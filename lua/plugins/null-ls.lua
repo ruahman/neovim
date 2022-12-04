@@ -7,7 +7,7 @@ function export.config()
     null_ls.builtins.formatting.stylua,
     null_ls.builtins.formatting.yapf,
     null_ls.builtins.formatting.clang_format,
-    null_ls.builtins.diagnostics.luacheck,
+    null_ls.builtins.diagnostics.selene,
     null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.diagnostics.clang_check,
   }
