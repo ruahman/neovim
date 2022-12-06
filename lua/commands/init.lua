@@ -47,6 +47,8 @@ vim.api.nvim_create_user_command(
       vim.cmd[[:! cargo run]]
     elseif string.match(input.args, "check") then
       vim.cmd[[:! cargo check]]
+    elseif string.match(input.args, "test") then
+      vim.cmd[[:! cargo test]]
     end
   end,
   {nargs = 1}
