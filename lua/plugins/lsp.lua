@@ -18,6 +18,8 @@ function export.config()
 		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 }) -- go to implementaion of an interface or method
 		vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { buffer = 0 }) -- list diagnostics
 		vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, { buffer = 0 }) -- show refrences hight lighted word
+  -- vim.keymap.set('n', '<leader>gd', require("telescope.builtin").lsp_definitions)
+    -- vim.keymap.set('n', '<leader>fi', require("telescope.builtin").lsp_implementations, { buffer = 0 })
 		vim.keymap.set("n", "gf", on_format, { buffer = 0 }) -- format
 		vim.keymap.set("n", "ge", vim.diagnostic.open_float, { buffer = 0 }) -- explain errors
 	end
