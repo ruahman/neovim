@@ -48,7 +48,7 @@ function export.config()
 	lspconfig.clangd.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
-		root_dir = lspconfig.util.root_pattern("Makefile"),
+		root_dir = lspconfig.util.root_pattern("*.c","*.cpp"),
 	})
 
 	-- python
@@ -97,6 +97,15 @@ function export.config()
 		callback = on_format,
 	})
 
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		pattern = "*.ts",
+		callback = on_format,
+	})
+
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		pattern = "*.js",
+		callback = on_format,
+	})
 	-- vim.api.nvim_create_autocmd("BufWritePre", {
 	--   pattern = "*.lua",
 	--   callback = on_format,
