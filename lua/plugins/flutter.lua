@@ -1,6 +1,8 @@
-local M = {}
+local export = {}
 
-function M.setup()
+function export.config()
+  print("lets go flutter")
+  -- require("flutter-tools").setup{}
   require("flutter-tools").setup {
     debugger = {
       enabled = true,
@@ -28,4 +30,4 @@ function M.setup()
   }
 end
 
-return M
+return export

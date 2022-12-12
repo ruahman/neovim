@@ -23,7 +23,7 @@ function export.config()
 
 	dashboard.config.opts.noautocmd = true
 
-	vim.cmd([[autocmd User AlphaReady echo 'ready']])
+	-- vim.cmd([[autocmd User AlphaReady echo 'ready']])
 
 	alpha.setup(dashboard.config)
 end

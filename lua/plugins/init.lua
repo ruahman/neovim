@@ -138,7 +138,7 @@ return require("packer").startup(function(use)
     use({
         "akinsho/flutter-tools.nvim",
         requires = "nvim-lua/plenary.nvim",
-        config = require("plugins.flutter").config,
+        config = require('plugins.flutter').config,
     })
 
     -- terminal
