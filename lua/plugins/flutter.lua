@@ -1,8 +1,6 @@
 local export = {}
 
 function export.config()
-  print("lets go flutter")
-  -- require("flutter-tools").setup{}
   require("flutter-tools").setup {
     debugger = {
       enabled = true,
@@ -28,6 +26,7 @@ function export.config()
       capabilities = require("plugins.lsp").capabilities,
     },
   }
+  require("telescope").load_extension "flutter"
 end
 
 return export
