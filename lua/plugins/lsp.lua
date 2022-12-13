@@ -77,6 +77,13 @@ function M.config()
     root_dir = lspconfig.util.root_pattern("deno.json"),
   })
 
+  -- dotnet
+  lspconfig.omnisharp.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = lspconfig.util.root_pattern("*.csproj"),
+  })
+
   local on_format = function()
     vim.lsp.buf.format({ async = true })
   end

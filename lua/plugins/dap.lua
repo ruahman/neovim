@@ -12,6 +12,13 @@ function export.config()
     name = "lldb",
   }
 
+  -- setup debugger for dotnet
+  dap.adapters.coreclr = {
+    type = 'executable',
+    command = '/home/ruahman/.local/share/nvim/mason/bin/netcoredbg',
+    args = {'--interpreter=vscode'},
+  }
+
   -- c
   dap.configurations.c = {
     {
@@ -56,6 +63,18 @@ function export.config()
     },
   }
 
+  -- csharp
+  dap.configurations.cs = {
+	  {
+      type = "coreclr",
+      name = "launch - netcoredbg",
+      request = "launch",
+      program = function()
+        return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+      end,
+	  },
+	}
+
   --dap go
   require("dap-go").setup() -- must have delve installed globaly
 
@@ -89,8 +108,8 @@ function export.config()
 
   vim.keymap.set("n", "gb", require("dap").toggle_breakpoint)
   vim.keymap.set("n", "gg", require("dap").continue)
-  vim.keymap.set("n", "gs", require("dap").step_into)
-  vim.keymap.set("n", "gx", require("dap").step_over)
+  vim.keymap.set("n", "gi", require("dap").step_into)
+  vim.keymap.set("n", "gs", require("dap").step_over)
   vim.keymap.set("n", "go", require("dap").step_out)
   vim.keymap.set("n", "gr", require("dap").repl.toggle)
   vim.keymap.set("n", "gu", require("dapui").toggle)
