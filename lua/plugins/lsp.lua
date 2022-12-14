@@ -113,6 +113,16 @@ function M.config()
     pattern = "*.js",
     callback = on_format,
   })
+
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.cs",
+    callback = on_format,
+  })
+
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.dart",
+    callback = on_format,
+  })
 end
 
 return M

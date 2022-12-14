@@ -54,3 +54,34 @@ vim.api.nvim_create_user_command(
   {nargs = 1}
 )
 
+-- Dotnet
+vim.api.nvim_create_user_command(
+  'Dotnet',
+  function(input)
+    if string.match(input.args, "build") then
+      vim.cmd[[:! dotnet build]]
+    elseif string.match(input.args, "clean") then
+      vim.cmd[[:! dotnet clean]]
+    elseif string.match(input.args, "run") then
+      vim.cmd[[:! dotnet run]]
+    elseif string.match(input.args, "test") then
+      vim.cmd[[:! dotnet test]]
+    end
+  end,
+  {nargs = 1}
+)
+
+-- Dotnet
+vim.api.nvim_create_user_command(
+  'Dart',
+  function(input)
+    if string.match(input.args, "run") then
+      vim.cmd[[:! dart run]]
+    elseif string.match(input.args, "analize") then
+      vim.cmd[[:! dart analize]]
+    elseif string.match(input.args, "test") then
+      vim.cmd[[:! dart test]]
+    end
+  end,
+  {nargs = 1}
+)
