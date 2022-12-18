@@ -10,10 +10,10 @@ function export.config()
     defaults = {
       mappings = {
         n = {
-          ['<c-d>'] = require('telescope.actions').delete_buffer
+          ['bd'] = require('telescope.actions').delete_buffer
         },
         i = {
-          ['<c-d>'] = require('telescope.actions').delete_buffer
+          ['bd'] = require('telescope.actions').delete_buffer
         }
       }
     },

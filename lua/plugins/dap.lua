@@ -12,12 +12,6 @@ function export.config()
     name = "lldb",
   }
 
-  -- setup debugger for dotnet
-  dap.adapters.coreclr = {
-    type = 'executable',
-    command = '/home/ruahman/.local/share/nvim/mason/bin/netcoredbg',
-    args = {'--interpreter=vscode'},
-  }
 
   -- c
   dap.configurations.c = {
@@ -63,6 +57,13 @@ function export.config()
     },
   }
 
+  -- setup debugger for dotnet
+  dap.adapters.coreclr = {
+    type = 'executable',
+    command = '/home/ruahman/.local/share/nvim/mason/bin/netcoredbg',
+    args = {'--interpreter=vscode'},
+  }
+
   -- csharp
   dap.configurations.cs = {
 	  {
@@ -74,6 +75,27 @@ function export.config()
       end,
 	  },
 	}
+
+  -- debugger for dart
+  dap.adapters.dart = {
+    type = "executable",
+    command = "dart",
+    args = {"debug_adapter"}
+  }
+
+  -- debuge configurations 
+  dap.configurations.dart = {
+    {
+      type = "dart",
+      request = "launch",
+      name = "Launch Dart Program",
+      -- The nvim-dap plugin populates this variable with the filename of the current buffer
+      program = "${file}",
+      -- The nvim-dap plugin populates this variable with the editor's current working directory
+      cwd = "${workspaceFolder}",
+      args = {"--help"}, -- Note for Dart apps this is args, for Flutter apps toolArgs
+    }
+  }
 
   --dap go
   require("dap-go").setup() -- must have delve installed globaly
@@ -107,7 +129,7 @@ function export.config()
   })
 
   vim.keymap.set("n", "gb", require("dap").toggle_breakpoint)
-  vim.keymap.set("n", "gg", require("dap").continue)
+  vim.keymap.set("n", "gx", require("dap").continue)
   vim.keymap.set("n", "gi", require("dap").step_into)
   vim.keymap.set("n", "gs", require("dap").step_over)
   vim.keymap.set("n", "go", require("dap").step_out)

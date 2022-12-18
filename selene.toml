@@ -1,4 +1,0 @@
-std="vim"
-
-[fmt]
-any = true
