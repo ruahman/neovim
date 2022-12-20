@@ -169,6 +169,11 @@ return require("packer").startup(function(use)
   --     config = require('plugins.flutter').config,
   -- })
 
+  use {
+    'vimwiki/vimwiki',
+    config = require('plugins.vimwiki').config
+  }
+
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require("packer").sync()

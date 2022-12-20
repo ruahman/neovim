@@ -1,6 +1,6 @@
-local export = {}
+local M = {}
 
-function export.config()
+function M.config()
   local dap = require("dap")
 
   dap.set_log_level("TRACE")
@@ -137,4 +137,4 @@ function export.config()
   vim.keymap.set("n", "gu", require("dapui").toggle)
 end
 
-return export
+return M
