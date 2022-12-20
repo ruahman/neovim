@@ -12,7 +12,6 @@ function M.config()
     name = "lldb",
   }
 
-
   -- c
   dap.configurations.c = {
     {
@@ -89,11 +88,9 @@ function M.config()
       type = "dart",
       request = "launch",
       name = "Launch Dart Program",
-      -- The nvim-dap plugin populates this variable with the filename of the current buffer
       program = "${file}",
-      -- The nvim-dap plugin populates this variable with the editor's current working directory
       cwd = "${workspaceFolder}",
-      args = {"--help"}, -- Note for Dart apps this is args, for Flutter apps toolArgs
+      args = {"--help"},
     }
   }
 

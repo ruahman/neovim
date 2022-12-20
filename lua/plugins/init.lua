@@ -131,7 +131,7 @@ return require("packer").startup(function(use)
   use("theHamsta/nvim-dap-virtual-text")
   use({
     "rcarriga/nvim-dap-ui",
-    config = require("plugins.dap").config,
+    config = require("plugins.nvim-dap").config,
   })
 
   -- mason
