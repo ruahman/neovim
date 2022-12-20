@@ -5,10 +5,10 @@ function M.config()
       {
         path = 'C:\\Users\\dego_\\Google Drive\\Documents\\vimwiki',
         path_html = 'C:\\Users\\dego_\\Google Drive\\Documents\\vimwiki_html',
-      },
-      {
-        path = 'C:\\Users\\dego_\\Google Drive\\Documents\\vimwiki_gtd',
-        path_html = 'C:\\Users\\dego_\\Google Drive\\Documents\\vimwiki_gtd_html',
+        -- template_path = 'C:\\Users\\dego_\\Google Drive\\Documents\\vimwiki\\template',
+        -- template_default = 'def_template',
+        -- auto_toc = 1,
+        -- template_ext = '.html'
       }
     }
 end
