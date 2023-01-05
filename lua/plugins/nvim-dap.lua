@@ -132,6 +132,8 @@ function M.config()
   vim.keymap.set("n", "go", require("dap").step_out)
   vim.keymap.set("n", "gr", require("dap").repl.toggle)
   vim.keymap.set("n", "gu", require("dapui").toggle)
+  -- need to make this file specific
+  vim.keymap.set("n", "dn", require("dap-python").test_method)
 end
 
 return M
