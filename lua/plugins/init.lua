@@ -72,7 +72,7 @@ return require("packer").startup(function(use)
   })
 
   -- bufferline
-  use {
+  use({
     'akinsho/bufferline.nvim',
     tag = "v2.*",
     requires = {
@@ -80,7 +80,7 @@ return require("packer").startup(function(use)
       'famiu/bufdelete.nvim'
     },
     config = require('plugins.bufferline').config
-  }
+  })
 
   -- telescope
   use({
@@ -118,12 +118,6 @@ return require("packer").startup(function(use)
     config = require("plugins.lsp").config,
   })
 
-  -- -- null-ls
-  -- use({
-  --   "jose-elias-alvarez/null-ls.nvim",
-  --   config = require("plugins.null-ls").config,
-  -- })
-
   -- dap
   use("mfussenegger/nvim-dap")
   use("leoluz/nvim-dap-go")
@@ -133,6 +127,7 @@ return require("packer").startup(function(use)
     "rcarriga/nvim-dap-ui",
     config = require("plugins.nvim-dap").config,
   })
+
 
   -- mason
   use("williamboman/mason.nvim")
@@ -162,24 +157,13 @@ return require("packer").startup(function(use)
     config = require("plugins.dashboard").config,
   })
 
-  -- -- Flutter
-  -- use({
-  --     "akinsho/flutter-tools.nvim",
-  --     requires = "nvim-lua/plenary.nvim",
-  --     config = require('plugins.flutter').config,
-  -- })
-
-  use {
+  use({
     'vimwiki/vimwiki',
     config = require('plugins.vimwiki').config
-  }
+  })
 
   -- Put this at the end after all plugins
   if packer_bootstrap then
     require("packer").sync()
   end
 end)
-
---
---
---  require'plugins.bufferline'

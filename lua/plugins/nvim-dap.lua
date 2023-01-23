@@ -75,24 +75,24 @@ function M.config()
 	  },
 	}
 
-  -- debugger for dart
-  dap.adapters.dart = {
-    type = "executable",
-    command = "dart",
-    args = {"debug_adapter"}
-  }
+  -- -- debugger for dart
+  -- dap.adapters.dart = {
+  --   type = "executable",
+  --   command = "dart",
+  --   args = {"debug_adapter"}
+  -- }
 
-  -- debuge configurations 
-  dap.configurations.dart = {
-    {
-      type = "dart",
-      request = "launch",
-      name = "Launch Dart Program",
-      program = "${file}",
-      cwd = "${workspaceFolder}",
-      args = {"--help"},
-    }
-  }
+  -- -- debuge configurations 
+  -- dap.configurations.dart = {
+  --   {
+  --     type = "dart",
+  --     request = "launch",
+  --     name = "Launch Dart Program",
+  --     program = "${file}",
+  --     cwd = "${workspaceFolder}",
+  --     args = {"--help"},
+  --   }
+  -- }
 
   --dap go
   require("dap-go").setup() -- must have delve installed globaly
@@ -133,7 +133,7 @@ function M.config()
   vim.keymap.set("n", "gr", require("dap").repl.toggle)
   vim.keymap.set("n", "gu", require("dapui").toggle)
   -- need to make this file specific
-  vim.keymap.set("n", "dn", require("dap-python").test_method)
+  -- vim.keymap.set("n", "dn", require("dap-python").test_method)
 end
 
 return M
