@@ -143,7 +143,6 @@ return require("packer").startup(function(use)
     config = require("plugins.trouble").config,
   })
 
-
   -- terminal
   use({
     "akinsho/toggleterm.nvim",
@@ -160,6 +159,17 @@ return require("packer").startup(function(use)
   use({
     'vimwiki/vimwiki',
     config = require('plugins.vimwiki').config
+  })
+
+  use({
+    "nvim-neotest/neotest",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-treesitter/nvim-treesitter",
+      "antoinemadec/FixCursorHold.nvim",
+      "Issafalcon/neotest-dotnet"
+    },
+    config = require('plugins.neotest').config
   })
 
   -- Put this at the end after all plugins
