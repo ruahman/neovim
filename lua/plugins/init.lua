@@ -167,7 +167,8 @@ return require("packer").startup(function(use)
       "nvim-lua/plenary.nvim",
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
-      "Issafalcon/neotest-dotnet"
+      "Issafalcon/neotest-dotnet",
+      "nvim-neotest/neotest-python"
     },
     config = require('plugins.neotest').config
   })

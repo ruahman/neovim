@@ -60,20 +60,20 @@ function M.config()
   dap.adapters.coreclr = {
     type = 'executable',
     command = '/home/ruahman/.local/share/nvim/mason/bin/netcoredbg',
-    args = {'--interpreter=vscode'},
+    args = { '--interpreter=vscode' },
   }
 
   -- csharp
   dap.configurations.cs = {
-	  {
+    {
       type = "coreclr",
       name = "launch - netcoredbg",
       request = "launch",
       program = function()
         return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
       end,
-	  },
-	}
+    },
+  }
 
   -- -- debugger for dart
   -- dap.adapters.dart = {
@@ -82,7 +82,7 @@ function M.config()
   --   args = {"debug_adapter"}
   -- }
 
-  -- -- debuge configurations 
+  -- -- debuge configurations
   -- dap.configurations.dart = {
   --   {
   --     type = "dart",
@@ -132,8 +132,7 @@ function M.config()
   vim.keymap.set("n", "go", require("dap").step_out)
   vim.keymap.set("n", "gr", require("dap").repl.toggle)
   vim.keymap.set("n", "gu", require("dapui").toggle)
-  -- need to make this file specific
-  -- vim.keymap.set("n", "dn", require("dap-python").test_method)
+
 end
 
 return M
