@@ -57,16 +57,37 @@ function M.config()
   }
 
   -- setup debugger for dotnet
-  dap.adapters.coreclr = {
+  -- dap.adapters.coreclr = {
+  --   type = 'executable',
+  --   command = '/home/ruahman/.local/share/nvim/mason/bin/netcoredbg',
+  --   args = { '--interpreter=vscode' },
+  -- }
+  
+
+  -- local install_dir = path.concat{ vim.fn.stdpath "data", "mason" }
+  install_dir = vim.fn.stdpath("data") .. "/mason"
+  print(install_dir)
+  dap.adapters.netcoredbg = {
     type = 'executable',
-    command = '/home/ruahman/.local/share/nvim/mason/bin/netcoredbg',
+    command = install_dir .. '/bin/netcoredbg',
     args = { '--interpreter=vscode' },
   }
 
   -- csharp
+  -- dap.configurations.cs = {
+  --   {
+  --     type = "coreclr",
+  --     name = "launch - netcoredbg",
+  --     request = "launch",
+  --     program = function()
+  --       return vim.fn.input('Path to dll', vim.fn.getcwd() .. '/bin/Debug/', 'file')
+  --     end,
+  --   },
+  -- }
+
   dap.configurations.cs = {
     {
-      type = "coreclr",
+      type = "netcoredbg",
       name = "launch - netcoredbg",
       request = "launch",
       program = function()
@@ -74,25 +95,6 @@ function M.config()
       end,
     },
   }
-
-  -- -- debugger for dart
-  -- dap.adapters.dart = {
-  --   type = "executable",
-  --   command = "dart",
-  --   args = {"debug_adapter"}
-  -- }
-
-  -- -- debuge configurations
-  -- dap.configurations.dart = {
-  --   {
-  --     type = "dart",
-  --     request = "launch",
-  --     name = "Launch Dart Program",
-  --     program = "${file}",
-  --     cwd = "${workspaceFolder}",
-  --     args = {"--help"},
-  --   }
-  -- }
 
   --dap go
   require("dap-go").setup() -- must have delve installed globaly

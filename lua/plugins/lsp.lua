@@ -90,11 +90,12 @@ function M.config()
     root_dir = lspconfig.util.root_pattern("deno.json"),
   })
 
-  -- dotnet
-  lspconfig.omnisharp.setup({
+
+  -- csharp
+  lspconfig.csharp_ls.setup({
     on_attach = on_attach,
     capabilities = capabilities,
-    root_dir = lspconfig.util.root_pattern("*.csproj"),
+    root_dir = lspconfig.util.root_pattern("*.sln","*.csproj"),
   })
 
   -- format on save
@@ -103,10 +104,10 @@ function M.config()
     callback = on_format,
   })
 
-  -- vim.api.nvim_create_autocmd("BufWritePre", {
-  --   pattern = "*.rs",
-  --   callback = on_format,
-  -- })
+  vim.api.nvim_create_autocmd("BufWritePre", {
+    pattern = "*.rs",
+    callback = on_format,
+  })
 
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.go",
@@ -125,11 +126,6 @@ function M.config()
 
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.cs",
-    callback = on_format,
-  })
-
-  vim.api.nvim_create_autocmd("BufWritePre", {
-    pattern = "*.dart",
     callback = on_format,
   })
 end

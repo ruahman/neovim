@@ -6,15 +6,16 @@ function export.config()
     
     -- A list of parser names, or "all"
     ensure_installed = { 
-      "c", 
-      "cpp", 
-      "lua", 
-      "rust", 
-      "go", 
-      "python", 
-      "ruby", 
-      "typescript", 
-      "javascript" 
+      "c",
+      "cpp",
+      "lua",
+      "rust",
+      "go",
+      "python",
+      "ruby",
+      "typescript",
+      "javascript",
+      "c_sharp"
     },
 
     highlight = {
