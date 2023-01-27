@@ -1,6 +1,4 @@
 
-
--- vim.cmd[[command! -nargs=+ Go :! go <args> .]]
 -- Go commands
 vim.api.nvim_create_user_command(
   'Go',
@@ -71,17 +69,14 @@ vim.api.nvim_create_user_command(
   {nargs = 1}
 )
 
--- Dotnet
+--Scratch
 vim.api.nvim_create_user_command(
-  'Dart',
-  function(input)
-    if string.match(input.args, "run") then
-      vim.cmd[[:! dart run]]
-    elseif string.match(input.args, "analize") then
-      vim.cmd[[:! dart analize]]
-    elseif string.match(input.args, "test") then
-      vim.cmd[[:! dart test]]
-    end
+  'Scratch',
+  function()
+    vim.api.nvim_command('enew')
+    vim.bo[0].buftype='nofile'
+    vim.bo[0].bufhidden='hide'
+    vim.bo[0].swapfile=false
   end,
-  {nargs = 1}
+  {}
 )

@@ -64,7 +64,6 @@ return require("packer").startup(function(use)
     config = require("plugins.nvim-tree").config,
   })
 
-
   -- lualine
   use({
     "hoob3rt/lualine.nvim",

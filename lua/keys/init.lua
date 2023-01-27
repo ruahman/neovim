@@ -14,10 +14,10 @@ map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
--- keymap('n', '<M-h>', ':vertical resize +2<CR>', opts)
--- keymap('n', '<M-l>', ':vertical resize -2<CR>', opts)
--- utils.map('n', '<M-j>', ':resize -2<CR>')
--- utils.map('n', '<M-k>', ':resize +2<CR>')
+map('n', '<M-Left>', ':vertical resize +2<CR>')
+map('n', '<M-Right>', ':vertical resize -2<CR>')
+map('n', '<M-Down>', ':resize -2<CR>')
+map('n', '<M-Up>', ':resize +2<CR>')
 
 -- move line
 map('n', '<M-j>', ':m .+1<cr>==')
