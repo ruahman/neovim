@@ -23,25 +23,40 @@ return require("packer").startup(function(use)
   })
 
   -- treesitter
+  use("p00f/nvim-ts-rainbow")
+  use("nvim-treesitter/nvim-treesitter-textobjects")
   use({
-    "p00f/nvim-ts-rainbow",
-    requires = {
-      "nvim-treesitter/nvim-treesitter",
-    },
+    "nvim-treesitter/nvim-treesitter",
     config = require("plugins.treesitter").config,
   })
 
-  use("tpope/vim-commentary")
+  use("wellle/targets.vim")
+
+  -- use("tpope/vim-commentary")
+  use({
+    "numToStr/Comment.nvim",
+    config = require("plugins.comment").config
+  })
 
   use("tpope/vim-surround")
 
   use("tpope/vim-fugitive")
 
+  use({
+    "lewis6991/gitsigns.nvim",
+    config = require("plugins.gitsigns").config
+  })
+
   use("romainl/vim-cool")
 
   use("jiangmiao/auto-pairs")
 
-  use({ "lukas-reineke/indent-blankline.nvim" })
+  use("moll/vim-bbye")
+
+  use({
+    "lukas-reineke/indent-blankline.nvim",
+    config = require("plugins.indent-blankline").config
+  })
 
   -- hop
   use({
