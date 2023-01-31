@@ -4,7 +4,9 @@ function M.config()
   require("neotest").setup({
     adapters = {
       require("neotest-python"),
-      require("neotest-dotnet")
+      require("neotest-dotnet"),
+      require("neotest-go"),
+      require("neotest-rust")
     }
   })
 
@@ -21,13 +23,7 @@ function M.config()
   end)
 
   vim.keymap.set("n", "so", function()
-    if vim.g.summary_tests == true then
-      require('neotest').summary.close()
-      vim.g.summary_tests = false
-    else
-      require('neotest').summary.open()
-      vim.g.summary_tests = true
-    end
+    require('neotest').summary.toggle()
   end)
 
   vim.keymap.set("n", "oo", function()

@@ -69,9 +69,9 @@ function M.config()
       print('Cmd to execute: ' .. cmd)
       local f = os.execute(cmd)
       if f == 0 then
-          print('\nBuild: ✔️ ')
+          print('\nBuild: ✓')
       else
-          print('\nBuild: ❌ (code: ' .. f .. ')')
+          print('\nBuild: x (code: ' .. f .. ')')
       end
   end
 

@@ -182,7 +182,9 @@ return require("packer").startup(function(use)
       "nvim-treesitter/nvim-treesitter",
       "antoinemadec/FixCursorHold.nvim",
       "Issafalcon/neotest-dotnet",
-      "nvim-neotest/neotest-python"
+      "nvim-neotest/neotest-python",
+      "nvim-neotest/neotest-go",
+      "rouge8/neotest-rust"
     },
     config = require('plugins.neotest').config
   })
