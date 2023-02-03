@@ -5,22 +5,23 @@ function M.config()
 
   local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-  local on_format = function()
-    vim.lsp.buf.format({ async = true })
-  end
+  local on_attach = function(_, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 
-  local on_attach = function(client, bufnr)
-    vim.keymap.set("n", "gh", vim.lsp.buf.hover, { buffer = 0 }) -- hover information
-    vim.keymap.set("n", "gf", on_format, { buffer = 0 }) -- format
-    vim.keymap.set("n", "ge", vim.diagnostic.open_float, { buffer = 0 }) -- explain errors
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = 0 }) -- go to definition of function
-    vim.keymap.set('n', '<leader>fd', require("telescope.builtin").lsp_definitions)
+    -- setup keybindings for this buffer
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts) -- hover information
+    vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts) -- explain errors
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts) -- go to definition of function
+    -- vim.keymap.set('n', '<leader>fd', require("telescope.builtin").lsp_definitions)
     -- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 }) -- go to definition of a type
     -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 }) -- go to implementaion of an interface or method
     -- vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { buffer = 0 }) -- list diagnostics
     -- vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, { buffer = 0 }) -- show refrences hight lighted word
     -- vim.keymap.set('n', '<leader>gd', require("telescope.builtin").lsp_definitions)
-    vim.keymap.set('n', '<leader>fi', require("telescope.builtin").lsp_implementations, { buffer = 0 })
+    vim.keymap.set('n', '<leader>fi', require("telescope.builtin").lsp_implementations, bufopts)
+    vim.keymap.set('n', 'gf', function() vim.lsp.buf.format { async = true } end, bufopts)
   end
 
   -- lua
@@ -34,12 +35,6 @@ function M.config()
         },
       },
     },
-  })
-
-  -- dart
-  lspconfig.dartls.setup({
-    on_attach = on_attach,
-    capabilities = capabilities
   })
 
   -- golang
@@ -76,24 +71,32 @@ function M.config()
     root_dir = lspconfig.util.root_pattern("deno.json"),
   })
 
-  -- csharp
-  -- lspconfig.csharp_ls.setup({
-  --   on_attach = on_attach,
-  --   capabilities = capabilities,
-  --   root_dir = lspconfig.util.root_pattern("*.sln","*.csproj"),
-  -- })
-
   lspconfig.omnisharp.setup({
+
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
+
+    -- Enables support for reading code style, naming convention and analyzer
+    -- settings from .editorconfig.
+    enable_editorconfig_support = true,
+
+    -- Specifies whether 'using' directives should be grouped and sorted during
+    -- document formatting.
+    organize_imports_on_format = false,
+
     on_attach=function(client, bufnr)
       on_attach(client, bufnr)
+
+      -- Semantic tokens do not conform to the LSP specification
+      -- https://github.com/OmniSharp/omnisharp-roslyn/issues/2483
+      -- https://github.com/neovim/neovim/issues/21391
       client.server_capabilities.semanticTokensProvider = {
         full = vim.empty_dict(),
         legend = {
           tokenModifiers = { "static_symbol" },
           tokenTypes = {
-            "comment",
-            "excluded_code",
-            "identifier",
+            "comment", 
+            "excluded_code", 
+            "identifier", 
             "keyword",
             "keyword_control",
             "number",
@@ -160,11 +163,14 @@ function M.config()
         },
         range = true,
       }
-    end,
-    cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" }
+    end
   })
 
   -- format on save
+  local on_format = function()
+    vim.lsp.buf.format({ async = true })
+  end
+
   vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.py",
     callback = on_format,
