@@ -21,6 +21,9 @@ vim.opt.expandtab = true
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
+
 -- vim.opt.listchars = {
 --   tab = '▸ ',
 --   eol = '¬',
