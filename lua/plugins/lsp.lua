@@ -161,7 +161,7 @@ function M.config()
         range = true,
       }
     end,
-    cmd = {"/home/ruahman/.local/share/nvim/mason/bin/omnisharp", "--languageserver"}
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" }
   })
 
   -- format on save
