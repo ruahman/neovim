@@ -148,7 +148,6 @@ function M.config()
   vim.keymap.set("n", "gv", require("dap").step_into)
   vim.keymap.set("n", "gr", require("dap").repl.toggle)
   vim.keymap.set("n", "gu", require("dapui").toggle)
-
 end
 
 return M
