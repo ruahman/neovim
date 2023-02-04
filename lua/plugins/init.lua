@@ -183,8 +183,7 @@ return require("packer").startup(function(use)
       "antoinemadec/FixCursorHold.nvim",
       "Issafalcon/neotest-dotnet",
       "nvim-neotest/neotest-python",
-      "nvim-neotest/neotest-go",
-      "rouge8/neotest-rust"
+      "nvim-neotest/neotest-go"
     },
     config = require('plugins.neotest').config
   })

@@ -11,17 +11,15 @@ function M.config()
 
     -- setup keybindings for this buffer
     local bufopts = { noremap=true, silent=true, buffer=bufnr }
-    vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts) -- hover information
-    vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts) -- explain errors
-    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts) -- go to definition of function
-    -- vim.keymap.set('n', '<leader>fd', require("telescope.builtin").lsp_definitions)
-    -- vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, { buffer = 0 }) -- go to definition of a type
-    -- vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = 0 }) -- go to implementaion of an interface or method
-    -- vim.keymap.set("n", "<leader>fd", require("telescope.builtin").diagnostics, { buffer = 0 }) -- list diagnostics
-    -- vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, { buffer = 0 }) -- show refrences hight lighted word
-    -- vim.keymap.set('n', '<leader>gd', require("telescope.builtin").lsp_definitions)
+    vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
+    vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts)
+    vim.keymap.set("n", "gd", vim.lsp.buf.definition, bufopts)
+    vim.keymap.set("n", "gi", vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set("n", "gr", vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', "gf", function() vim.lsp.buf.format({ async = true }) end, bufopts)
+    vim.keymap.set("n", "<leader>fd", require("telescope.builtin").lsp_definitions, bufopts)
     vim.keymap.set('n', '<leader>fi', require("telescope.builtin").lsp_implementations, bufopts)
-    vim.keymap.set('n', 'gf', function() vim.lsp.buf.format { async = true } end, bufopts)
+    vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, bufopts)
   end
 
   -- lua
