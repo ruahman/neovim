@@ -7,9 +7,9 @@ function export.config()
     history = true
   })
 
-  require("luasnip.loaders.from_vscode").lazy_load()
+  -- require("luasnip.loaders.from_vscode").lazy_load()
 
-  -- require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets"})
+  require("luasnip.loaders.from_lua").load({paths = "~/.config/nvim/lua/snippets"})
 
   vim.keymap.set({"i","s"}, "<c-n>", function()
     if ls.expand_or_jumpable(1) then
