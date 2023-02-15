@@ -142,7 +142,7 @@ function M.config()
     },
   })
 
-  vim.keymap.set("n", "gg", require("dap").toggle_breakpoint)
+  vim.keymap.set("n", "gp", require("dap").toggle_breakpoint)
   vim.keymap.set("n", "gx", require("dap").continue)
   vim.keymap.set("n", "gs", require("dap").step_over)
   vim.keymap.set("n", "gv", require("dap").step_into)

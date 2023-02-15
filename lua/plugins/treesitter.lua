@@ -8,6 +8,8 @@ function export.config()
     ensure_installed = {
       "c",
       "cpp",
+      "java",
+      "swift",
       "lua",
       "rust",
       "go",

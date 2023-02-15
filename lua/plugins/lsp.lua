@@ -20,17 +20,17 @@ function M.config()
   end
 
   -- lua
-  lspconfig.sumneko_lua.setup({
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim", "s", "fmt", "i" },
-        },
-      },
-    },
-  })
+  -- lspconfig.sumneko_lua.setup({
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   settings = {
+  --     Lua = {
+  --       diagnostics = {
+  --         globals = { "vim", "s", "fmt", "i" },
+  --       },
+  --     },
+  --   },
+  -- })
 
   -- golang
   lspconfig.gopls.setup({
