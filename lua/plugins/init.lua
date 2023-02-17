@@ -104,7 +104,7 @@ return require("packer").startup(function(use)
    },
    config = require("plugins.telescope").config,
   })
-  -- use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
+  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 
   -- snippets
   use("L3MON4D3/LuaSnip")

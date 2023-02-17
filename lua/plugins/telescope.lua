@@ -4,7 +4,7 @@ local export = {}
 function export.config()
 
   -- load faster fuzy finder 
-  -- require('telescope').load_extension('fzf')
+  require('telescope').load_extension('fzf')
 
   require('telescope').setup{
     defaults = {
