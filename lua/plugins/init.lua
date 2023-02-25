@@ -131,6 +131,13 @@ return require("packer").startup(function(use)
    config = require("plugins.lsp").config,
   })
 
+  -- null-ls
+  use({
+   "jose-elias-alvarez/null-ls.nvim",
+   config = require("plugins.null-ls").config,
+  })
+
+
   -- dap
   use("mfussenegger/nvim-dap")
   use("leoluz/nvim-dap-go")
@@ -173,6 +180,27 @@ return require("packer").startup(function(use)
    'vimwiki/vimwiki',
    config = require('plugins.vimwiki').config
   })
+
+  -- use({
+  --   "nvim-neorg/neorg",
+  --   config = function()
+  --       require('neorg').setup {
+  --           load = {
+  --               ["core.defaults"] = {}, -- Loads default behaviour
+  --               -- ["core.norg.concealer"] = {}, -- Adds pretty icons to your documents
+  --               ["core.norg.dirman"] = { -- Manages Neorg workspaces
+  --                   config = {
+  --                       workspaces = {
+  --                           notes = "~/neorg",
+  --                       },
+  --                   },
+  --               },
+  --           },
+  --       }
+  --   end,
+  --   run = ":Neorg sync-parsers",
+  --   requires = "nvim-lua/plenary.nvim",
+  -- })
 
   use({
    "nvim-neotest/neotest",

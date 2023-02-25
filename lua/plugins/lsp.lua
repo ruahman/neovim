@@ -31,6 +31,17 @@ function M.config()
   --     },
   --   },
   -- })
+  lspconfig.lua_ls.setup({
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      Lua = {
+        diagnostics = {
+          globals = { "vim", "s", "fmt", "i" },
+        },
+      },
+    },
+  })
 
   -- golang
   lspconfig.gopls.setup({
