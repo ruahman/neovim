@@ -21,19 +21,8 @@ function M.config()
 		vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, bufopts)
 	end
 
-	-- lua
-	-- lspconfig.sumneko_lua.setup({
-	--   on_attach = on_attach,
-	--   capabilities = capabilities,
-	--   settings = {
-	--     Lua = {
-	--       diagnostics = {
-	--         globals = { "vim", "s", "fmt", "i" },
-	--       },
-	--     },
-	--   },
-	-- })
 	lspconfig.lua_ls.setup({
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/lua-language-server.cmd" },
 		on_attach = on_attach,
 		capabilities = capabilities,
     settings = {
@@ -47,6 +36,7 @@ function M.config()
 
 	-- golang
 	lspconfig.gopls.setup({
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/gopls.cmd" },
 		on_attach = on_attach,
 		capabilities = capabilities,
 		root_dir = lspconfig.util.root_pattern("go.mod"),
@@ -54,6 +44,7 @@ function M.config()
 
 	-- rust
 	lspconfig.rust_analyzer.setup({
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer.cmd" },
 		on_attach = on_attach,
 		capabilities = capabilities,
 		root_dir = lspconfig.util.root_pattern("Cargo.toml"),
@@ -61,6 +52,7 @@ function M.config()
 
 	-- c/cpp
 	lspconfig.clangd.setup({
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/clangd.cmd" },
 		on_attach = on_attach,
 		capabilities = capabilities,
 		root_dir = lspconfig.util.root_pattern("*.c", "*.cpp"),
@@ -171,39 +163,39 @@ function M.config()
 	})
 
 	-- format on save
-	local on_format = function()
-		vim.lsp.buf.format({ async = true })
-	end
+	-- local on_format = function()
+	-- 	vim.lsp.buf.format({ async = true })
+	-- end
 
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*.py",
-		callback = on_format,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	pattern = "*.py",
+	-- 	callback = on_format,
+	-- })
 
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*.rs",
-		callback = on_format,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	pattern = "*.rs",
+	-- 	callback = on_format,
+	-- })
 
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*.go",
-		callback = on_format,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	pattern = "*.go",
+	-- 	callback = on_format,
+	-- })
 
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*.ts",
-		callback = on_format,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	pattern = "*.ts",
+	-- 	callback = on_format,
+	-- })
 
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*.js",
-		callback = on_format,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	pattern = "*.js",
+	-- 	callback = on_format,
+	-- })
 
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*.cs",
-		callback = on_format,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	pattern = "*.cs",
+	-- 	callback = on_format,
+	-- })
 end
 
 return M
