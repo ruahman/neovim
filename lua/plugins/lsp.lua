@@ -21,8 +21,13 @@ function M.config()
 		vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, bufopts)
 	end
 
+  local ext = ""
+  if vim.loop.os_uname().sysname == 'Windows_NT' then
+    ext = ".cmd"
+  end
+
 	lspconfig.lua_ls.setup({
-		cmd = { vim.fn.stdpath("data") .. "/mason/bin/lua-language-server.cmd" },
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/lua-language-server" .. ext },
 		on_attach = on_attach,
 		capabilities = capabilities,
     settings = {
@@ -36,7 +41,7 @@ function M.config()
 
 	-- golang
 	lspconfig.gopls.setup({
-		cmd = { vim.fn.stdpath("data") .. "/mason/bin/gopls.cmd" },
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/gopls" .. ext },
 		on_attach = on_attach,
 		capabilities = capabilities,
 		root_dir = lspconfig.util.root_pattern("go.mod"),
@@ -44,7 +49,7 @@ function M.config()
 
 	-- rust
 	lspconfig.rust_analyzer.setup({
-		cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer.cmd" },
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer" .. ext },
 		on_attach = on_attach,
 		capabilities = capabilities,
 		root_dir = lspconfig.util.root_pattern("Cargo.toml"),
@@ -52,7 +57,7 @@ function M.config()
 
 	-- c/cpp
 	lspconfig.clangd.setup({
-		cmd = { vim.fn.stdpath("data") .. "/mason/bin/clangd.cmd" },
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/clangd" .. ext },
 		on_attach = on_attach,
 		capabilities = capabilities,
 		root_dir = lspconfig.util.root_pattern("*.c", "*.cpp"),
@@ -60,7 +65,7 @@ function M.config()
 
   -- deno
   lspconfig.denols.setup({
-		cmd = { vim.fn.stdpath("data") .. "/mason/bin/deno.cmd" },
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/deno" .. ext },
     on_attach = on_attach,
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern("deno.json","*.js","*.ts"),
