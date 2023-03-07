@@ -43,12 +43,13 @@ require("lazy").setup({
     },
     config = require("plugins.bufferline").config,
   },
-  { "hoob3rt/lualine.nvim",    config = require("plugins.lualine").config },
+  { "hoob3rt/lualine.nvim", config = require("plugins.lualine").config },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-lua/popup.nvim",
+      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = require("plugins.telescope").config,
   },
@@ -59,8 +60,12 @@ require("lazy").setup({
     },
     config = require("plugins.trouble").config,
   },
-  { "akinsho/toggleterm.nvim", tag = "v2.2.1",                              config = require("plugins.toogleterm").config },
-  { "goolord/alpha-nvim",      config = require("plugins.dashboard").config },
+  {
+    "akinsho/toggleterm.nvim",
+    tag = "v2.2.1",
+    config = require("plugins.toogleterm").config,
+  },
+  { "goolord/alpha-nvim",   config = require("plugins.dashboard").config },
   {
     "L3MON4D3/LuaSnip",
     dependencies = {
@@ -116,7 +121,6 @@ require("lazy").setup({
     dependencies = {
       "p00f/nvim-ts-rainbow",
       "nvim-treesitter/nvim-treesitter-textobjects",
-      { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = require("plugins.treesitter").config,
   },

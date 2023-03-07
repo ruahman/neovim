@@ -9,6 +9,7 @@ function export.config()
       "c",
       "cpp",
       "java",
+      "kotlin",
       "swift",
       "lua",
       "rust",

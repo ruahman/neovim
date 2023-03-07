@@ -58,18 +58,20 @@ function M.config()
 		root_dir = lspconfig.util.root_pattern("*.c", "*.cpp"),
 	})
 
+  -- deno
+  lspconfig.denols.setup({
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/deno.cmd" },
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = lspconfig.util.root_pattern("deno.json","*.js","*.ts"),
+  })
+
 	-- python
 	lspconfig.pylsp.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
 
-	-- deno
-	lspconfig.denols.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-		root_dir = lspconfig.util.root_pattern("deno.json"),
-	})
 
 	lspconfig.omnisharp.setup({
 		cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
