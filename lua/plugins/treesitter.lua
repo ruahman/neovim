@@ -18,7 +18,7 @@ function export.config()
       "ruby",
       "typescript",
       "javascript",
-      "c_sharp"
+      "c_sharp",
     },
 
     highlight = {

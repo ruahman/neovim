@@ -65,7 +65,6 @@ function M.config()
 
   -- deno
   lspconfig.denols.setup({
-		cmd = { vim.fn.stdpath("data") .. "/mason/bin/deno" .. ext },
     on_attach = on_attach,
     capabilities = capabilities,
     root_dir = lspconfig.util.root_pattern("deno.json","*.js","*.ts"),
