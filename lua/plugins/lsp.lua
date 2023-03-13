@@ -44,7 +44,7 @@ function M.config()
 		cmd = { vim.fn.stdpath("data") .. "/mason/bin/gopls" .. ext },
 		on_attach = on_attach,
 		capabilities = capabilities,
-		root_dir = lspconfig.util.root_pattern("go.mod"),
+		root_dir = lspconfig.util.root_pattern("go.mod","*.go"),
 	})
 
 	-- rust

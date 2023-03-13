@@ -24,18 +24,27 @@ vim.opt.fileencoding = 'utf-8'
 vim.opt.listchars:append "space:⋅"
 vim.opt.listchars:append "eol:↴"
 
--- vim.opt.listchars = {
---   tab = '▸ ',
---   eol = '¬',
---   space = '.',
---   nbsp = '.'
--- }
-
 -- so that perl provider does not show up on healthcheck
 vim.g.loaded_perl_provider = 0
+
+-- vim.api.nvim_create_autocmd({"InsertLeave"}, {
+--   pattern = "*.lua",
+--   callback = function(_)
+--     vim.opt.relativenumber = true
+--   end
+-- })
+
+-- vim.api.nvim_create_autocmd({"InsertEnter"}, {
+--   pattern = "*.lua",
+--   callback = function(_)
+--     vim.opt.relativenumber = false
+--   end
+-- })
 
 -- no swap file???
 vim.cmd[[set nobackup nowritebackup noswapfile]]
 
 -- for python
 vim.cmd[[autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4]]
+-- vim.cmd[[autocmd InsertEnter * :set relativenumber]]
+-- vim.cmd[[autocmd InsertLeave * :set norelativenumber]]
