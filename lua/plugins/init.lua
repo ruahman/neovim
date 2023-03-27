@@ -12,6 +12,17 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Get platform depended build script for tabnine
+local function get_tabnine_build_string()
+  if vim.fn.has("win32") == 1 then
+    -- use special windows path
+    return "pwsh.exe -file .\\dl_binaries.ps1"
+  else
+    -- unix path
+    return "./dl_binaries.sh"
+  end
+end
+
 require("lazy").setup({
   { "haishanh/night-owl.vim", lazy = true },
   { "folke/tokyonight.nvim",  lazy = true },
@@ -150,6 +161,11 @@ require("lazy").setup({
       { "<leader>ww", "<cmd>VimwikiIndex<cr>" },
     },
     config = require("plugins.vimwiki").config,
+  },
+  {
+    "codota/tabnine-nvim",
+    config = require("plugins.tabnine").config,
+    build = get_tabnine_build_string(),
   },
 }, {
   defaults = {
