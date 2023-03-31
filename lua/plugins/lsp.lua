@@ -77,6 +77,7 @@ function M.config()
 	})
 
 
+  -- csharp
 	lspconfig.omnisharp.setup({
 		cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
 		-- Enables support for reading code style, naming convention and analyzer
@@ -175,31 +176,6 @@ function M.config()
 
 	-- vim.api.nvim_create_autocmd("BufWritePre", {
 	-- 	pattern = "*.py",
-	-- 	callback = on_format,
-	-- })
-
-	-- vim.api.nvim_create_autocmd("BufWritePre", {
-	-- 	pattern = "*.rs",
-	-- 	callback = on_format,
-	-- })
-
-	-- vim.api.nvim_create_autocmd("BufWritePre", {
-	-- 	pattern = "*.go",
-	-- 	callback = on_format,
-	-- })
-
-	-- vim.api.nvim_create_autocmd("BufWritePre", {
-	-- 	pattern = "*.ts",
-	-- 	callback = on_format,
-	-- })
-
-	-- vim.api.nvim_create_autocmd("BufWritePre", {
-	-- 	pattern = "*.js",
-	-- 	callback = on_format,
-	-- })
-
-	-- vim.api.nvim_create_autocmd("BufWritePre", {
-	-- 	pattern = "*.cs",
 	-- 	callback = on_format,
 	-- })
 end
