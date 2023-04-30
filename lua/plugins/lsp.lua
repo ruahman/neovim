@@ -77,7 +77,7 @@ function M.config()
 	})
 
 
-  -- csharp
+  -- csharp, do I still need to do this
 	lspconfig.omnisharp.setup({
 		cmd = { vim.fn.stdpath("data") .. "/mason/bin/omnisharp" },
 		-- Enables support for reading code style, naming convention and analyzer
