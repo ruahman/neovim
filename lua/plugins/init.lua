@@ -52,6 +52,7 @@ require("lazy").setup({
     },
     config = require("plugins.nvim-tree").config,
   },
+  { "hoob3rt/lualine.nvim", config = require("plugins.lualine").config },
   {
     "akinsho/bufferline.nvim",
     tag = "v3.5.0",
@@ -59,10 +60,8 @@ require("lazy").setup({
       "kyazdani42/nvim-web-devicons",
       "famiu/bufdelete.nvim",
     },
-    event = "VeryLazy",
     config = require("plugins.bufferline").config,
   },
-  { "hoob3rt/lualine.nvim", config = require("plugins.lualine").config },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -73,30 +72,15 @@ require("lazy").setup({
     config = require("plugins.telescope").config,
   },
   {
-    "folke/trouble.nvim",
-    event = "VeryLazy",
-    dependencies = {
-      "kyazdani42/nvim-web-devicons",
-    },
-    config = require("plugins.trouble").config,
-  },
-  {
     "akinsho/toggleterm.nvim",
     tag = "v2.2.1",
     keys = {
       { "<c-\\>", "ToggleTerm" },
     },
+    event = "VeryLazy",
     config = require("plugins.toogleterm").config,
   },
   { "goolord/alpha-nvim",   config = require("plugins.dashboard").config },
-  {
-    "L3MON4D3/LuaSnip",
-    dependencies = {
-      "rafamadriz/friendly-snippets",
-    },
-    event = "InsertEnter",
-    config = require("plugins.luasnip").config,
-  },
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -114,6 +98,14 @@ require("lazy").setup({
     "neovim/nvim-lspconfig",
     event = "InsertEnter",
     config = require("plugins.lsp").config,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    event = "InsertEnter",
+    config = require("plugins.luasnip").config,
   },
   { "jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls").config },
   {
@@ -139,6 +131,14 @@ require("lazy").setup({
     },
     event = "VeryLazy",
     config = require("plugins.neotest").config,
+  },
+  {
+    "folke/trouble.nvim",
+    event = "VeryLazy",
+    dependencies = {
+      "kyazdani42/nvim-web-devicons",
+    },
+    config = require("plugins.trouble").config,
   },
   {
     "williamboman/mason.nvim",

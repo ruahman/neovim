@@ -5,21 +5,21 @@ function export.config()
   require'nvim-treesitter.configs'.setup {
 
     -- A list of parser names, or "all"
-    ensure_installed = {
-      "c",
-      "cpp",
-      "java",
-      "kotlin",
-      "swift",
-      "lua",
-      "rust",
-      "go",
-      "python",
-      "ruby",
-      "typescript",
-      "javascript",
-      "c_sharp",
-    },
+    -- ensure_installed = {
+    --   "c",
+    --   "cpp",
+    --   "java",
+    --   "kotlin",
+    --   "swift",
+    --   "lua",
+    --   "rust",
+    --   "go",
+    --   "python",
+    --   "ruby",
+    --   "typescript",
+    --   "javascript",
+    --   "c_sharp",
+    -- },
 
     highlight = {
       enable = true,

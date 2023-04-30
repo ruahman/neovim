@@ -3,7 +3,7 @@ local M = {}
 function M.config()
     vim.g.vimwiki_list = {
       {
-        path = '~/vimwiki',
+        path = '~/gdrive/Documents/vimwiki',
       }
     }
 end
