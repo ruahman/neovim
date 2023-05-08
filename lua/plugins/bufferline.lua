@@ -6,7 +6,7 @@ function M.config()
 
   require('bufferline').setup {
     options = {
-      close_command = "Bdelete! %d",
+      -- close_command = "Bdelete! %d",
       offsets = {
         {
           filetype = "NvimTree",
@@ -15,7 +15,7 @@ function M.config()
           text_align = "left"
         }
       },
-      diagnostics = "nvim_lsp",
+      -- diagnostics = "nvim_lsp",
     }
   }
 

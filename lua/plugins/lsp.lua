@@ -44,7 +44,7 @@ function M.config()
 		cmd = { vim.fn.stdpath("data") .. "/mason/bin/gopls" .. ext },
 		on_attach = on_attach,
 		capabilities = capabilities,
-		root_dir = lspconfig.util.root_pattern("go.mod","*.go"),
+		-- root_dir = lspconfig.util.root_pattern("go.mod","*.go"),
 	})
 
 	-- rust
@@ -60,7 +60,7 @@ function M.config()
 		cmd = { vim.fn.stdpath("data") .. "/mason/bin/clangd" .. ext },
 		on_attach = on_attach,
 		capabilities = capabilities,
-		root_dir = lspconfig.util.root_pattern("*.c", "*.cpp"),
+		-- root_dir = lspconfig.util.root_pattern("*.c", "*.cpp"),
 	})
 
   -- deno

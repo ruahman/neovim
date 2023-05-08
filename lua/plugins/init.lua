@@ -53,15 +53,15 @@ require("lazy").setup({
     config = require("plugins.nvim-tree").config,
   },
   { "hoob3rt/lualine.nvim", config = require("plugins.lualine").config },
-  {
-    "akinsho/bufferline.nvim",
-    tag = "v3.5.0",
-    dependencies = {
-      "kyazdani42/nvim-web-devicons",
-      "famiu/bufdelete.nvim",
-    },
-    config = require("plugins.bufferline").config,
-  },
+  -- {
+  --   "akinsho/bufferline.nvim",
+  --   tag = "v3.5.0",
+  --   dependencies = {
+  --     "kyazdani42/nvim-web-devicons",
+  --     "famiu/bufdelete.nvim",
+  --   },
+  --   config = require("plugins.bufferline").config,
+  -- },
   {
     "nvim-telescope/telescope.nvim",
     dependencies = {
@@ -162,11 +162,30 @@ require("lazy").setup({
     },
     config = require("plugins.vimwiki").config,
   },
-  {
-    "codota/tabnine-nvim",
-    config = require("plugins.tabnine").config,
-    build = get_tabnine_build_string(),
-  },
+  -- {
+  --   "nvim-neorg/neorg",
+  --   build = ":Neorg sync-parsers",
+  --   opts = {
+  --       load = {
+  --           ["core.defaults"] = {}, -- Loads default behaviour
+  --           ["core.concealer"] = {}, -- Adds pretty icons to your documents
+  --           ["core.dirman"] = { -- Manages Neorg workspaces
+  --               config = {
+  --                   workspaces = {
+  --                       neorg = "~/neorg",
+  --                       notes = "~/notes"
+  --                   },
+  --               },
+  --           },
+  --       },
+  --   },
+  --   dependencies = { { "nvim-lua/plenary.nvim" } },
+  -- },
+  -- {
+  --   "codota/tabnine-nvim",
+  --   config = require("plugins.tabnine").config,
+  --   build = get_tabnine_build_string(),
+  -- },
 }, {
   defaults = {
     lazy = false,
