@@ -17,8 +17,8 @@ function M.config()
 			vim.lsp.buf.format({ async = true })
 		end, bufopts)
 		vim.keymap.set("n", "<leader>fd", require("telescope.builtin").lsp_definitions, bufopts)
+    vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, bufopts)
 		vim.keymap.set("n", "<leader>fi", require("telescope.builtin").lsp_implementations, bufopts)
-		vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, bufopts)
 	end
 
   local ext = ""
@@ -64,10 +64,17 @@ function M.config()
 	})
 
   -- deno
-  lspconfig.denols.setup({
+  -- lspconfig.denols.setup({
+  --   on_attach = on_attach,
+  --   capabilities = capabilities,
+  --   root_dir = lspconfig.util.root_pattern("deno.json","*.js","*.ts"),
+  -- })
+
+  -- typescript
+  lspconfig.tsserver.setup({
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/typescript-language-server" .. ext },
     on_attach = on_attach,
-    capabilities = capabilities,
-    root_dir = lspconfig.util.root_pattern("deno.json","*.js","*.ts"),
+    capabilities = capabilities
   })
 
 	-- python
@@ -75,6 +82,13 @@ function M.config()
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
+
+  -- zig
+  lspconfig.zls.setup({
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/zls" .. ext },
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
 
 
   -- csharp, do I still need to do this

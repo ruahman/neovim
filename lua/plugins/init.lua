@@ -77,7 +77,7 @@ require("lazy").setup({
     keys = {
       { "<c-\\>", "ToggleTerm" },
     },
-    event = "VeryLazy",
+    -- event = "VeryLazy",
     config = require("plugins.toogleterm").config,
   },
   { "goolord/alpha-nvim",   config = require("plugins.dashboard").config },
@@ -91,12 +91,12 @@ require("lazy").setup({
       "saadparwaiz1/cmp_luasnip",
       "onsails/lspkind.nvim",
     },
-    event = "InsertEnter",
+    -- event = "InsertEnter",
     config = require("plugins.nvim-cmp").config,
   },
   {
     "neovim/nvim-lspconfig",
-    event = "InsertEnter",
+    -- event = "InsertEnter",
     config = require("plugins.lsp").config,
   },
   {
@@ -155,13 +155,13 @@ require("lazy").setup({
     },
     config = require("plugins.treesitter").config,
   },
-  {
-    "vimwiki/vimwiki",
-    keys = {
-      { "<leader>ww", "<cmd>VimwikiIndex<cr>" },
-    },
-    config = require("plugins.vimwiki").config,
-  },
+  -- {
+  --   "vimwiki/vimwiki",
+  --   keys = {
+  --     { "<leader>ww", "<cmd>VimwikiIndex<cr>" },
+  --   },
+  --   config = require("plugins.vimwiki").config,
+  -- },
   -- {
   --   "nvim-neorg/neorg",
   --   build = ":Neorg sync-parsers",
