@@ -15,7 +15,7 @@ function M.config()
           text_align = "left"
         }
       },
-      -- diagnostics = "nvim_lsp",
+      diagnostics = "nvim_lsp",
     }
   }
 

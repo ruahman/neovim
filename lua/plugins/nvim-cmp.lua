@@ -19,7 +19,7 @@ function export.config()
       sources = {
         { name = 'nvim_lua' },
         { name = 'nvim_lsp' },
-        { name = 'luasnip' },
+        -- { name = 'luasnip' },
         { name = 'buffer', keyword_length = 5 },
         { name = 'path' },
       },
