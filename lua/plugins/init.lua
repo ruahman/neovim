@@ -29,6 +29,7 @@ require("lazy").setup({
     dependencies = {
       "p00f/nvim-ts-rainbow",
       "nvim-treesitter/nvim-treesitter-textobjects",
+      "nkrkv/nvim-treesitter-rescript"
     },
     config = require("plugins.treesitter").config,
   },

@@ -63,13 +63,6 @@ function M.config()
 		-- root_dir = lspconfig.util.root_pattern("*.c", "*.cpp"),
 	})
 
-  -- deno
-  -- lspconfig.denols.setup({
-  --   on_attach = on_attach,
-  --   capabilities = capabilities,
-  --   root_dir = lspconfig.util.root_pattern("deno.json","*.js","*.ts"),
-  -- })
-
   -- typescript
   lspconfig.tsserver.setup({
 		cmd = { vim.fn.stdpath("data") .. "/mason/bin/typescript-language-server" .. ext },
@@ -79,6 +72,7 @@ function M.config()
 
 	-- python
 	lspconfig.pylsp.setup({
+		cmd = { vim.fn.stdpath("data") .. "/mason/bin/pylsp" .. ext },
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
