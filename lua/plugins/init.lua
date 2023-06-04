@@ -35,7 +35,6 @@ require("lazy").setup({
   },
   {
     "neovim/nvim-lspconfig",
-    -- event = "InsertEnter",
     config = require("plugins.lsp").config,
   },
   {
