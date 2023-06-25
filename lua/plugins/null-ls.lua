@@ -5,9 +5,10 @@ function export.config()
 
   local sources = {
     null_ls.builtins.formatting.stylua,
-    -- null_ls.builtins.formatting.yapf,
+    null_ls.builtins.formatting.prettier,
     -- null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.diagnostics.luacheck,
+    null_ls.builtins.diagnostics.eslint,
   }
 
   null_ls.setup({

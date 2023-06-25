@@ -51,6 +51,7 @@ require("lazy").setup({
     -- event = "InsertEnter",
     config = require("plugins.nvim-cmp").config,
   },
+  { "jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls").config },
   {
     "williamboman/mason.nvim",
     dependencies = {
@@ -88,8 +89,8 @@ require("lazy").setup({
     -- lazy = true
     event = "VeryLazy"
   },
-  { "hoob3rt/lualine.nvim", config = require("plugins.lualine").config },
-  { "goolord/alpha-nvim",   config = require("plugins.dashboard").config },
+  { "hoob3rt/lualine.nvim",            config = require("plugins.lualine").config },
+  { "goolord/alpha-nvim",              config = require("plugins.dashboard").config },
   {
     "akinsho/toggleterm.nvim",
     tag = "v2.2.1",
@@ -154,7 +155,6 @@ require("lazy").setup({
   --   event = "InsertEnter",
   --   config = require("plugins.luasnip").config,
   -- },
-  -- { "jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls").config },
   -- {
   --   "mfussenegger/nvim-dap",
   --   dependencies = {
