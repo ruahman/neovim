@@ -29,13 +29,12 @@ require("lazy").setup({
     dependencies = {
       "p00f/nvim-ts-rainbow",
       "nvim-treesitter/nvim-treesitter-textobjects",
-      "nkrkv/nvim-treesitter-rescript"
+      "nkrkv/nvim-treesitter-rescript",
     },
     config = require("plugins.treesitter").config,
   },
   {
     "neovim/nvim-lspconfig",
-    -- event = "InsertEnter",
     config = require("plugins.lsp").config,
   },
   {
@@ -87,7 +86,7 @@ require("lazy").setup({
     },
     config = require("plugins.bufferline").config,
     -- lazy = true
-    event = "VeryLazy"
+    event = "VeryLazy",
   },
   { "hoob3rt/lualine.nvim",            config = require("plugins.lualine").config },
   { "goolord/alpha-nvim",              config = require("plugins.dashboard").config },
@@ -108,8 +107,7 @@ require("lazy").setup({
   {
     "lukas-reineke/indent-blankline.nvim",
     event = "VeryLazy",
-    config = require(
-      "plugins.indent-blankline").config
+    config = require("plugins.indent-blankline").config,
   },
   { "EdenEast/nightfox.nvim", config = require("plugins.colorscheme").config },
   -- cool git plugin
@@ -128,8 +126,7 @@ require("lazy").setup({
   {
     "phaazon/hop.nvim",
     event = "VeryLazy",
-    config = require("plugins.hop")
-        .config
+    config = require("plugins.hop").config,
   },
   -- An always-on highlight for a unique character in every word on a line to help you use f, F and family.
   { "unblevable/quick-scope",  event = "VeryLazy", config = require("plugins.quick-scope").config },
