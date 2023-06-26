@@ -3,8 +3,10 @@ local M = {}
 function M.config()
   local lspconfig = require("lspconfig")
 
+  -- get capabilities of client
   local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
+  -- run this code on_attach
   local on_attach = function(_, bufnr)
     -- Enable completion triggered by <c-x><c-o>
     vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
@@ -19,6 +21,7 @@ function M.config()
     vim.keymap.set("n", "<leader>fd", require("telescope.builtin").lsp_definitions, bufopts)
     vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, bufopts)
     vim.keymap.set("n", "<leader>fi", require("telescope.builtin").lsp_implementations, bufopts)
+    vim.keymap.set("n", "<leader>fx", require("telescope.builtin").diagnostics, bufopts)
   end
 
   local ext = ""
@@ -26,10 +29,11 @@ function M.config()
     ext = ".cmd"
   end
 
+  -- lua
   lspconfig.lua_ls.setup({
-    cmd = { vim.fn.stdpath("data") .. "/mason/bin/lua-language-server" .. ext },
-    on_attach = on_attach,
     capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/lua-language-server" .. ext },
     settings = {
       Lua = {
         diagnostics = {
@@ -41,18 +45,18 @@ function M.config()
 
   -- golang
   lspconfig.gopls.setup({
-    cmd = { vim.fn.stdpath("data") .. "/mason/bin/gopls" .. ext },
-    on_attach = on_attach,
     capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/gopls" .. ext },
     -- root_dir = lspconfig.util.root_pattern("go.mod","*.go"),
   })
 
   -- rust
   lspconfig.rust_analyzer.setup({
-    cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer" .. ext },
-    on_attach = on_attach,
     capabilities = capabilities,
+    on_attach = on_attach,
     root_dir = lspconfig.util.root_pattern("Cargo.toml"),
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer" .. ext },
   })
 
   -- c/cpp
@@ -63,11 +67,11 @@ function M.config()
     -- root_dir = lspconfig.util.root_pattern("*.c", "*.cpp"),
   })
 
-  -- typescript
+  -- javascript/typescript
   lspconfig.tsserver.setup({
-    cmd = { vim.fn.stdpath("data") .. "/mason/bin/typescript-language-server" .. ext, "--stdio" },
-    on_attach = on_attach,
     capabilities = capabilities,
+    on_attach = on_attach,
+    cmd = { vim.fn.stdpath("data") .. "/mason/bin/typescript-language-server" .. ext, "--stdio" },
     init_options = {
       preferences = {
         disableSuggestions = true,

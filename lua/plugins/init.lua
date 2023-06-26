@@ -12,17 +12,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Get platform depended build script for tabnine
--- local function get_tabnine_build_string()
---   if vim.fn.has("win32") == 1 then
---     -- use special windows path
---     return "pwsh.exe -file .\\dl_binaries.ps1"
---   else
---     -- unix path
---     return "./dl_binaries.sh"
---   end
--- end
-
 require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
@@ -130,16 +119,6 @@ require("lazy").setup({
 	},
 	-- An always-on highlight for a unique character in every word on a line to help you use f, F and family.
 	{ "unblevable/quick-scope", event = "VeryLazy", config = require("plugins.quick-scope").config },
-	-- A pretty list for showing diagnostics, references, telescope results, quickfix and location lists
-	-- to help you solve all the trouble your code is causing.
-	{
-		"folke/trouble.nvim",
-		event = "VeryLazy",
-		dependencies = {
-			"kyazdani42/nvim-web-devicons",
-		},
-		config = require("plugins.trouble").config,
-	},
 	--  Super fast git decorations
 	{ "lewis6991/gitsigns.nvim", event = "VeryLazy", config = require("plugins.gitsigns").config },
 	-- { "haishanh/night-owl.vim", lazy = true },
@@ -175,37 +154,6 @@ require("lazy").setup({
 	--   },
 	--   event = "VeryLazy",
 	--   config = require("plugins.neotest").config,
-	-- },
-	-- {
-	--   "vimwiki/vimwiki",
-	--   keys = {
-	--     { "<leader>ww", "<cmd>VimwikiIndex<cr>" },
-	--   },
-	--   config = require("plugins.vimwiki").config,
-	-- },
-	-- {
-	--   "nvim-neorg/neorg",
-	--   build = ":Neorg sync-parsers",
-	--   opts = {
-	--       load = {
-	--           ["core.defaults"] = {}, -- Loads default behaviour
-	--           ["core.concealer"] = {}, -- Adds pretty icons to your documents
-	--           ["core.dirman"] = { -- Manages Neorg workspaces
-	--               config = {
-	--                   workspaces = {
-	--                       neorg = "~/neorg",
-	--                       notes = "~/notes"
-	--                   },
-	--               },
-	--           },
-	--       },
-	--   },
-	--   dependencies = { { "nvim-lua/plenary.nvim" } },
-	-- },
-	-- {
-	--   "codota/tabnine-nvim",
-	--   config = require("plugins.tabnine").config,
-	--   build = get_tabnine_build_string(),
 	-- },
 }, {
 	defaults = {
