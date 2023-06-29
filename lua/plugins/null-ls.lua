@@ -5,10 +5,18 @@ function export.config()
 
   local sources = {
     null_ls.builtins.formatting.stylua,
-    null_ls.builtins.formatting.prettier,
-    -- null_ls.builtins.diagnostics.flake8,
     null_ls.builtins.diagnostics.luacheck,
-    null_ls.builtins.diagnostics.eslint,
+    -- null_ls.builtins.formatting.prettier.with({ filetypes = { "javascript" } }),
+    null_ls.builtins.diagnostics.eslint_d.with({
+      condition = function(utils)
+        return utils.has_file(".eslintrc.js")
+      end,
+    }),
+    null_ls.builtins.formatting.prettierd.with({
+      condition = function(utils)
+        return utils.has_file(".prettierrc.json")
+      end,
+    }),
   }
 
   null_ls.setup({
