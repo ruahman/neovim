@@ -94,10 +94,14 @@ function M.config()
 	})
 
 	-- python
-	lspconfig.pylsp.setup({
-		cmd = { vim.fn.stdpath("data") .. "/mason/bin/pylsp" .. ext },
-		on_attach = on_attach,
+	-- lspconfig.pylsp.setup({
+	-- 	cmd = { vim.fn.stdpath("data") .. "/mason/bin/pylsp" .. ext },
+	-- 	on_attach = on_attach,
+	-- 	capabilities = capabilities,
+	-- })
+	lspconfig.pyright.setup({
 		capabilities = capabilities,
+		on_attach = on_attach,
 	})
 
 	-- zig
