@@ -18,13 +18,14 @@ require("lazy").setup({
     dependencies = {
       "p00f/nvim-ts-rainbow",
       "nvim-treesitter/nvim-treesitter-textobjects",
-      "nkrkv/nvim-treesitter-rescript",
     },
     config = require("plugins.treesitter").config,
+    version = "v0.9.0",
   },
   {
     "neovim/nvim-lspconfig",
     config = require("plugins.lsp").config,
+    version = "v0.1.6",
   },
   {
     "hrsh7th/nvim-cmp",
@@ -36,7 +37,6 @@ require("lazy").setup({
       "saadparwaiz1/cmp_luasnip",
       "onsails/lspkind.nvim",
     },
-    -- event = "InsertEnter",
     config = require("plugins.nvim-cmp").config,
   },
   { "jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls").config },
@@ -46,6 +46,7 @@ require("lazy").setup({
       "williamboman/mason-lspconfig.nvim",
     },
     config = require("plugins.mason").config,
+    version = "v1.5.0",
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -55,6 +56,7 @@ require("lazy").setup({
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     config = require("plugins.telescope").config,
+    version = "v0.1.2",
   },
   {
     "kyazdani42/nvim-tree.lua",
@@ -116,21 +118,30 @@ require("lazy").setup({
     "phaazon/hop.nvim",
     event = "VeryLazy",
     config = require("plugins.hop").config,
+    version = "v2.0.3",
   },
   -- An always-on highlight for a unique character in every word on a line to help you use f, F and family.
-  { "unblevable/quick-scope",  event = "VeryLazy", config = require("plugins.quick-scope").config },
+  {
+    "unblevable/quick-scope",
+    event = "VeryLazy",
+    config = require("plugins.quick-scope").config,
+  },
   --  Super fast git decorations
-  { "lewis6991/gitsigns.nvim", event = "VeryLazy", config = require("plugins.gitsigns").config },
-  -- { "haishanh/night-owl.vim", lazy = true },
-  -- { "folke/tokyonight.nvim",  lazy = true },
-  -- {
-  --   "L3MON4D3/LuaSnip",
-  --   dependencies = {
-  --     "rafamadriz/friendly-snippets",
-  --   },
-  --   event = "InsertEnter",
-  --   config = require("plugins.luasnip").config,
-  -- },
+  {
+    "lewis6991/gitsigns.nvim",
+    event = "VeryLazy",
+    config = require("plugins.gitsigns").config,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = {
+      "rafamadriz/friendly-snippets",
+    },
+    event = "InsertEnter",
+    config = require("plugins.luasnip").config,
+    version = "v1.2.1",
+  },
+  { "github/copilot.vim" },
   -- {
   --   "mfussenegger/nvim-dap",
   --   dependencies = {

@@ -6,6 +6,7 @@ function export.config()
 	local sources = {
 		null_ls.builtins.diagnostics.luacheck,
 		null_ls.builtins.diagnostics.pylint,
+		-- null_ls.builtins.diagnostics.golangci_lint,
 		null_ls.builtins.diagnostics.eslint_d.with({
 			condition = function(utils)
 				return utils.has_file(".eslintrc.js")
