@@ -2,6 +2,7 @@ local M = {}
 
 function M.config()
   local lspconfig = require("lspconfig")
+  local map = require("utils").map
 
   -- get capabilities of client
   local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -9,7 +10,7 @@ function M.config()
   -- run this code on_attach
   local on_attach = function(_, bufnr)
     -- Enable completion triggered by <c-x><c-o>
-    vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+    -- vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
 
     -- setup keybindings for this buffer
     local bufopts = { noremap = true, silent = true, buffer = bufnr }
@@ -22,12 +23,16 @@ function M.config()
     vim.keymap.set("n", "<leader>fr", require("telescope.builtin").lsp_references, bufopts)
     vim.keymap.set("n", "<leader>fi", require("telescope.builtin").lsp_implementations, bufopts)
     vim.keymap.set("n", "<leader>fx", require("telescope.builtin").diagnostics, bufopts)
+
+    -- refresh lsp
+    map("n", "gr", ":LspRestart<CR>")
   end
 
-  local ext = ""
-  if vim.loop.os_uname().sysname == "Windows_NT" then
-    ext = ".cmd"
-  end
+  -- this is so that I can use the same config on windows and linux
+  -- local ext = ""
+  -- if vim.loop.os_uname().sysname == "Windows_NT" then
+  -- 	ext = ".cmd"
+  -- end
 
   -- lua
   lspconfig.lua_ls.setup({
@@ -79,6 +84,15 @@ function M.config()
   lspconfig.gopls.setup({
     capabilities = capabilities,
     on_attach = on_attach,
+    settings = {
+      gopls = {
+        completeUnimported = true,
+        usePlaceholders = true,
+        analyses = {
+          unusedparams = true,
+        },
+      },
+    },
   })
 
   -- rust
