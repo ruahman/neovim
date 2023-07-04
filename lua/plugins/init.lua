@@ -121,11 +121,19 @@ require("lazy").setup({
   -- Targets.vim is a Vim plugin that adds various text objects to give you more targets to operate on.
   { "wellle/targets.vim",     event = "VeryLazy" },
   -- Hop is an EasyMotion-like plugin allowing you to jump anywhere in a document with as few keystrokes as possible.
+  -- {
+  --   "phaazon/hop.nvim",
+  --   event = "VeryLazy",
+  --   config = require("plugins.hop").config,
+  --   version = "v2.0.3",
+  -- },
   {
-    "phaazon/hop.nvim",
-    event = "VeryLazy",
-    config = require("plugins.hop").config,
-    version = "v2.0.3",
+    "ggandor/leap.nvim",
+    config = require("plugins.leap").config,
+  },
+  {
+    "ggandor/flit.nvim",
+    config = require("plugins.flit").config,
   },
   -- An always-on highlight for a unique character in every word on a line to help you use f, F and family.
   {
