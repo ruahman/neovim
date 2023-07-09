@@ -1,5 +1,8 @@
 return {
-    s("test",fmt([[
+	s(
+		"test",
+		fmt(
+			[[
     package {}
 
     import "testing"
@@ -7,9 +10,12 @@ return {
     func Test{}(t *testing.T){{
       {}
     }}
-    ]],{
-      i(1,"Package"),
-      i(2,"Name"),
-      i(0)
-    }))
+    ]],
+			{
+				i(1, "Package"),
+				i(2, "Name"),
+				i(0),
+			}
+		)
+	),
 }
