@@ -6,6 +6,7 @@ vim.opt.splitright = true
 
 vim.opt.number = true
 vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 vim.opt.relativenumber = true
 
 -- insert space for tab
