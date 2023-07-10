@@ -16,6 +16,7 @@ return {
       [[
   class {} {{
     constructor({}) {{
+      // snipets rule
       {}
     }}
   }}
