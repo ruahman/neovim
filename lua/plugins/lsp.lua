@@ -4,7 +4,7 @@ function M.config()
 	local lspconfig = require("lspconfig")
 	local map = require("utils").map
 
-	-- get capabilities of client
+	-- share client capabilites to LSP
 	local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 	-- run this code on_attach
@@ -96,12 +96,10 @@ function M.config()
 	})
 
 	-- rust
-	-- lspconfig.rust_analyzer.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	root_dir = lspconfig.util.root_pattern("Cargo.toml"),
-	-- 	cmd = { vim.fn.stdpath("data") .. "/mason/bin/rust-analyzer" .. ext },
-	-- })
+	lspconfig.rust_analyzer.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
 
 	-- c/cpp
 	-- lspconfig.clangd.setup({

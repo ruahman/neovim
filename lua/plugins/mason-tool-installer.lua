@@ -20,6 +20,8 @@ M.config = function()
 			"eslint_d",
 			"prettierd",
 			"js-debug-adapter",
+			"rust-analyzer",
+			"codelldb",
 		},
 	})
 end
