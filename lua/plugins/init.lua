@@ -69,10 +69,10 @@ require("lazy").setup({
 		},
 		config = require("plugins.nvim-tree").config,
 	},
-	{
-		"kelly-lin/ranger.nvim",
-		config = require("plugins.ranger").config,
-	},
+	-- {
+	-- 	"kelly-lin/ranger.nvim",
+	-- 	config = require("plugins.ranger").config,
+	-- },
 	{
 		"akinsho/bufferline.nvim",
 		tag = "v3.5.0",
