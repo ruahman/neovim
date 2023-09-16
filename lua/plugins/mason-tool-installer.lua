@@ -6,7 +6,7 @@ M.config = function()
 			"pyright",
 			"debugpy",
 			"mypy",
-			"ruff",
+			"flake8",
 			"black",
 			"lua-language-server",
 			"luacheck",

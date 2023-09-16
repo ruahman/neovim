@@ -17,7 +17,8 @@ function M.config()
 		vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
 		vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts)
 		vim.keymap.set("n", "gf", function()
-			vim.lsp.buf.format({ async = true })
+			-- vim.lsp.buf.format({ async = true })
+			require("conform").format({ bufnr = bufopts.buffer })
 		end, bufopts)
 		vim.keymap.set("n", "<leader>d", require("telescope.builtin").lsp_definitions, bufopts)
 		vim.keymap.set("n", "<leader>r", require("telescope.builtin").lsp_references, bufopts)
@@ -208,14 +209,20 @@ function M.config()
 	-- 	end,
 	-- })
 
-	-- format on save
-	local on_format = function()
-		vim.lsp.buf.format({ async = false })
-	end
-
+	-- format before save
 	vim.api.nvim_create_autocmd("BufWritePre", {
 		pattern = "*",
-		callback = on_format,
+		callback = function()
+			-- vim.lsp.buf.format({ async = false })
+			require("conform").format({ async = false })
+		end,
+	})
+
+	-- lint after save
+	vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		callback = function()
+			require("lint").try_lint()
+		end,
 	})
 end
 

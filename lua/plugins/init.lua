@@ -13,6 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
@@ -39,7 +40,9 @@ require("lazy").setup({
 		},
 		config = require("plugins.nvim-cmp").config,
 	},
-	{ "jose-elias-alvarez/null-ls.nvim", config = require("plugins.null-ls").config },
+	-- { "jose-elias-alvarez/null-ls.nvim",           config = require("plugins.null-ls").config },
+	{ "stevearc/conform.nvim", config = require("plugins.conform").config },
+	{ "mfussenegger/nvim-lint", config = require("plugins.nvim-lint").config },
 	{
 		"williamboman/mason.nvim",
 		dependencies = {
@@ -69,10 +72,6 @@ require("lazy").setup({
 		},
 		config = require("plugins.nvim-tree").config,
 	},
-	-- {
-	-- 	"kelly-lin/ranger.nvim",
-	-- 	config = require("plugins.ranger").config,
-	-- },
 	{
 		"akinsho/bufferline.nvim",
 		tag = "v3.5.0",
@@ -168,19 +167,6 @@ require("lazy").setup({
 		},
 		config = require("plugins.nvim-dap").config,
 	},
-	-- -- {
-	-- --   "nvim-neotest/neotest",
-	-- --   dependencies = {
-	-- --     "nvim-lua/plenary.nvim",
-	-- --     "nvim-treesitter/nvim-treesitter",
-	-- --     "antoinemadec/FixCursorHold.nvim",
-	-- --     "Issafalcon/neotest-dotnet",
-	-- --     "nvim-neotest/neotest-python",
-	-- --     "nvim-neotest/neotest-go",
-	-- --   },
-	-- --   event = "VeryLazy",
-	-- --   config = require("plugins.neotest").config,
-	-- -- },
 }, {
 	defaults = {
 		lazy = false,
