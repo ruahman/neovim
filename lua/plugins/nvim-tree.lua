@@ -5,6 +5,9 @@ function export.config()
 
   require("nvim-tree").setup({
     sync_root_with_cwd = true,
+    view = {
+      side = "right",
+    },
   })
 
   -- setup keymap
