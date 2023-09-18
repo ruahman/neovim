@@ -11,6 +11,14 @@ function export.config()
 			go = { "gofumpt", "goimports" },
 		},
 	})
+
+	-- format before save
+	vim.api.nvim_create_autocmd("BufWritePre", {
+		pattern = "*",
+		callback = function()
+			require("conform").format({ async = false })
+		end,
+	})
 end
 
 return export

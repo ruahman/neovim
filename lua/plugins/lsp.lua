@@ -210,20 +210,20 @@ function M.config()
 	-- })
 
 	-- format before save
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*",
-		callback = function()
-			-- vim.lsp.buf.format({ async = false })
-			require("conform").format({ async = false })
-		end,
-	})
+	-- vim.api.nvim_create_autocmd("BufWritePre", {
+	-- 	pattern = "*",
+	-- 	callback = function()
+	-- 		-- vim.lsp.buf.format({ async = false })
+	-- 		require("conform").format({ async = false })
+	-- 	end,
+	-- })
 
 	-- lint after save
-	vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-		callback = function()
-			require("lint").try_lint()
-		end,
-	})
+	-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+	-- 	callback = function()
+	-- 		require("lint").try_lint()
+	-- 	end,
+	-- })
 end
 
 return M
