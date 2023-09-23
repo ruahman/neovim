@@ -40,7 +40,6 @@ require("lazy").setup({
 		},
 		config = require("plugins.nvim-cmp").config,
 	},
-	-- { "jose-elias-alvarez/null-ls.nvim",           config = require("plugins.null-ls").config },
 	{ "stevearc/conform.nvim", config = require("plugins.conform").config },
 	{ "mfussenegger/nvim-lint", config = require("plugins.nvim-lint").config },
 	{
@@ -117,13 +116,6 @@ require("lazy").setup({
 	{ "tpope/vim-surround", event = "VeryLazy" },
 	-- Targets.vim is a Vim plugin that adds various text objects to give you more targets to operate on.
 	{ "wellle/targets.vim", event = "VeryLazy" },
-	-- Hop is an EasyMotion-like plugin allowing you to jump anywhere in a document with as few keystrokes as possible.
-	-- {
-	--   "phaazon/hop.nvim",
-	--   event = "VeryLazy",
-	--   config = require("plugins.hop").config,
-	--   version = "v2.0.3",
-	-- },
 	{
 		"ggandor/leap.nvim",
 		config = require("plugins.leap").config,

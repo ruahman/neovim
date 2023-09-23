@@ -61,20 +61,6 @@ function M.config()
 		-- },
 	})
 
-	-- deno
-	-- vim.g.markdown_fenced_languages = {
-	-- 	"ts=typescript",
-	-- }
-
-	-- lspconfig.denols.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-	-- 	init_options = {
-	-- 		lint = true,
-	-- 	},
-	-- })
-
 	-- python
 	lspconfig.pyright.setup({
 		capabilities = capabilities,
@@ -206,22 +192,6 @@ function M.config()
 	-- 			},
 	-- 			range = true,
 	-- 		}
-	-- 	end,
-	-- })
-
-	-- format before save
-	-- vim.api.nvim_create_autocmd("BufWritePre", {
-	-- 	pattern = "*",
-	-- 	callback = function()
-	-- 		-- vim.lsp.buf.format({ async = false })
-	-- 		require("conform").format({ async = false })
-	-- 	end,
-	-- })
-
-	-- lint after save
-	-- vim.api.nvim_create_autocmd({ "BufWritePost" }, {
-	-- 	callback = function()
-	-- 		require("lint").try_lint()
 	-- 	end,
 	-- })
 end
