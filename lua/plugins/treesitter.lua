@@ -40,10 +40,10 @@ function export.config()
 			},
 		},
 
-		autotag = {
-			enable = true,
-			filetypes = { "html", "xml" },
-		},
+		-- autotag = {
+		-- 	enable = true,
+		-- 	filetypes = { "html", "xml" },
+		-- },
 	})
 end
 
