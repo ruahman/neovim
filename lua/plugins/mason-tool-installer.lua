@@ -18,6 +18,8 @@ M.config = function()
 			"golines",
 			"delve",
 			"typescript-language-server",
+			"css-lsp",
+			"html-lsp",
 			"prettierd",
 			"js-debug-adapter",
 			"rust-analyzer",

@@ -4,13 +4,18 @@ function export.config()
 	require("nvim-treesitter.configs").setup({
 
 		-- A list of parser names, or "all"
-		-- ensure_installed = {
-		-- 	"lua",
-		-- 	"javascript",
-		-- 	"typescript",
-		-- 	"python",
-		-- 	"go",
-		-- },
+		ensure_installed = {
+			"lua",
+			"javascript",
+			"typescript",
+			"html",
+			"tsx",
+			"css",
+			"python",
+			"rust",
+			"go",
+		},
+		auto_install = true,
 
 		highlight = {
 			enable = true,
@@ -33,6 +38,11 @@ function export.config()
 					["ic"] = "@class.inner",
 				},
 			},
+		},
+
+		autotag = {
+			enable = true,
+			filetypes = { "html", "xml" },
 		},
 	})
 end

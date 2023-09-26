@@ -6,6 +6,8 @@ function M.config()
 
 	-- share client capabilites to LSP
 	local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+	-- enable snippes for css and html support
+	capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 	-- run this code on_attach
 	local on_attach = function(_, bufnr)
@@ -59,6 +61,18 @@ function M.config()
 				disableSuggestions = true,
 			},
 		},
+	})
+
+	-- css
+	lspconfig.cssls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
+	-- html
+	lspconfig.html.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
 	})
 
 	-- python

@@ -24,6 +24,15 @@ require("lazy").setup({
 		version = "v0.9.0",
 	},
 	{
+		"windwp/nvim-ts-autotag",
+		dependencies = "nvim-treesitter/nvim-treesitter",
+		config = function()
+			require("nvim-ts-autotag").setup()
+		end,
+		lazy = true,
+		event = "VeryLazy",
+	},
+	{
 		"neovim/nvim-lspconfig",
 		config = require("plugins.lsp").config,
 	},
@@ -100,17 +109,20 @@ require("lazy").setup({
 		event = "VeryLazy",
 		config = require("plugins.indent-blankline").config,
 	},
-	"catppuccin/nvim",
-	"folke/tokyonight.nvim",
-	"haishanh/night-owl.vim",
+	-- "catppuccin/nvim",
+	-- "folke/tokyonight.nvim",
+	-- "haishanh/night-owl.vim",
 	{ "EdenEast/nightfox.nvim", config = require("plugins.colorscheme").config },
+	-- add colors to css
+	{ "norcalli/nvim-colorizer.lua", config = require("plugins.colorizer").config },
 	-- cool git plugin
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
 	-- insert or delete brackets, parens, quotes in pair.
 	{ "jiangmiao/auto-pairs", event = "VeryLazy" },
 	-- disables search highlighting when you are done searching and re-enables it when you search again.
 	{ "romainl/vim-cool", event = "VeryLazy" },
-	-- Bbye gives you :Bdelete which allows you to do delete buffers (close files) without closing your windows or messing up your layout.
+	-- Bbye gives you :Bdelete which allows you to do delete buffers (close files)
+	-- without closing your windows or messing up your layout.
 	{ "moll/vim-bbye", event = "VeryLazy" },
 	-- easily delete, change and add surroundings in pairs.
 	{ "tpope/vim-surround", event = "VeryLazy" },
