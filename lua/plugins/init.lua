@@ -14,6 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
+	-- treesitter v0.9.0
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
@@ -25,10 +26,12 @@ require("lazy").setup({
 		config = require("plugins.treesitter").config,
 		version = "v0.9.0",
 	},
+	-- lsp
 	{
 		"neovim/nvim-lspconfig",
 		config = require("plugins.lsp").config,
 	},
+	-- nvim-cmp
 	{
 		"hrsh7th/nvim-cmp",
 		dependencies = {
@@ -42,8 +45,11 @@ require("lazy").setup({
 		},
 		config = require("plugins.nvim-cmp").config,
 	},
+	-- conform
 	{ "stevearc/conform.nvim", config = require("plugins.conform").config },
+	-- nvim-lint
 	{ "mfussenegger/nvim-lint", config = require("plugins.nvim-lint").config },
+	-- mason v1.5.0
 	{
 		"williamboman/mason.nvim",
 		dependencies = {
@@ -52,7 +58,9 @@ require("lazy").setup({
 		config = require("plugins.mason").config,
 		version = "v1.5.0",
 	},
+	-- mason-tool-installer
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim", config = require("plugins.mason-tool-installer").config },
+	-- telescope 0.1.3
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
@@ -63,6 +71,7 @@ require("lazy").setup({
 		config = require("plugins.telescope").config,
 		tag = "0.1.3",
 	},
+	-- nvim-tree
 	{
 		"kyazdani42/nvim-tree.lua",
 		keys = {
@@ -73,6 +82,7 @@ require("lazy").setup({
 		},
 		config = require("plugins.nvim-tree").config,
 	},
+	-- bufferline v4.4.0
 	{
 		"akinsho/bufferline.nvim",
 		-- tag = "v3.5.0",
@@ -83,8 +93,11 @@ require("lazy").setup({
 		},
 		config = require("plugins.bufferline").config,
 	},
+	-- lualine
 	{ "hoob3rt/lualine.nvim", config = require("plugins.lualine").config },
+	-- alpha-nvim : dashboard
 	{ "goolord/alpha-nvim", config = require("plugins.dashboard").config },
+	-- toogleterm v2.2.1
 	{
 		"akinsho/toggleterm.nvim",
 		tag = "v2.2.1",
@@ -93,32 +106,35 @@ require("lazy").setup({
 		},
 		config = require("plugins.toogleterm").config,
 	},
+	-- comment.nvim
 	{
 		"numToStr/Comment.nvim",
 		event = "VeryLazy",
 		config = require("plugins.comment").config,
 	},
+	-- indent-blankline
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
 		config = require("plugins.indent-blankline").config,
 	},
+	-- nightfox colorscheme
 	{ "EdenEast/nightfox.nvim", config = require("plugins.colorscheme").config },
-	-- add colors to css
+	-- nvim-colorizer : add color to hex codes
 	{ "norcalli/nvim-colorizer.lua", config = require("plugins.colorizer").config },
-	-- cool git plugin
+	-- cool git plugin : integrate git to nvim
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
 	-- insert or delete brackets, parens, quotes in pair. this was causing me problems.
 	-- { "jiangmiao/auto-pairs", event = "VeryLazy" },
-	-- disables search highlighting when you are done searching and re-enables it when you search again.
+	-- vim-cool : disables highlight when you move the cursor
 	{ "romainl/vim-cool", event = "VeryLazy" },
-	-- Bbye gives you :Bdelete which allows you to do delete buffers (close files)
-	-- without closing your windows or messing up your layout.
+	-- vim-bbye : delete buffer without closing your windows and messing up your layout
 	{ "moll/vim-bbye", event = "VeryLazy" },
-	-- easily delete, change and add surroundings in pairs.
+	-- vim-surround : add, change, delete surroundings
 	{ "tpope/vim-surround", event = "VeryLazy" },
-	-- Targets.vim is a Vim plugin that adds various text objects to give you more targets to operate on.
+	-- targets.vim : adds various text objects to give you more targets to operate on.
 	{ "wellle/targets.vim", event = "VeryLazy" },
+	-- leap.nvim : nvim version of vim-easymotion/vim-sneak
 	{
 		"ggandor/leap.nvim",
 		dependencies = {
@@ -126,23 +142,19 @@ require("lazy").setup({
 		},
 		config = require("plugins.leap").config,
 	},
-	-- change f and t behavior
-	{
-		"ggandor/flit.nvim",
-		config = require("plugins.flit").config,
-	},
-	-- An always-on highlight for a unique character in every word on a line to help you use f, F and family.
+	-- quick-scope : highlight for a unique character in every word on a line
 	{
 		"unblevable/quick-scope",
 		event = "VeryLazy",
 		config = require("plugins.quick-scope").config,
 	},
-	--  Super fast git decorations
+	--  gitsigns : git decorations that show whether lines have been added, modified or removed
 	{
 		"lewis6991/gitsigns.nvim",
 		event = "VeryLazy",
 		config = require("plugins.gitsigns").config,
 	},
+	-- luasnip v1.2.1
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
@@ -152,8 +164,9 @@ require("lazy").setup({
 		config = require("plugins.luasnip").config,
 		version = "v1.2.1",
 	},
-	-- Microsoft Copilot
+	-- copilot
 	{ "github/copilot.vim", config = require("plugins.copilot").config },
+	-- nvim-dap
 	{
 		"mfussenegger/nvim-dap",
 		dependencies = {
