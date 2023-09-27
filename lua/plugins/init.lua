@@ -18,20 +18,12 @@ require("lazy").setup({
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
 			"p00f/nvim-ts-rainbow",
+			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
 		build = ":TSUpdate",
 		config = require("plugins.treesitter").config,
-		version = "v0.9.1",
-	},
-	{
-		"windwp/nvim-ts-autotag",
-		dependencies = "nvim-treesitter/nvim-treesitter",
-		config = function()
-			require("nvim-ts-autotag").setup()
-		end,
-		lazy = true,
-		event = "VeryLazy",
+		version = "v0.9.0",
 	},
 	{
 		"neovim/nvim-lspconfig",
@@ -69,7 +61,7 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		config = require("plugins.telescope").config,
-		version = "v0.1.2",
+		tag = "0.1.3",
 	},
 	{
 		"kyazdani42/nvim-tree.lua",
@@ -83,7 +75,8 @@ require("lazy").setup({
 	},
 	{
 		"akinsho/bufferline.nvim",
-		tag = "v3.5.0",
+		-- tag = "v3.5.0",
+		tag = "v4.4.0",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
 			"famiu/bufdelete.nvim",
@@ -110,9 +103,6 @@ require("lazy").setup({
 		event = "VeryLazy",
 		config = require("plugins.indent-blankline").config,
 	},
-	-- "catppuccin/nvim",
-	-- "folke/tokyonight.nvim",
-	-- "haishanh/night-owl.vim",
 	{ "EdenEast/nightfox.nvim", config = require("plugins.colorscheme").config },
 	-- add colors to css
 	{ "norcalli/nvim-colorizer.lua", config = require("plugins.colorizer").config },
@@ -131,6 +121,9 @@ require("lazy").setup({
 	{ "wellle/targets.vim", event = "VeryLazy" },
 	{
 		"ggandor/leap.nvim",
+		dependencies = {
+			"tpope/vim-repeat",
+		},
 		config = require("plugins.leap").config,
 	},
 	-- change f and t behavior
