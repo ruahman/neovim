@@ -20,8 +20,9 @@ require("lazy").setup({
 			"p00f/nvim-ts-rainbow",
 			"nvim-treesitter/nvim-treesitter-textobjects",
 		},
+		build = ":TSUpdate",
 		config = require("plugins.treesitter").config,
-		version = "v0.9.0",
+		version = "v0.9.1",
 	},
 	{
 		"windwp/nvim-ts-autotag",
@@ -117,8 +118,8 @@ require("lazy").setup({
 	{ "norcalli/nvim-colorizer.lua", config = require("plugins.colorizer").config },
 	-- cool git plugin
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
-	-- insert or delete brackets, parens, quotes in pair.
-	{ "jiangmiao/auto-pairs", event = "VeryLazy" },
+	-- insert or delete brackets, parens, quotes in pair. this was causing me problems.
+	-- { "jiangmiao/auto-pairs", event = "VeryLazy" },
 	-- disables search highlighting when you are done searching and re-enables it when you search again.
 	{ "romainl/vim-cool", event = "VeryLazy" },
 	-- Bbye gives you :Bdelete which allows you to do delete buffers (close files)
