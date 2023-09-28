@@ -8,7 +8,7 @@ function export.config()
 			javascript = { "prettierd" },
 			typescript = { "prettierd" },
 			rust = { "rustfmt" },
-			go = { "gofumpt", "goimports" },
+			go = { "gofumpt", "goimports", "golines" },
 		},
 	})
 

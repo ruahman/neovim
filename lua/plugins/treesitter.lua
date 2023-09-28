@@ -14,6 +14,7 @@ function export.config()
 			"python",
 			"rust",
 			"go",
+			"c_sharp",
 		},
 		auto_install = true,
 

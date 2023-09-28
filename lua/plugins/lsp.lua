@@ -102,6 +102,12 @@ function M.config()
 		on_attach = on_attach,
 	})
 
+	-- csharp
+	lspconfig.csharp_ls.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
 	-- c/cpp
 	-- lspconfig.clangd.setup({
 	-- 	cmd = { vim.fn.stdpath("data") .. "/mason/bin/clangd" .. ext },
