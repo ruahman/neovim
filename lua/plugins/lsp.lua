@@ -81,6 +81,12 @@ function M.config()
 		on_attach = on_attach,
 	})
 
+	-- ruby
+	lspconfig.solargraph.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+	})
+
 	-- golang
 	lspconfig.gopls.setup({
 		capabilities = capabilities,
@@ -109,19 +115,16 @@ function M.config()
 	})
 
 	-- c/cpp
-	-- lspconfig.clangd.setup({
-	-- 	cmd = { vim.fn.stdpath("data") .. "/mason/bin/clangd" .. ext },
-	-- 	on_attach = on_attach,
-	-- 	capabilities = capabilities,
-	-- 	-- root_dir = lspconfig.util.root_pattern("*.c", "*.cpp"),
-	-- })
+	lspconfig.clangd.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
 
 	-- zig
-	-- lspconfig.zls.setup({
-	-- 	cmd = { vim.fn.stdpath("data") .. "/mason/bin/zls" .. ext },
-	-- 	on_attach = on_attach,
-	-- 	capabilities = capabilities,
-	-- })
+	lspconfig.zls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
 end
 
 return M

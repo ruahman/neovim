@@ -12,9 +12,13 @@ function export.config()
 			"tsx",
 			"css",
 			"python",
+			"ruby",
 			"rust",
 			"go",
 			"c_sharp",
+			"c",
+			"cpp",
+			"zig",
 		},
 		auto_install = true,
 

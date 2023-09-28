@@ -4,6 +4,7 @@ M.config = function()
 	require("mason-tool-installer").setup({
 		ensure_installed = {
 			"pyright",
+			"solargraph",
 			"debugpy",
 			"mypy",
 			"flake8",
@@ -26,6 +27,8 @@ M.config = function()
 			"js-debug-adapter",
 			"rust-analyzer",
 			"codelldb",
+			"clangd",
+			"zls",
 		},
 	})
 end
