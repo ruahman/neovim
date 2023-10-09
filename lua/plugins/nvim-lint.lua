@@ -6,7 +6,7 @@ function export.config()
 		javascript = { "eslint" },
 		lua = { "luacheck" },
 		python = { "flake8", "mypy" },
-		rust = { "cargo" },
+		-- rust = { "cargo" },
 		go = { "golangcilint" },
 	}
 

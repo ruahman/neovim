@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-	-- treesitter v0.9.0
+	-- treesitter v0.9.1
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
@@ -24,7 +24,8 @@ require("lazy").setup({
 		},
 		build = ":TSUpdate",
 		config = require("plugins.treesitter").config,
-		version = "v0.9.0",
+		-- version = "v0.9.0",
+		version = "v0.9.1",
 	},
 	-- lsp
 	{
@@ -116,6 +117,7 @@ require("lazy").setup({
 	{
 		"lukas-reineke/indent-blankline.nvim",
 		event = "VeryLazy",
+		main = "ibl",
 		config = require("plugins.indent-blankline").config,
 	},
 	-- nightfox colorscheme
@@ -126,6 +128,7 @@ require("lazy").setup({
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
 	-- insert or delete brackets, parens, quotes in pair. this was causing me problems.
 	-- { "jiangmiao/auto-pairs", event = "VeryLazy" },
+	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = { map_cr = true } },
 	-- vim-cool : disables highlight when you move the cursor
 	{ "romainl/vim-cool", event = "VeryLazy" },
 	-- vim-bbye : delete buffer without closing your windows and messing up your layout
