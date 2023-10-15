@@ -39,18 +39,27 @@ function M.config()
 		{
 			type = "pwa-node",
 			request = "launch",
-			name = "Launch deno",
-			runtimeExecutable = "deno",
-			runtimeArgs = {
-				"run",
-				"--inspect-wait",
-				"--allow-all",
-			},
+			name = "Launch node",
 			program = "${file}",
 			cwd = "${workspaceFolder}",
-			attachSimplePort = 9229,
 		},
 	}
+	-- dap.configurations.typescript = {
+	-- 	{
+	-- 		type = "pwa-node",
+	-- 		request = "launch",
+	-- 		name = "Launch deno",
+	-- 		runtimeExecutable = "deno",
+	-- 		runtimeArgs = {
+	-- 			"run",
+	-- 			"--inspect-wait",
+	-- 			"--allow-all",
+	-- 		},
+	-- 		program = "${file}",
+	-- 		cwd = "${workspaceFolder}",
+	-- 		attachSimplePort = 9229,
+	-- 	},
+	-- }
 
 	-- rust
 	dap.adapters.codelldb = {
@@ -211,7 +220,7 @@ function M.config()
 			{
 				elements = {
 					"console",
-					-- "repl",
+					"repl",
 				},
 				size = 0.25, -- 25% of total lines
 				position = "bottom",

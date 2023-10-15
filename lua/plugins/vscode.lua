@@ -21,11 +21,6 @@ require("lazy").setup({
 		"ggandor/leap.nvim",
 		config = require("plugins.leap").config,
 	},
-	-- change f and t behavior
-	{
-		"ggandor/flit.nvim",
-		config = require("plugins.flit").config,
-	},
 	-- An always-on highlight for a unique character in every word on a line to help you use f, F and family.
 	{
 		"unblevable/quick-scope",
