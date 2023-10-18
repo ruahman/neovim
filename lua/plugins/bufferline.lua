@@ -24,7 +24,8 @@ function M.config()
 	map("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 	map("n", "<S-left>", ":BufferLineCloseLeft<CR>")
 
-	map("n", "bd", ":Bdelete<CR>")
+	-- map("n", "bd", ":Bdelete<CR>")
+	map("n", "bd", ":bd<CR>")
 end
 
 return M

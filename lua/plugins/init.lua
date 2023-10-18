@@ -25,7 +25,6 @@ require("lazy").setup({
 		build = ":TSUpdate",
 		config = require("plugins.treesitter").config,
 		version = "v0.9.0",
-		-- version = "v0.9.1",
 	},
 	-- lsp
 	{
@@ -131,8 +130,6 @@ require("lazy").setup({
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = { map_cr = true } },
 	-- vim-cool : disables highlight when you move the cursor
 	{ "romainl/vim-cool", event = "VeryLazy" },
-	-- vim-bbye : delete buffer without closing your windows and messing up your layout
-	{ "moll/vim-bbye", event = "VeryLazy" },
 	-- vim-surround : add, change, delete surroundings
 	{ "tpope/vim-surround", event = "VeryLazy" },
 	-- targets.vim : adds various text objects to give you more targets to operate on.

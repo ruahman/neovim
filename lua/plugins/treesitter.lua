@@ -8,6 +8,7 @@ function export.config()
 			"lua",
 			"javascript",
 			"json",
+			"vim",
 			"typescript",
 			"html",
 			"tsx",
