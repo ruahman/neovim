@@ -66,6 +66,7 @@ function M.config()
 				},
 			},
 		})
+	-- deno
 	else
 		vim.g.markdown_fenced_languages = {
 			"ts=typescript",

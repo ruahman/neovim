@@ -1,20 +1,19 @@
 local export = {}
 local utils = require("utils")
 
-local linter
+local js_linter
 if utils.file_exists("package.json") then
-	linter = "eslint"
+	js_linter = "eslint_d"
 else
-	linter = "deno"
+	js_linter = "deno"
 end
 
 function export.config()
 	require("lint").linters_by_ft = {
-		typescript = { linter },
-		javascript = { linter },
+		typescript = { js_linter },
+		javascript = { js_linter },
 		lua = { "luacheck" },
 		python = { "flake8", "mypy" },
-		-- rust = { "cargo" },
 		go = { "golangcilint" },
 	}
 

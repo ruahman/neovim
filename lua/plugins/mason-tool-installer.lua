@@ -23,6 +23,7 @@ M.config = function()
 			"css-lsp",
 			"html-lsp",
 			"omnisharp",
+			"eslint_d",
 			"prettierd",
 			"deno",
 			"js-debug-adapter",

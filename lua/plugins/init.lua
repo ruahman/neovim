@@ -14,7 +14,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
 
-	-- treesitter v0.9.1
+	-- treesitter v0.9.0
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
@@ -90,7 +90,7 @@ require("lazy").setup({
 		tag = "v4.4.0",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
-			"famiu/bufdelete.nvim",
+			-- "famiu/bufdelete.nvim",
 		},
 		config = require("plugins.bufferline").config,
 	},

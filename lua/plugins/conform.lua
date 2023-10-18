@@ -1,11 +1,11 @@
 local export = {}
 local utils = require("utils")
 
-local formater
+local js_formater
 if utils.file_exists("package.json") then
-	formater = "prettierd"
+	js_formater = "prettierd"
 else
-	formater = "deno_fmt"
+	js_formater = "deno_fmt"
 end
 
 function export.config()
@@ -13,8 +13,8 @@ function export.config()
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "black", "isort" },
-			javascript = { formater },
-			typescript = { formater },
+			javascript = { js_formater },
+			typescript = { js_formater },
 			rust = { "rustfmt" },
 			go = { "gofumpt", "goimports", "golines" },
 		},
