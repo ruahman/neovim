@@ -7,6 +7,7 @@ function export.config()
 		ensure_installed = {
 			"lua",
 			"javascript",
+			"json",
 			"typescript",
 			"html",
 			"tsx",

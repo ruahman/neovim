@@ -1,5 +1,7 @@
 local M = {}
 
+local utils = require("utils")
+
 function M.config()
 	local lspconfig = require("lspconfig")
 	local map = require("utils").map
@@ -52,16 +54,32 @@ function M.config()
 	})
 
 	-- javascript/typescript
-	lspconfig.tsserver.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		-- single_file_support = false,
-		init_options = {
-			preferences = {
-				disableSuggestions = true,
+	if utils.file_exists("package.json") then
+		lspconfig.tsserver.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("package.json"),
+			single_file_support = false,
+			init_options = {
+				preferences = {
+					disableSuggestions = true,
+				},
 			},
-		},
-	})
+		})
+	else
+		vim.g.markdown_fenced_languages = {
+			"ts=typescript",
+		}
+
+		lspconfig.denols.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+			init_options = {
+				lint = true,
+			},
+		})
+	end
 
 	-- css
 	lspconfig.cssls.setup({
