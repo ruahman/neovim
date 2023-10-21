@@ -6,6 +6,7 @@ function export.config()
 		-- A list of parser names, or "all"
 		ensure_installed = {
 			"lua",
+			"dart",
 			"javascript",
 			"json",
 			"vim",

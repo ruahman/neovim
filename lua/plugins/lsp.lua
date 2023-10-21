@@ -230,6 +230,11 @@ function M.config()
 			}
 		end,
 	})
+
+	lspconfig.dartls.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
 end
 
 return M
