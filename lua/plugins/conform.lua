@@ -17,6 +17,7 @@ function export.config()
 			typescript = { js_formater },
 			rust = { "rustfmt" },
 			go = { "gofumpt", "goimports", "golines" },
+			dart = { "dart_format" },
 		},
 	})
 
