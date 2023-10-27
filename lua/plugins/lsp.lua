@@ -8,6 +8,7 @@ function M.config()
 
 	-- share client capabilites to LSP
 	local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 	-- enable snippes for css and html support
 	capabilities.textDocument.completion.completionItem.snippetSupport = true
 
