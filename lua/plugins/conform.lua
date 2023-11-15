@@ -17,7 +17,6 @@ function export.config()
 			javascriptreact = { js_formater },
 			typescript = { js_formater },
 			typescriptreact = { js_formater },
-			jsx = { js_formater },
 			rust = { "rustfmt" },
 			go = { "gofumpt", "goimports", "golines" },
 			dart = { "dart_format" },
