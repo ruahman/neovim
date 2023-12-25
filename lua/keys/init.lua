@@ -21,10 +21,10 @@ map("n", "<M-Down>", ":resize -2<CR>")
 map("n", "<M-Up>", ":resize +2<CR>")
 
 -- move line
-map("n", "<M-j>", ":move .+1<CR>")
-map("n", "<M-k>", ":move .-2<CR>")
-map("v", "<M-k>", ":move '<-2<CR>gv=gv")
-map("v", "<M-j>", ":move '>+1<CR>gv=gv")
+map("n", "<S-j>", ":move .+1<CR>")
+map("n", "<S-k>", ":move .-2<CR>")
+map("v", "<S-k>", ":move '<-2<CR>gv=gv")
+map("v", "<S-j>", ":move '>+1<CR>gv=gv")
 
 -- cd
 map("n", "cd", ":cd %:p:h<CR>")
