@@ -13,8 +13,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-
-	-- treesitter v0.9.0
+	-- treesitter
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
@@ -24,7 +23,6 @@ require("lazy").setup({
 		},
 		build = ":TSUpdate",
 		config = require("plugins.treesitter").config,
-		version = "v0.9.0",
 	},
 	-- lsp
 	{
@@ -49,18 +47,17 @@ require("lazy").setup({
 	{ "stevearc/conform.nvim", config = require("plugins.conform").config },
 	-- nvim-lint
 	{ "mfussenegger/nvim-lint", config = require("plugins.nvim-lint").config },
-	-- mason v1.5.0
+	-- mason
 	{
 		"williamboman/mason.nvim",
 		dependencies = {
 			"williamboman/mason-lspconfig.nvim",
 		},
 		config = require("plugins.mason").config,
-		version = "v1.5.0",
 	},
 	-- mason-tool-installer
 	{ "WhoIsSethDaniel/mason-tool-installer.nvim", config = require("plugins.mason-tool-installer").config },
-	-- telescope 0.1.3
+	-- telescope
 	{
 		"nvim-telescope/telescope.nvim",
 		dependencies = {
@@ -69,7 +66,6 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		},
 		config = require("plugins.telescope").config,
-		tag = "0.1.3",
 	},
 	-- nvim-tree
 	{
@@ -82,14 +78,12 @@ require("lazy").setup({
 		},
 		config = require("plugins.nvim-tree").config,
 	},
-	-- bufferline v4.4.0
+	-- bufferline
 	{
 		"akinsho/bufferline.nvim",
-		-- tag = "v3.5.0",
-		tag = "v4.4.0",
 		dependencies = {
 			"kyazdani42/nvim-web-devicons",
-			-- "famiu/bufdelete.nvim",
+			"famiu/bufdelete.nvim",
 		},
 		config = require("plugins.bufferline").config,
 	},
@@ -97,15 +91,15 @@ require("lazy").setup({
 	{ "hoob3rt/lualine.nvim", config = require("plugins.lualine").config },
 	-- alpha-nvim : dashboard
 	{ "goolord/alpha-nvim", config = require("plugins.dashboard").config },
-	-- toogleterm v2.2.1
+	-- toogleterm
 	{
 		"akinsho/toggleterm.nvim",
-		tag = "v2.2.1",
 		keys = {
 			{ "<c-\\>", "ToggleTerm" },
 		},
 		config = require("plugins.toogleterm").config,
 	},
+	-- bookmarks.nvim
 	{
 		"crusj/bookmarks.nvim",
 		keys = {
@@ -137,8 +131,7 @@ require("lazy").setup({
 	{ "norcalli/nvim-colorizer.lua", config = require("plugins.colorizer").config },
 	-- cool git plugin : integrate git to nvim
 	{ "tpope/vim-fugitive", event = "VeryLazy" },
-	-- insert or delete brackets, parens, quotes in pair. this was causing me problems.
-	-- { "jiangmiao/auto-pairs", event = "VeryLazy" },
+	-- insert or delete brackets, parens, quotes in pair.
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = { map_cr = true } },
 	-- vim-cool : disables highlight when you move the cursor
 	{ "romainl/vim-cool", event = "VeryLazy" },
@@ -166,7 +159,7 @@ require("lazy").setup({
 		event = "VeryLazy",
 		config = require("plugins.gitsigns").config,
 	},
-	-- luasnip v1.2.1
+	-- luasnip
 	{
 		"L3MON4D3/LuaSnip",
 		dependencies = {
@@ -174,7 +167,6 @@ require("lazy").setup({
 		},
 		event = "InsertEnter",
 		config = require("plugins.luasnip").config,
-		version = "v1.2.1",
 	},
 	-- copilot
 	{ "github/copilot.vim", config = require("plugins.copilot").config },

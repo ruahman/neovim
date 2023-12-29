@@ -3,7 +3,7 @@ local utils = require("utils")
 
 local js_linter
 if utils.file_exists("package.json") then
-	js_linter = "eslint"
+	js_linter = "eslint_d"
 else
 	js_linter = "deno"
 end

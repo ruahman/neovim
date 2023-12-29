@@ -5,7 +5,7 @@ function M.config()
 
 	require("bufferline").setup({
 		options = {
-			-- close_command = "Bdelete! %d",
+			close_command = "Bdelete! %d",
 			offsets = {
 				{
 					filetype = "NvimTree",
@@ -24,7 +24,7 @@ function M.config()
 	map("n", "<S-h>", ":BufferLineCyclePrev<CR>")
 	map("n", "<S-left>", ":BufferLineCloseLeft<CR>")
 
-	-- map("n", "bd", ":Bdelete<CR>")
+	map("n", "bd", ":Bdelete<CR>")
 	map("n", "bd", ":bd<CR>")
 end
 
