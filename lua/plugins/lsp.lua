@@ -17,8 +17,10 @@ function M.config()
 		-- setup keybindings for this buffer
 		local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-		-- diagnostics
+		-- hover
 		vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
+
+		-- diagnostic
 		vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts)
 
 		-- format
@@ -31,14 +33,20 @@ function M.config()
 			require("lint").try_lint()
 		end, bufopts)
 
-		-- telescope
-		vim.keymap.set("n", "<leader>d", require("telescope.builtin").lsp_definitions, bufopts)
-		vim.keymap.set("n", "<leader>r", require("telescope.builtin").lsp_references, bufopts)
-		vim.keymap.set("n", "<leader>i", require("telescope.builtin").lsp_implementations, bufopts)
-		vim.keymap.set("n", "<leader>x", require("telescope.builtin").diagnostics, bufopts)
-
 		-- refresh lsp
 		map("n", "gr", ":LspRestart<CR>")
+
+		-- definitions
+		vim.keymap.set("n", "<leader>d", require("telescope.builtin").lsp_definitions, bufopts)
+
+		-- references
+		vim.keymap.set("n", "<leader>r", require("telescope.builtin").lsp_references, bufopts)
+
+		-- implementations
+		vim.keymap.set("n", "<leader>i", require("telescope.builtin").lsp_implementations, bufopts)
+
+		-- diagnostics
+		vim.keymap.set("n", "<leader>x", require("telescope.builtin").diagnostics, bufopts)
 	end
 
 	-- lua
@@ -130,6 +138,12 @@ function M.config()
 
 	-- c/cpp
 	lspconfig.clangd.setup({
+		on_attach = on_attach,
+		capabilities = capabilities,
+	})
+
+	-- dart
+	lspconfig.dartls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
@@ -230,11 +244,6 @@ function M.config()
 				range = true,
 			}
 		end,
-	})
-
-	lspconfig.dartls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
 	})
 end
 

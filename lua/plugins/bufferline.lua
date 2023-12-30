@@ -25,7 +25,6 @@ function M.config()
 	map("n", "<S-left>", ":BufferLineCloseLeft<CR>")
 
 	map("n", "bd", ":Bdelete<CR>")
-	map("n", "bd", ":bd<CR>")
 end
 
 return M

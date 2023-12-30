@@ -17,9 +17,10 @@ require("lazy").setup({
 	{
 		"nvim-treesitter/nvim-treesitter",
 		dependencies = {
-			"p00f/nvim-ts-rainbow",
+			"HiPhish/rainbow-delimiters.nvim",
 			"windwp/nvim-ts-autotag",
 			"nvim-treesitter/nvim-treesitter-textobjects",
+			"nvim-treesitter/nvim-treesitter-context",
 		},
 		build = ":TSUpdate",
 		config = require("plugins.treesitter").config,
@@ -107,10 +108,7 @@ require("lazy").setup({
 		},
 		branch = "main",
 		dependencies = { "nvim-web-devicons" },
-		config = function()
-			require("bookmarks").setup()
-			require("telescope").load_extension("bookmarks")
-		end,
+		config = require("plugins.bookmarks").config,
 	},
 	-- comment.nvim
 	{
