@@ -114,6 +114,9 @@ require("lazy").setup({
 	{
 		"numToStr/Comment.nvim",
 		event = "VeryLazy",
+		dependencies = {
+			"JoosepAlviste/nvim-ts-context-commentstring",
+		},
 		config = require("plugins.comment").config,
 	},
 	-- indent-blankline
