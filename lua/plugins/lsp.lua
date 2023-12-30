@@ -37,16 +37,16 @@ function M.config()
 		map("n", "gr", ":LspRestart<CR>")
 
 		-- definitions
-		vim.keymap.set("n", "<leader>d", require("telescope.builtin").lsp_definitions, bufopts)
+		vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, bufopts)
 
 		-- references
-		vim.keymap.set("n", "<leader>r", require("telescope.builtin").lsp_references, bufopts)
+		vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, bufopts)
 
 		-- implementations
-		vim.keymap.set("n", "<leader>i", require("telescope.builtin").lsp_implementations, bufopts)
+		vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, bufopts)
 
 		-- diagnostics
-		vim.keymap.set("n", "<leader>x", require("telescope.builtin").diagnostics, bufopts)
+		vim.keymap.set("n", "gx", require("telescope.builtin").diagnostics, bufopts)
 	end
 
 	-- lua

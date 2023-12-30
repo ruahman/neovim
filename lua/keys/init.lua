@@ -4,7 +4,7 @@ local map = require("utils").map
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-map("n", "<Leader>h", ":set hlsearch!<CR>")
+-- map("n", "<Leader>h", ":set hlsearch!<CR>")
 map("n", "<Leader>l", ":set list!<CR>")
 
 map("v", "<", "<gv")
@@ -15,10 +15,10 @@ map("n", "<C-j>", "<C-w>j")
 map("n", "<C-k>", "<C-w>k")
 map("n", "<C-l>", "<C-w>l")
 
-map("n", "<M-Left>", ":vertical resize +2<CR>")
-map("n", "<M-Right>", ":vertical resize -2<CR>")
-map("n", "<M-Down>", ":resize -2<CR>")
-map("n", "<M-Up>", ":resize +2<CR>")
+map("n", "<C-Right>", ":vertical resize +2<CR>")
+map("n", "<C-Left>", ":vertical resize -2<CR>")
+map("n", "<C-Up>", ":resize -2<CR>")
+map("n", "<C-Down>", ":resize +2<CR>")
 
 -- move line
 map("n", "<S-j>", ":move .+1<CR>")
