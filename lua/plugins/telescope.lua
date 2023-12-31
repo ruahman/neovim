@@ -1,6 +1,4 @@
-local export = {}
-
-function export.config()
+local function config()
 	require("telescope").setup({
 		defaults = {
 			mappings = {
@@ -27,4 +25,13 @@ function export.config()
 	vim.keymap.set("n", "<leader>c", builtin.commands) -- nvim commands
 end
 
-return export
+return {
+	"nvim-telescope/telescope.nvim",
+	event = "VeryLazy",
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"nvim-lua/popup.nvim",
+		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+	},
+	config = config,
+}

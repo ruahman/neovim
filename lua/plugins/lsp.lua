@@ -1,8 +1,6 @@
-local M = {}
-
 local utils = require("utils")
 
-function M.config()
+local function config()
 	local lspconfig = require("lspconfig")
 	local map = require("utils").map
 
@@ -247,4 +245,8 @@ function M.config()
 	})
 end
 
-return M
+return {
+	"neovim/nvim-lspconfig",
+	event = { "BufNewFile", "BufRead" },
+	config = config,
+}

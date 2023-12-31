@@ -1,6 +1,4 @@
-local M = {}
-
-M.config = function()
+local function config()
 	require("mason-tool-installer").setup({
 		ensure_installed = {
 			"pyright",
@@ -35,4 +33,8 @@ M.config = function()
 	})
 end
 
-return M
+return {
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	event = "VeryLazy",
+	config = config,
+}

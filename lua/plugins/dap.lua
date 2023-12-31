@@ -1,6 +1,4 @@
-local M = {}
-
-function M.config()
+local function config()
 	local dap = require("dap")
 
 	dap.set_log_level("TRACE")
@@ -240,4 +238,15 @@ function M.config()
 	vim.keymap.set("n", "gu", require("dapui").toggle)
 end
 
-return M
+return {
+	"mfussenegger/nvim-dap",
+	lazy = true,
+	dependencies = {
+		"rcarriga/nvim-dap-ui",
+		"theHamsta/nvim-dap-virtual-text",
+		"mfussenegger/nvim-dap-python",
+		"leoluz/nvim-dap-go",
+		-- "microsoft/vscode-js-debug",
+	},
+	config = config,
+}

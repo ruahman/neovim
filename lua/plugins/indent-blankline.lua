@@ -1,7 +1,10 @@
-local M = {}
-
-function M.config()
+local function config()
 	require("ibl").setup()
 end
 
-return M
+return {
+	"lukas-reineke/indent-blankline.nvim",
+	event = { "BufRead", "BufNewFile" },
+	main = "ibl",
+	config = config,
+}

@@ -1,7 +1,5 @@
-local export = {}
-
-function export.config()
-  vim.cmd([[colorscheme nightfox]])
+local function config()
+	vim.cmd([[colorscheme nightfox]])
 end
 
-return export
+return { "EdenEast/nightfox.nvim", config = config }

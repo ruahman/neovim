@@ -1,6 +1,4 @@
-local M = {}
-
-function M.config()
+local function config()
 	local map = require("utils").map
 
 	require("bufferline").setup({
@@ -27,4 +25,11 @@ function M.config()
 	map("n", "bd", ":Bdelete<CR>")
 end
 
-return M
+return {
+	"akinsho/bufferline.nvim",
+	dependencies = {
+		"kyazdani42/nvim-web-devicons",
+		"famiu/bufdelete.nvim",
+	},
+	config = config,
+}

@@ -1,6 +1,4 @@
-local export = {}
-
-function export.config()
+local function config()
 	require("nvim-treesitter.configs").setup({
 
 		-- A list of parser names, or "all"
@@ -52,4 +50,17 @@ function export.config()
 	})
 end
 
-return export
+-- return export
+return {
+	"nvim-treesitter/nvim-treesitter",
+	event = { "BufNewFile", "BufRead" },
+	dependencies = {
+		"HiPhish/rainbow-delimiters.nvim",
+		"windwp/nvim-ts-autotag",
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/nvim-treesitter-context",
+		"wellle/targets.vim",
+	},
+	build = ":TSUpdate",
+	config = config,
+}

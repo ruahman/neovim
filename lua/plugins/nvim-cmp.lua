@@ -1,6 +1,4 @@
-local export = {}
-
-function export.config()
+local function config()
 	local cmp = require("cmp")
 
 	-- setup npm completion
@@ -40,4 +38,17 @@ function export.config()
 	})
 end
 
-return export
+return {
+	"hrsh7th/nvim-cmp",
+	event = { "BufEnter", "BufNewFile" },
+	dependencies = {
+		"hrsh7th/cmp-buffer", -- buffer completion source for nvim-cmp
+		"hrsh7th/cmp-path", -- file path completion source for nvim-cmp
+		"hrsh7th/cmp-nvim-lua", -- nvim lua completion source for nvim-cmp
+		"hrsh7th/cmp-nvim-lsp", -- nvim lsp completion source for nvim-cmp
+		"saadparwaiz1/cmp_luasnip", -- Snippets source for nvim-cmp
+		"onsails/lspkind.nvim",
+		"David-Kunz/cmp-npm",
+	},
+	config = config,
+}

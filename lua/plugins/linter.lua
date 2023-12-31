@@ -1,4 +1,3 @@
-local export = {}
 local utils = require("utils")
 
 local js_linter
@@ -8,7 +7,7 @@ else
 	js_linter = "deno"
 end
 
-function export.config()
+local function config()
 	require("lint").linters_by_ft = {
 		typescript = { js_linter },
 		javascript = { js_linter },
@@ -26,4 +25,8 @@ function export.config()
 	})
 end
 
-return export
+return {
+	"mfussenegger/nvim-lint",
+	event = { "BufNewFile", "BufRead" },
+	config = config,
+}

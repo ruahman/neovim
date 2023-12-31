@@ -1,7 +1,12 @@
-local export = {}
-
-function export.config()
-  require("mason").setup()
+local function config()
+	require("mason").setup()
 end
 
-return export
+return {
+	"williamboman/mason.nvim",
+	event = "VeryLazy",
+	dependencies = {
+		"williamboman/mason-lspconfig.nvim",
+	},
+	config = config,
+}
