@@ -2,7 +2,7 @@ local utils = require("utils")
 
 local js_formater
 if utils.file_exists("package.json") then
-	js_formater = "prettierd"
+	js_formater = "prettier"
 else
 	js_formater = "deno_fmt"
 end
@@ -11,7 +11,7 @@ local function config()
 	require("conform").setup({
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "black", "isort" },
+			python = { "ruff" },
 			javascript = { js_formater },
 			javascriptreact = { js_formater },
 			typescript = { js_formater },

@@ -2,7 +2,7 @@ local utils = require("utils")
 
 local js_linter
 if utils.file_exists("package.json") then
-	js_linter = "eslint_d"
+	js_linter = "eslint"
 else
 	js_linter = "deno"
 end
@@ -12,7 +12,7 @@ local function config()
 		typescript = { js_linter },
 		javascript = { js_linter },
 		lua = { "luacheck" },
-		python = { "flake8", "mypy" },
+		python = { "ruff" },
 		go = { "golangcilint" },
 	}
 
