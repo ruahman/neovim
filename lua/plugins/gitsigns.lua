@@ -1,5 +1,7 @@
-local function config()
-	require("gitsigns").setup({
+return {
+	"lewis6991/gitsigns.nvim",
+	event = { "BufRead", "BufNewFile" },
+	opts = {
 		signs = {
 			add = { text = "▎" },
 			change = { text = "▎" },
@@ -7,11 +9,6 @@ local function config()
 			topdelete = { text = "➤" },
 			changedelete = { text = "▎" },
 		},
-	})
-end
-
-return {
-	"lewis6991/gitsigns.nvim",
-	event = { "BufRead", "BufNewFile" },
-	config = config,
+	},
+	config = true,
 }

@@ -1,7 +1,15 @@
-local function config()
-	require("nvim-treesitter.configs").setup({
-
-		-- A list of parser names, or "all"
+return {
+	"nvim-treesitter/nvim-treesitter",
+	event = { "BufNewFile", "BufRead" },
+	dependencies = {
+		"HiPhish/rainbow-delimiters.nvim",
+		"windwp/nvim-ts-autotag",
+		"nvim-treesitter/nvim-treesitter-textobjects",
+		"nvim-treesitter/nvim-treesitter-context",
+		"wellle/targets.vim",
+	},
+	build = ":TSUpdate",
+	opts = {
 		ensure_installed = {
 			"lua",
 			"dart",
@@ -21,6 +29,7 @@ local function config()
 			"cpp",
 			"zig",
 		},
+
 		auto_install = true,
 
 		highlight = { enable = true },
@@ -47,20 +56,6 @@ local function config()
 			-- enable_close_on_slash = true,
 			filetypes = { "html", "xml", "jsx", "tsx", "typescript", "javascript" },
 		},
-	})
-end
-
--- return export
-return {
-	"nvim-treesitter/nvim-treesitter",
-	event = { "BufNewFile", "BufRead" },
-	dependencies = {
-		"HiPhish/rainbow-delimiters.nvim",
-		"windwp/nvim-ts-autotag",
-		"nvim-treesitter/nvim-treesitter-textobjects",
-		"nvim-treesitter/nvim-treesitter-context",
-		"wellle/targets.vim",
 	},
-	build = ":TSUpdate",
-	config = config,
+	config = true,
 }

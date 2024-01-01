@@ -1,11 +1,8 @@
-local function config()
-	require("colorizer").setup({
-		css = { css = true },
-	})
-end
-
 return {
 	"norcalli/nvim-colorizer.lua",
+	opts = {
+		css = { css = true },
+	},
 	event = { "BufRead", "BufNewFile" },
-	config = config,
+	config = true,
 }

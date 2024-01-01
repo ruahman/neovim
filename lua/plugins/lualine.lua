@@ -1,5 +1,6 @@
-local function config()
-	require("lualine").setup({
+return {
+	"hoob3rt/lualine.nvim",
+	opts = {
 		sections = {
 			lualine_a = { "mode" },
 			lualine_b = { "branch", "diff", "diagnostics" },
@@ -12,10 +13,6 @@ local function config()
 			-- theme = 'tokyonight'
 			theme = "nightfox",
 		},
-	})
-end
-
-return {
-	"hoob3rt/lualine.nvim",
-	config = config,
+	},
+	config = true,
 }

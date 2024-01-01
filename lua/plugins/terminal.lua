@@ -1,15 +1,11 @@
-local function config()
-	require("toggleterm").setup({
-		open_mapping = [[<c-\>]],
-		direction = "float",
-	})
-end
-
--- return export
 return {
 	"akinsho/toggleterm.nvim",
+	opts = {
+		open_mapping = [[<c-\>]],
+		direction = "float",
+	},
 	keys = {
 		{ "<c-\\>", "ToggleTerm" },
 	},
-	config = config,
+	config = true,
 }
