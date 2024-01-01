@@ -11,7 +11,7 @@ local function config()
 	require("conform").setup({
 		formatters_by_ft = {
 			lua = { "stylua" },
-			python = { "ruff" },
+			python = { "ruff_format" },
 			javascript = { js_formater },
 			javascriptreact = { js_formater },
 			typescript = { js_formater },
