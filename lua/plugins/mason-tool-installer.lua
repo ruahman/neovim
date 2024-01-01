@@ -1,5 +1,6 @@
-local function config()
-	require("mason-tool-installer").setup({
+return {
+	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	opts = {
 		ensure_installed = {
 			"pyright",
 			"solargraph",
@@ -30,11 +31,6 @@ local function config()
 			"clangd",
 			"zls",
 		},
-	})
-end
-
-return {
-	"WhoIsSethDaniel/mason-tool-installer.nvim",
-	event = "VeryLazy",
-	config = config,
+	},
+	config = true,
 }
