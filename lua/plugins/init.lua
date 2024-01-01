@@ -36,11 +36,11 @@ require("lazy").setup({
 	{ import = "plugins.luasnip" },
 	{ import = "plugins.copilot" },
 	{ import = "plugins.dap" },
+	{ import = "plugins.flash" },
+	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = { map_cr = true }, config = true },
+	{ "tpope/vim-surround", event = "InsertEnter" },
 	{ "tpope/vim-fugitive", event = { "BufRead", "BufNewFile" } },
 	{ "romainl/vim-cool", event = { "BufRead", "BufNewFile" } },
-	{ "folke/flash.nvim", event = { "BufRead", "BufNewFile" } },
-	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = { map_cr = true } },
-	{ "tpope/vim-surround", event = "InsertEnter" },
 }, {
 	defaults = {
 		lazy = false,
