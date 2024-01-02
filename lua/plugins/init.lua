@@ -41,6 +41,7 @@ require("lazy").setup({
 	{ "tpope/vim-surround", event = "InsertEnter" },
 	{ "tpope/vim-fugitive", event = { "BufRead", "BufNewFile" } },
 	{ "romainl/vim-cool", event = { "BufRead", "BufNewFile" } },
+	{ "chentoast/marks.nvim", event = "VeryLazy", config = true },
 }, {
 	defaults = {
 		lazy = false,
