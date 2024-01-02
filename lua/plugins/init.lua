@@ -37,7 +37,7 @@ require("lazy").setup({
 	{ import = "plugins.copilot" },
 	{ import = "plugins.dap" },
 	{ import = "plugins.flash" },
-	{ import = "plugins.marks" },
+	-- { import = "plugins.marks" },
 	{ "windwp/nvim-autopairs", event = "InsertEnter", opts = { map_cr = true }, config = true },
 	{ "tpope/vim-surround", event = "InsertEnter" },
 	{ "tpope/vim-fugitive", event = { "BufRead", "BufNewFile" } },
