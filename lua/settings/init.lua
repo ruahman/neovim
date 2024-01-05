@@ -6,12 +6,12 @@ vim.opt.splitright = true
 
 vim.opt.number = true
 vim.opt.cursorline = true
-vim.api.nvim_exec(
-	[[
-  hi CursorLine cterm=NONE ctermbg=darkgray guibg=darkgray
-]],
-	false
-)
+-- vim.api.nvim_exec(
+-- 	[[
+--   hi CursorLine cterm=NONE ctermbg=darkgray guibg=darkgray
+-- ]],
+-- 	false
+-- )
 vim.opt.cursorcolumn = true
 vim.opt.relativenumber = true
 
