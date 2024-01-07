@@ -44,6 +44,8 @@ vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
 -- no swap files
+vim.opt.swapfile = false
+vim.opt.backup = false
 vim.cmd([[set nobackup nowritebackup noswapfile]])
 
 -- for python

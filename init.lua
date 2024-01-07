@@ -1,9 +1,5 @@
 if vim.g.vscode then
-	require("settings.vscode")
-	require("plugins.vscode")
+	require("config.vscode")
 else
-	require("settings")
-	require("keys")
-	require("commands")
-	require("plugins")
+	require("config")
 end

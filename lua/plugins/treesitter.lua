@@ -3,7 +3,6 @@ return {
 	event = { "BufNewFile", "BufRead" },
 	dependencies = {
 		"HiPhish/rainbow-delimiters.nvim",
-		"windwp/nvim-ts-autotag",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"nvim-treesitter/nvim-treesitter-context",
 		"wellle/targets.vim",
@@ -45,18 +44,10 @@ return {
 					["if"] = "@function.inner",
 					["ac"] = "@class.outer",
 					["ic"] = "@class.inner",
-					["ap"] = "@parameter.outer",
-					["ip"] = "@parameter.inner",
+					-- ["ap"] = "@parameter.outer",
+					-- ["ip"] = "@parameter.inner",
 				},
 			},
-		},
-
-		autotag = {
-			enable = true,
-			enable_rename = true,
-			enable_close = true,
-			-- enable_close_on_slash = true,
-			filetypes = { "html", "xml", "jsx", "tsx", "typescript", "javascript" },
 		},
 	},
 	config = true,
