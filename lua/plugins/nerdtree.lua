@@ -9,7 +9,7 @@ local function config()
 	})
 
 	-- setup keymap
-	map("n", "<Leader>e", ":NvimTreeToggle<CR>")
+	map("n", "<Leader>e", ":NvimTreeToggle<CR>", { silent = true })
 end
 
 return {

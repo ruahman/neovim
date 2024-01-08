@@ -27,6 +27,8 @@ return {
 			"c",
 			"cpp",
 			"zig",
+			"markdown",
+			"markdown_inline",
 		},
 
 		auto_install = true,
