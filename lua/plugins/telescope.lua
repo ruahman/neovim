@@ -21,10 +21,10 @@ local function config()
 	vim.keymap.set("n", "<leader>fb", builtin.buffers) -- list buffers
 	vim.keymap.set("n", "<leader>fs", builtin.current_buffer_fuzzy_find) -- search in buffer
 	vim.keymap.set("n", "<leader>fg", builtin.live_grep) -- grep in dir
-	vim.keymap.set("n", "<leader>g", builtin.git_status) -- git status
-	vim.keymap.set("n", "<leader>c", builtin.commands) -- nvim commands
-	vim.keymap.set("n", "<leader>j", builtin.jumplist) -- jumplist
-	vim.keymap.set("n", "<leader>m", builtin.marks) -- marks
+	vim.keymap.set("n", "<leader>gt", builtin.git_status) -- git status
+	vim.keymap.set("n", "<leader>cm", builtin.commands) -- nvim commands
+	vim.keymap.set("n", "<leader>jm", builtin.jumplist) -- jumplist
+	vim.keymap.set("n", "<leader>mk", builtin.marks) -- marks
 end
 
 return {

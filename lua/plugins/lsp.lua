@@ -2,7 +2,6 @@ local utils = require("utils")
 
 local function config()
 	local lspconfig = require("lspconfig")
-	local map = require("utils").map
 
 	-- share client capabilites to LSP
 	local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -17,7 +16,6 @@ local function config()
 
 		-- hover
 		vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
-		map("n", "<leader>gh", ":Lspsaga hover_doc<CR>", { silent = true })
 
 		-- diagnostic
 		vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts)
@@ -33,30 +31,19 @@ local function config()
 		end, bufopts)
 
 		-- lsp restart
-		map("n", "gr", ":LspRestart<CR>")
-
-		-- lspsage finder
-		map("n", "<leader>gf", ":Lspsaga finder<CR>")
-
-		-- lspsage outline
-		map("n", "<leader>go", ":Lspsaga outline<CR>")
+		utils.map("n", "gr", ":LspRestart<CR>")
 
 		-- definitions
-		vim.keymap.set("n", "<leader>gd", require("telescope.builtin").lsp_definitions, bufopts)
-		map("n", "<leader>gd", ":Lspsaga peek_definition<CR>") -- peak definition
-		map("n", "<leader>gD", ":Lspsaga goto_definition<CR>") -- go to definition
+		vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, bufopts)
 
 		-- references
-		vim.keymap.set("n", "<leader>gr", require("telescope.builtin").lsp_references, bufopts)
+		vim.keymap.set("n", "gr", require("telescope.builtin").lsp_references, bufopts)
 
 		-- implementations
-		vim.keymap.set("n", "<leader>gi", require("telescope.builtin").lsp_implementations, bufopts)
+		vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, bufopts)
 
 		-- diagnostics
 		vim.keymap.set("n", "<leader>x", require("telescope.builtin").diagnostics, bufopts)
-
-		-- code actions
-		map("n", "<leader>ca", ":Lspsaga code_action<CR>")
 	end
 
 	-- lua

@@ -14,6 +14,8 @@ vim.opt.cursorline = true
 -- )
 vim.opt.cursorcolumn = true
 vim.opt.relativenumber = true
+-- stops the jitering when a sign is added or removed
+vim.opt.signcolumn = "yes"
 
 -- insert space for tab
 vim.opt.tabstop = 2
