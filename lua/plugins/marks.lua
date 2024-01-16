@@ -5,4 +5,5 @@ return {
 		force_write_shada = true,
 	},
 	config = true,
+	enabled = false,
 }

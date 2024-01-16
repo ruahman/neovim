@@ -10,6 +10,13 @@ return {
 		require("lspsaga").setup({
 			lightbulb = {
 				enabled = false,
+				sign = true,
+				virtual_text = false,
+				debounce = 10,
+				sign_priority = 20,
+			},
+			ui = {
+				code_action = " ",
 			},
 		})
 	end,
