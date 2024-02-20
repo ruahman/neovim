@@ -17,8 +17,8 @@ return {
 			require("telescope").load_extension("bookmarks")
 
 			local map = vim.keymap.set
-			map("n", "mt", bm.bookmark_toggle) -- add or remove bookmark at current line
-			map("n", "mm", bm.bookmark_ann) -- add or edit mark annotation at current line
+			map("n", "mm", bm.bookmark_toggle) -- add or remove bookmark at current line
+			map("n", "me", bm.bookmark_ann) -- add or edit mark annotation at current line
 			map("n", "ml", bookmarks.list) -- marks
 			-- map("n", "mc", bm.bookmark_clean) -- clean all marks in local buffer
 			-- map("n", "mn", bm.bookmark_next) -- jump to next mark in local buffer

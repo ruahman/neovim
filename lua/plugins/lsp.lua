@@ -43,7 +43,7 @@ local function config()
 		vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, bufopts)
 
 		-- diagnostics
-		vim.keymap.set("n", "<leader>x", require("telescope.builtin").diagnostics, bufopts)
+		vim.keymap.set("n", "gx", require("telescope.builtin").diagnostics, bufopts)
 	end
 
 	-- lua
