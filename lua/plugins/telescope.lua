@@ -18,7 +18,7 @@ local function config()
 	local builtin = require("telescope.builtin")
 
 	vim.keymap.set("n", "<leader>f", function()
-		builtin.find_files({ hidden = true, no_ignore = true })
+		builtin.find_files({ hidden = true })
 	end) -- list files
 
 	vim.keymap.set("n", "<leader>b", builtin.buffers) -- list buffers
