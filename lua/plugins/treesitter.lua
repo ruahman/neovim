@@ -4,51 +4,48 @@ return {
 	dependencies = {
 		"HiPhish/rainbow-delimiters.nvim",
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		"nvim-treesitter/nvim-treesitter-context",
 		"wellle/targets.vim",
 	},
 	build = ":TSUpdate",
-	opts = {
-		ensure_installed = {
-			"lua",
-			"dart",
-			"javascript",
-			"json",
-			"vim",
-			"typescript",
-			"html",
-			"tsx",
-			"css",
-			"python",
-			"ruby",
-			"rust",
-			"go",
-			"c_sharp",
-			"c",
-			"cpp",
-			"zig",
-			"markdown",
-			"markdown_inline",
-		},
-
-		auto_install = true,
-
-		highlight = { enable = true },
-
-		indent = { enable = true },
-
-		textobjects = {
-			select = {
+	config = function()
+		require("nvim-treesitter.configs").setup({
+			highlight = {
 				enable = true,
-				lookahead = true,
+			},
+			indent = {
+				enable = true,
+			},
+			ensure_installed = {
+				"lua",
+				"go",
+				"dart",
+				"rust",
+				"javascript",
+				"typescript",
+				"python",
+				"ruby",
+				"c",
+				"cpp",
+				"zig",
+				"c_sharp",
+				"json",
+				"vim",
+				"html",
+				"tsx",
+				"css",
+				"markdown",
+				"markdown_inline",
+			},
+			auto_install = true,
+			incremental_selection = {
+				enable = true,
 				keymaps = {
-					["af"] = "@function.outer",
-					["if"] = "@function.inner",
-					["ac"] = "@class.outer",
-					["ic"] = "@class.inner",
+					init_selection = "<C-space>",
+					node_incremental = "<C-space>",
+					scope_incremental = false,
+					node_decremental = "<bs>",
 				},
 			},
-		},
-	},
-	config = true,
+		})
+	end,
 }

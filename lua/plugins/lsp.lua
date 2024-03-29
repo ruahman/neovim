@@ -18,7 +18,7 @@ local function config()
 		vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
 
 		-- code actions
-		vim.keymap.set("n", "ga", vim.lsp.buf.code_action, bufopts)
+		vim.keymap.set("n", "ca", vim.lsp.buf.code_action, bufopts)
 
 		-- diagnostic
 		vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts)
@@ -46,7 +46,7 @@ local function config()
 		vim.keymap.set("n", "gi", require("telescope.builtin").lsp_implementations, bufopts)
 
 		-- diagnostics
-		vim.keymap.set("n", "gx", require("telescope.builtin").diagnostics, bufopts)
+		vim.keymap.set("n", "<leader>x", require("telescope.builtin").diagnostics, bufopts)
 	end
 
 	-- lua
@@ -62,21 +62,8 @@ local function config()
 		},
 	})
 
-	-- javascript/typescript
-	if utils.file_exists("package.json") then
-		lspconfig.tsserver.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			root_dir = lspconfig.util.root_pattern("package.json"),
-			single_file_support = false,
-			init_options = {
-				preferences = {
-					disableSuggestions = true,
-				},
-			},
-		})
 	-- deno
-	else
+	if utils.file_exists("deno.json") then
 		vim.g.markdown_fenced_languages = {
 			"ts=typescript",
 		}
@@ -87,6 +74,19 @@ local function config()
 			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 			init_options = {
 				lint = true,
+			},
+		})
+	-- node/bun
+	else
+		lspconfig.tsserver.setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			root_dir = lspconfig.util.root_pattern("package.json"),
+			single_file_support = false,
+			init_options = {
+				preferences = {
+					disableSuggestions = true,
+				},
 			},
 		})
 	end
