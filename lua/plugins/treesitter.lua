@@ -4,7 +4,7 @@ return {
 	dependencies = {
 		"HiPhish/rainbow-delimiters.nvim",
 		"nvim-treesitter/nvim-treesitter-textobjects",
-		-- "nvim-treesitter/nvim-treesitter-context",
+		"nvim-treesitter/nvim-treesitter-context",
 		"wellle/targets.vim",
 	},
 	build = ":TSUpdate",
