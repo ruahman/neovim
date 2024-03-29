@@ -17,6 +17,9 @@ local function config()
 		-- hover
 		vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
 
+		-- code actions
+		vim.keymap.set("n", "ga", vim.lsp.buf.code_action, bufopts)
+
 		-- diagnostic
 		vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts)
 
