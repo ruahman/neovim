@@ -246,6 +246,7 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 		"mfussenegger/nvim-dap-python",
 		"leoluz/nvim-dap-go",
+		"nvim-neotest/nvim-nio",
 		-- "microsoft/vscode-js-debug",
 	},
 	config = config,

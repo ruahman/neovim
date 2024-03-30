@@ -34,7 +34,7 @@ local function config()
 		end, bufopts)
 
 		-- lsp restart
-		utils.map("n", "gr", ":LspRestart<CR>")
+		utils.map("n", "gR", ":LspRestart<CR>")
 
 		-- definitions
 		vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, bufopts)
