@@ -16,15 +16,15 @@ local function config()
 		},
 	})
 
-	map("n", "<S-n>", ":BufferLineCycleNext<CR>")
-	map("n", "<S-l>", ":BufferLineMoveNext<CR>")
+	map("n", "<S-n>", ":BufferLineCycleNext<CR>", { silent = true })
+	map("n", "<S-l>", ":BufferLineMoveNext<CR>", { silent = true })
 
-	map("n", "<S-p>", ":BufferLineCyclePrev<CR>")
-	map("n", "<S-h>", ":BufferLineMovePrev<CR>")
+	map("n", "<S-p>", ":BufferLineCyclePrev<CR>", { silent = true })
+	map("n", "<S-h>", ":BufferLineMovePrev<CR>", { silent = true })
 
-	map("n", "<S-o>", ":BufferLineCloseOthers<CR>")
+	map("n", "<S-o>", ":BufferLineCloseOthers<CR>", { silent = true })
 
-	map("n", "bd", ":Bdelete<CR>")
+	map("n", "bd", ":Bdelete<CR>", { silent = true })
 end
 
 return {
