@@ -2,7 +2,7 @@ return {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufNewFile", "BufRead" },
 	dependencies = {
-		"HiPhish/rainbow-delimiters.nvim",
+		-- "HiPhish/rainbow-delimiters.nvim",
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"wellle/targets.vim",
 	},
