@@ -3,4 +3,5 @@ return {
 	event = { "BufRead", "BufNewFile" },
 	main = "ibl",
 	config = true,
+	enabled = true,
 }

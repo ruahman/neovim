@@ -3,7 +3,6 @@ return {
 	opts = {
 		ensure_installed = {
 			"typescript-language-server",
-			"deno",
 			"js-debug-adapter",
 			"css-lsp",
 			"html-lsp",

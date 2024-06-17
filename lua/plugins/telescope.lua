@@ -1,6 +1,7 @@
 local function config()
 	require("telescope").setup({
 		defaults = {
+			file_ignore_patterns = { "node_modules", ".git" },
 			mappings = {
 				n = {
 					["bd"] = require("telescope.actions").delete_buffer,

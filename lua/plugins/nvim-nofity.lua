@@ -6,7 +6,7 @@ return {
 			stages = "fade_in_slide_out",
 
 			-- Default timeout for notifications
-			timeout = 1000,
+			timeout = 2000,
 
 			-- For stages that change opacity this is treated as the highlight behind the window
 			background_colour = "#000000",

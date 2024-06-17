@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 map("n", "<Leader>h", ":set hlsearch!<CR>")
-map("n", "<Leader>l", ":set list!<CR>")
+-- map("n", "<Leader>l", ":set list!<CR>")
 
 map("v", "<", "<gv")
 map("v", ">", ">gv")
