@@ -1,3 +1,5 @@
+-- improve lsp experences in neovim
+
 local map = require("utils").map
 
 return {
