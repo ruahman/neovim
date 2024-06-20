@@ -23,7 +23,7 @@ local function config()
 	end) -- list files
 
 	vim.keymap.set("n", "<leader>b", builtin.buffers) -- list buffers
-	-- vim.keymap.set("n", "<leader>s", builtin.current_buffer_fuzzy_find) -- search in buffer
+	vim.keymap.set("n", "<leader>s", builtin.current_buffer_fuzzy_find) -- search in buffer
 	vim.keymap.set("n", "<leader>r", builtin.live_grep) -- grep in dir
 	vim.keymap.set("n", "<leader>g", builtin.git_status) -- git status
 	vim.keymap.set("n", "<leader>j", builtin.jumplist) -- jumplist
