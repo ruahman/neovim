@@ -1,4 +1,5 @@
 return {
+	enabled = false,
 	"akinsho/flutter-tools.nvim",
 	lazy = false,
 	dependencies = {
