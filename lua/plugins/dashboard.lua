@@ -16,7 +16,7 @@ local function config()
 		dashboard.button("f", "  > Find file", ":cd $HOME | Telescope find_files<CR>"),
 		dashboard.button("r", "  > Recent", ":Telescope oldfiles<CR>"),
 		dashboard.button("s", "  > Settings", ":e $MYVIMRC | :cd %:p:h<CR>"),
-		dashboard.button("q", "󰩈  > Quit NVIM", ":qa<CR>"),
+		dashboard.button("q", "  > Quit NVIM", ":qa<CR>"),
 	}
 
 	dashboard.config.opts.noautocmd = true

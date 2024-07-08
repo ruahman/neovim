@@ -27,8 +27,8 @@ local function config()
 	vim.keymap.set("n", "<leader>r", builtin.live_grep) -- grep in dir
 	vim.keymap.set("n", "<leader>g", builtin.git_status) -- git status
 	vim.keymap.set("n", "<leader>j", builtin.jumplist) -- jumplist
+	vim.keymap.set("n", "<leader>m", builtin.marks) -- marks
 	-- vim.keymap.set("n", "<leader>cm", builtin.commands) -- nvim commands
-	-- vim.keymap.set("n", "<leader>mk", builtin.marks) -- marks
 end
 
 return {
