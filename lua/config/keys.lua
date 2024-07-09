@@ -3,7 +3,8 @@ local map = require("utils").map
 -- set leader key
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-vim.opt.timeoutlen = 300
+vim.o.timout = true
+vim.o.timeoutlen = 300
 
 map("n", "<Leader>h", ":set hlsearch!<CR>")
 -- map("n", "<Leader>l", ":set list!<CR>")
