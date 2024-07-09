@@ -37,9 +37,9 @@ local function config()
 		end
 	end)
 
-	vim.keymap.set({ "n" }, "<Leader><Leader>s", function()
-		require("luasnip.loaders").edit_snippet_files()
-	end)
+	-- vim.keymap.set({ "n" }, "<Leader><Leader>s", function()
+	-- 	require("luasnip.loaders").edit_snippet_files()
+	-- end)
 end
 
 -- return export

@@ -1,3 +1,4 @@
+-- incorporates lazygit to neovim
 return {
 	"kdheepak/lazygit.nvim",
 	cmd = {

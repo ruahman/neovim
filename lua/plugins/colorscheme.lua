@@ -1,3 +1,4 @@
+-- colorscheme for my neovim
 local function config()
 	vim.cmd([[colorscheme nightfox]])
 	vim.api.nvim_exec(

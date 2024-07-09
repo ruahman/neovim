@@ -1,3 +1,5 @@
+-- debug adapter protocol
+
 local function config()
 	local dap = require("dap")
 

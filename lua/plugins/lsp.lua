@@ -62,6 +62,8 @@ local function config()
 		},
 	})
 
+	---- javascript/typescript ----
+
 	-- deno
 	if utils.file_exists("deno.json") then
 		vim.g.markdown_fenced_languages = {

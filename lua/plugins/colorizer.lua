@@ -1,3 +1,4 @@
+-- coloriz css color values
 return {
 	"norcalli/nvim-colorizer.lua",
 	opts = {
