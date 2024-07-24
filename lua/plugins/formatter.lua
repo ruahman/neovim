@@ -1,33 +1,20 @@
-local utils = require("utils")
-
-local js_formater
-if utils.file_exists("package.json") then
-	js_formater = "prettier"
-else
-	js_formater = "deno_fmt"
-end
-
 local function config()
 	require("conform").setup({
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "ruff_format" },
-			javascript = { js_formater },
-			javascriptreact = { js_formater },
-			typescript = { js_formater },
-			typescriptreact = { js_formater },
+			javascript = { "prettier" },
+			javascriptreact = { "prettier" },
+			typescript = { "prettier" },
+			typescriptreact = { "prettier" },
 			rust = { "rustfmt" },
 			go = { "gofumpt", "goimports", "golines" },
 			dart = { "dart_format" },
 		},
-	})
-
-	-- format before save
-	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*",
-		callback = function()
-			require("conform").format({ async = false })
-		end,
+		format_on_save = {
+			timeout_ms = 5000,
+			lsp_format = "fallback",
+		},
 	})
 end
 

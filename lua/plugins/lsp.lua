@@ -64,34 +64,17 @@ local function config()
 
 	---- javascript/typescript ----
 
-	-- deno
-	if utils.file_exists("deno.json") then
-		vim.g.markdown_fenced_languages = {
-			"ts=typescript",
-		}
-
-		lspconfig.denols.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-			init_options = {
-				lint = true,
+	lspconfig.tsserver.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		root_dir = lspconfig.util.root_pattern("package.json"),
+		single_file_support = false,
+		init_options = {
+			preferences = {
+				disableSuggestions = true,
 			},
-		})
-	-- node/bun
-	else
-		lspconfig.tsserver.setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			root_dir = lspconfig.util.root_pattern("package.json"),
-			single_file_support = false,
-			init_options = {
-				preferences = {
-					disableSuggestions = true,
-				},
-			},
-		})
-	end
+		},
+	})
 
 	-- css
 	lspconfig.cssls.setup({
