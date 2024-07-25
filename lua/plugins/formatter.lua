@@ -10,6 +10,7 @@ local function config()
 			rust = { "rustfmt" },
 			go = { "gofumpt", "goimports", "golines" },
 			dart = { "dart_format" },
+			zig = { "zig fmt" },
 		},
 		format_on_save = {
 			timeout_ms = 5000,
