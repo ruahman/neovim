@@ -1,4 +1,5 @@
--- Highly experimental plugin that completely replaces the UI for messages, cmdline and the popupmenu.
+-- Highly experimental plugin that completely replaces the UI for messages,
+-- cmdline and the popupmenu.
 
 local map = require("utils").map
 
