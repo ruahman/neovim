@@ -15,7 +15,7 @@ return {
 			"golines",
 			"golangci-lint",
 			"delve",
-			"clangd",
+			-- "clangd",
 			"codelldb",
 			"rust-analyzer",
 			"solargraph",
