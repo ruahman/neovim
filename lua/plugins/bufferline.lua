@@ -22,7 +22,7 @@ local function config()
 	map("n", "<S-h>", ":BufferLineMovePrev<CR>")
 	map("n", "<S-l>", ":BufferLineMoveNext<CR>")
 
-	-- map("n", "<C-x>", ":BufferLineCloseOthers<CR>")
+	map("n", "<C-x>", ":BufferLineCloseOthers<CR>")
 
 	map("n", "bd", ":Bdelete<CR>")
 end
