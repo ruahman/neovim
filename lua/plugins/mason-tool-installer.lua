@@ -15,6 +15,7 @@ return {
 			"golines",
 			"golangci-lint",
 			"delve",
+			"pyright",
 			-- "clangd",
 			"codelldb",
 			"rust-analyzer",
