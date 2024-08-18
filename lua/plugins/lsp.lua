@@ -118,6 +118,15 @@ local function config()
 	lspconfig.rust_analyzer.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		-- server = {
+		-- 	settings = {
+		-- 		["rust-analyzer"] = {
+		-- 			checkOnSave = {
+		-- 				command = "clippy",
+		-- 			},
+		-- 		},
+		-- 	},
+		-- },
 	})
 
 	-- c/cpp

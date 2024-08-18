@@ -19,7 +19,7 @@ return {
 			"ruff",
 			-- "clangd",
 			"codelldb",
-			"rust-analyzer",
+			-- "rust-analyzer",
 			"solargraph",
 			-- "omnisharp",
 			-- "zls",
