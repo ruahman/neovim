@@ -18,4 +18,4 @@ local function config()
 	})
 end
 
-return { "github/copilot.vim", config = config }
+return { "github/copilot.vim", config = config, enabled = false }
