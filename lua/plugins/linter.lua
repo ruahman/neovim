@@ -5,7 +5,7 @@ local function config()
 		lua = { "luacheck" },
 		python = { "ruff" },
 		go = { "golangcilint" },
-		rust = { "clippy" },
+		-- rust = { "clippy" },
 	}
 
 	-- lint after save

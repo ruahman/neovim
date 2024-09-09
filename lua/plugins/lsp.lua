@@ -18,7 +18,7 @@ local function config()
 		vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
 
 		-- code actions
-		vim.keymap.set("n", "ca", vim.lsp.buf.code_action, bufopts)
+		vim.keymap.set("n", "gc", vim.lsp.buf.code_action, bufopts)
 
 		-- diagnostic
 		vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts)
@@ -118,15 +118,28 @@ local function config()
 	lspconfig.rust_analyzer.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
-		-- server = {
-		-- 	settings = {
-		-- 		["rust-analyzer"] = {
-		-- 			checkOnSave = {
-		-- 				command = "clippy",
-		-- 			},
-		-- 		},
-		-- 	},
-		-- },
+		server = {
+			settings = {
+				["rust-analyzer"] = {
+					checkOnSave = {
+						command = "clippy",
+					},
+					cargo = {
+						allFeatures = true,
+					},
+					assist = {
+						importEnforceGranularity = true,
+						importPrefix = "crate",
+					},
+					inlayHints = {
+						lifetimeElisionHints = {
+							enable = true,
+							useParameterNames = true,
+						},
+					},
+				},
+			},
+		},
 	})
 
 	-- c/cpp
