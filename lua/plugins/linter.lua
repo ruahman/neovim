@@ -6,6 +6,7 @@ local function config()
 		python = { "ruff" },
 		go = { "golangcilint" },
 		rust = { "clippy" },
+		ruby = { "rubocop" },
 	}
 
 	-- lint after save

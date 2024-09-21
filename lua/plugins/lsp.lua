@@ -97,6 +97,11 @@ local function config()
 	lspconfig.solargraph.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
+		settings = {
+			solargraph = {
+				diagnostics = false, -- Disable diagnostics from Solargraph
+			},
+		},
 	})
 
 	-- golang
