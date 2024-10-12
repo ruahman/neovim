@@ -62,7 +62,14 @@ local function config()
 		},
 	})
 
-	---- javascript/typescript ----
+	-- deno
+	lspconfig.denols.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+	})
+
+	-- typescript-language-server
 	lspconfig.ts_ls.setup({
 		capabilities = capabilities,
 		on_attach = on_attach,
@@ -153,17 +160,17 @@ local function config()
 		capabilities = capabilities,
 	})
 
-	-- dart
-	lspconfig.dartls.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-
 	-- zig
 	lspconfig.zls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
+
+	-- dart
+	-- lspconfig.dartls.setup({
+	-- 	on_attach = on_attach,
+	-- 	capabilities = capabilities,
+	-- })
 
 	-- csharp
 	-- lspconfig.omnisharp.setup({
