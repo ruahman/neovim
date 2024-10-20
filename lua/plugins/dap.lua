@@ -85,7 +85,7 @@ local function config()
 		},
 		{
 			name = "Debug Test",
-			type = "lldb",
+			type = "codelldb",
 			request = "launch",
 			program = function()
 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/deps/", "file")
