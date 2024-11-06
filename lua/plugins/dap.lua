@@ -210,19 +210,21 @@ local function config()
 			{
 				elements = {
 					-- Elements can be strings or table with id and size keys.
-					{ id = "scopes", size = 0.25 },
-					"watches",
-					"stacks",
+					-- { id = "scopes", size = 0.50 },
+					-- { id = "stacks", size = 0.40 },
+					-- "repl",
+					"scopes",
+					{ id = "stacks", size = 0.45 },
 				},
 				size = 40, -- 40 columns
 				position = "left",
 			},
 			{
 				elements = {
-					"console",
-					"repl",
+					-- "console",
+					"watches",
 				},
-				size = 0.25, -- 25% of total lines
+				size = 0.45, -- 25% of total lines
 				position = "bottom",
 			},
 		},
@@ -230,9 +232,8 @@ local function config()
 
 	-- this start debuging and continues
 	vim.keymap.set("n", "<F5>", require("dap").continue)
-	vim.keymap.set("n", "<F9>", function()
-		require("dap").toggle_breakpoint()
-	end)
+	vim.keymap.set("n", "<F6>", require("dap").terminate)
+	vim.keymap.set("n", "<F9>", require("dap").toggle_breakpoint)
 	vim.keymap.set("n", "<F10>", require("dap").step_over)
 	vim.keymap.set("n", "<F11>", require("dap").step_into)
 	vim.keymap.set("n", "<F12>", require("dap").step_out)
