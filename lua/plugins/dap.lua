@@ -71,10 +71,17 @@ local function config()
 		},
 	}
 
+	-- dap.adapters.lldb = {
+	-- 	type = "executable",
+	-- 	-- command = "/usr/bin/lldb-vscode-14", -- comes with install of lldb
+	-- 	name = "lldb",
+	-- }
+
 	dap.configurations.rust = {
 		{
 			name = "Debug",
 			type = "codelldb",
+			-- type = "lldb",
 			request = "launch",
 			program = function()
 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
@@ -86,6 +93,7 @@ local function config()
 		{
 			name = "Debug Test",
 			type = "codelldb",
+			-- type = "lldb",
 			request = "launch",
 			program = function()
 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/deps/", "file")
@@ -95,13 +103,6 @@ local function config()
 			args = {},
 		},
 	}
-
-	-- setup lldb for c/c++/rust
-	-- dap.adapters.lldb = {
-	--   type = "executable",
-	--   command = "/usr/bin/lldb-vscode-14", -- comes with install of lldb
-	--   name = "lldb",
-	-- }
 
 	-- c
 	-- dap.configurations.c = {

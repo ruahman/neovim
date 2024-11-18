@@ -9,4 +9,18 @@ local function config()
 	)
 end
 
-return { "EdenEast/nightfox.nvim", config = config }
+return {
+	{
+		"EdenEast/nightfox.nvim",
+		config = config,
+	},
+	{
+		"morhetz/gruvbox",
+	},
+	{
+		"folke/tokyonight.nvim",
+	},
+	{
+		"catppuccin/nvim",
+	},
+}
