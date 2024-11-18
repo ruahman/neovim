@@ -136,19 +136,6 @@ local function config()
 					checkOnSave = {
 						command = "clippy",
 					},
-					cargo = {
-						allFeatures = true,
-					},
-					assist = {
-						importEnforceGranularity = true,
-						importPrefix = "crate",
-					},
-					inlayHints = {
-						lifetimeElisionHints = {
-							enable = true,
-							useParameterNames = true,
-						},
-					},
 				},
 			},
 		},

@@ -16,8 +16,8 @@ local function config()
 		},
 	})
 
-	map("n", "<S-p>", ":BufferLineCyclePrev<CR>")
-	map("n", "<S-n>", ":BufferLineCycleNext<CR>")
+	map("n", "<S-Left>", ":BufferLineCyclePrev<CR>")
+	map("n", "<S-Right>", ":BufferLineCycleNext<CR>")
 
 	map("n", "<S-h>", ":BufferLineMovePrev<CR>")
 	map("n", "<S-l>", ":BufferLineMoveNext<CR>")
