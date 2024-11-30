@@ -3,9 +3,9 @@ return {
 	opts = {
 		ensure_installed = {
 			-- "typescript-language-server",
-			"js-debug-adapter",
-			"css-lsp",
-			"html-lsp",
+			-- "js-debug-adapter",
+			-- "css-lsp",
+			-- "html-lsp",
 			"lua-language-server",
 			"luacheck",
 			"stylua",
@@ -18,7 +18,7 @@ return {
 			-- "pyright",
 			-- "ruff",
 			-- "clangd",
-			"codelldb",
+			-- "codelldb",
 			-- "rust-analyzer",
 			-- "solargraph",
 			-- "omnisharp",
