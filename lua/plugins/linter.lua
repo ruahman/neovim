@@ -5,15 +5,16 @@ local function config()
 		lua = { "luacheck" },
 		python = { "ruff" },
 		go = { "golangcilint" },
-		rust = { "clippy" },
-		ruby = { "rubocop" },
+		-- rust = { "clippy" },
+		-- ruby = { "rubocop" },
 	}
 
 	-- lint after save
 	vim.api.nvim_create_autocmd({ "BufWritePost" }, {
+		pattern = { "*.go", "*.py", "*js", "*.ts" }, -- List of file patterns
 		callback = function()
-			-- require("lint").try_lint()
-			require("lint").try_lint(nil, { ignore_errors = true })
+			require("lint").try_lint()
+			-- require("lint").try_lint(nil, { ignore_errors = true })
 		end,
 	})
 end

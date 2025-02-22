@@ -10,3 +10,7 @@ return {
 		require("telescope").load_extension("bookmarks")
 	end,
 }
+-- toogle: <tab><tab>
+-- close: q
+-- add: \\z
+-- delete: dd

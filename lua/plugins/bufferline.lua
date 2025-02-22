@@ -16,14 +16,20 @@ local function config()
 		},
 	})
 
+	-- cycle prev
 	map("n", "<S-Left>", ":BufferLineCyclePrev<CR>")
+	-- cycle next
 	map("n", "<S-Right>", ":BufferLineCycleNext<CR>")
 
+	-- move prev
 	map("n", "<S-h>", ":BufferLineMovePrev<CR>")
+	-- move next
 	map("n", "<S-l>", ":BufferLineMoveNext<CR>")
 
+	-- close other buffers
 	map("n", "<C-x>", ":BufferLineCloseOthers<CR>")
 
+	-- delete buffer
 	map("n", "bd", ":Bdelete<CR>")
 end
 

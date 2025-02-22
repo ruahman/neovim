@@ -34,7 +34,7 @@ local function config()
 		end, bufopts)
 
 		-- lsp restart
-		-- utils.map("n", "gR", ":LspRestart<CR>")
+		utils.map("n", "gL", ":LspRestart<CR>")
 
 		-- definitions
 		vim.keymap.set("n", "gd", require("telescope.builtin").lsp_definitions, bufopts)
@@ -133,9 +133,9 @@ local function config()
 		server = {
 			settings = {
 				["rust-analyzer"] = {
-					checkOnSave = {
-						command = "clippy",
-					},
+					-- checkOnSave = {
+					-- 	command = "clippy",
+					-- },
 				},
 			},
 		},
