@@ -20,6 +20,7 @@ local function config()
 		},
 		sources = {
 			{ name = "luasnip" },
+			{ name = "crates" },
 			{ name = "nvim_lsp" },
 			{ name = "buffer", keyword_length = 5 },
 			{ name = "path" },

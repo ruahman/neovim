@@ -14,7 +14,6 @@ local function config()
 		pattern = { "*.go", "*.py", "*js", "*.ts" }, -- List of file patterns
 		callback = function()
 			require("lint").try_lint()
-			-- require("lint").try_lint(nil, { ignore_errors = true })
 		end,
 	})
 end
