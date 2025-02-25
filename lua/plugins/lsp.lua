@@ -12,15 +12,15 @@ local function config()
 	-- run this code on_attach
 	local on_attach = function(_, bufnr)
 		-- setup keybindings for this buffer
-		local bufopts = { noremap = true, silent = true, buffer = bufnr }
+		local bufopts = { noremap = true, silent = false, buffer = bufnr }
 
 		-- hover
 		vim.keymap.set("n", "gh", vim.lsp.buf.hover, bufopts)
 
 		-- code actions
-		vim.keymap.set("n", "ca", vim.lsp.buf.code_action, bufopts)
+		vim.keymap.set("n", "ga", vim.lsp.buf.code_action, bufopts)
 
-		-- diagnostic
+		-- explain
 		vim.keymap.set("n", "ge", vim.diagnostic.open_float, bufopts)
 
 		-- format
@@ -127,19 +127,15 @@ local function config()
 	})
 
 	-- rust
-	-- lspconfig.rust_analyzer.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	server = {
-	-- 		settings = {
-	-- 			["rust-analyzer"] = {
-	-- 				-- checkOnSave = {
-	-- 				-- 	command = "clippy",
-	-- 				-- },
-	-- 			},
-	-- 		},
-	-- 	},
-	-- })
+	lspconfig.rust_analyzer.setup({
+		capabilities = capabilities,
+		on_attach = on_attach,
+		server = {
+			settings = {
+				["rust-analyzer"] = {},
+			},
+		},
+	})
 
 	-- c/cpp
 	lspconfig.clangd.setup({
