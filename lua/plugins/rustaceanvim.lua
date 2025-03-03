@@ -12,10 +12,6 @@ return {
 			},
 			server = {
 				on_attach = function(client, bufnr)
-					-- vim.keymap.set("n", "<leader>dr", function()
-					-- 	vim.cmd.RustLsp("debuggables")
-					-- end, { buffer = bufnr, desc = "Rust Debuggables" })
-
 					-- setup keybindings for this buffer
 					local bufopts = { noremap = true, silent = false, buffer = bufnr }
 					--
@@ -60,6 +56,16 @@ return {
 
 					-- diagnostics
 					vim.keymap.set("n", "<leader>x", require("telescope.builtin").diagnostics, bufopts)
+
+					-- debuggables
+					vim.keymap.set("n", "<leader>D", function()
+						vim.cmd.RustLsp("debuggables")
+					end, bufopts)
+
+					-- debug
+					vim.keymap.set("n", "<leader>d", function()
+						vim.cmd.RustLsp("debug")
+					end, bufopts)
 				end,
 			},
 		}
