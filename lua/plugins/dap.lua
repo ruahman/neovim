@@ -12,54 +12,79 @@ local function config()
 	require("dap-go").setup() -- must have delve installed globaly
 
 	--javascript/typescript
-	-- dap.adapters["pwa-node"] = {
-	-- 	type = "server",
-	-- 	host = "localhost",
-	-- 	port = "${port}",
-	-- 	executable = {
-	-- 		command = "node",
-	-- 		args = {
-	-- 			vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
-	-- 			"${port}",
-	-- 		},
-	-- 	},
-	-- }
+	dap.adapters["pwa-node"] = {
+		type = "server",
+		host = "localhost",
+		port = "${port}",
+		executable = {
+			command = "node",
+			args = {
+				vim.fn.getcwd() .. "/.vscode-js-debug/lib/node_modules/js-debug/src/dapDebugServer.js",
+				-- vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+				"${port}",
+			},
+		},
+	}
 
-	-- dap.configurations.javascript = {
-	-- 	{
-	-- 		type = "pwa-node",
-	-- 		request = "launch",
-	-- 		name = "Launch node",
-	-- 		program = "${file}",
-	-- 		cwd = "${workspaceFolder}",
-	-- 	},
-	-- }
+	dap.adapters.bun = {
+		type = "server",
+		host = "localhost",
+		port = 6499, -- Default Bun inspect port
+	}
 
-	-- dap.configurations.typescript = {
-	-- 	{
-	-- 		type = "pwa-node",
-	-- 		request = "launch",
-	-- 		name = "Launch node",
-	-- 		program = "${file}",
-	-- 		cwd = "${workspaceFolder}",
-	-- 	},
-	-- }
-	-- dap.configurations.typescript = {
-	-- 	{
-	-- 		type = "pwa-node",
-	-- 		request = "launch",
-	-- 		name = "Launch deno",
-	-- 		runtimeExecutable = "deno",
-	-- 		runtimeArgs = {
-	-- 			"run",
-	-- 			"--inspect-wait",
-	-- 			"--allow-all",
-	-- 		},
-	-- 		program = "${file}",
-	-- 		cwd = "${workspaceFolder}",
-	-- 		attachSimplePort = 9229,
-	-- 	},
-	-- }
+	dap.configurations.javascript = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch node",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+	}
+
+	dap.configurations.typescript = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch node",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch deno",
+			runtimeExecutable = "deno",
+			runtimeArgs = {
+				"run",
+				"--inspect-wait",
+				"--allow-all",
+			},
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+			attachSimplePort = 9229,
+		},
+		{
+			type = "bun",
+			request = "launch",
+			name = "Launch bun.js",
+			runtimeExecutable = "bun",
+			runtimeArgs = {
+				"run",
+				"--inspect",
+			},
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+			sourceMaps = true, -- For TypeScript
+		},
+		{
+			type = "bun",
+			request = "attach",
+			name = "Attach to Bun.js",
+			cwd = "${workspaceFolder}",
+			sourceMaps = true,
+		},
+	}
 
 	-- c
 	-- dap.configurations.c = {
