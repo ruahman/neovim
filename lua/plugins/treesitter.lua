@@ -18,7 +18,6 @@ return {
 			ensure_installed = {
 				"lua",
 				"go",
-				"dart",
 				"rust",
 				"javascript",
 				"typescript",
@@ -31,6 +30,7 @@ return {
 				"json",
 				"vim",
 				"html",
+				"http",
 				"tsx",
 				"css",
 				"markdown",

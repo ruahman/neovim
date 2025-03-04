@@ -7,9 +7,9 @@ local function config()
 			javascriptreact = { "prettier" },
 			typescript = { "prettier" },
 			typescriptreact = { "prettier" },
+			json = { "jq" },
 			rust = { "rustfmt" },
 			go = { "gofumpt", "goimports", "golines" },
-			dart = { "dart_format" },
 			zig = { "zig fmt" },
 		},
 		format_on_save = {
