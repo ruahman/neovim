@@ -3,7 +3,7 @@ local function config()
 		typescript = { "eslint" },
 		javascript = { "eslint" },
 		lua = { "luacheck" },
-		python = { "ruff" },
+		python = { "ruff", "mypy" },
 		go = { "golangcilint" },
 		rust = { "clippy" },
 	}

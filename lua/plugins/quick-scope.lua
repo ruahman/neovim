@@ -11,5 +11,5 @@ return {
 	lazy = true,
 	event = { "BufRead", "BufNewFile" },
 	config = config,
-	enable = false,
+	enabled = false,
 }
