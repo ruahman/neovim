@@ -112,32 +112,33 @@ local function config()
 			{
 				elements = {
 					"scopes",
-					{ id = "stacks", size = 0.45 },
+					"watches",
+					{ id = "stacks", size = 0.15 },
 				},
 				size = 40, -- 40 columns
 				position = "left",
 			},
 			{
 				elements = {
-					-- "console",
-					"watches",
+					"console",
 				},
-				size = 0.45, -- 25% of total lines
+				size = 0.25, -- 25% of total lines
 				position = "bottom",
 			},
 		},
 	})
 
-	-- this start debuging and continues
-	vim.keymap.set("n", "<F5>", require("dap").continue)
-	vim.keymap.set("n", "<F6>", require("dap").terminate)
-	vim.keymap.set("n", "<F9>", require("dap").toggle_breakpoint)
-	vim.keymap.set("n", "<F10>", require("dap").step_over)
-	vim.keymap.set("n", "<F11>", require("dap").step_into)
-	vim.keymap.set("n", "<F12>", require("dap").step_out)
-	-- vim.keymap.set("n", "<leader>B", function()
-	-- 	require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-	-- end)
+	vim.keymap.set("n", "gt", require("dap").toggle_breakpoint, { desc = "Toogle Breakpoint" })
+	vim.keymap.set("n", "gB", function()
+		require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+	end)
+	vim.keymap.set("n", "<F5>", require("dap").continue, { desc = "Continue" })
+	vim.keymap.set("n", "<F6>", require("dap").terminate, { desc = "Terminate" })
+	vim.keymap.set("n", "<F10>", require("dap").step_over, { desc = "Step Over" })
+	vim.keymap.set("n", "<F11>", require("dap").step_into, { desc = "Step Into" })
+	vim.keymap.set("n", "<F12>", require("dap").step_out, { desc = "Step Out" })
+
+	-- dkapui
 	vim.keymap.set("n", "gu", require("dapui").toggle)
 end
 
