@@ -11,7 +11,7 @@ local function config()
 	--dap go
 	require("dap-go").setup() -- must have delve installed globaly
 
-	--javascript/typescript
+	--javascript / typescript
 	dap.adapters["pwa-node"] = {
 		type = "server",
 		host = "localhost",
@@ -19,17 +19,11 @@ local function config()
 		executable = {
 			command = "node",
 			args = {
-				vim.fn.getcwd() .. "/.vscode-js-debug/lib/node_modules/js-debug/src/dapDebugServer.js",
+				vim.fn.getcwd() .. "/.vscode-js-debug/bin/js-debug.js",
 				-- vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
 				"${port}",
 			},
 		},
-	}
-
-	dap.adapters.bun = {
-		type = "server",
-		host = "localhost",
-		port = 6499, -- Default Bun inspect port
 	}
 
 	dap.configurations.javascript = {
@@ -39,6 +33,7 @@ local function config()
 			name = "Launch node",
 			program = "${file}",
 			cwd = "${workspaceFolder}",
+			sourceMaps = true,
 		},
 	}
 
@@ -48,39 +43,6 @@ local function config()
 			request = "launch",
 			name = "Launch node",
 			program = "${file}",
-			cwd = "${workspaceFolder}",
-		},
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Launch deno",
-			runtimeExecutable = "deno",
-			runtimeArgs = {
-				"run",
-				"--inspect-wait",
-				"--allow-all",
-			},
-			program = "${file}",
-			cwd = "${workspaceFolder}",
-			attachSimplePort = 9229,
-		},
-		{
-			type = "bun",
-			request = "launch",
-			name = "Launch bun.js",
-			runtimeExecutable = "bun",
-			runtimeArgs = {
-				"run",
-				"--inspect",
-			},
-			program = "${file}",
-			cwd = "${workspaceFolder}",
-			sourceMaps = true, -- For TypeScript
-		},
-		{
-			type = "bun",
-			request = "attach",
-			name = "Attach to Bun.js",
 			cwd = "${workspaceFolder}",
 			sourceMaps = true,
 		},
@@ -104,10 +66,22 @@ local function config()
 	-- cpp
 	-- dap.configurations.cpp = dap.configurations.c
 
+	vim.keymap.set("n", "gt", require("dap").toggle_breakpoint, { desc = "Toogle Breakpoint" })
+	vim.keymap.set("n", "gB", function()
+		require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
+	end)
+	vim.keymap.set("n", "<F5>", require("dap").continue, { desc = "Continue" })
+	vim.keymap.set("n", "<F6>", require("dap").terminate, { desc = "Terminate" })
+	vim.keymap.set("n", "<F10>", require("dap").step_over, { desc = "Step Over" })
+	vim.keymap.set("n", "<F11>", require("dap").step_into, { desc = "Step Into" })
+	vim.keymap.set("n", "<F12>", require("dap").step_out, { desc = "Step Out" })
+
+	-- dap virtual-text: show variable values
 	require("nvim-dap-virtual-text").setup()
 
 	--DAPUI
-	require("dapui").setup({
+	local dapui = require("dapui")
+	dapui.setup({
 		layouts = {
 			{
 				elements = {
@@ -121,6 +95,7 @@ local function config()
 			{
 				elements = {
 					"console",
+					"repl",
 				},
 				size = 0.25, -- 25% of total lines
 				position = "bottom",
@@ -128,18 +103,22 @@ local function config()
 		},
 	})
 
-	vim.keymap.set("n", "gt", require("dap").toggle_breakpoint, { desc = "Toogle Breakpoint" })
-	vim.keymap.set("n", "gB", function()
-		require("dap").set_breakpoint(vim.fn.input("Breakpoint condition: "))
-	end)
-	vim.keymap.set("n", "<F5>", require("dap").continue, { desc = "Continue" })
-	vim.keymap.set("n", "<F6>", require("dap").terminate, { desc = "Terminate" })
-	vim.keymap.set("n", "<F10>", require("dap").step_over, { desc = "Step Over" })
-	vim.keymap.set("n", "<F11>", require("dap").step_into, { desc = "Step Into" })
-	vim.keymap.set("n", "<F12>", require("dap").step_out, { desc = "Step Out" })
+	-- dap-ui toogle
+	vim.keymap.set("n", "gu", dapui.toggle)
 
-	-- dkapui
-	vim.keymap.set("n", "gu", require("dapui").toggle)
+	-- dap-ui auto load
+	dap.listeners.before.attach.dapui_config = function()
+		dapui.open()
+	end
+	dap.listeners.before.launch.dapui_config = function()
+		dapui.open()
+	end
+	dap.listeners.before.event_terminated.dapui_config = function()
+		dapui.close()
+	end
+	dap.listeners.before.event_exited.dapui_config = function()
+		dapui.close()
+	end
 end
 
 return {
