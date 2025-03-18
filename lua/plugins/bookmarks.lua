@@ -3,6 +3,7 @@ return {
 	keys = {
 		{ "<tab><tab>", mode = { "n" } },
 	},
+	enabled = false,
 	branch = "main",
 	dependencies = { "nvim-web-devicons" },
 	config = function()

@@ -11,20 +11,54 @@ local function config()
 	--dap go
 	require("dap-go").setup() -- must have delve installed globaly
 
-	--javascript / typescript
-	dap.adapters["pwa-node"] = {
-		type = "server",
-		host = "localhost",
-		port = "${port}",
-		executable = {
-			command = "node",
-			args = {
-				vim.fn.getcwd() .. "/.vscode-js-debug/bin/js-debug.js",
-				-- vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
-				"${port}",
-			},
+	require("dap-vscode-js").setup({
+		debugger_path = vim.fn.getcwd() .. "/.vscode-js-debug", -- Path to the debugger
+		adapters = { "pwa-node" },
+	})
+
+	dap.configurations.javascript = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
 		},
 	}
+
+	dap.configurations.typescript = {
+		{
+			type = "pwa-node",
+			request = "launch",
+			name = "Launch TS file",
+			program = "${file}",
+			cwd = "${workspaceFolder}",
+			sourceMaps = true,
+			outFiles = { "${workspaceFolder}/dist/**/*.js" }, -- Adjust for your build output
+		},
+	}
+
+	--javascript / typescript
+	-- dap.adapters["pwa-node"] = {
+	-- 	type = "server",
+	-- 	host = "localhost",
+	-- 	port = "${port}",
+	-- 	executable = {
+	-- 		command = "node",
+	-- 		args = {
+	-- 			vim.fn.getcwd() .. "/.vscode-js-debug/lib/node_modules/js-debug/dist/src/dapDebugServer.js",
+	-- 			-- vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
+	-- 			"${port}",
+	-- 		},
+	-- 	},
+	-- }
 
 	dap.configurations.javascript = {
 		{
@@ -41,10 +75,11 @@ local function config()
 		{
 			type = "pwa-node",
 			request = "launch",
-			name = "Launch node",
+			name = "Launch TS File",
 			program = "${file}",
 			cwd = "${workspaceFolder}",
 			sourceMaps = true,
+			outFiles = { "${workspaceFolder}/dist/**/*.js" },
 		},
 	}
 
@@ -130,7 +165,7 @@ return {
 		"mfussenegger/nvim-dap-python",
 		"leoluz/nvim-dap-go",
 		"nvim-neotest/nvim-nio",
-		-- "microsoft/vscode-js-debug",
+		"mxsdev/nvim-dap-vscode-js",
 	},
 	config = config,
 }
