@@ -11,10 +11,19 @@ local function config()
 	--dap go
 	require("dap-go").setup() -- must have delve installed globaly
 
-	require("dap-vscode-js").setup({
-		debugger_path = vim.fn.getcwd() .. "/.vscode-js-debug", -- Path to the debugger
-		adapters = { "pwa-node" },
-	})
+	-- require("dap-vscode-js").setup({
+	-- 	debugger_path = vim.fn.getcwd() .. "/.vscode-js-debug", -- Path to the debugger
+	-- 	adapters = { "pwa-node" },
+	-- })
+
+  require("dap-vscode-js").setup({
+    -- Path to the Mason-installed js-debug-adapter
+    debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
+    -- Command to launch the debug server
+    debugger_cmd = { "js-debug-adapter" },
+    -- Adapters to register (for Node.js, Chrome, etc.)
+    adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+  })
 
 	dap.configurations.javascript = {
 		{
@@ -37,11 +46,16 @@ local function config()
 		{
 			type = "pwa-node",
 			request = "launch",
-			name = "Launch TS file",
+			name = "Launch file",
 			program = "${file}",
 			cwd = "${workspaceFolder}",
-			sourceMaps = true,
-			outFiles = { "${workspaceFolder}/dist/**/*.js" }, -- Adjust for your build output
+		},
+		{
+			type = "pwa-node",
+			request = "attach",
+			name = "Attach",
+			processId = require("dap.utils").pick_process,
+			cwd = "${workspaceFolder}",
 		},
 	}
 
