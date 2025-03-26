@@ -2,8 +2,8 @@ return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
 	opts = {
 		ensure_installed = {
-			"typescript-language-server",
-			"js-debug-adapter",
+			-- "typescript-language-server",
+			-- "js-debug-adapter",
 			-- "biome",
 			"css-lsp",
 			"html-lsp",
@@ -19,8 +19,8 @@ return {
 			"pyright",
 			"ruff",
 			-- "clangd",
-			"codelldb",
-			"rust-analyzer",
+			-- "codelldb",
+			-- "rust-analyzer",
 			-- "solargraph",
 			"zls",
 		},

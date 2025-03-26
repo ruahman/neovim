@@ -16,14 +16,30 @@ local function config()
 	-- 	adapters = { "pwa-node" },
 	-- })
 
-  require("dap-vscode-js").setup({
-    -- Path to the Mason-installed js-debug-adapter
-    debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
-    -- Command to launch the debug server
-    debugger_cmd = { "js-debug-adapter" },
-    -- Adapters to register (for Node.js, Chrome, etc.)
-    adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
-  })
+	-- require("dap-vscode-js").setup({
+	--   -- Path to the Mason-installed js-debug-adapter
+	--   debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
+	--   -- Command to launch the debug server
+	--   debugger_cmd = { "js-debug-adapter" },
+	--   -- Adapters to register (for Node.js, Chrome, etc.)
+	--   adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+	-- })
+
+	--javascript / typescript
+
+	local adapter_path = vim.fn.getcwd() .. "/.vscode-js-debug/lib/node_modules/js-debug/dist/src/dapDebugServer.js"
+	dap.adapters["pwa-node"] = {
+		type = "server",
+		host = "localhost",
+		port = "${port}",
+		executable = {
+			command = "node",
+			args = {
+				adapter_path,
+				"${port}",
+			},
+		},
+	}
 
 	dap.configurations.javascript = {
 		{
@@ -46,31 +62,39 @@ local function config()
 		{
 			type = "pwa-node",
 			request = "launch",
-			name = "Launch file",
-			program = "${file}",
-			cwd = "${workspaceFolder}",
+			name = "Launch File",
+			program = "${file}", -- Debug the current file
+			cwd = "${workspaceFolder}", -- Current working directory
+			sourceMaps = true, -- Enable source maps for TS -> JS mapping
+			protocol = "inspector",
+			console = "integratedTerminal",
+			runtimeExecutable = "ts-node",
+			-- runtimeArgs = { "--loader", "ts-node/esm" }, -- Use ts-node for direct TS execution
 		},
 		{
 			type = "pwa-node",
 			request = "attach",
-			name = "Attach",
+			name = "Attach to Process",
 			processId = require("dap.utils").pick_process,
 			cwd = "${workspaceFolder}",
+			sourceMaps = true,
 		},
 	}
 
-	--javascript / typescript
-	-- dap.adapters["pwa-node"] = {
-	-- 	type = "server",
-	-- 	host = "localhost",
-	-- 	port = "${port}",
-	-- 	executable = {
-	-- 		command = "node",
-	-- 		args = {
-	-- 			vim.fn.getcwd() .. "/.vscode-js-debug/lib/node_modules/js-debug/dist/src/dapDebugServer.js",
-	-- 			-- vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter/js-debug/src/dapDebugServer.js",
-	-- 			"${port}",
-	-- 		},
+	-- dap.configurations.typescript = {
+	-- 	{
+	-- 		type = "pwa-node",
+	-- 		request = "launch",
+	-- 		name = "Launch file",
+	-- 		program = "${file}",
+	-- 		cwd = "${workspaceFolder}",
+	-- 	},
+	-- 	{
+	-- 		type = "pwa-node",
+	-- 		request = "attach",
+	-- 		name = "Attach",
+	-- 		processId = require("dap.utils").pick_process,
+	-- 		cwd = "${workspaceFolder}",
 	-- 	},
 	-- }
 

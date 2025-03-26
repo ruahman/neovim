@@ -3,22 +3,19 @@ return {
 	version = "^5", -- Recommended
 	lazy = false, -- This plugin is already lazy
 	config = function()
+		local adapter_path = vim.fn.getcwd() .. "/.vadimcn.vscode-lldb/adapter/codelldb"
+		local liblldb_path = vim.fn.getcwd() .. "/.vadimcn.vscode-lldb/lldb/lib/liblldb.so"
+
+		-- Adjust liblldb path for macOS if needed
+		if vim.fn.has("mac") == 1 then
+			liblldb_path = vim.fn.getcwd() .. "/.vadimcn.vscode-lldb/lldb/lib/liblldb.dylib"
+		end
+
+		local codelldb_adapter = require("rustaceanvim.config").get_codelldb_adapter(adapter_path, liblldb_path)
+
 		vim.g.rustaceanvim = {
 			dap = {
-				adapter = function()
-					local mason_registry = require("mason-registry")
-					local codelldb_package = mason_registry.get_package("codelldb")
-					local install_dir = codelldb_package:get_install_path()
-					local adapter_path = install_dir .. "/extension/adapter/codelldb"
-					local liblldb_path = install_dir .. "/extension/lldb/lib/liblldb.so" -- Linux path
-
-					-- Adjust liblldb path for macOS if needed
-					if vim.fn.has("mac") == 1 then
-						liblldb_path = install_dir .. "/extension/lldb/lib/liblldb.dylib"
-					end
-
-					require("rustaceanvim.config").get_codelldb_adapter(adapter_path, liblldb_path)
-				end,
+				adapter = codelldb_adapter,
 			},
 			server = {
 				on_attach = function(_, bufnr)
