@@ -11,23 +11,8 @@ local function config()
 	--dap go
 	require("dap-go").setup() -- must have delve installed globaly
 
-	-- require("dap-vscode-js").setup({
-	-- 	debugger_path = vim.fn.getcwd() .. "/.vscode-js-debug", -- Path to the debugger
-	-- 	adapters = { "pwa-node" },
-	-- })
+	-- vscode-js-debug
 
-	-- require("dap-vscode-js").setup({
-	--   -- Path to the Mason-installed js-debug-adapter
-	--   debugger_path = vim.fn.stdpath("data") .. "/mason/packages/js-debug-adapter",
-	--   -- Command to launch the debug server
-	--   debugger_cmd = { "js-debug-adapter" },
-	--   -- Adapters to register (for Node.js, Chrome, etc.)
-	--   adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
-	-- })
-
-	--javascript / typescript
-
-	local adapter_path = vim.fn.getcwd() .. "/.vscode-js-debug/lib/node_modules/js-debug/dist/src/dapDebugServer.js"
 	dap.adapters["pwa-node"] = {
 		type = "server",
 		host = "localhost",
@@ -35,90 +20,51 @@ local function config()
 		executable = {
 			command = "node",
 			args = {
-				adapter_path,
+				vim.fn.getcwd() .. "/.vscode-js-debug/lib/node_modules/js-debug/dist/src/dapDebugServer.js",
 				"${port}",
 			},
 		},
 	}
 
+	local attach_configuration = { -- attaches to a node process that has been started with --inspect or --inspect-bkr
+		-- for long running tasks (like a http server) usually just use --inspect
+		-- but for short lived tasks (like one-off scripts) --inspect-brk,
+		-- it will delay execution until the debugger has attached.
+		type = "pwa-node",
+		-- attach to an already running node process with --inspect flag
+		-- default port: 9222
+		request = "attach",
+		name = "Attach debugger to existing `node --inspect` process",
+		-- allows us to pick the process using a picker
+		processId = require("dap.utils").pick_process,
+		-- for compiled languages like typescript or svelte
+		sourceMaps = true,
+		-- path to src in vite based projects (and most other projects as well)
+		cwd = "${workspaceFolder}/src",
+		-- resolve source maps in nested locations while ignoring node_modules
+		resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
+		-- we don't want to debug code inside node_modules, so skip it!
+		skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
+	}
+
+	-- javascript
 	dap.configurations.javascript = {
-		{
+		{ -- this will only work for javascript
 			type = "pwa-node",
+			-- launch a new process to attach debugger to
 			request = "launch",
 			name = "Launch file",
+			-- launch current file
 			program = "${file}",
 			cwd = "${workspaceFolder}",
 		},
-		{
-			type = "pwa-node",
-			request = "attach",
-			name = "Attach",
-			processId = require("dap.utils").pick_process,
-			cwd = "${workspaceFolder}",
-		},
+		attach_configuration,
 	}
 
+	-- typescript
 	dap.configurations.typescript = {
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Launch File",
-			program = "${file}", -- Debug the current file
-			cwd = "${workspaceFolder}", -- Current working directory
-			sourceMaps = true, -- Enable source maps for TS -> JS mapping
-			protocol = "inspector",
-			console = "integratedTerminal",
-			runtimeExecutable = "ts-node",
-			-- runtimeArgs = { "--loader", "ts-node/esm" }, -- Use ts-node for direct TS execution
-		},
-		{
-			type = "pwa-node",
-			request = "attach",
-			name = "Attach to Process",
-			processId = require("dap.utils").pick_process,
-			cwd = "${workspaceFolder}",
-			sourceMaps = true,
-		},
-	}
-
-	-- dap.configurations.typescript = {
-	-- 	{
-	-- 		type = "pwa-node",
-	-- 		request = "launch",
-	-- 		name = "Launch file",
-	-- 		program = "${file}",
-	-- 		cwd = "${workspaceFolder}",
-	-- 	},
-	-- 	{
-	-- 		type = "pwa-node",
-	-- 		request = "attach",
-	-- 		name = "Attach",
-	-- 		processId = require("dap.utils").pick_process,
-	-- 		cwd = "${workspaceFolder}",
-	-- 	},
-	-- }
-
-	dap.configurations.javascript = {
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Launch node",
-			program = "${file}",
-			cwd = "${workspaceFolder}",
-			sourceMaps = true,
-		},
-	}
-
-	dap.configurations.typescript = {
-		{
-			type = "pwa-node",
-			request = "launch",
-			name = "Launch TS File",
-			program = "${file}",
-			cwd = "${workspaceFolder}",
-			sourceMaps = true,
-			outFiles = { "${workspaceFolder}/dist/**/*.js" },
-		},
+		-- can only attach can't launch typescript
+		attach_configuration,
 	}
 
 	-- c
