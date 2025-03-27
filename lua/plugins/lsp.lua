@@ -25,11 +25,13 @@ local function config()
 
 		-- format
 		vim.keymap.set("n", "gf", function()
+			print("formating...")
 			require("conform").format({ bufnr = bufopts.buffer })
 		end, bufopts)
 
 		-- lint
 		vim.keymap.set("n", "gl", function()
+			print("linting...")
 			require("lint").try_lint()
 		end, bufopts)
 
@@ -63,11 +65,11 @@ local function config()
 	})
 
 	-- deno
-	lspconfig.denols.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-	})
+	-- lspconfig.denols.setup({
+	-- 	capabilities = capabilities,
+	-- 	on_attach = on_attach,
+	-- 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
+	-- })
 
 	-- typescript-language-server
 	lspconfig.ts_ls.setup({
@@ -101,15 +103,15 @@ local function config()
 	})
 
 	-- ruby
-	lspconfig.solargraph.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		settings = {
-			solargraph = {
-				diagnostics = false, -- Disable diagnostics from Solargraph
-			},
-		},
-	})
+	-- lspconfig.solargraph.setup({
+	-- 	capabilities = capabilities,
+	-- 	on_attach = on_attach,
+	-- 	settings = {
+	-- 		solargraph = {
+	-- 			diagnostics = false, -- Disable diagnostics from Solargraph
+	-- 		},
+	-- 	},
+	-- })
 
 	-- golang
 	lspconfig.gopls.setup({
