@@ -113,7 +113,7 @@ local function config()
 			},
 			{
 				elements = {
-					"console",
+					-- "console",
 					"repl",
 				},
 				size = 0.25, -- 25% of total lines
