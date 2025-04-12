@@ -1,4 +1,5 @@
 return {
+	-- enabled = false,
 	"mrcjkb/rustaceanvim",
 	version = "^5", -- Recommended
 	lazy = false, -- This plugin is already lazy
@@ -18,6 +19,10 @@ return {
 				adapter = codelldb_adapter,
 			},
 			server = {
+				default_settings = {
+					-- rust-analyzer language server configuration
+					["rust-analyzer"] = {},
+				},
 				on_attach = function(_, bufnr)
 					-- setup keybindings for this buffer
 					local bufopts = { noremap = true, silent = false, buffer = bufnr }

@@ -113,6 +113,21 @@ local function config()
 	-- 	},
 	-- })
 
+	-- rust
+	-- lspconfig.rust_analyzer.setup({
+	-- 	capabilities = capabilities,
+	-- 	on_attach = on_attach,
+	-- 	server = {
+	-- 		settings = {
+	-- 			["rust-analyzer"] = {
+	-- 				-- checkOnSave = {
+	-- 				-- 	command = "clippy",
+	-- 				-- },
+	-- 			},
+	-- 		},
+	-- 	},
+	-- })
+
 	-- golang
 	lspconfig.gopls.setup({
 		capabilities = capabilities,
