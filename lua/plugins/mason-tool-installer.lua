@@ -1,5 +1,6 @@
 return {
 	"WhoIsSethDaniel/mason-tool-installer.nvim",
+	enabled = false,
 	opts = {
 		ensure_installed = {
 			-- "typescript-language-server",
