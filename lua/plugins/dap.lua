@@ -13,77 +13,108 @@ local function config()
 
 	-- vscode-js-debug
 
-	dap.adapters["pwa-node"] = {
-		type = "server",
-		host = "localhost",
-		port = "${port}",
-		executable = {
-			command = "node",
-			args = {
-				vim.fn.getcwd() .. "/.vscode-js-debug/lib/node_modules/js-debug/dist/src/dapDebugServer.js",
-				"${port}",
+	local vscode_js_debug = os.getenv("VSCODE_JS_DEBUG")
+
+	if vscode_js_debug ~= nil then
+		dap.adapters["pwa-node"] = {
+			type = "server",
+			host = "localhost",
+			port = "${port}",
+			executable = {
+				command = "node",
+				args = {
+					vscode_js_debug .. "/lib/node_modules/js-debug/dist/src/dapDebugServer.js",
+					"${port}",
+				},
 			},
-		},
-	}
+		}
 
-	local attach_configuration = { -- attaches to a node process that has been started with --inspect or --inspect-bkr
-		-- for long running tasks (like a http server) usually just use --inspect
-		-- but for short lived tasks (like one-off scripts) --inspect-brk,
-		-- it will delay execution until the debugger has attached.
-		type = "pwa-node",
-		-- attach to an already running node process with --inspect flag
-		-- default port: 9222
-		request = "attach",
-		name = "Attach debugger to existing `node --inspect` process",
-		-- allows us to pick the process using a picker
-		processId = require("dap.utils").pick_process,
-		-- for compiled languages like typescript or svelte
-		sourceMaps = true,
-		-- path to src in vite based projects (and most other projects as well)
-		cwd = "${workspaceFolder}/src",
-		-- resolve source maps in nested locations while ignoring node_modules
-		resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
-		-- we don't want to debug code inside node_modules, so skip it!
-		skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
-	}
+		local attach_configuration =
+			{ -- attaches to a node process that has been started with --inspect or --inspect-bkr
+				-- for long running tasks (like a http server) usually just use --inspect
+				-- but for short lived tasks (like one-off scripts) --inspect-brk,
+				-- it will delay execution until the debugger has attached.
+				type = "pwa-node",
+				-- attach to an already running node process with --inspect flag
+				-- default port: 9222
+				request = "attach",
+				name = "Attach debugger to existing `node --inspect` process",
+				-- allows us to pick the process using a picker
+				processId = require("dap.utils").pick_process,
+				-- for compiled languages like typescript or svelte
+				sourceMaps = true,
+				-- path to src in vite based projects (and most other projects as well)
+				cwd = "${workspaceFolder}/src",
+				-- resolve source maps in nested locations while ignoring node_modules
+				resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
+				-- we don't want to debug code inside node_modules, so skip it!
+				skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
+			}
 
-	-- javascript
-	dap.configurations.javascript = {
-		{ -- this will only work for javascript
-			type = "pwa-node",
-			-- launch a new process to attach debugger to
-			request = "launch",
-			name = "Launch file",
-			-- launch current file
-			program = "${file}",
-			cwd = "${workspaceFolder}",
-		},
-		attach_configuration,
-	}
+		-- javascript
+		dap.configurations.javascript = {
+			{ -- this will only work for javascript
+				type = "pwa-node",
+				-- launch a new process to attach debugger to
+				request = "launch",
+				name = "Launch file",
+				-- launch current file
+				program = "${file}",
+				cwd = "${workspaceFolder}",
+			},
+			attach_configuration,
+		}
 
-	-- typescript
-	dap.configurations.typescript = {
-		-- can only attach can't launch typescript
-		attach_configuration,
-	}
+		-- typescript
+		dap.configurations.typescript = {
+			-- can only attach can't launch typescript
+			attach_configuration,
+		}
+	end
 
-	-- c
-	-- dap.configurations.c = {
-	--   {
-	--     name = "Debug",
-	--     type = "lldb",
-	--     request = "launch",
-	--     program = function()
-	--       return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-	--     end,
-	--     cwd = "${workspaceFolder}",
-	--     stopOnEntry = false,
-	--     args = {},
-	--   },
-	-- }
+	-- codelldb
+	local codelldb = os.getenv("CODELLDB")
 
-	-- cpp
-	-- dap.configurations.cpp = dap.configurations.c
+	if codelldb ~= nil then
+		dap.adapters.codelldb = {
+			type = "server",
+			port = "${port}",
+			executable = {
+				command = codelldb .. "/adapter/codelldb",
+				args = { "--port", "${port}" },
+			},
+		}
+
+		-- Configuration for Rust
+		dap.configurations.rust = {
+			{
+				name = "Launch",
+				type = "codelldb",
+				request = "launch",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+				args = {},
+			},
+			{
+				name = "Attach to Process",
+				type = "codelldb",
+				request = "attach",
+				program = function()
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+				end,
+				cwd = "${workspaceFolder}",
+				pid = function()
+					-- Prompt for PID or use a function to select it
+					local pid = vim.fn.input("Enter PID: ")
+					return tonumber(pid)
+				end,
+				args = {},
+			},
+		}
+	end
 
 	vim.keymap.set("n", "gt", require("dap").toggle_breakpoint, { desc = "Toogle Breakpoint" })
 	vim.keymap.set("n", "gB", function()

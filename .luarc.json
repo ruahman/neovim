@@ -1,0 +1,13 @@
+{
+  "diagnostics": {
+    "globals": [
+      "os"
+    ]
+  },
+  "workspace": {
+    "library": [
+      "$VIMRUNTIME/lua",
+      "${3rd}/luv/library"
+    ]
+  }
+}
