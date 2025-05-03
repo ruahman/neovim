@@ -49,6 +49,11 @@ local function config()
 
 		-- diagnostics
 		vim.keymap.set("n", "<leader>x", require("telescope.builtin").diagnostics, bufopts)
+
+		-- inline hints
+		vim.keymap.set("n", "gH", function()
+			vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+		end, bufopts)
 	end
 
 	-- lua
@@ -60,6 +65,7 @@ local function config()
 				diagnostics = {
 					enable = false,
 				},
+				hint = { enable = true },
 			},
 		},
 	})
@@ -73,6 +79,30 @@ local function config()
 		init_options = {
 			preferences = {
 				disableSuggestions = true,
+			},
+		},
+		settings = {
+			javascript = {
+				inlayHints = {
+					includeInlayParameterNameHints = "all",
+					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+					includeInlayFunctionParameterTypeHints = true,
+					includeInlayVariableTypeHints = true,
+					includeInlayPropertyDeclarationTypeHints = true,
+					includeInlayFunctionLikeReturnTypeHints = true,
+					includeInlayEnumMemberValueHints = true,
+				},
+			},
+			typescript = {
+				inlayHints = {
+					includeInlayParameterNameHints = "all", -- 'none', 'literals', or 'all'
+					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+					includeInlayFunctionParameterTypeHints = true,
+					includeInlayVariableTypeHints = true,
+					includeInlayPropertyDeclarationTypeHints = true,
+					includeInlayFunctionLikeReturnTypeHints = true,
+					includeInlayEnumMemberValueHints = true,
+				},
 			},
 		},
 	})
@@ -105,6 +135,38 @@ local function config()
 					-- checkOnSave = {
 					-- 	command = "clippy",
 					-- },
+					inlayHints = {
+						bindingModeHints = {
+							enable = false,
+						},
+						chainingHints = {
+							enable = true,
+						},
+						closingBraceHints = {
+							enable = true,
+							minLines = 25,
+						},
+						closureReturnTypeHints = {
+							enable = "never",
+						},
+						lifetimeElisionHints = {
+							enable = "never",
+							useParameterNames = false,
+						},
+						maxLength = 25,
+						parameterHints = {
+							enable = true,
+						},
+						reborrowHints = {
+							enable = "never",
+						},
+						renderColons = true,
+						typeHints = {
+							enable = true,
+							hideClosureInitialization = false,
+							hideNamedConstructor = false,
+						},
+					},
 				},
 			},
 		},
@@ -120,6 +182,15 @@ local function config()
 				usePlaceholders = true,
 				analyses = {
 					unusedparams = true,
+				},
+				hints = {
+					rangeVariableTypes = true,
+					parameterNames = true,
+					constantValues = true,
+					assignVariableTypes = true,
+					compositeLiteralFields = true,
+					compositeLiteralTypes = true,
+					functionTypeParameters = true,
 				},
 			},
 		},
