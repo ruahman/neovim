@@ -1,3 +1,4 @@
+-- show crates version
 return {
 	"saecki/crates.nvim",
 	tag = "stable",

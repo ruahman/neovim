@@ -64,13 +64,6 @@ local function config()
 		},
 	})
 
-	-- deno
-	-- lspconfig.denols.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
-	-- })
-
 	-- typescript-language-server
 	lspconfig.ts_ls.setup({
 		capabilities = capabilities,
@@ -101,17 +94,6 @@ local function config()
 		capabilities = capabilities,
 		on_attach = on_attach,
 	})
-
-	-- ruby
-	-- lspconfig.solargraph.setup({
-	-- 	capabilities = capabilities,
-	-- 	on_attach = on_attach,
-	-- 	settings = {
-	-- 		solargraph = {
-	-- 			diagnostics = false, -- Disable diagnostics from Solargraph
-	-- 		},
-	-- 	},
-	-- })
 
 	-- rust
 	lspconfig.rust_analyzer.setup({

@@ -1,3 +1,4 @@
+-- show git changes
 return {
 	"lewis6991/gitsigns.nvim",
 	event = { "BufRead", "BufNewFile" },

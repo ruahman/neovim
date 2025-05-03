@@ -1,3 +1,4 @@
+-- open terminal in neovim
 return {
 	"akinsho/toggleterm.nvim",
 	opts = {

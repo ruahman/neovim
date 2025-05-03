@@ -1,3 +1,4 @@
+-- run liter for files
 local function config()
 	require("lint").linters_by_ft = {
 		typescript = { "biomejs" },
