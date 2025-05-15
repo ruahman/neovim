@@ -34,6 +34,7 @@ local function config()
 end
 
 return {
+	enabled = false,
 	"akinsho/bufferline.nvim",
 	dependencies = {
 		"kyazdani42/nvim-web-devicons",

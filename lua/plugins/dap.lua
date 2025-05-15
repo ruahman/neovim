@@ -1,4 +1,5 @@
 -- debug adapter protocol
+local utils = require("utils")
 
 local function config()
 	local dap = require("dap")
@@ -92,11 +93,45 @@ local function config()
 				type = "codelldb",
 				request = "launch",
 				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+					local crate_name = utils.get_crate_name()
+
+					-- Build the project to ensure the executable exists
+					vim.fn.system("cargo build")
+
+					-- return path to debug executable
+					return vim.fn.getcwd() .. "/target/debug/" .. crate_name
 				end,
 				cwd = "${workspaceFolder}",
 				stopOnEntry = false,
 				args = {},
+				initCommands = function()
+					-- Ensure the executable is built
+					vim.fn.system("cargo build")
+					return {}
+				end,
+			},
+			{
+				name = "Launch Test",
+				type = "codelldb",
+				request = "launch",
+				program = function()
+					return utils.get_test_executable()
+				end,
+				cwd = "${workspaceFolder}",
+				stopOnEntry = false,
+				args = function()
+					-- local test_name = utils.get_test_name()
+					-- if test_name then
+					-- 	return { "--test", test_name, "--nocapture" }
+					-- else
+					-- 	-- local file_path = vim.fn.expand("%:p")
+					-- 	return { "--", "--nocapture" }
+					-- end
+				end,
+				initCommands = function()
+					vim.fn.system("cargo test --no-run")
+					return {}
+				end,
 			},
 			{
 				name = "Attach to Process",
