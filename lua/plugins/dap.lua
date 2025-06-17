@@ -93,13 +93,14 @@ local function config()
 				type = "codelldb",
 				request = "launch",
 				program = function()
-					local crate_name = utils.get_crate_name()
+					-- local crate_name = utils.get_crate_name()
 
 					-- Build the project to ensure the executable exists
-					vim.fn.system("cargo build")
+					-- vim.fn.system("cargo build")
 
 					-- return path to debug executable
-					return vim.fn.getcwd() .. "/target/debug/" .. crate_name
+					-- return vim.fn.getcwd() .. "/target/debug/" .. crate_name
+					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug", "file")
 				end,
 				cwd = "${workspaceFolder}",
 				stopOnEntry = false,
@@ -138,7 +139,14 @@ local function config()
 				type = "codelldb",
 				request = "attach",
 				program = function()
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+					-- return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+					local crate_name = utils.get_crate_name()
+
+					-- Build the project to ensure the executable exists
+					vim.fn.system("cargo build")
+
+					-- return path to debug executable
+					return vim.fn.getcwd() .. "/target/debug/" .. crate_name
 				end,
 				cwd = "${workspaceFolder}",
 				pid = function()

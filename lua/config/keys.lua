@@ -4,7 +4,8 @@ local map = require("utils").map
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-map("n", "<Leader>h", ":set hlsearch!<CR>")
+-- map("n", "<Leader>h", ":set hlsearch!<CR>")
+map("n", "<Leader><Leader>", ":noh<CR>")
 -- map("n", "<Leader>l", ":set list!<CR>")
 
 map("v", "<", "<gv")
@@ -27,8 +28,8 @@ map("n", "<S-j>", ":move .+1<CR>")
 map("n", "<S-k>", ":move .-2<CR>")
 
 -- move selection
-map("v", "<S-k>", ":move '<-2<CR>gv=gv")
 map("v", "<S-j>", ":move '>+1<CR>gv=gv")
+map("v", "<S-k>", ":move '<-2<CR>gv=gv")
 
 -- cd
 map("n", "cd", ":cd %:p:h<CR>")
