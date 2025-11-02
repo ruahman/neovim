@@ -1,6 +1,6 @@
 -- colorscheme for my neovim
 local function config()
-	vim.cmd([[colorscheme nightfox]])
+	vim.cmd.colorscheme("nightfox")
 	vim.api.nvim_exec(
 		[[
     hi CursorLine cterm=NONE ctermbg=NONE guibg=#2e3440
