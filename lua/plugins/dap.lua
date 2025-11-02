@@ -9,8 +9,11 @@ local function config()
 	--dap python
 	require("dap-python").setup() -- must have debugpy installed globaly
 
+	--dap ruby
+	require("dap-ruby").setup()
+
 	--dap go
-	require("dap-go").setup() -- must have delve installed globaly
+	-- require("dap-go").setup() -- must have delve installed globaly
 
 	-- vscode-js-debug
 
@@ -221,7 +224,8 @@ return {
 		"rcarriga/nvim-dap-ui",
 		"theHamsta/nvim-dap-virtual-text",
 		"mfussenegger/nvim-dap-python",
-		"leoluz/nvim-dap-go",
+		"suketa/nvim-dap-ruby",
+		-- "leoluz/nvim-dap-go",
 		"nvim-neotest/nvim-nio",
 		"mxsdev/nvim-dap-vscode-js",
 	},
