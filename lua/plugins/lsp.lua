@@ -2,6 +2,7 @@ local utils = require("utils")
 
 local function config()
 	local lspconfig = require("lspconfig")
+	-- local lspconfig = vim.lsp.config
 
 	-- share client capabilites to LSP
 	local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
@@ -212,5 +213,6 @@ end
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufNewFile", "BufRead" },
-	config = config,
+	-- config = config,
+	-- enabled = false,
 }

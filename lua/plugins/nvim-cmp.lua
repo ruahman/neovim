@@ -19,6 +19,7 @@ local function config()
 			["<CR>"] = cmp.mapping.confirm({ select = true }),
 		},
 		sources = {
+			{ name = "lazydev", group_index = 0 },
 			{ name = "luasnip" },
 			{ name = "crates" },
 			{ name = "nvim_lsp" },

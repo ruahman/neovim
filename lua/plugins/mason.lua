@@ -1,5 +1,5 @@
 return {
-	enabled = false,
+	enabled = true,
 	"williamboman/mason.nvim",
 	dependencies = {
 		"williamboman/mason-lspconfig.nvim",
