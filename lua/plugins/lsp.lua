@@ -57,154 +57,8 @@ local function config()
 		end, bufopts)
 	end
 
-	-- lua
-	lspconfig.lua_ls.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		settings = {
-			Lua = {
-				diagnostics = {
-					enable = false,
-				},
-				hint = { enable = true },
-			},
-		},
-	})
-
-	-- typescript-language-server
-	lspconfig.ts_ls.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		root_dir = lspconfig.util.root_pattern("package.json"),
-		single_file_support = false,
-		init_options = {
-			preferences = {
-				disableSuggestions = true,
-			},
-		},
-		settings = {
-			javascript = {
-				inlayHints = {
-					includeInlayParameterNameHints = "all",
-					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-					includeInlayFunctionParameterTypeHints = true,
-					includeInlayVariableTypeHints = true,
-					includeInlayPropertyDeclarationTypeHints = true,
-					includeInlayFunctionLikeReturnTypeHints = true,
-					includeInlayEnumMemberValueHints = true,
-				},
-			},
-			typescript = {
-				inlayHints = {
-					includeInlayParameterNameHints = "all", -- 'none', 'literals', or 'all'
-					includeInlayParameterNameHintsWhenArgumentMatchesName = false,
-					includeInlayFunctionParameterTypeHints = true,
-					includeInlayVariableTypeHints = true,
-					includeInlayPropertyDeclarationTypeHints = true,
-					includeInlayFunctionLikeReturnTypeHints = true,
-					includeInlayEnumMemberValueHints = true,
-				},
-			},
-		},
-	})
-
-	-- css
-	lspconfig.cssls.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
-
-	-- html
-	lspconfig.html.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
-
-	-- python
-	lspconfig.pyright.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-	})
-
-	-- rust
-	lspconfig.rust_analyzer.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		server = {
-			settings = {
-				["rust-analyzer"] = {
-					-- checkOnSave = {
-					-- 	command = "clippy",
-					-- },
-					inlayHints = {
-						bindingModeHints = {
-							enable = false,
-						},
-						chainingHints = {
-							enable = true,
-						},
-						closingBraceHints = {
-							enable = true,
-							minLines = 25,
-						},
-						closureReturnTypeHints = {
-							enable = "never",
-						},
-						lifetimeElisionHints = {
-							enable = "never",
-							useParameterNames = false,
-						},
-						maxLength = 25,
-						parameterHints = {
-							enable = true,
-						},
-						reborrowHints = {
-							enable = "never",
-						},
-						renderColons = true,
-						typeHints = {
-							enable = true,
-							hideClosureInitialization = false,
-							hideNamedConstructor = false,
-						},
-					},
-				},
-			},
-		},
-	})
-
-	-- golang
-	lspconfig.gopls.setup({
-		capabilities = capabilities,
-		on_attach = on_attach,
-		settings = {
-			gopls = {
-				completeUnimported = true,
-				usePlaceholders = true,
-				analyses = {
-					unusedparams = true,
-				},
-				hints = {
-					rangeVariableTypes = true,
-					parameterNames = true,
-					constantValues = true,
-					assignVariableTypes = true,
-					compositeLiteralFields = true,
-					compositeLiteralTypes = true,
-					functionTypeParameters = true,
-				},
-			},
-		},
-	})
-
 	-- c/cpp
 	lspconfig.clangd.setup({
-		on_attach = on_attach,
-		capabilities = capabilities,
-	})
-
-	-- zig
-	lspconfig.zls.setup({
 		on_attach = on_attach,
 		capabilities = capabilities,
 	})
@@ -213,6 +67,13 @@ end
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufNewFile", "BufRead" },
-	-- config = config,
+	-- config = function()
+	-- 	-- vim.lsp.enable("lua_ls")
+	-- 	-- vim.lsp.enable("ts_ls")
+	-- 	-- vim.lsp.enable("pyright")
+	-- 	-- vim.lsp.enable("solargraph")
+	-- 	-- vim.lsp.enable("zls")
+	-- 	-- vim.lsp.enable("rust_analyzer")
+	-- end,
 	-- enabled = false,
 }
