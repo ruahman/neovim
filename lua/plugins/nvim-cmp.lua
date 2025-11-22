@@ -53,4 +53,5 @@ return {
 		"David-Kunz/cmp-npm",
 	},
 	config = config,
+	enabled = false,
 }

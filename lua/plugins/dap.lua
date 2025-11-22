@@ -6,161 +6,161 @@ local function config()
 
 	dap.set_log_level("TRACE")
 
-	--dap python
+	-- dap python
 	require("dap-python").setup() -- must have debugpy installed globaly
 
-	--dap ruby
+	-- dap ruby
 	require("dap-ruby").setup()
 
-	--dap go
-	-- require("dap-go").setup() -- must have delve installed globaly
+	-- dap go
+	require("dap-go").setup() -- must have delve installed globaly
 
 	-- vscode-js-debug
 
-	local vscode_js_debug = os.getenv("VSCODE_JS_DEBUG")
+	-- local vscode_js_debug = os.getenv("VSCODE_JS_DEBUG")
 
-	if vscode_js_debug ~= nil then
-		dap.adapters["pwa-node"] = {
-			type = "server",
-			host = "localhost",
-			port = "${port}",
-			executable = {
-				command = "node",
-				args = {
-					vscode_js_debug .. "/lib/node_modules/js-debug/dist/src/dapDebugServer.js",
-					"${port}",
-				},
-			},
-		}
-
-		local attach_configuration =
-			{ -- attaches to a node process that has been started with --inspect or --inspect-bkr
-				-- for long running tasks (like a http server) usually just use --inspect
-				-- but for short lived tasks (like one-off scripts) --inspect-brk,
-				-- it will delay execution until the debugger has attached.
-				type = "pwa-node",
-				-- attach to an already running node process with --inspect flag
-				-- default port: 9222
-				request = "attach",
-				name = "Attach debugger to existing `node --inspect` process",
-				-- allows us to pick the process using a picker
-				processId = require("dap.utils").pick_process,
-				-- for compiled languages like typescript or svelte
-				sourceMaps = true,
-				-- path to src in vite based projects (and most other projects as well)
-				cwd = "${workspaceFolder}/src",
-				-- resolve source maps in nested locations while ignoring node_modules
-				resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
-				-- we don't want to debug code inside node_modules, so skip it!
-				skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
-			}
-
-		-- javascript
-		dap.configurations.javascript = {
-			{ -- this will only work for javascript
-				type = "pwa-node",
-				-- launch a new process to attach debugger to
-				request = "launch",
-				name = "Launch file",
-				-- launch current file
-				program = "${file}",
-				cwd = "${workspaceFolder}",
-			},
-			attach_configuration,
-		}
-
-		-- typescript
-		dap.configurations.typescript = {
-			-- can only attach can't launch typescript
-			attach_configuration,
-		}
-	end
+	-- if vscode_js_debug ~= nil then
+	-- 	dap.adapters["pwa-node"] = {
+	-- 		type = "server",
+	-- 		host = "localhost",
+	-- 		port = "${port}",
+	-- 		executable = {
+	-- 			command = "node",
+	-- 			args = {
+	-- 				vscode_js_debug .. "/lib/node_modules/js-debug/dist/src/dapDebugServer.js",
+	-- 				"${port}",
+	-- 			},
+	-- 		},
+	-- 	}
+	--
+	-- 	local attach_configuration =
+	-- 		{ -- attaches to a node process that has been started with --inspect or --inspect-bkr
+	-- 			-- for long running tasks (like a http server) usually just use --inspect
+	-- 			-- but for short lived tasks (like one-off scripts) --inspect-brk,
+	-- 			-- it will delay execution until the debugger has attached.
+	-- 			type = "pwa-node",
+	-- 			-- attach to an already running node process with --inspect flag
+	-- 			-- default port: 9222
+	-- 			request = "attach",
+	-- 			name = "Attach debugger to existing `node --inspect` process",
+	-- 			-- allows us to pick the process using a picker
+	-- 			processId = require("dap.utils").pick_process,
+	-- 			-- for compiled languages like typescript or svelte
+	-- 			sourceMaps = true,
+	-- 			-- path to src in vite based projects (and most other projects as well)
+	-- 			cwd = "${workspaceFolder}/src",
+	-- 			-- resolve source maps in nested locations while ignoring node_modules
+	-- 			resolveSourceMapLocations = { "${workspaceFolder}/**", "!**/node_modules/**" },
+	-- 			-- we don't want to debug code inside node_modules, so skip it!
+	-- 			skipFiles = { "${workspaceFolder}/node_modules/**/*.js" },
+	-- 		}
+	--
+	-- 	-- javascript
+	-- 	dap.configurations.javascript = {
+	-- 		{ -- this will only work for javascript
+	-- 			type = "pwa-node",
+	-- 			-- launch a new process to attach debugger to
+	-- 			request = "launch",
+	-- 			name = "Launch file",
+	-- 			-- launch current file
+	-- 			program = "${file}",
+	-- 			cwd = "${workspaceFolder}",
+	-- 		},
+	-- 		attach_configuration,
+	-- 	}
+	--
+	-- 	-- typescript
+	-- 	dap.configurations.typescript = {
+	-- 		-- can only attach can't launch typescript
+	-- 		attach_configuration,
+	-- 	}
+	-- end
 
 	-- codelldb
-	local codelldb = os.getenv("CODELLDB")
+	-- local codelldb = os.getenv("CODELLDB")
 
-	if codelldb ~= nil then
-		dap.adapters.codelldb = {
-			type = "server",
-			port = "${port}",
-			executable = {
-				command = codelldb .. "/adapter/codelldb",
-				args = { "--port", "${port}" },
-			},
-		}
-
-		-- Configuration for Rust
-		dap.configurations.rust = {
-			{
-				name = "Launch",
-				type = "codelldb",
-				request = "launch",
-				program = function()
-					-- local crate_name = utils.get_crate_name()
-
-					-- Build the project to ensure the executable exists
-					-- vim.fn.system("cargo build")
-
-					-- return path to debug executable
-					-- return vim.fn.getcwd() .. "/target/debug/" .. crate_name
-					return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug", "file")
-				end,
-				cwd = "${workspaceFolder}",
-				stopOnEntry = false,
-				args = {},
-				initCommands = function()
-					-- Ensure the executable is built
-					vim.fn.system("cargo build")
-					return {}
-				end,
-			},
-			{
-				name = "Launch Test",
-				type = "codelldb",
-				request = "launch",
-				program = function()
-					return utils.get_test_executable()
-				end,
-				cwd = "${workspaceFolder}",
-				stopOnEntry = false,
-				args = function()
-					-- local test_name = utils.get_test_name()
-					-- if test_name then
-					-- 	return { "--test", test_name, "--nocapture" }
-					-- else
-					-- 	-- local file_path = vim.fn.expand("%:p")
-					-- 	return { "--", "--nocapture" }
-					-- end
-				end,
-				initCommands = function()
-					vim.fn.system("cargo test --no-run")
-					return {}
-				end,
-			},
-			{
-				name = "Attach to Process",
-				type = "codelldb",
-				request = "attach",
-				program = function()
-					-- return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
-					local crate_name = utils.get_crate_name()
-
-					-- Build the project to ensure the executable exists
-					vim.fn.system("cargo build")
-
-					-- return path to debug executable
-					return vim.fn.getcwd() .. "/target/debug/" .. crate_name
-				end,
-				cwd = "${workspaceFolder}",
-				pid = function()
-					-- Prompt for PID or use a function to select it
-					local pid = vim.fn.input("Enter PID: ")
-					return tonumber(pid)
-				end,
-				args = {},
-			},
-		}
-	end
+	-- if codelldb ~= nil then
+	-- 	dap.adapters.codelldb = {
+	-- 		type = "server",
+	-- 		port = "${port}",
+	-- 		executable = {
+	-- 			command = codelldb .. "/adapter/codelldb",
+	-- 			args = { "--port", "${port}" },
+	-- 		},
+	-- 	}
+	--
+	-- 	-- Configuration for Rust
+	-- 	dap.configurations.rust = {
+	-- 		{
+	-- 			name = "Launch",
+	-- 			type = "codelldb",
+	-- 			request = "launch",
+	-- 			program = function()
+	-- 				-- local crate_name = utils.get_crate_name()
+	--
+	-- 				-- Build the project to ensure the executable exists
+	-- 				-- vim.fn.system("cargo build")
+	--
+	-- 				-- return path to debug executable
+	-- 				-- return vim.fn.getcwd() .. "/target/debug/" .. crate_name
+	-- 				return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug", "file")
+	-- 			end,
+	-- 			cwd = "${workspaceFolder}",
+	-- 			stopOnEntry = false,
+	-- 			args = {},
+	-- 			initCommands = function()
+	-- 				-- Ensure the executable is built
+	-- 				vim.fn.system("cargo build")
+	-- 				return {}
+	-- 			end,
+	-- 		},
+	-- 		{
+	-- 			name = "Launch Test",
+	-- 			type = "codelldb",
+	-- 			request = "launch",
+	-- 			program = function()
+	-- 				return utils.get_test_executable()
+	-- 			end,
+	-- 			cwd = "${workspaceFolder}",
+	-- 			stopOnEntry = false,
+	-- 			args = function()
+	-- 				-- local test_name = utils.get_test_name()
+	-- 				-- if test_name then
+	-- 				-- 	return { "--test", test_name, "--nocapture" }
+	-- 				-- else
+	-- 				-- 	-- local file_path = vim.fn.expand("%:p")
+	-- 				-- 	return { "--", "--nocapture" }
+	-- 				-- end
+	-- 			end,
+	-- 			initCommands = function()
+	-- 				vim.fn.system("cargo test --no-run")
+	-- 				return {}
+	-- 			end,
+	-- 		},
+	-- 		{
+	-- 			name = "Attach to Process",
+	-- 			type = "codelldb",
+	-- 			request = "attach",
+	-- 			program = function()
+	-- 				-- return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/target/debug/", "file")
+	-- 				local crate_name = utils.get_crate_name()
+	--
+	-- 				-- Build the project to ensure the executable exists
+	-- 				vim.fn.system("cargo build")
+	--
+	-- 				-- return path to debug executable
+	-- 				return vim.fn.getcwd() .. "/target/debug/" .. crate_name
+	-- 			end,
+	-- 			cwd = "${workspaceFolder}",
+	-- 			pid = function()
+	-- 				-- Prompt for PID or use a function to select it
+	-- 				local pid = vim.fn.input("Enter PID: ")
+	-- 				return tonumber(pid)
+	-- 			end,
+	-- 			args = {},
+	-- 		},
+	-- 	}
+	-- end
 
 	vim.keymap.set("n", "gt", require("dap").toggle_breakpoint, { desc = "Toogle Breakpoint" })
 	vim.keymap.set("n", "gB", function()
@@ -225,7 +225,7 @@ return {
 		"theHamsta/nvim-dap-virtual-text",
 		"mfussenegger/nvim-dap-python",
 		"suketa/nvim-dap-ruby",
-		-- "leoluz/nvim-dap-go",
+		"leoluz/nvim-dap-go",
 		"nvim-neotest/nvim-nio",
 		"mxsdev/nvim-dap-vscode-js",
 	},
