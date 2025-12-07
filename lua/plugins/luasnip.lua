@@ -50,4 +50,5 @@ return {
 	},
 	event = "InsertEnter",
 	config = config,
+	-- enabled = false,
 }
