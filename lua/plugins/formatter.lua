@@ -3,7 +3,7 @@ local function config()
 		formatters_by_ft = {
 			lua = { "stylua" },
 			python = { "ruff_format", "isort" },
-			javascript = { "biome" },
+			javascript = { "prettier" },
 			javascriptreact = { "biome" },
 			typescript = { "biome" },
 			typescriptreact = { "biome" },

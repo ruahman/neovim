@@ -2,7 +2,7 @@
 local function config()
 	require("lint").linters_by_ft = {
 		typescript = { "biomejs" },
-		javascript = { "biomejs" },
+		javascript = { "eslint" },
 		lua = { "luacheck" },
 		python = { "ruff", "mypy" },
 		go = { "golangcilint" },
