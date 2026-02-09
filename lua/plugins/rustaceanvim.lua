@@ -1,3 +1,4 @@
+-- rust tools for neovim
 return {
 	"mrcjkb/rustaceanvim",
 	version = "^6", -- Recommended

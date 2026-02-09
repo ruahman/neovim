@@ -1,5 +1,4 @@
 -- cool comment plugin
--- gc = comment
 return {
 	"numToStr/Comment.nvim",
 	event = { "BufNewFile", "BufRead" },

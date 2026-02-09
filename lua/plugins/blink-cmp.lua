@@ -1,3 +1,4 @@
+-- automatice text completions
 return {
 	"saghen/blink.cmp",
 
