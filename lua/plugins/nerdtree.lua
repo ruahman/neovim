@@ -1,6 +1,4 @@
 local function config()
-	local map = require("utils").map
-
 	require("nvim-tree").setup({
 		sync_root_with_cwd = true,
 		view = {
@@ -9,7 +7,7 @@ local function config()
 	})
 
 	-- setup keymap
-	map("n", "<Leader>e", ":NvimTreeToggle<CR>", { silent = true })
+	vim.keymap.set("n", "<Leader>e", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
 end
 
 return {

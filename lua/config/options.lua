@@ -56,6 +56,7 @@ vim.opt.smarttab = true
 vim.opt.smartindent = true
 vim.opt.autoindent = true
 
+-- file encoding
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 
@@ -76,6 +77,3 @@ vim.opt.termguicolors = true
 vim.opt.swapfile = false
 vim.opt.backup = false
 vim.cmd([[set nobackup nowritebackup noswapfile]])
-
--- for python
--- vim.cmd([[autocmd FileType python setlocal tabstop=4 shiftwidth=4 softtabstop=4]])

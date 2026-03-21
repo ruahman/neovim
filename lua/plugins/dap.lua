@@ -1,6 +1,4 @@
 -- debug adapter protocol
-local utils = require("utils")
-
 local function config()
 	local dap = require("dap")
 

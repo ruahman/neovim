@@ -1,6 +1,4 @@
 local function config()
-	local map = require("utils").map
-
 	require("bufferline").setup({
 		options = {
 			close_command = "Bdelete! %d",
@@ -17,20 +15,20 @@ local function config()
 	})
 
 	-- cycle prev
-	map("n", "<S-Left>", ":BufferLineCyclePrev<CR>")
+	vim.keymap.set("n", "<S-Left>", ":BufferLineCyclePrev<CR>", { noremap = true })
 	-- cycle next
-	map("n", "<S-Right>", ":BufferLineCycleNext<CR>")
+	vim.keymap.set("n", "<S-Right>", ":BufferLineCycleNext<CR>", { noremap = true })
 
 	-- move prev
-	map("n", "<S-h>", ":BufferLineMovePrev<CR>")
+	vim.keymap.set("n", "<S-h>", ":BufferLineMovePrev<CR>", { noremap = true })
 	-- move next
-	map("n", "<S-l>", ":BufferLineMoveNext<CR>")
+	vim.keymap.set("n", "<S-l>", ":BufferLineMoveNext<CR>", { noremap = true })
 
 	-- close other buffers
-	map("n", "<C-x>", ":BufferLineCloseOthers<CR>")
+	vim.keymap.set("n", "<C-x>", ":BufferLineCloseOthers<CR>", { noremap = true })
 
 	-- delete buffer
-	map("n", "bd", ":Bdelete<CR>")
+	vim.keymap.set("n", "bd", ":Bdelete<CR>", { noremap = true })
 end
 
 return {
