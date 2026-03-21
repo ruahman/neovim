@@ -1,3 +1,4 @@
+-- try using snacks
 local function config()
 	local alpha = require("alpha")
 	local dashboard = require("alpha.themes.dashboard")

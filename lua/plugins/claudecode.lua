@@ -1,3 +1,4 @@
+-- think about setting up avante
 return {
 	"coder/claudecode.nvim",
 	dependencies = { "folke/snacks.nvim" },
