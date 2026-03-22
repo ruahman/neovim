@@ -31,3 +31,6 @@ vim.keymap.set("v", "<S-k>", ":move '<-2<CR>gv=gv")
 
 -- cd
 vim.keymap.set("n", "cd", ":cd %:p:h<CR>")
+
+-- toggle spell
+vim.keymap.set("n", "<leader>st", ":set spell!<CR>")

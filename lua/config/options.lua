@@ -1,6 +1,9 @@
 -- set to true if you have nerd font installed and selected in the terminal
 vim.g.have_nerd_font = true
 
+-- enable spell checking
+vim.opt.spell = true
+
 -- enable mouse mode
 vim.opt.mouse = "a"
 
