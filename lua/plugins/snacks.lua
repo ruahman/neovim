@@ -51,6 +51,15 @@ return {
 |_| |_|\___|\___/ \_/ |_|_| |_| |_|    |_|   \__,_|\__,_|_| |_|_| |_| |_|\__,_|_| |_|
         ]],
 				keys = {
+					{ icon = " ", key = "n", desc = "New", action = ":enew" },
+					{
+						icon = " ",
+						key = "f",
+						desc = "find",
+						action = function()
+							Snacks.picker.files()
+						end,
+					},
 					{ icon = " ", key = "s", desc = "Settings", action = ":e $MYVIMRC | cd %:p:h" },
 					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 				},
