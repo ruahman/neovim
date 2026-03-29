@@ -49,18 +49,18 @@ return {
 |_| |_|\___|\___/ \_/ |_|_| |_| |_|    |_|   \__,_|\__,_|_| |_|_| |_| |_|\__,_|_| |_|
         ]],
 				keys = {
-					{ icon = " ", key = "n", desc = "New", action = ":enew" },
+					{ icon = "", key = "n", desc = "New", action = ":enew" },
 					{
-						icon = " ",
+						icon = "󰈞",
 						key = "f",
 						desc = "Find",
 						action = function()
 							Snacks.picker.files()
 						end,
 					},
-					{ icon = " ", key = "s", desc = "Settings", action = ":e $MYVIMRC | cd %:p:h" },
-					{ icon = " ", key = "U", desc = "Update Plugins", action = ":lua vim.pack.update()" },
-					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
+					{ icon = "", key = "s", desc = "Settings", action = ":e $MYVIMRC | cd %:p:h" },
+					{ icon = "󰚰", key = "U", desc = "Update Plugins", action = ":lua vim.pack.update()" },
+					{ icon = "󰩈", key = "q", desc = "Quit", action = ":qa" },
 				},
 			},
 			sections = {
