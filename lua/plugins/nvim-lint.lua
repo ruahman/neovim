@@ -21,6 +21,5 @@ end
 
 return {
 	"mfussenegger/nvim-lint",
-	event = { "BufNewFile", "BufRead" },
 	config = config,
 }

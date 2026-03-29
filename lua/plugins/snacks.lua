@@ -58,6 +58,14 @@ return {
 							Snacks.picker.files()
 						end,
 					},
+					{
+						icon = "",
+						key = "r",
+						desc = "Recent",
+						action = function()
+							Snacks.picker.recent()
+						end,
+					},
 					{ icon = "", key = "s", desc = "Settings", action = ":e $MYVIMRC | cd %:p:h" },
 					{ icon = "󰚰", key = "U", desc = "Update Plugins", action = ":lua vim.pack.update()" },
 					{ icon = "󰩈", key = "q", desc = "Quit", action = ":qa" },
@@ -162,6 +170,13 @@ return {
 			"gI",
 			function()
 				Snacks.picker.lsp_implementations()
+			end,
+			desc = "Goto Implementation",
+		},
+		{
+			"gs",
+			function()
+				Snacks.picker.lsp_symbols()
 			end,
 			desc = "Goto Implementation",
 		},

@@ -3,6 +3,16 @@
 -- gra code action
 -- grt type information
 
+vim.lsp.config("copilot", {
+	settings = {
+		telemetry = {
+			telemetryLevel = "off",
+		},
+	},
+})
+
+vim.lsp.enable("copilot")
+
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("pyright")

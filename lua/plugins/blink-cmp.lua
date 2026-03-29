@@ -5,6 +5,10 @@ return {
 	-- use a release tag to download pre-built binaries
 	version = "v1.8.0",
 
+	dependencies = {
+		"fang2hou/blink-copilot",
+	},
+
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
 	opts = {

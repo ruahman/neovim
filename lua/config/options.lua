@@ -79,4 +79,9 @@ vim.opt.termguicolors = true
 -- no swap files
 vim.opt.swapfile = false
 vim.opt.backup = false
+
+-- autoread and autorwrite
+vim.opt.autoread = true
+vim.opt.autowrite = false
+
 vim.cmd([[set nobackup nowritebackup noswapfile]])

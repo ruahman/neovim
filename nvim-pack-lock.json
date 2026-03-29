@@ -59,6 +59,10 @@
       "src": "https://github.com/echasnovski/mini.nvim",
       "version": "'v0.17.0'"
     },
+    "neoscroll.nvim": {
+      "rev": "c8d29979cb0cb3a2437a8e0ae683fd82f340d3b8",
+      "src": "https://github.com/karb94/neoscroll.nvim"
+    },
     "nightfox.nvim": {
       "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
       "src": "https://github.com/EdenEast/nightfox.nvim"
@@ -119,6 +123,10 @@
       "rev": "0fcc83805ad11cf714a949c98c605ed717e0b83e",
       "src": "https://github.com/stevearc/oil.nvim"
     },
+    "precognition.nvim": {
+      "rev": "06e4bfa339ddc55a49fd1adcbb403f6e0855c43b",
+      "src": "https://github.com/tris203/precognition.nvim"
+    },
     "rainbow-delimiters.nvim": {
       "rev": "50080ed0f44dbc18ae13b81278a01b951a06127a",
       "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
@@ -127,6 +135,10 @@
       "rev": "f2f0c1231a5b019dbc1fd6dafac1751c878925a3",
       "src": "https://github.com/mrcjkb/rustaceanvim",
       "version": "'v8.0.4'"
+    },
+    "smear-cursor.nvim": {
+      "rev": "c85bdbb25db096fbcf616bc4e1357bd61fe2c199",
+      "src": "https://github.com/sphamba/smear-cursor.nvim"
     },
     "snacks.nvim": {
       "rev": "ad9ede6a9cddf16cedbd31b8932d6dcdee9b716e",
