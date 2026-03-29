@@ -10,9 +10,7 @@ return {
 			lualine_z = { "location" },
 		},
 		options = {
-			-- theme = 'tokyonight'
 			theme = "nightfox",
 		},
 	},
-	config = true,
 }

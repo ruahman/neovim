@@ -3,7 +3,7 @@ return {
 	"saghen/blink.cmp",
 
 	-- use a release tag to download pre-built binaries
-	version = "1.8.0",
+	version = "v1.8.0",
 
 	---@module 'blink.cmp'
 	---@type blink.cmp.Config
@@ -42,6 +42,7 @@ return {
 		-- elsewhere in your config, without redefining it, due to `opts_extend`
 		sources = {
 			default = { "lsp", "path", "snippets", "buffer", "copilot" },
+			-- default = { "lsp", "path", "buffer" },
 			providers = {
 				copilot = {
 					name = "copilot",

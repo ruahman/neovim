@@ -1,7 +1,6 @@
 -- show git changes
 return {
 	"lewis6991/gitsigns.nvim",
-	event = { "BufRead", "BufNewFile" },
 	opts = {
 		signs = {
 			add = { text = "▎" },
@@ -11,5 +10,4 @@ return {
 			changedelete = { text = "▎" },
 		},
 	},
-	config = true,
 }

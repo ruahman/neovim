@@ -1,6 +1,6 @@
 -- rust tools for neovim
 return {
 	"mrcjkb/rustaceanvim",
-	version = "^6", -- Recommended
+	version = "v8.0.4", -- Recommended
 	lazy = false, -- This plugin is already lazy
 }

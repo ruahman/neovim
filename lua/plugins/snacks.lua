@@ -53,14 +53,21 @@ return {
 					{
 						icon = " ",
 						key = "f",
-						desc = "find",
+						desc = "Find",
 						action = function()
 							Snacks.picker.files()
 						end,
 					},
 					{ icon = " ", key = "s", desc = "Settings", action = ":e $MYVIMRC | cd %:p:h" },
+					{ icon = " ", key = "U", desc = "Update Plugins", action = ":lua vim.pack.update()" },
 					{ icon = " ", key = "q", desc = "Quit", action = ":qa" },
 				},
+			},
+			sections = {
+				{ section = "header" },
+				{ section = "keys" },
+				-- { section = "recent_files" },
+				-- { section = "startup" }, -- shows startup time without lazy.stats
 			},
 		},
 	},
