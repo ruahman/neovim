@@ -81,7 +81,7 @@ return {
 	},
 	keys = {
 		{
-			"<leader>bd",
+			"bd",
 			function()
 				Snacks.bufdelete()
 			end,

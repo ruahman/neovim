@@ -3,7 +3,7 @@ return {
 	"saghen/blink.cmp",
 
 	-- use a release tag to download pre-built binaries
-	version = "v1.8.0",
+	version = vim.version.range("1.*"),
 
 	dependencies = {
 		"fang2hou/blink-copilot",

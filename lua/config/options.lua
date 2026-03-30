@@ -16,6 +16,8 @@ vim.opt.undofile = true
 -- Case-insensitive searching unless one or more capital letter are in search term
 vim.opt.ignorecase = true
 vim.opt.smartcase = true -- case is back on if one or more capitals are in search term
+vim.opt.hlsearch = true -- highlight search matches
+vim.opt.incsearch = true -- shows matches as you type
 
 -- sync clipboard between OS and Neovim
 vim.schedule(function()
@@ -85,3 +87,11 @@ vim.opt.autoread = true
 vim.opt.autowrite = false
 
 vim.cmd([[set nobackup nowritebackup noswapfile]])
+
+-- highlight every time we yank
+vim.api.nvim_create_autocmd("TextYankPost", {
+	desc = "Highlight when yanking text",
+	callback = function()
+		vim.highlight.on_yank()
+	end,
+})

@@ -4,8 +4,13 @@ return {
 		"nvim-treesitter/nvim-treesitter-textobjects",
 		"wellle/targets.vim",
 	},
+	branch = "main",
+	build = ":TSUpdate",
 	config = function()
-		require("nvim-treesitter").setup({
+		require("nvim-treesitter").setup({})
+
+		-- not sure this works
+		require("nvim-treesitter.config").setup({
 			highlight = {
 				enable = true,
 			},
@@ -23,7 +28,6 @@ return {
 				"c",
 				"cpp",
 				"zig",
-				"c_sharp",
 				"json",
 				"vim",
 				"html",
@@ -34,15 +38,6 @@ return {
 				"markdown_inline",
 			},
 			auto_install = true,
-			incremental_selection = {
-				enable = true,
-				keymaps = {
-					init_selection = "<C-space>",
-					node_incremental = "<C-space>",
-					scope_incremental = false,
-					node_decremental = "<bs>",
-				},
-			},
 		})
 	end,
 }

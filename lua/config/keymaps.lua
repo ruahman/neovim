@@ -33,4 +33,25 @@ vim.keymap.set("v", "<S-k>", ":move '<-2<CR>gv=gv")
 vim.keymap.set("n", "cd", ":cd %:p:h<CR>")
 
 -- toggle spell
-vim.keymap.set("n", "<leader>st", ":set spell!<CR>")
+-- vim.keymap.set("n", "<leader>st", ":set spell!<CR>")
+
+vim.keymap.set("n", "<leader>y", function()
+	local file = vim.fn.expand("%")
+	local line = vim.fn.line(".")
+	local ref = string.format("@%s:%d-%d", file, line, line)
+	vim.fn.setreg("+", ref)
+	vim.notify("Copied: " .. ref, vim.log.levels.INFO)
+end, { desc = "Copy file:line ref for Claude Code" })
+
+vim.keymap.set("v", "<leader>y", function()
+	local file = vim.fn.expand("%")
+	local line_start = vim.fn.line("v")
+	local line_end = vim.fn.line(".")
+	-- Ensure start <= end
+	if line_start > line_end then
+		line_start, line_end = line_end, line_start
+	end
+	local ref = string.format("@%s:%d-%d", file, line_start, line_end)
+	vim.fn.setreg("+", ref)
+	vim.notify("Copied: " .. ref, vim.log.levels.INFO)
+end, { desc = "Copy file:line range ref for Claude Code" })

@@ -8,17 +8,20 @@ for _, file in ipairs(vim.fn.glob(vim.fn.stdpath("config") .. "/lua/plugins/*.lu
 	local mod = vim.fn.fnamemodify(file, ":t:r")
 	local plugin = require("plugins." .. mod)
 
-	-- package
+	-- add package
+	local package = {}
+	package.src = "https://github.com/" .. plugin[1]
+
 	if plugin.version then
-		vim.pack.add({
-			{ src = "https://github.com/" .. plugin[1], version = plugin.version },
-		})
+		package.version = plugin.version
 	elseif plugin.tag then
-		vim.pack.add({
-			{ src = "https://github.com/" .. plugin[1], version = plugin.tag },
-		})
-	else
-		vim.pack.add({ "https://github.com/" .. plugin[1] })
+		package.version = plugin.tag
+	elseif plugin.branch then
+		package.branch = plugin.branch
+	end
+
+	if plugin.build then
+		package.build = plugin.build
 	end
 
 	-- dependencies
@@ -28,19 +31,21 @@ for _, file in ipairs(vim.fn.glob(vim.fn.stdpath("config") .. "/lua/plugins/*.lu
 		end
 	end
 
-	-- setup
+	vim.pack.add({ package })
+
+	-- setup package
 	if plugin.opts then
 		require(mod).setup(plugin.opts)
 	end
 
-	-- keys
+	-- configure keys for package
 	if plugin.keys then
 		for _, key in ipairs(plugin.keys) do
 			vim.keymap.set(key.mode or "n", key[1], key[2], { desc = key.desc, nowait = key.nowait })
 		end
 	end
 
-	-- config
+	-- configure package
 	if plugin.config then
 		plugin.config()
 	end

@@ -8,5 +8,16 @@ return {
 		require("mini.comment").setup()
 		require("mini.icons").setup()
 		require("mini.statusline").setup()
+		require("mini.files").setup()
 	end,
+	keys = {
+		{
+			"<leader>n",
+			function()
+				MiniFiles.open()
+			end,
+			desc = "Open mini.files",
+			mode = "n",
+		},
+	},
 }
