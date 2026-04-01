@@ -81,7 +81,7 @@ return {
 	},
 	keys = {
 		{
-			"bd",
+			"gbd",
 			function()
 				Snacks.bufdelete()
 			end,
