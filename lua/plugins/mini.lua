@@ -1,6 +1,7 @@
 return {
 	"echasnovski/mini.nvim",
-	version = "v0.17.0",
+	-- version = "v0.17.0",
+	version = vim.version.range("^0.17.0"),
 	config = function()
 		require("mini.ai").setup() -- text objects
 		require("mini.surround").setup()
