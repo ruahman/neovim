@@ -36,6 +36,7 @@ return {
 				"css",
 				"markdown",
 				"markdown_inline",
+				"yaml",
 			},
 			auto_install = true,
 		})

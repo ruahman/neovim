@@ -8,7 +8,7 @@ for _, file in ipairs(vim.fn.glob(vim.fn.stdpath("config") .. "/lua/plugins/*.lu
 	local mod = vim.fn.fnamemodify(file, ":t:r")
 	local plugin = require("plugins." .. mod)
 
-	-- add package
+	-- package
 	local package = {}
 	package.src = "https://github.com/" .. plugin[1]
 
@@ -33,19 +33,19 @@ for _, file in ipairs(vim.fn.glob(vim.fn.stdpath("config") .. "/lua/plugins/*.lu
 
 	vim.pack.add({ package })
 
-	-- setup package
+	-- setup
 	if plugin.opts then
 		require(mod).setup(plugin.opts)
 	end
 
-	-- configure keys for package
+	-- keys
 	if plugin.keys then
 		for _, key in ipairs(plugin.keys) do
 			vim.keymap.set(key.mode or "n", key[1], key[2], { desc = key.desc, nowait = key.nowait })
 		end
 	end
 
-	-- configure package
+	-- config
 	if plugin.config then
 		plugin.config()
 	end
