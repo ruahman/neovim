@@ -135,6 +135,13 @@ return {
 			desc = "Buffer Lines",
 		},
 		{
+			"<leader>k",
+			function()
+				Snacks.picker.keymaps()
+			end,
+			desc = "Keymaps",
+		},
+		{
 			"<leader>g",
 			function()
 				Snacks.picker.grep()
