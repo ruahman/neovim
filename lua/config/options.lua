@@ -2,7 +2,7 @@
 vim.g.have_nerd_font = true
 
 -- enable spell checking
-vim.opt.spell = true
+vim.opt.spell = false
 
 -- enable mouse mode
 vim.opt.mouse = "a"
