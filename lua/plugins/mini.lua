@@ -1,3 +1,4 @@
+-- cool littl mini packages
 return {
 	"echasnovski/mini.nvim",
 	-- version = "v0.17.0",
@@ -10,6 +11,7 @@ return {
 		require("mini.icons").setup()
 		require("mini.statusline").setup()
 		require("mini.files").setup()
+		require("mini.jump2d").setup()
 	end,
 	keys = {
 		{

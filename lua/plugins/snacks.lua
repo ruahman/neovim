@@ -1,3 +1,4 @@
+-- very useful packages
 return {
 	"folke/snacks.nvim",
 	opts = {

@@ -1,3 +1,4 @@
+-- cool text skipper
 return {
 	"tris203/precognition.nvim",
 	opts = {

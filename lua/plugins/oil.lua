@@ -1,3 +1,4 @@
+-- awesome file explorer
 return {
 	"stevearc/oil.nvim",
 	---@module 'oil'

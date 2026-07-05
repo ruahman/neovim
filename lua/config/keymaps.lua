@@ -2,9 +2,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- map("n", "<Leader>h", ":set hlsearch!<CR>")
 vim.keymap.set("n", "<Leader><Leader>", ":noh<CR>")
--- map("n", "<Leader>l", ":set list!<CR>")
 
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
@@ -31,6 +29,3 @@ vim.keymap.set("v", "<S-k>", ":move '<-2<CR>gv=gv")
 
 -- cd
 vim.keymap.set("n", "cd", ":cd %:p:h<CR>")
-
--- toggle spell
--- vim.keymap.set("n", "<leader>st", ":set spell!<CR>")

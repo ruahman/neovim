@@ -1,3 +1,4 @@
+-- snippets using lua
 local function config()
 	local ls = require("luasnip")
 

@@ -1,3 +1,4 @@
+-- markdown
 return {
 	"OXY2DEV/markview.nvim",
 	opts = {

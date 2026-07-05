@@ -1,3 +1,4 @@
+-- tells you which key you are thinking of
 return {
 	"folke/which-key.nvim",
 	opts = {

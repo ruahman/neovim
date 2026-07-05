@@ -54,9 +54,6 @@ return {
 					async = true,
 				},
 			},
-			per_filetype = {
-				codecompanion = { "codecompanion" },
-			},
 		},
 
 		-- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
