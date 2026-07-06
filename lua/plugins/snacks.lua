@@ -106,9 +106,18 @@ return {
 		{
 			"<c-\\>",
 			function()
-				Snacks.terminal()
+				Snacks.terminal.toggle()
 			end,
 			desc = "Toggle Terminal",
+			mode = "n",
+		},
+		{
+			"<c-\\>",
+			function()
+				Snacks.terminal.toggle()
+			end,
+			desc = "Toggle Terminal",
+			mode = "t",
 		},
 		{
 			"<leader>f",
