@@ -1,3 +1,4 @@
+-- microsoft copilot
 return {
 	"zbirenbaum/copilot.lua",
 	opts = {
