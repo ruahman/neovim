@@ -6,6 +6,11 @@ return {
 		quickfile = { enabled = true },
 		indent = { enabled = true },
 		lazygit = { enabled = true },
+		notify = { enabled = true },
+		scroll = { enabled = true },
+		-- bufdelete = { enabled = true },
+		notifier = { enabled = true, timeout = 3000 },
+		statuscolumn = { enabled = true },
 		picker = {
 			sources = {
 				lines = {
@@ -28,8 +33,6 @@ return {
 				layout = { position = "right" },
 			},
 		},
-		notify = { enabled = true },
-		notifier = { enabled = true, timeout = 3000 },
 		terminal = {
 			enabled = true,
 			win = {
@@ -39,7 +42,6 @@ return {
 				border = "rounded",
 			},
 		},
-
 		dashboard = {
 			preset = {
 				header = [[

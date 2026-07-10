@@ -20,12 +20,12 @@ vim.keymap.set("n", "<C-Up>", ":resize -2<CR>")
 vim.keymap.set("n", "<C-Down>", ":resize +2<CR>")
 
 -- move line
-vim.keymap.set("n", "<S-j>", ":move .+1<CR>")
-vim.keymap.set("n", "<S-k>", ":move .-2<CR>")
+-- vim.keymap.set("n", "<S-j>", ":move .+1<CR>")
+-- vim.keymap.set("n", "<S-k>", ":move .-2<CR>")
 
 -- move selection
-vim.keymap.set("v", "<S-j>", ":move '>+1<CR>gv=gv")
-vim.keymap.set("v", "<S-k>", ":move '<-2<CR>gv=gv")
+-- vim.keymap.set("v", "<S-j>", ":move '>+1<CR>gv=gv")
+-- vim.keymap.set("v", "<S-k>", ":move '<-2<CR>gv=gv")
 
 -- cd
 vim.keymap.set("n", "cd", ":cd %:p:h<CR>")

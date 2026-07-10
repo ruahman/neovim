@@ -2,4 +2,5 @@
 return {
 	"gelguy/wilder.nvim",
 	opts = {},
+	enabled = false,
 }

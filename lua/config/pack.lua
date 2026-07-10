@@ -8,46 +8,48 @@ for _, file in ipairs(vim.fn.glob(vim.fn.stdpath("config") .. "/lua/plugins/*.lu
 	local mod = vim.fn.fnamemodify(file, ":t:r")
 	local plugin = require("plugins." .. mod)
 
-	-- package
-	local package = {}
-	package.src = "https://github.com/" .. plugin[1]
+	if plugin.enabled ~= false then
+		-- package
+		local package = {}
+		package.src = "https://github.com/" .. plugin[1]
 
-	if plugin.version then
-		package.version = plugin.version
-	elseif plugin.tag then
-		package.version = plugin.tag
-	elseif plugin.branch then
-		package.branch = plugin.branch
-	end
-
-	if plugin.build then
-		package.build = plugin.build
-	end
-
-	-- dependencies
-	if plugin.dependencies then
-		for _, dep in ipairs(plugin.dependencies) do
-			vim.pack.add({ "https://github.com/" .. dep })
+		if plugin.version then
+			package.version = plugin.version
+		elseif plugin.tag then
+			package.version = plugin.tag
+		elseif plugin.branch then
+			package.branch = plugin.branch
 		end
-	end
 
-	vim.pack.add({ package })
-
-	-- setup
-	if plugin.opts then
-		require(mod).setup(plugin.opts)
-	end
-
-	-- keys
-	if plugin.keys then
-		for _, key in ipairs(plugin.keys) do
-			vim.keymap.set(key.mode or "n", key[1], key[2], { desc = key.desc, nowait = key.nowait })
+		if plugin.build then
+			package.build = plugin.build
 		end
-	end
 
-	-- config
-	if plugin.config then
-		plugin.config()
+		-- dependencies
+		if plugin.dependencies then
+			for _, dep in ipairs(plugin.dependencies) do
+				vim.pack.add({ "https://github.com/" .. dep })
+			end
+		end
+
+		vim.pack.add({ package })
+
+		-- setup
+		if plugin.opts then
+			require(mod).setup(plugin.opts)
+		end
+
+		-- keys
+		if plugin.keys then
+			for _, key in ipairs(plugin.keys) do
+				vim.keymap.set(key.mode or "n", key[1], key[2], { desc = key.desc, nowait = key.nowait })
+			end
+		end
+
+		-- config
+		if plugin.config then
+			plugin.config()
+		end
 	end
 end
 
