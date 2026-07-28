@@ -1,0 +1,116 @@
+{
+  "plugins": {
+    "blink-copilot": {
+      "rev": "7ad8209b2f880a2840c94cdcd80ab4dc511d4f39",
+      "src": "https://github.com/fang2hou/blink-copilot"
+    },
+    "blink.cmp": {
+      "rev": "b19413d214068f316c78978b08264ed1c41830ec",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
+    "conform.nvim": {
+      "rev": "086a40dc7ed8242c03be9f47fbcee68699cc2395",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
+    "copilot.lua": {
+      "rev": "0a3e09122cfd21e62a1e9d183c61aa1cacdd7da6",
+      "src": "https://github.com/zbirenbaum/copilot.lua"
+    },
+    "crates.nvim": {
+      "rev": "afcd1cc3eeceb5783676fc8464389b9216a29d05",
+      "src": "https://github.com/saecki/crates.nvim"
+    },
+    "fidget.nvim": {
+      "rev": "7fa433a83118a70fe24c1ce88d5f0bd3453c0970",
+      "src": "https://github.com/j-hui/fidget.nvim"
+    },
+    "friendly-snippets": {
+      "rev": "6cd7280adead7f586db6fccbd15d2cac7e2188b9",
+      "src": "https://github.com/rafamadriz/friendly-snippets"
+    },
+    "gitsigns.nvim": {
+      "rev": "50c205548d8b037b7ff6378fca6d21146f0b6161",
+      "src": "https://github.com/lewis6991/gitsigns.nvim"
+    },
+    "lazydev.nvim": {
+      "rev": "ff2cbcba459b637ec3fd165a2be59b7bbaeedf0d",
+      "src": "https://github.com/folke/lazydev.nvim"
+    },
+    "lspsaga.nvim": {
+      "rev": "562d9724e3869ffd1801c572dd149cc9f8d0cc36",
+      "src": "https://github.com/nvimdev/lspsaga.nvim"
+    },
+    "lualine.nvim": {
+      "rev": "47f91c416daef12db467145e16bed5bbfe00add8",
+      "src": "https://github.com/hoob3rt/lualine.nvim"
+    },
+    "mini.icons": {
+      "rev": "5b9076dae1bfbe47ba4a14bc8b967cde0ab5d77e",
+      "src": "https://github.com/nvim-mini/mini.icons"
+    },
+    "mini.nvim": {
+      "rev": "a995fe9cd4193fb492b5df69175a351a74b3d36b",
+      "src": "https://github.com/echasnovski/mini.nvim"
+    },
+    "nightfox.nvim": {
+      "rev": "ba47d4b4c5ec308718641ba7402c143836f35aa9",
+      "src": "https://github.com/EdenEast/nightfox.nvim"
+    },
+    "nvim-colorizer.lua": {
+      "rev": "a065833f35a3a7cc3ef137ac88b5381da2ba302e",
+      "src": "https://github.com/norcalli/nvim-colorizer.lua"
+    },
+    "nvim-dap": {
+      "rev": "2a8799ad91a1495c6bdf753f9b2179b3ff0f5bba",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "nvim-dap-go": {
+      "rev": "b4421153ead5d726603b02743ea40cf26a51ed5f",
+      "src": "https://github.com/leoluz/nvim-dap-go"
+    },
+    "nvim-dap-python": {
+      "rev": "1808458eba2b18f178f990e01376941a42c7f93b",
+      "src": "https://github.com/mfussenegger/nvim-dap-python"
+    },
+    "nvim-dap-ruby": {
+      "rev": "ba36f9905ca9c6d89e5af5467a52fceeb2bbbf6d",
+      "src": "https://github.com/suketa/nvim-dap-ruby"
+    },
+    "nvim-dap-ui": {
+      "rev": "f5b6673f374626515401c5bc51b005f784a4f252",
+      "src": "https://github.com/rcarriga/nvim-dap-ui"
+    },
+    "nvim-dap-virtual-text": {
+      "rev": "fbdb48c2ed45f4a8293d0d483f7730d24467ccb6",
+      "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
+    },
+    "nvim-dap-vscode-js": {
+      "rev": "03bd29672d7fab5e515fc8469b7d07cc5994bbf6",
+      "src": "https://github.com/mxsdev/nvim-dap-vscode-js"
+    },
+    "nvim-lint": {
+      "rev": "4b03656c09c1561f89b6aa0665c15d292ba9499d",
+      "src": "https://github.com/mfussenegger/nvim-lint"
+    },
+    "nvim-lspconfig": {
+      "rev": "16812abf0e8d8175155f26143a8504e8253e92b0",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-nio": {
+      "rev": "21f5324bfac14e22ba26553caf69ec76ae8a7662",
+      "src": "https://github.com/nvim-neotest/nvim-nio"
+    },
+    "nvim-treesitter-textobjects": {
+      "rev": "93d60a475f0b08a8eceb99255863977d3a25f310",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects"
+    },
+    "rainbow-delimiters.nvim": {
+      "rev": "50080ed0f44dbc18ae13b81278a01b951a06127a",
+      "src": "https://github.com/HiPhish/rainbow-delimiters.nvim"
+    },
+    "rustaceanvim": {
+      "rev": "f2f0c1231a5b019dbc1fd6dafac1751c878925a3",
+      "src": "https://github.com/mrcjkb/rustaceanvim"
+    }
+  }
+}
