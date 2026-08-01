@@ -42,7 +42,7 @@ vim.opt.cursorline = true
 vim.opt.cursorcolumn = true
 
 -- signcolumn is on. stops the jitering when a sign is added or removed
-vim.opt.signcolumn = "yes"
+vim.opt.signcolumn = "yes:2"
 
 -- insert space for tab
 vim.opt.tabstop = 2
