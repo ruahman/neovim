@@ -2,13 +2,18 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- no highlight
 vim.keymap.set("n", "<Leader><Leader>", ":noh<CR>")
 
+-- indent
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
--- move between windows
+-- move between buffers
+vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
 
+-- move between windows
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
 vim.keymap.set("n", "<C-k>", "<C-w>k")
