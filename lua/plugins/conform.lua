@@ -12,6 +12,7 @@ local function config()
 			rust = { "rustfmt" },
 			go = { "gofumpt", "goimports", "golines" },
 			zig = { "zig fmt" },
+			cs = { "csharpier" },
 		},
 		format_on_save = {
 			timeout_ms = 5000,
