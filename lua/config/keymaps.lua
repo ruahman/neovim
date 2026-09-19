@@ -9,6 +9,13 @@ vim.keymap.set("n", "<Leader><Leader>", ":noh<CR>")
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")
 
+-- move cursor with Alt+hjkl while staying in insert mode
+-- (normal/visual Alt+hjkl is mini.move; insert mode is free)
+vim.keymap.set("i", "<M-h>", "<Left>", { desc = "Move cursor left" })
+vim.keymap.set("i", "<M-j>", "<Down>", { desc = "Move cursor down" })
+vim.keymap.set("i", "<M-k>", "<Up>", { desc = "Move cursor up" })
+vim.keymap.set("i", "<M-l>", "<Right>", { desc = "Move cursor right" })
+
 -- move between buffers
 vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
