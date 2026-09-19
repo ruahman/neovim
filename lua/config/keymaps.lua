@@ -38,5 +38,12 @@ vim.keymap.set("n", "<C-Down>", ":resize +2<CR>")
 -- vim.keymap.set("v", "<S-j>", ":move '>+1<CR>gv=gv")
 -- vim.keymap.set("v", "<S-k>", ":move '<-2<CR>gv=gv")
 
+-- move cursor with Alt+hjkl while staying in insert mode
+-- (normal/visual Alt+hjkl is mini.move; insert mode is free)
+vim.keymap.set("i", "<M-h>", "<Left>", { desc = "Move cursor left" })
+vim.keymap.set("i", "<M-j>", "<Down>", { desc = "Move cursor down" })
+vim.keymap.set("i", "<M-k>", "<Up>", { desc = "Move cursor up" })
+vim.keymap.set("i", "<M-l>", "<Right>", { desc = "Move cursor right" })
+
 -- cd
 vim.keymap.set("n", "cd", ":cd %:p:h<CR>")
