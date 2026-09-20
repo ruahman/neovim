@@ -23,6 +23,7 @@ vim.lsp.enable("zls")
 vim.lsp.enable("clangd")
 vim.lsp.enable("html")
 vim.lsp.enable("cssls")
+-- C# (roslyn) is enabled by roslyn.nvim itself; see lua/plugins/roslyn.lua
 
 -- keymaps for LSP
 vim.keymap.set("n", "gh", vim.lsp.buf.hover)
