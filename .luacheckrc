@@ -1,3 +1,3 @@
 std = {
-	globals = { "vim", "require", "s", "fmt", "i", "print", "std", "os", "ipairs", "string" },
+	globals = { "vim", "require", "s", "fmt", "i", "print", "std", "os", "ipairs", "string", "MiniFiles", "Snacks" },
 }

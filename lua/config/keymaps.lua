@@ -3,7 +3,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 -- no highlight
-vim.keymap.set("n", "<Leader><Leader>", ":noh<CR>")
+-- vim.keymap.set("n", "<Leader><Leader>", ":noh<CR>")
 
 -- indent
 vim.keymap.set("v", "<", "<gv")
@@ -39,3 +39,10 @@ vim.keymap.set("n", "<C-Down>", ":resize +2<CR>")
 
 -- cd
 vim.keymap.set("n", "cd", ":cd %:p:h<CR>")
+
+-- keymaps for LSP
+vim.keymap.set("n", "gh", vim.lsp.buf.hover)
+vim.keymap.set("n", "ge", vim.diagnostic.open_float)
+vim.keymap.set("n", "gH", function()
+	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end)

@@ -1,8 +1,3 @@
--- gri implementation
--- grr refrence
--- gra code action
--- grt type information
-
 vim.lsp.config("copilot", {
 	settings = {
 		telemetry = {
@@ -24,10 +19,3 @@ vim.lsp.enable("clangd")
 vim.lsp.enable("html")
 vim.lsp.enable("cssls")
 -- C# (roslyn) is enabled by roslyn.nvim itself; see lua/plugins/roslyn.lua
-
--- keymaps for LSP
-vim.keymap.set("n", "gh", vim.lsp.buf.hover)
-vim.keymap.set("n", "ge", vim.diagnostic.open_float)
-vim.keymap.set("n", "gH", function()
-	vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
-end)
