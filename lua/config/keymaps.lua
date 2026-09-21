@@ -20,6 +20,9 @@ vim.keymap.set("i", "<M-l>", "<Right>", { desc = "Move cursor right" })
 vim.keymap.set("n", "<Tab>", ":bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
 
+-- delete buffer
+vim.keymap.set("n", "bd", ":bdelete<CR>", { desc = "Delete buffer" })
+
 -- move between windows
 vim.keymap.set("n", "<C-h>", "<C-w>h")
 vim.keymap.set("n", "<C-j>", "<C-w>j")
