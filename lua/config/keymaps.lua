@@ -2,9 +2,6 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
--- no highlight
--- vim.keymap.set("n", "<Leader><Leader>", ":noh<CR>")
-
 -- indent
 vim.keymap.set("v", "<", "<gv")
 vim.keymap.set("v", ">", ">gv")

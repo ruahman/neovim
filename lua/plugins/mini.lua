@@ -4,7 +4,7 @@ return {
 	-- version = "v0.17.0",
 	version = vim.version.range("^0.17.0"),
 	config = function()
-		require("mini.basics").setup() -- a and i text objects
+		require("mini.basics").setup() -- presets for common options
 		require("mini.ai").setup() -- a and i text objects
 		require("mini.surround").setup() -- surround
 		require("mini.pairs").setup() -- autopairs
