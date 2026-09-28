@@ -7,7 +7,7 @@ return {
 		indent = { enabled = true },
 		lazygit = { enabled = true },
 		notify = { enabled = true },
-		scroll = { enabled = true },
+		-- scroll = { enabled = true },
 		-- bufdelete = { enabled = true },
 		notifier = { enabled = true, timeout = 3000 },
 		statuscolumn = { enabled = true },
