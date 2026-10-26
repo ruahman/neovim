@@ -14,7 +14,7 @@ vim.keymap.set("i", "<M-k>", "<Up>", { desc = "Move cursor up" })
 vim.keymap.set("i", "<M-l>", "<Right>", { desc = "Move cursor right" })
 
 -- move between buffers
-vim.keymap.set("n", "<Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<M-Tab>", ":bnext<CR>")
 vim.keymap.set("n", "<S-Tab>", ":bprevious<CR>")
 
 -- move between windows

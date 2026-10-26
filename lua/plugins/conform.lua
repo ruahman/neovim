@@ -13,6 +13,7 @@ local function config()
 			go = { "gofumpt", "goimports", "golines" },
 			zig = { "zig fmt" },
 			cs = { "csharpier" },
+			odin = { "odinfmt" },
 		},
 		format_on_save = {
 			timeout_ms = 5000,

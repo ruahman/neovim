@@ -92,6 +92,13 @@ return {
 			mode = "n",
 		},
 		{
+			"<leader>.",
+			function()
+				Snacks.scratch()
+			end,
+			desc = "Toggle Scratch Buffer",
+		},
+		{
 			"<leader>e",
 			function()
 				Snacks.explorer()
@@ -142,7 +149,7 @@ return {
 			desc = "Keymaps",
 		},
 		{
-			"<leader>g",
+			"<leader>r",
 			function()
 				Snacks.picker.grep()
 			end,
@@ -154,6 +161,20 @@ return {
 				Snacks.picker.marks()
 			end,
 			desc = "Marks",
+		},
+		{
+			"<leader>g",
+			function()
+				Snacks.picker.git_status()
+			end,
+			desc = "Git status",
+		},
+		{
+			"<leader>d",
+			function()
+				Snacks.picker.git_diff()
+			end,
+			desc = "Git diff",
 		},
 		{
 			"gd",
