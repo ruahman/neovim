@@ -3,7 +3,7 @@
     enable = true;
     defaultEditor = true;
 
-    nixpkgs.source = pkgs;
+    # nixpkgs.source = pkgs;
 
     opts = {
       number = true;
