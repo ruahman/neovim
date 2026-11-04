@@ -3,6 +3,8 @@
     enable = true;
     defaultEditor = true;
 
+    nixpkgs.source = pkgs;
+
     opts = {
       number = true;
       relativenumber = true;
