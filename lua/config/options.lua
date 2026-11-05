@@ -86,6 +86,9 @@ vim.opt.backup = false
 vim.opt.autoread = true
 vim.opt.autowrite = false
 
+-- use bash for :terminal and :! instead of the account's login shell
+vim.opt.shell = "bash"
+
 vim.cmd([[set nobackup nowritebackup noswapfile]])
 
 -- highlight every time we yank

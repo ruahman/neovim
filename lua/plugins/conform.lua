@@ -8,7 +8,7 @@ local function config()
 			javascriptreact = { "prettier" },
 			typescript = { "prettier" },
 			typescriptreact = { "prettier" },
-			json = { "jq" },
+			json = { "prettier" },
 			rust = { "rustfmt" },
 			go = { "gofumpt", "goimports", "golines" },
 			zig = { "zig fmt" },
