@@ -338,17 +338,23 @@
         action.__raw = "function() require('bufferline').cycle(-1) end";
         options.desc = "Prev buffer";
       }
-      # {
-      #   mode = "n";
-      #   key = "<leader>bp";
-      #   action.__raw = "function() require('bufferline').pick() end";
-      #   options.desc = "Pick buffer";
-      # }
       {
         mode = "n";
         key = "gbd";
         action = "<cmd>bdelete<CR>";
         options.desc = "Close buffer";
+      }
+      {
+        mode = "n";
+        key = "<leader>x";
+        action.__raw = "function() require('telescope.builtin').diagnostics() end";
+        options.desc = "Diagnostics (workspace)";
+      }
+      {
+        mode = "n";
+        key = "<leader>X";
+        action.__raw = "function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end";
+        options.desc = "Diagnostics (current file)";
       }
     ];
   };
