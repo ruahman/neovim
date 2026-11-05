@@ -6,7 +6,8 @@
     vimAlias = true; # `vim` opens nixvim
     viAlias = true; # optional: `vi` too
 
-    nixpkgs.source = pkgs;
+    # nixpkgs.source = pkgs;
+    nixpkgs.useGlobalPackages = true;
 
     globals = {
       mapleader = " ";
