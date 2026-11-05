@@ -356,6 +356,30 @@
         action.__raw = "function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end";
         options.desc = "Diagnostics (current file)";
       }
+      {
+        mode = "n";
+        key = "<C-h>";
+        action = "<C-w>h";
+        options.desc = "Window left";
+      }
+      {
+        mode = "n";
+        key = "<C-j>";
+        action = "<C-w>j";
+        options.desc = "Window down";
+      }
+      {
+        mode = "n";
+        key = "<C-k>";
+        action = "<C-w>k";
+        options.desc = "Window up";
+      }
+      {
+        mode = "n";
+        key = "<C-l>";
+        action = "<C-w>l";
+        options.desc = "Window right";
+      }
     ];
   };
 }
