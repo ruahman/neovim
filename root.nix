@@ -346,13 +346,13 @@
       }
       {
         mode = "n";
-        key = "<leader>x";
+        key = "<leader>X";
         action.__raw = "function() require('telescope.builtin').diagnostics() end";
         options.desc = "Diagnostics (workspace)";
       }
       {
         mode = "n";
-        key = "<leader>X";
+        key = "<leader>x";
         action.__raw = "function() require('telescope.builtin').diagnostics({ bufnr = 0 }) end";
         options.desc = "Diagnostics (current file)";
       }
