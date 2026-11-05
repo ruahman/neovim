@@ -8,6 +8,8 @@
 
     nixpkgs.useGlobalPackages = true;
 
+    clipboard.register = "unnamedplus";
+
     globals = {
       mapleader = " ";
       maplocalleader = " "; # optional; used by some filetype plugins
@@ -379,6 +381,14 @@
         key = "<C-l>";
         action = "<C-w>l";
         options.desc = "Window right";
+      }
+    ];
+
+    autoCmd = [
+      {
+        event = "TextYankPost";
+        desc = "Highlight when yanking text";
+        callback.__raw = "function() vim.hl.on_yank() end";
       }
     ];
   };
