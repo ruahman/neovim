@@ -229,7 +229,7 @@
             }
             {
               name = "Settings";
-              action = "e /etc/nixos/neovim/nixvim.nix";
+              action = "e /etc/nixos/neovim/root.nix";
               section = "Actions";
             }
             {
