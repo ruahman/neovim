@@ -111,7 +111,7 @@
             width = 35;
           };
           filesystem = {
-            follow_current_file.enabled = true; # highlight the file you're editing
+            follow_current_file.enabled = false; # highlight the file you're editing
             filtered_items = {
               hide_dotfiles = false;
               hide_gitignored = false;
