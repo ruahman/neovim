@@ -125,7 +125,7 @@
         settings.options = {
           diagnostics = "nvim_lsp"; # show LSP error/warning counts on tabs
           always_show_bufferline = true;
-          separator_style = "slant"; # "slant" | "thin" | "thick" | "padded_slant"
+          separator_style = "thin"; # "slant" | "thin" | "thick" | "padded_slant"
           offsets = [
             {
               filetype = "neo-tree"; # don't draw tabs over your neo-tree
