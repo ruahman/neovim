@@ -120,6 +120,23 @@
         };
       };
 
+      bufferline = {
+        enable = true;
+        settings.options = {
+          diagnostics = "nvim_lsp"; # show LSP error/warning counts on tabs
+          always_show_bufferline = true;
+          separator_style = "slant"; # "slant" | "thin" | "thick" | "padded_slant"
+          offsets = [
+            {
+              filetype = "neo-tree"; # don't draw tabs over your neo-tree
+              text = "File Explorer";
+              highlight = "Directory";
+              text_align = "center";
+            }
+          ];
+        };
+      };
+
       toggleterm = {
         enable = true;
         settings = {
@@ -308,6 +325,30 @@
         key = "<C-b>";
         action = "<Left>";
         options.desc = "Move left";
+      }
+      {
+        mode = "n";
+        key = "<S-l>";
+        action.__raw = "function() require('bufferline').cycle(1) end";
+        options.desc = "Next buffer";
+      }
+      {
+        mode = "n";
+        key = "<S-h>";
+        action.__raw = "function() require('bufferline').cycle(-1) end";
+        options.desc = "Prev buffer";
+      }
+      # {
+      #   mode = "n";
+      #   key = "<leader>bp";
+      #   action.__raw = "function() require('bufferline').pick() end";
+      #   options.desc = "Pick buffer";
+      # }
+      {
+        mode = "n";
+        key = "gbd";
+        action = "<cmd>bdelete<CR>";
+        options.desc = "Close buffer";
       }
     ];
   };
