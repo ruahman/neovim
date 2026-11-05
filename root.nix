@@ -8,6 +8,14 @@
 
     nixpkgs.useGlobalPackages = true;
 
+    extraConfigLuaPre = ''
+      -- let root (or any session without Wayland vars) reach ruahman's clipboard
+      if not vim.env.WAYLAND_DISPLAY then
+        vim.env.WAYLAND_DISPLAY = "wayland-0"
+        vim.env.XDG_RUNTIME_DIR = vim.env.XDG_RUNTIME_DIR or "/run/user/1000"
+      end
+    '';
+
     clipboard.register = "unnamedplus";
 
     globals = {
