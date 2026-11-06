@@ -224,7 +224,16 @@
           nix = [
             "statix"
             "deadnix"
-          ]; # anti-patterns + unused code
+          ];
+          typescript = [ "eslint" ];
+          javascript = [ "eslint" ];
+          python = [
+            "ruff"
+            "mypy"
+          ];
+          go = [ "golangcilint" ];
+          rust = [ "clippy" ];
+          ruby = [ "rubocop" ];
         };
 
         autoInstall = {
