@@ -25,9 +25,10 @@
     };
 
     opts = {
-      number = true;
-      relativenumber = true;
-      cursorline = true;
+      number = true; # number line
+      relativenumber = true; # enable relative numbers
+      cursorline = true; # highlight the current line
+      colorcolumn = "80"; # a color column at 80
       tabstop = 2; # insert space for tab
       shiftwidth = 2; # insert space for indent
       softtabstop = 2; # insert space when in insert
