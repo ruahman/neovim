@@ -52,6 +52,7 @@
     dependencies.fd.enable = true;
 
     plugins = {
+      dropbar.enable = true;
       lualine.enable = true;
       treesitter.enable = true;
 
@@ -71,6 +72,8 @@
           "buffer"
         ];
       };
+
+      fidget.enable = true;
 
       telescope = {
         enable = true;
@@ -94,6 +97,7 @@
       };
 
       mini-surround.enable = true;
+      mini-jump2d.enable = true;
 
       rainbow.enable = true;
 
@@ -129,6 +133,8 @@
           };
         };
       };
+
+      oil.enable = true;
 
       bufferline = {
         enable = true;
@@ -368,28 +374,34 @@
       }
       {
         mode = "n";
-        key = "<C-h>";
-        action = "<C-w>h";
-        options.desc = "Window left";
+        key = "<leader>o";
+        action.__raw = "function() require('oil').open() end";
+        options.desc = "Open file explorer (oil)";
       }
-      {
-        mode = "n";
-        key = "<C-j>";
-        action = "<C-w>j";
-        options.desc = "Window down";
-      }
-      {
-        mode = "n";
-        key = "<C-k>";
-        action = "<C-w>k";
-        options.desc = "Window up";
-      }
-      {
-        mode = "n";
-        key = "<C-l>";
-        action = "<C-w>l";
-        options.desc = "Window right";
-      }
+      # {
+      #   mode = "n";
+      #   key = "<C-h>";
+      #   action = "<C-w>h";
+      #   options.desc = "Window left";
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<C-j>";
+      #   action = "<C-w>j";
+      #   options.desc = "Window down";
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<C-k>";
+      #   action = "<C-w>k";
+      #   options.desc = "Window up";
+      # }
+      # {
+      #   mode = "n";
+      #   key = "<C-l>";
+      #   action = "<C-w>l";
+      #   options.desc = "Window right";
+      # }
     ];
 
     autoCmd = [
