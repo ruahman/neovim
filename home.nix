@@ -27,6 +27,7 @@
     opts = {
       number = true;
       relativenumber = true;
+      cursorline = true;
       tabstop = 2; # insert space for tab
       shiftwidth = 2; # insert space for indent
       softtabstop = 2; # insert space when in insert
@@ -44,6 +45,11 @@
       incsearch = true;
       syntax = "on";
       wrap = false;
+      swapfile = false;
+      backup = false;
+      termguicolors = true;
+      encoding = "utf-8";
+      fileencoding = "utf-8";
     };
 
     colorschemes.nightfox.enable = true;
@@ -61,6 +67,15 @@
         servers = {
           nil_ls.enable = true;
           lua_ls.enable = true;
+          ts_ls = true;
+          pyright = true;
+          solargraph = true;
+          gopls = true;
+          zls = true;
+          ols = true;
+          clangd = true;
+          html = true;
+          cssls = true;
         };
       };
 
@@ -174,6 +189,24 @@
           formatters_by_ft = {
             lua = [ "stylua" ];
             nix = [ "nixfmt" ]; # or "alejandra" if you prefer that style
+            python = [
+              "ruff_format"
+              "isort"
+            ];
+            javascript = [ "prettier" ];
+            javascriptreact = [ "prettier" ];
+            typescript = [ "prettier" ];
+            typescriptreact = [ "prettier" ];
+            json = [ "jq" ];
+            rust = [ "rustfmt" ];
+            go = [
+              "gofumpt"
+              "goimports"
+              "golines"
+            ];
+            zig = [ "zig fmt" ];
+            cs = [ "csharpier" ];
+            odin = [ "odinfmt" ];
           };
 
           format_on_save = {
