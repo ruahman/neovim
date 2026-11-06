@@ -101,6 +101,10 @@
         keymaps = {
           "<leader>f" = "find_files";
           "<leader>g" = "live_grep";
+          "<leader>G" = {
+            action = "git_status";
+            options.desc = "Git changed files";
+          };
           "<leader>b" = "buffers";
           "<leader>s" = {
             action = "current_buffer_fuzzy_find";
@@ -133,6 +137,7 @@
       };
 
       mini-surround.enable = true;
+      mini-move.enable = true;
       mini-jump2d.enable = true;
 
       rainbow.enable = true;
@@ -419,6 +424,34 @@
         key = "<leader>o";
         action.__raw = "function() require('oil').open() end";
         options.desc = "Open file explorer (oil)";
+      }
+      {
+        mode = "n";
+        key = "]c";
+        action.__raw = ''
+          function()
+            if vim.wo.diff then
+              vim.cmd.normal({ "]c", bang = true })
+            else
+              require("gitsigns").nav_hunk("next")
+            end
+          end
+        '';
+        options.desc = "Next git change";
+      }
+      {
+        mode = "n";
+        key = "[c";
+        action.__raw = ''
+          function()
+            if vim.wo.diff then
+              vim.cmd.normal({ "[c", bang = true })
+            else
+              require("gitsigns").nav_hunk("prev")
+            end
+          end
+        '';
+        options.desc = "Prev git change";
       }
     ];
 
