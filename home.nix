@@ -67,15 +67,15 @@
         servers = {
           nil_ls.enable = true;
           lua_ls.enable = true;
-          ts_ls = true;
-          pyright = true;
-          solargraph = true;
-          gopls = true;
-          zls = true;
-          ols = true;
-          clangd = true;
-          html = true;
-          cssls = true;
+          ts_ls.enable = true;
+          pyright.enable = true;
+          solargraph.enable = true;
+          gopls.enable = true;
+          zls.enable = true;
+          ols.enable = true;
+          clangd.enable = true;
+          html.enable = true;
+          cssls.enable = true;
         };
       };
 
