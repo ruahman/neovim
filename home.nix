@@ -106,6 +106,21 @@
             action = "current_buffer_fuzzy_find";
             options.desc = "Search in current file";
           };
+          "gd" = {
+            action = "lsp_definitions";
+            options.desc = "Goto definition";
+          };
+          "gr" = {
+            action = "lsp_references";
+            options = {
+              desc = "References";
+              nowait = true;
+            };
+          };
+          "gi" = {
+            action = "lsp_implementations";
+            options.desc = "Goto implementation";
+          };
         };
       };
 
@@ -344,27 +359,6 @@
         key = "ge";
         action.__raw = "function() vim.diagnostic.open_float({ border = 'rounded' }) end";
         options.desc = "Show diagnostic";
-      }
-      {
-        mode = "n";
-        key = "gd";
-        action.__raw = "function() vim.lsp.buf.definition() end";
-        options.desc = "Goto definition";
-      }
-      {
-        mode = "n";
-        key = "gr";
-        action.__raw = "function() vim.lsp.buf.references() end";
-        options = {
-          desc = "References";
-          nowait = true;
-        };
-      }
-      {
-        mode = "n";
-        key = "gi";
-        action.__raw = "function() vim.lsp.buf.implementation() end";
-        options.desc = "Goto implementation";
       }
       {
         mode = "i";
