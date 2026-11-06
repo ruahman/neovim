@@ -204,7 +204,7 @@
               "goimports"
               "golines"
             ];
-            zig = [ "zig fmt" ];
+            zig = [ "zigfmt" ];
             cs = [ "csharpier" ];
             odin = [ "odinfmt" ];
           };
