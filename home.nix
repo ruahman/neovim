@@ -3,8 +3,8 @@
   programs.nixvim = {
     enable = true;
     defaultEditor = true;
-    vimAlias = true; # `vim` opens nixvim
-    viAlias = true; # optional: `vi` too
+    vimAlias = true;
+    viAlias = true;
 
     nixpkgs.useGlobalPackages = true;
 
@@ -20,7 +20,7 @@
 
     globals = {
       mapleader = " ";
-      maplocalleader = " "; # optional; used by some filetype plugins
+      maplocalleader = " ";
       have_nerd_font = true;
     };
 
@@ -93,6 +93,8 @@
       };
 
       fidget.enable = true;
+
+      smear-cursor.enable = true;
 
       telescope = {
         enable = true;
