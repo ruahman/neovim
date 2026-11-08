@@ -277,63 +277,7 @@
         ];
       };
 
-      mini-starter = {
-        enable = true;
-        settings = {
-          evaluate_single = true; # run an item as soon as your typing matches only one
-
-          header = ''
-                __                                                                                              __                        
-               / /_  ____  ____ ___  ___        ____ ___  ____ _____  ____ ____  _____   _    _______  ______ _/ /_  ____ ___  ____ _____ 
-              / __ \/ __ \/ __ `__ \/ _ \______/ __ `__ \/ __ `/ __ \/ __ `/ _ \/ ___/  (_)  / ___/ / / / __ `/ __ \/ __ `__ \/ __ `/ __ \
-             / / / / /_/ / / / / / /  __/_____/ / / / / / /_/ / / / / /_/ /  __/ /     _    / /  / /_/ / /_/ / / / / / / / / / /_/ / / / /
-            /_/ /_/\____/_/ /_/ /_/\___/     /_/ /_/ /_/\__,_/_/ /_/\__, /\___/_/     (_)  /_/   \__,_/\__,_/_/ /_/_/ /_/ /_/\__,_/_/ /_/ 
-                                                                   /____/                                                                 
-          '';
-
-          items = [
-            {
-              name = "New file";
-              action = "enew";
-              section = "Actions";
-            }
-            {
-              name = "Find files";
-              action = "Telescope find_files";
-              section = "Actions";
-            }
-            {
-              name = "Grep";
-              action = "Telescope live_grep";
-              section = "Actions";
-            }
-            {
-              name = "Explorer";
-              action = "Neotree toggle";
-              section = "Actions";
-            }
-            {
-              name = "Settings";
-              action = "e /etc/nixos/neovim/root.nix";
-              section = "Actions";
-            }
-            {
-              name = "Quit";
-              action = "qa";
-              section = "Actions";
-            }
-            { __raw = "require('mini.starter').sections.recent_files(5, false)"; }
-          ];
-
-          content_hooks = [
-            { __raw = "require('mini.starter').gen_hook.adding_bullet()"; }
-            { __raw = "require('mini.starter').gen_hook.indexing('all', { 'Actions' })"; }
-            { __raw = "require('mini.starter').gen_hook.aligning('center', 'center')"; }
-          ];
-
-          footer = "";
-        };
-      };
+      dashboard.enable = true;
 
     };
 
