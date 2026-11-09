@@ -137,8 +137,10 @@
         };
       };
 
+      mini-ai.enable = true;
       mini-surround.enable = true;
       mini-move.enable = true;
+      mini-jump.enable = true;
       mini-jump2d.enable = true;
 
       rainbow.enable = true;
