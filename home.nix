@@ -142,6 +142,10 @@
       mini-move.enable = true;
       mini-jump.enable = true;
       mini-jump2d.enable = true;
+      mini-indentscope.enable = true;
+      mini-completion.enable = true;
+      mini-icons.enable = true;
+      mini-notify.enable = true;
 
       rainbow.enable = true;
 
