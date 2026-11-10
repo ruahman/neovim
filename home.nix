@@ -287,15 +287,16 @@
 
     };
 
-    # 1. Fetch the plugin from GitHub via Nixpkgs
+    # plugins not packaged in nixpkgs/nixvim
     extraPlugins = [
+      # copy @path#L5-10 references for AI agents (<leader>cf / <leader>cs)
       (pkgs.vimUtils.buildVimPlugin {
         name = "copy-context";
         src = pkgs.fetchFromGitHub {
           owner = "mpiannucci";
           repo = "copy-context";
-          rev = "main"; # Or specify a precise commit hash
-          sha256 = "sha256-MfkfX63OHd4DMYXDnna7DBNk2np4wOb/3hiT6JJTZbM="; # Replace with the correct hash
+          rev = "fa8d15fe7d5f110cfcee590e7447736dc802dae2";
+          hash = "sha256-Kxi0y/YopEXzocvQwPL53neBUqLsP3vXsvpNQ8CzW3c=";
         };
       })
     ];
