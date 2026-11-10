@@ -287,6 +287,19 @@
 
     };
 
+    # 1. Fetch the plugin from GitHub via Nixpkgs
+    extraPlugins = [
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "copy-context";
+        src = pkgs.fetchFromGitHub {
+          owner = "mpiannucci";
+          repo = "copy-context";
+          rev = "main"; # Or specify a precise commit hash
+          sha256 = "fa8d15fe7d5f110cfcee590e7447736dc802dae2"; # Replace with the correct hash
+        };
+      })
+    ];
+
     keymaps = [
       {
         mode = "n";
