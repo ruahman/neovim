@@ -1,4 +1,4 @@
-{ config, pkgs, ... }: {
+{ pkgs, ... }: {
 
   programs.nixvim = {
     enable = true;
@@ -7,14 +7,6 @@
     viAlias = true;
 
     nixpkgs.useGlobalPackages = true;
-
-    extraConfigLuaPre = ''
-      -- let root (or any session without Wayland vars) reach ruahman's clipboard
-      if not vim.env.WAYLAND_DISPLAY then
-        vim.env.WAYLAND_DISPLAY = "wayland-0"
-        vim.env.XDG_RUNTIME_DIR = vim.env.XDG_RUNTIME_DIR or "/run/user/1000"
-      end
-    '';
 
     clipboard.register = "unnamedplus";
 
@@ -287,20 +279,6 @@
 
     };
 
-    # plugins not packaged in nixpkgs/nixvim
-    extraPlugins = [
-      # copy @path#L5-10 references for AI agents (<leader>cf / <leader>cs)
-      (pkgs.vimUtils.buildVimPlugin {
-        name = "copy-context";
-        src = pkgs.fetchFromGitHub {
-          owner = "mpiannucci";
-          repo = "copy-context";
-          rev = "fa8d15fe7d5f110cfcee590e7447736dc802dae2";
-          hash = "sha256-Kxi0y/YopEXzocvQwPL53neBUqLsP3vXsvpNQ8CzW3c=";
-        };
-      })
-    ];
-
     keymaps = [
       {
         mode = "n";
@@ -419,6 +397,28 @@
         options.desc = "Prev git change";
       }
     ];
+
+    # plugins not packaged in nixpkgs/nixvim
+    extraPlugins = [
+      # copy @path#L5-10 references for AI agents (<leader>cf / <leader>cs)
+      (pkgs.vimUtils.buildVimPlugin {
+        name = "copy-context";
+        src = pkgs.fetchFromGitHub {
+          owner = "mpiannucci";
+          repo = "copy-context";
+          rev = "fa8d15fe7d5f110cfcee590e7447736dc802dae2";
+          hash = "sha256-Kxi0y/YopEXzocvQwPL53neBUqLsP3vXsvpNQ8CzW3c=";
+        };
+      })
+    ];
+
+    extraConfigLuaPre = ''
+      -- let root (or any session without Wayland vars) reach ruahman's clipboard
+      if not vim.env.WAYLAND_DISPLAY then
+        vim.env.WAYLAND_DISPLAY = "wayland-0"
+        vim.env.XDG_RUNTIME_DIR = vim.env.XDG_RUNTIME_DIR or "/run/user/1000"
+      end
+    '';
 
     autoCmd = [
       {
