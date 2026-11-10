@@ -295,7 +295,7 @@
           owner = "mpiannucci";
           repo = "copy-context";
           rev = "main"; # Or specify a precise commit hash
-          sha256 = "fa8d15fe7d5f110cfcee590e7447736dc802dae2"; # Replace with the correct hash
+          sha256 = "sha256-MfkfX63OHd4DMYXDnna7DBNk2np4wOb/3hiT6JJTZbM="; # Replace with the correct hash
         };
       })
     ];
