@@ -87,7 +87,7 @@
 
       fidget.enable = true;
 
-      smear-cursor.enable = true;
+      # smear-cursor.enable = true;
 
       telescope = {
         enable = true;
