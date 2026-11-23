@@ -91,12 +91,37 @@
 
       telescope = {
         enable = true;
+
+        settings = {
+          defaults = {
+            file_ignore_patterns = [
+              "node_modules"
+              ".git"
+            ];
+          };
+          pickers = {
+            find_files = {
+              find_command = [
+                "rg"
+                "--files"
+                "--hidden"
+                "--glob"
+                "!.git"
+              ];
+            };
+          };
+        };
+
         keymaps = {
           "<leader>f" = "find_files";
-          "<leader>g" = "live_grep";
+          "<leader>r" = "live_grep";
           "<leader>G" = {
             action = "git_status";
             options.desc = "Git changed files";
+          };
+          "<leader>g" = {
+            action = "git_bcommits";
+            options.desc = "Git commits for current file";
           };
           "<leader>b" = "buffers";
           "<leader>s" = {
