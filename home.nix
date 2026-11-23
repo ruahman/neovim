@@ -120,8 +120,8 @@
             options.desc = "Git changed files";
           };
           "<leader>g" = {
-            action = "git_bcommits";
-            options.desc = "Git commits for current file";
+            action = "git_diffs";
+            options.desc = "Git diffs";
           };
           "<leader>b" = "buffers";
           "<leader>s" = {
